@@ -10,3 +10,19 @@
 #main-content, #right-sb {
 	margin-top: 10px;
 }
+
+
+.col-md-8, .col-md-5, .col-md-4 {
+	border: 2px solid red;
+	border-radius: 5px;
+}
+
+.col-md-4 {
+	padding: 0px;
+	margin: 0px;
+}
+
+#cnet-left, .cnet-mini{
+	border: 2px solid blue;
+	border-radius: 5px;
+}
