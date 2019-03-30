@@ -1,7 +1,12 @@
+/*
 .profile-section {
 	margin-top: 200px;
 }
-
+*/
 #profile-img {
 	width:300px;
+}
+
+#main-content, #right-sb {
+	margin-top: 10px;
 }
