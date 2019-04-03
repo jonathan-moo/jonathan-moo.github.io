@@ -170,6 +170,11 @@
 									<li><code>db.destinations.update({"country": "Morocco"}, {$push:{"major_cities":"Agadir"}})</code></li>
 								</ul>
 							</li>
+							<li>To <strong>remove a field from an unexisting document</strong>, use <code>$unset</code>:
+								<ul>
+									<li><code>db.divers.update({"name":"Jeanie"}, {$unset: {"stillDiving":""}})</code></li>
+								</ul>
+							</li>
 						</ul>
 
 						<h5>To Delete A Document</h5>
