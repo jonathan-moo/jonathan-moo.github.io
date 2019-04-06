@@ -28,6 +28,9 @@
 					<li class="nav-item">
 						<a class="nav-link" href="MIACOR201901DATA3/11.3/index.html">11.3 Ref</a>
 					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="MIACOR201901DATA3/12.1/index.html">12.1 Ref</a>
+					</li>
 				</ul>
 			</div>
 		</nav>
@@ -35,192 +38,74 @@
 			<div class="row">
 				<div id="main-content" class="col-md-8">
 					<div class="objective-block">
-						<h3 id="objectives">Objectives For Lesson 12.1</h3>
+						<h3 id="objectives">Objectives For Lesson 12.3</h3>
 
 						<ul>
-							<li>Learn what is a NoSQL database.</li>
-							<li>Learn Mongodb.</li>
+							<li>You'll build a web application with:</li>
+							<ul>
+								<li>Python</li>
+								<li>Web Scraping</li>
+								<li>Mongodb</li>
+							</ul>
 						</ul>
 					</div>
 
-					<div class="question-block">
-						<div class="alert alert-danger" role="alert">Note To Jonathan: Please don't forget your slides!</div>
-						<h3 id="question-1">Lesson 12.1</h3>
+					<div id="why-we-learn" class="instructor-block">
+						<h3>What you're learning today is something that my interns or my new hire may not even have.</h3>
 
-						<h4>What is a NoSQL database?</h4>
-						<p>Some misnomers:</p>
+						<p>Data Engineer's Job Description</p>
 						<ul>
-							<li>NoSQL doesn't mean the opposite of SQL.</li>
-							<li>NoSQL doesn't mean we protest against SQL.</li>
+							<li>Perform ETL (You're learning that next week.)</li>
+							<ul>
+								<li>Clean and import data into databases (SQL and NoSQL)</li>
+							</ul>
+							<li>Analyze data with code</li>
+							<li>Build solutions with engineering. (Today's lesson)</li>
 						</ul>
 
-						<h5>Answer:</h5>
-						<p id="question-1-answer" class="answers">NoSQL stands for "Not-Only Sequel".
-							It's a non-relational database where data is stored as objects or documents, and not records or rows. Relational database has a fixed schema, but non-relational database's schema grows and shrinks dynamically.
-						</p>
-						<button type="button" class="btn btn-primary" onclick='$("#question-1-answer").toggle();'>Show/Hide Answer</button>
-					</div>
-
-					<div class="student-block">
-						<h4 id="02-student-research">02: Student Research</h4>
-						<p>Find a partner and answer the following questions:</p>
-
+						<h4>You don't need this to be a Data/Business Analyst.</h4>
+						<p>The following skills you learned in this course will do:</p>
 						<ul>
-							<li>What are the advantages of using a NoSQL database like MongoDB according to the MongoDB Website?</li>
-							<li>What are the advantages of using a NoSQL database like MongoDB according to the web (places like Quora)?</li>
-							<li>What are the disadvantages of using a NoSQL database like MongoDB according to the web (places like Quora)?</li>
-						</ul>
-					</div>
-
-					<div class="student-block">
-						<h4 id="install-mongodb">03: Install MongoDB</h4>
-						<p>There are instructions in the supplemental notes on your student repo. Pull the new branch, and install MongoDB by following the instructions.</p>
-
-						<p>To use mongodb:</p> 
-
-						<ol>
-							<li>type: <code>mongodb</code> on your terminal/bash windows.</li>
-								<ul>
-									<li>This starts a daemon. If you close this terminal, your mongod will shut down.</li>
-									<li>If you want to run it in the background, type: <code>mongod --fork</code></li>
-								</ul>
-							<li>Open another terminal and run by typing: <code>mongo</code>. A shell prompt will surface.</li>
-						</ol>
-					</div>
-
-					<div class="instructor-block">
-						<h4 id="basic-queries">Basic Mongo Queries</h4>
-
-						<p>Make sure you're in the Mongo shell before attempting.</p>
-						<p>To <strong>create/use a database</strong>, type: <code>use database_name</code></p>
-						<ul>
-							<li>Your shell prompt should show the database you're in.</li>
-							<li>Example, type: <code>use travel_db</code></li>
-						</ul>
-						<p>To <strong>show all databases in your system</strong>, type: <code>show dbs</code></p>
-						<ul>
-							<li>If your database you've just created has no data, it will not show its name.</li>
-						</ul>
-						<p>To <strong>show collections in the database</strong>, type: <code>show collections</code></p>
-						<ul>
-							<li>Collections are similar to tables. You can have many collections within a database.</li>
-							<li>To insert a document into a collection, type: <code>db.collectionName.insert({key:value})</code></li>
-							<li>Example, type: <code>db.destinations.insert({"continent":"Africa", "country":"Morocco", "major_cities":["Casablanca", "Fez", "Marrakech"]})</code></li>
-							<li>Go to <code>https://jsonlint.com/</code>, and copy-paste the JSON object for pretty-printing: 
-<pre><code>{
-	"continent": "Africa",
-	"country": "Morocco",
-	"major_cities": ["Casablanca", "Fez", "Marrakech"]
-}</code></pre></li>
-						</ul>
-						<p>To <strong>print out some data</strong>, type: <code>db.collectionName.find().pretty()</code> where <code>collectionName</code> is the name of your collection/table.</p>
-						<ul>
-							<li>Example, after you've created <code>travel_db</code> as your database, <code>destinations</code> as your collection, and inserted a record above, type: <code>db.destinations.find().pretty()</code></li>
-							<li>It will output in order that was stored.</li>
-							<li><code>.pretty()</code> makes the output more human-friendly. You can try without that method.</li>
+							<li>Excel</li>
+							<li>VB Script</li>
+							<li>Tableau (future lesson)</li>
 						</ul>
 
-						<p>To find specific documents based on their attributes, type: <code>db.collectionName.find({key:value})</code></p>
-						<ul>
-							<li>Example, after you've done the above steps, type: <code>db.destinations.find({"continent":"Africa"})</code></li>
-						</ul>
-						<p>Within the document, the primary key is generated by MongoDB for you: <code>_id</code></p>
-						<ul>
-							<li>You can specify primary keys when creating a document.</li>
-						</ul>
 					</div>
 
-					<div class="student-block">
-						<h4 id="06-mongo-class">06 - Student Do: Mongo Class</h4>
-					</div>
+					<div id="what-is-mvc" class="instructor-block">
+						<h3>What is a MVC model?</h3>
 
-					<div class="instructor-block">
-						<h4 id="07-mongo-class-review">07: Mongo Class Review</h4>
-					</div>
-
-					<div class="instructor-block">
-						<h4 id="08-crud">08: Other CRUD functions in Mongo</h4>
-						<p>CRUD means:</p>
+						<p>It stands for Model-View-Controller:</p>
 						<ul>
-							<li>Create</li>
-							<li>Read</li>
-							<li>Update</li>
-							<li>Delete</li>
+							<li><strong>Model</strong> - Code for business logic</li>
+							<ul>
+								<li>Scraping of websites and storing data into DBs</li>
+							</ul>
+							<li><strong>View</strong> - Code for interaction and interface</li>
+							<ul>
+								<li>HTML</li>
+							</ul>
+							<li><strong>Controller</strong> - Bridge between the model and view, and helps to manage code.</li>
+							<ul>
+								<li>Flask Framework</li>
+							</ul>
 						</ul>
 
-						<p>We want to know how to update and delete here.</p>
-
-						<h5>To Update A Document</h5>
-						<p>Type: <code>db.collectionName.update()</code></p>
+						<h3>Why do we use it for?</h3>
+						<p>Many engineers call this MVC term differently, but the concept remains the same.</p>
+						<p>This system of doing things help us to make sure our code is:</p>
 						<ul>
-							<li>Example, type:<code>db.destinations.update({"country":"Morocco"}, {$set:{"continent":"Antarctica"}})</code></li>
-							<li>Updates only <strong>ONE, or the FIRST</strong> document it finds.</li>
-							<li>To update many:<ul>
-								<li><code>db.destinations.update({"country": "Morocco"}, {$set: {"continent": "Antarctica"}}, {multi: true})</code></li>
-								<li><code>db.destinations.updateMany({"country": "Morocco"}, {$set: {"continent": "Antarctica"}})</code></li>
-							</ul></li>
-							<li>If the document does not exist, <strong>the above method will not work</strong>.
-								<ul>
-									<li>Use <code>{upsert:true}</code> instead to insert if update doesn't work:</li>
-									<li><code>db.destinations.update({"country": "Morocco"}, {$set: {"continent": "Antarctica"}}, {upsert: true})</code></li>
-								</ul>
-							</li>
-							<li>To add elements or attributes to an existing document, use <code>$push</code> instead of <code>$set</code>:
-								<ul>
-									<li><code>db.destinations.update({"country": "Morocco"}, {$push:{"major_cities":"Agadir"}})</code></li>
-								</ul>
-							</li>
-							<li>To <strong>remove a field from an unexisting document</strong>, use <code>$unset</code>:
-								<ul>
-									<li><code>db.divers.update({"name":"Jeanie"}, {$unset: {"stillDiving":""}})</code></li>
-								</ul>
-							</li>
+							<li>Reusable</li>
+							<li>Small for other people to work on and others can join you in coding.</li>
+							<li>Eases error checking.</li>
 						</ul>
 
-						<h5>To Delete A Document</h5>
-						<p>Type: <code>db.collectionName.remove({})</code></p>
+						<h3>How is it used?</h3>
+						<p>Break up your code into objects.</p>
 						<ul>
-							<li>Use the <code>justOne</code> parameter to remove one document. Otherwise, <strong>ALL</strong> documents which match the query will be removed.</li>
-							<li>Example, type: <code>db.destinations.remove({"country":"Morocco"}, {justOne:true})</code></li>
-							<li>To <strong>empty a collection</strong>, type: <code>db.destinations.remove({})</code></li>
-							<li>To <strong>drop a collection</strong> (just like a SQL table), type: <code>db.destinations.drop()</code></li>
-							<li>To <strong>drop a database</strong>, type: <code>db.dropDatabase()</code></li>
+							<li>Which most likely means additional folders and files.</li>
 						</ul>
-					</div>
-					<div class="student-block">
-						<h4 id="09-dumpster">09 - Student Do: Dumpster_DB</h4>
-					</div>
-
-					<div class="instructor-block">
-						<h4 id="10-dumpster-review">10: Dumpster Review</h4>
-					</div>
-
-					<div class="instructor-block">
-						<h4 id="11-mongo-compass">11: Mongo Compass</h4>
-						<p>Download the app for your machine at <code>https://www.mongodb.com/products/compass</code></p>
-						<ul>
-							<li>I use the <strong>Community Edition</strong>, because MongoDB can be a paid product.</li>
-							<li>You need the <strong>mongod</strong> daemon to run. This means, everytime you want to start a session, go to your terminal/bash and type: <code>mongod</code> first. Leave that window open.</li>
-							<li>The default settings should allow you to connect the MongoDB Compass to your local machine. Connect at will.</li>
-						</ul>
-					</div>
-
-					<div class="student-block">
-						<h4 id="12-compass-playground">12 - Student Do: Compass Playground</h4>
-					</div>
-
-					<div class="student-block">
-						<h4 id="13-break">13: Break</h4>
-
-						<p>We will be connecting our MongoDB with Python, so stay tuned.</p>
-					</div>
-
-					<div class="instructor-block">
-						<h4 id="14-pymongo-intro">14: PyMongo Intro</h4>
-
-						<p>To install, run: <code>conda install -c anaconda pymongo</code></p>
-
-						<p>We'll continue the lesson with Jupyter Notebooks.</p>
 					</div>
 
 				</div> <!-- end #main-content -->
@@ -229,23 +114,12 @@
 				<div id="right-sb" class="col-md-4">
 					<div id="right-sb-nav" class="list-group" id="toc" role="tablist">
 					  <a class="list-group-item list-group-item-action active"  href="#objectives" role="tab">Objectives</a>
-					  <a class="list-group-item list-group-item-action"  href="#question-1" role="tab">What is a NoSQL database?</a>
-					  <a class="list-group-item list-group-item-action"  href="#02-student-research" role="tab">02: Student Research</a>
-					  <a class="list-group-item list-group-item-action"  href="#install-mongodb" role="tab">Install MongoDB</a>
-					  <a class="list-group-item list-group-item-action"  href="#basic-queries" role="tab">Basic Mongo Queries</a>
-					  <a class="list-group-item list-group-item-action"  href="#06-mongo-class" role="tab">06 - Student Do: Mongo Class</a>
-					  <a class="list-group-item list-group-item-action"  href="#07-mongo-class-review" role="tab">07: Mongo Class Review</a>
-					  <a class="list-group-item list-group-item-action"  href="#08-crud" role="tab">08: Other CRUD functions</a>
-					  <a class="list-group-item list-group-item-action"  href="#09-dumpster" role="tab">09 - Student Do: Dumpster_DB</a>
-					  <a class="list-group-item list-group-item-action"  href="#10-dumpster-review" role="tab">10: Dumpster Review</a>
-					  <a class="list-group-item list-group-item-action"  href="#11-mongo-compass" role="tab">11: Mongo Compass</a>
-					  <a class="list-group-item list-group-item-action"  href="#12-compass-playground" role="tab">12 - Student Do: Compass Playground</a>
-					  <a class="list-group-item list-group-item-action"  href="#13-break" role="tab">13: Break</a>
-					  <a class="list-group-item list-group-item-action"  href="#14-pymongo-intro" role="tab">14: PyMongo Intro</a>
+					  <a class="list-group-item list-group-item-action"  href="#why-we-learn" role="tab">Why We Learn</a>
+						<a class="list-group-item list-group-item-action"  href="#why-is-mvc" role="tab">Why is MVC</a>
 					</div>
 				
 				</div>
-			</div>
+			</div> <!-- end .row -->
 			
 		</div> <!-- end .container-fluid -->
 
