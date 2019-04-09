@@ -31,6 +31,10 @@
 					<li class="nav-item">
 						<a class="nav-link" href="MIACOR201901DATA3/12.1/index.html">12.1 Ref</a>
 					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="MIACOR201901DATA3/12.3/index.html">12.3 Ref</a>
+					</li>
+
 				</ul>
 			</div>
 		</nav>
@@ -38,29 +42,39 @@
 			<div class="row">
 				<div id="main-content" class="col-md-8">
 					<div class="objective-block">
-						<h3 id="objectives">Objectives For Lesson 12.3</h3>
+						<h3 id="objectives">Objectives For Lesson 13.1</h3>
 
 						<ul>
-							<li>You'll build a web application with:</li>
+							<li>ETL Project</li>
 							<ul>
-								<li>Python</li>
-								<li>Web Scraping</li>
-								<li>Mongodb</li>
+								<li>Extract</li>
+								<li>Transform</li>
+								<li>Load</li>
+							</ul>
+
+							<li>Data Sources</li>
+							<ul>
+								<li><a href="https://www.kaggle.com">Kaggle</a></li>
+								<li><a href="https://data.world">Data World</a></li>
+								<li><a href="https://toolbox.google.com/datasetsearch.">Google Data Search</a></li>
+								<li><a href="https://catalog.data.gov/dataset">US Government Open API</a></li>
 							</ul>
 						</ul>
 					</div>
 
 					<div id="why-we-learn" class="instructor-block">
-						<h3>What you're learning today is something that my interns or my new hire may not even have.</h3>
+						<h3>This project is the basis of data collection.</h3>
 
-						<p>Data Engineer's Job Description</p>
+						<p>Without accurate data, your analysis will not be useful.</p>
+
+						<h4>Data Engineer's Job Description</h4>
 						<ul>
-							<li>Perform ETL (You're learning that next week.)</li>
+							<li>Perform ETL (This week.)</li>
 							<ul>
 								<li>Clean and import data into databases (SQL and NoSQL)</li>
 							</ul>
 							<li>Analyze data with code</li>
-							<li>Build solutions with engineering. (Today's lesson)</li>
+							<li>Build solutions with engineering.</li>
 						</ul>
 
 						<h4>You don't need this to be a Data/Business Analyst.</h4>
@@ -71,41 +85,79 @@
 							<li>Tableau (future lesson)</li>
 						</ul>
 
+						<h4>Guess what?</h4>
+						<p>You've been doing ETL without knowing. The only difference is we automate these processes for work.</p>
+					
+
 					</div>
 
-					<div id="what-is-mvc" class="instructor-block">
-						<h3>What is a MVC model?</h3>
+					<div id="01-Ins_ETL_Pandas" class="instructor-block">
+						<h3>Purpose of this activity</h3>
+						<p>Modeling databases is one of the most important things to do as a Data Engineer. If you model wrongly, your queries may give inaccurate results.</p>
+						<ol>
+							<li>Analyze the data and its schema.</li>
+							<li>Model your database.</li>
+							<li><strong>Extract</strong> them into your Python scripts.</li>
+							<li><strong>Transform</strong> them into proper data types within the tables with your scripts.</li>
+							<li><strong>Load</strong> them into the tables.</li>
+						</ol>
 
-						<p>It stands for Model-View-Controller:</p>
+
+						<h3>Before we begin the activity:</h3>
 						<ul>
-							<li><strong>Model</strong> - Code for business logic</li>
+							<li>Browse customer_data.csv</li>
+							<li>Browse customer_data.json</li>
+							<li>Create the database with: <code>CREATE DATABASE customer_db;</code></li>
+							<li>Create the `customer_name` table:</li>
 							<ul>
-								<li>Scraping of websites and storing data into DBs</li>
+								<li>
+									<code>
+CREATE TABLE customer_name (
+id INT PRIMARY KEY,
+first_name TEXT,
+last_name TEXT
+);
+									</code>
+								</li>
 							</ul>
-							<li><strong>View</strong> - Code for interaction and interface</li>
+							
+
+							<li>Create the `customer_location` table:</li>
 							<ul>
-								<li>HTML</li>
+								<li>
+									<code>
+CREATE TABLE customer_location (
+id INT PRIMARY KEY,
+address TEXT,
+us_state TEXT
+);
+									</code>
+								</li>
 							</ul>
-							<li><strong>Controller</strong> - Bridge between the model and view, and helps to manage code.</li>
+							<li>Continue with our Jupyter Notebook Activity.</li>
+							<li>Perform a JOIN statement in SQL</li>
 							<ul>
-								<li>Flask Framework</li>
+								<li>
+									<code>
+SELECT customer_name.id, customer_name.first_name, customer_name.last_name, customer_location.address, customer_location.us_state
+FROM customer_name
+JOIN customer_location
+ON customer_name.id = customer_location.id;
+									</code>
+								</li>
 							</ul>
+
+							
 						</ul>
 
-						<h3>Why do we use it for?</h3>
-						<p>Many engineers call this MVC term differently, but the concept remains the same.</p>
-						<p>This system of doing things help us to make sure our code is:</p>
-						<ul>
-							<li>Reusable</li>
-							<li>Small for other people to work on and others can join you in coding.</li>
-							<li>Eases error checking.</li>
-						</ul>
+					</div>
 
-						<h3>How is it used?</h3>
-						<p>Break up your code into objects.</p>
-						<ul>
-							<li>Which most likely means additional folders and files.</li>
-						</ul>
+					<div id="02-Stu_ETL_Pandas_Local" class="student-block">
+						<h3>02-Stu_ETL_Pandas_Local: Please try on your own!</h3>
+						<!--button type="button" class="btn btn-primary" onclick='$("#question-1-answer").toggle();'>Show/Hide Answer</button>
+						<div id="#question-1-answer">
+							<h3></h3>
+						</div-->
 					</div>
 
 				</div> <!-- end #main-content -->
@@ -115,7 +167,8 @@
 					<div id="right-sb-nav" class="list-group" id="toc" role="tablist">
 					  <a class="list-group-item list-group-item-action active"  href="#objectives" role="tab">Objectives</a>
 					  <a class="list-group-item list-group-item-action"  href="#why-we-learn" role="tab">Why We Learn</a>
-						<a class="list-group-item list-group-item-action"  href="#what-is-mvc" role="tab">What is MVC</a>
+					  <a class="list-group-item list-group-item-action"  href="#01-Ins_ETL_Pandas" role="tab">01-Ins_ETL_Pandas</a>
+					  <a class="list-group-item list-group-item-action"  href="#02-Stu_ETL_Pandas_Local" role="tab">02-Stu_ETL_Pandas_Local</a>
 					</div>
 				
 				</div>
