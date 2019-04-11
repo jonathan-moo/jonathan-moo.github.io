@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Jonathan Moo's Github Bio</title>
+
+
+		<link rel='stylesheet' id='bootstrap-css'  href='../../css/bootstrap.min.css' type='text/css' media='all' />
+		<link rel='stylesheet' id='bootstrap-grid-css'  href='../../css/bootstrap-grid.min.css' type='text/css' media='all' />
+		<link rel='stylesheet' id='custom-css'  href='../../css/style.css' type='text/css' media='all' /> 
+		
+	</head>
+
+	<body>
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<a class="navbar-brand" href="#">Jonathan's Github Page</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active">
+						<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="../../MIACOR201901DATA3/11.2/index.html">11.2 Ref</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="../../MIACOR201901DATA3/11.3/index.html">11.3 Ref</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="../../MIACOR201901DATA3/12.1/index.html">12.1 Ref</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="../../MIACOR201901DATA3/12.3/index.html">12.3 Ref</a>
+					</li>
+
+				</ul>
+			</div>
+		</nav>
+		<div class="container-fluid">
+			<div class="row">
+				<div id="main-content" class="col-md-8">
+					<div class="objective-block">
+						<h3 id="objectives">Objectives For Lesson 13.1</h3>
+
+						<ul>
+							<li>ETL Project</li>
+							<ul>
+								<li>Extract</li>
+								<li>Transform</li>
+								<li>Load</li>
+							</ul>
+
+
+
+							<li>Data Sources</li>
+							<ul>
+								<li><a href="https://www.kaggle.com">Kaggle</a></li>
+								<li><a href="https://data.world">Data World</a></li>
+								<li><a href="https://toolbox.google.com/datasetsearch">Google Data Search</a></li>
+								<li><a href="https://catalog.data.gov/dataset">US Government Open API</a></li>
+							</ul>
+						</ul>
+
+						<p>ETLs are bread and butter for Data Engineers. You will work towards a ETL solution</p>
+							<ul>
+								<li>Work in groups.</li>
+								<li>By the end of the day, we'll see your proposal.</li>
+								<li>Dateline for the project: This Sat, Apr 13, 2019 </li>
+							</ul>
+
+							<h3>Data used here must be free and legal!</h3>
+
+							<h3>The data MUST be displayed on a website!</h3>
+
+							<p>You will present your website instead of a powerpoint!</p>
+					</div>
+
+					<div id="why-we-learn" class="instructor-block">
+						<h3>This project is the basis of data collection.</h3>
+
+						<p>Without accurate data, your analysis will not be useful.</p>
+
+						<h4>Data Engineer's Job Description</h4>
+						<ul>
+							<li>Perform ETL (This week.)</li>
+							<ul>
+								<li>Clean and import data into databases (SQL and NoSQL)</li>
+							</ul>
+							<li>Analyze data with code</li>
+							<li>Build solutions with engineering.</li>
+						</ul>
+
+						<h4>You don't need this to be a Data/Business Analyst.</h4>
+						<p>The following skills you learned in this course will do:</p>
+						<ul>
+							<li>Excel</li>
+							<li>VB Script</li>
+							<li>Tableau (future lesson)</li>
+						</ul>
+
+						<h4>Guess what?</h4>
+						<p>You've been doing ETL without knowing. The only difference is we automate these processes for work.</p>
+					
+
+					</div>
+
+					<div id="01-Ins_ETL_Pandas" class="instructor-block">
+						<h3>Purpose of this activity</h3>
+						<p>Modeling databases is one of the most important things to do as a Data Engineer. If you model wrongly, your queries may give inaccurate results.</p>
+						<ol>
+							<li>Analyze the data and its schema.</li>
+							<li>Model your database.</li>
+							<li><strong>Extract</strong> them into your Python scripts.</li>
+							<li><strong>Transform</strong> them into proper data types within the tables with your scripts.</li>
+							<li><strong>Load</strong> them into the tables.</li>
+						</ol>
+
+
+						<h3>Before we begin the activity:</h3>
+						<ul>
+							<li>Browse customer_data.csv</li>
+							<li>Browse customer_data.json</li>
+							<li>Create the database with: <code>CREATE DATABASE customer_db;</code></li>
+							<li>Create the `customer_name` table:</li>
+							<ul>
+								<li>
+									<code>
+CREATE TABLE customer_name (
+id INT PRIMARY KEY,
+first_name TEXT,
+last_name TEXT
+);
+									</code>
+								</li>
+							</ul>
+							
+
+							<li>Create the `customer_location` table:</li>
+							<ul>
+								<li>
+									<code>
+CREATE TABLE customer_location (
+id INT PRIMARY KEY,
+address TEXT,
+us_state TEXT
+);
+									</code>
+								</li>
+							</ul>
+							<li>Continue with our Jupyter Notebook Activity.</li>
+							<li>Perform a JOIN statement in SQL</li>
+							<ul>
+								<li>
+									<code>
+SELECT customer_name.id, customer_name.first_name, customer_name.last_name, customer_location.address, customer_location.us_state
+FROM customer_name
+JOIN customer_location
+ON customer_name.id = customer_location.id;
+									</code>
+								</li>
+							</ul>
+
+							
+						</ul>
+
+					</div>
+
+					<div id="02-Stu_ETL_Pandas_Local" class="student-block">
+						<h3>02-Stu_ETL_Pandas_Local: Please try on your own!</h3>
+						<!--button type="button" class="btn btn-primary" onclick='$("#question-1-answer").toggle();'>Show/Hide Answer</button>
+						<div id="#question-1-answer">
+							<h3></h3>
+						</div-->
+					</div>
+
+				</div> <!-- end #main-content -->
+
+
+				<div id="right-sb" class="col-md-4">
+					<div id="right-sb-nav" class="list-group" id="toc" role="tablist">
+					  <a class="list-group-item list-group-item-action active"  href="#objectives" role="tab">Objectives</a>
+					  <a class="list-group-item list-group-item-action"  href="#why-we-learn" role="tab">Why We Learn</a>
+					  <a class="list-group-item list-group-item-action"  href="#01-Ins_ETL_Pandas" role="tab">01-Ins_ETL_Pandas</a>
+					  <a class="list-group-item list-group-item-action"  href="#02-Stu_ETL_Pandas_Local" role="tab">02-Stu_ETL_Pandas_Local</a>
+					</div>
+				
+				</div>
+			</div> <!-- end .row -->
+			
+		</div> <!-- end .container-fluid -->
+
+		<footer>
+			<script type="text/javascript" src="../../js/jquery-3.3.1.min.js"></script>
+			<script type="text/javascript" src="../../js/bootstrap.min.js"></script>
+
+			<script type="text/javascript">
+				
+			</script>
+
+		</footer>
+
+	</body>
+
+
+</html>
