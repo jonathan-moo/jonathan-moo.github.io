@@ -34,9 +34,7 @@
 					<li class="nav-item">
 						<a class="nav-link" href="MIACOR201901DATA3/12.3/index.html">12.3 Ref</a>
 					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="MIACOR201901DATA3/13.1/index.html">13.1 Ref</a>
-					</li>
+
 				</ul>
 			</div>
 		</nav>
@@ -44,44 +42,142 @@
 			<div class="row">
 				<div id="main-content" class="col-md-8">
 					<div class="objective-block">
-						<h3 id="objectives">Objectives For Lesson 13.3</h3>
+						<h3 id="objectives">Objectives For Lesson 14.1</h3>
 
 						<ul>
-							<li>ETL Project</li>
+							<li>Javascript!</li>
 							<ul>
-								<li>Work on it today.</li>
-								<li>The AC has broken down. I've asked Chavon about it.</li>
+								<li>We're only focused on FRONT-END development.</li>
+								<li>Javascript can be used to create servers like Python but we'll not go there.</li>
 							</ul>
 						</ul>
 
-					
+						
 					</div>
 
-					<div id="priority" class="instructor-block">
-						<h3>For Today:</h3>
+					<div id="why-we-learn" class="instructor-block">
+						<h3>Why We Learn?</h3>
+						<p>You've learned:</p>
 						<ul>
-							<li>Get coding! Midnight is the deadline!</li>
-							<li>This is an <h1 style="display: inline-block;">ETL</h4> project, not a data science project. So don't go crazy with the analysis or the bells and whistles. Get the workflow working just like in activity 13.1!</li>
-							<li>But if you're ahead of time and you challenged yourself to scraping websites, I salute you!</li>
-							<li>Ask questions. I'm just preparing for next week's lessons.</li>
-							<li>We'll review in the last 30 minutes of today's session.</li>
+							<li>HTML (template for visualization)</li>
+							<li>CSS (styling for your template)</li>
+							<li>Javascript is the interaction between the user and the website.</li>
 						</ul>
 
-						<h1>Have FUN!</h1>
+						<p>This is for Data Visulization Engineers, which is a very specialized field.</p>
+
 					</div>
 
-					<div id="discussion" class="student-block">
-						<h3>Discussion on ETL</h3>
-						<p>For every group, have a representative explain:</p>
+					<div id="01-Ins_Javascript" class="instructor-block">
+						<h3>01-Ins_Javascript</h3>
+
+						<p>Javascript allows commands be run on the browser. It can be:</p>
 						<ul>
-							<li>What is your business case?</li>
-							<li>What are the challenges of sourcing for data?</li>
-							<li>What are your challenges in your ETL process?</li>
+							<li>Inline</li>
+							<li>From another file.</li>
+							<li><code>console.log();</code> is used as a debugging tool like 'print' in Python.</li>
+						</ul>
+					</div>
+
+					<div id="02-Evr_Python_to_JavaScript" class="student-block">
+						<h3>02-Evr_Python_to_JavaScript: Please try on your own!</h3>
+						<p>How to declare variables.</p>
+						<ul>
+							<li>Use var: <code>var x;</code></li>
+							<ul>
+								<li>You'll have to declare the data type before declaration.</li>
+							</ul>
+							<li>Use template literals: Start the string not with quotes, but with backquotes (I think they call it backticks in your instructions)<code>`${variable}`</code></li>
+							<ul>
+								<li>If you use quotes or double quotes, template literals cannot work.</li>
+								<li>Quotes or double quotes cannot run over the next line. You'll experience errors. But backticks can do multiple lines without breaking.</li>
+							</ul>
 						</ul>
 
-						<h3>Your deadline is midnight tonight!</h3>
-						<p>Please detail the steps of how we can run your process in your Github as part of the final report. If we can't run it, it's impossible to grade your work.</p>
-					</div>
+						<p>Conditionals</p>
+						<ul>
+							<li>Use <code>===</code> instead of <code>==</code></li>
+							<ul>
+								<li><code>==</code> still works, but it doesn't check the type of the data</li>
+								<li>Example, <code>"2" == 2</code> will generate a <strong>True</strong>. But <code>"2"===2</code> will generate a <strong>False</strong>.</li>
+								<li>Instead of <code>and</code> in Python, use <code>&&</code> in Javascript.</li>
+								<li>Instead of <code>or</code> in Python, use <code>||</code> in Javascript.</li>
+								<ul>
+									<li>Javascript comparisons are more inline with traditional computer science languages (C++, Java).</li>
+								</ul>
+								<li>Javascript has no indentation. You use curly brackets to wrap code instead of indentation for hierarchy.</li>
+								<ul>
+									<li><pre><code style="color:white;">
+if(x>y){
+// This (x>y) runs first
+
+
+	if(y < q){
+		// This (x < q) runs within the first curly brackets.
+	}
+}
+									</code></pre></li>
+								</ul>
+							</ul>
+						</ul>
+					</div> <!-- end #02-Evr_Python_to_JavaScript-->
+
+					<div id="04-Evr_JavaScript_Arrays" class="instructor-block">
+						<h3>04-Evr_JavaScript_Arrays</h3>
+						<ul>
+							<li>Use <code>var x = [];</code> in Javascript. Unlike Python list, we've to declare the data type.</li>
+							<li>List in Python = Arrays in Javascript. Just different terminologies.</li>
+							<li>Use <code>x.push();</code> to insert into your arrays. Python use <code>x.append()</code></li>
+							<li>Use <code>x.slice(1,3);</code> which means element 1 to 3. Remember, the index starts from zero.</li>
+							<li>Javascript join list: <code>x.join(" ");</code></li>
+							<ul>
+								<li>Python is strange in terms of joining list into a sentence: <code>" ".join(x)</code></li>
+							</ul>
+						</ul>
+
+					</div> <!-- end #04-Evr_JavaScript_Arrays -->
+
+					<div id="05-Ins_Loops" class="instructor-block">
+						<h3>05-Ins_Loops</h3>
+						<pre><code>
+var x = [0,1,2,3,4,5];
+
+// You have to declare the running index for this. Typically, we use "i".
+// "i" is your counter. There is something called forEach, but we'll learn in the next lesson.
+
+for(var i = 0; i < x.length; i++){
+
+// This means i starts from index zero.
+// As long as i is smaller than the length of the array, increment by 1.
+// Old school coding style. Javascript exists from 1995!
+	
+}
+						</code></pre>
+
+					</div> <!-- end #05-Ins_Loops -->
+
+					<div id="06-Stu_Movie_Scores" class="student-block">
+						<h3>06-Stu_Movie_Scores: Your turn to try</h3>
+					</div> <!-- end #06-Stu_Movie_Scores -->
+
+					<div id="07-Ins_Functions" class="instructor-block">
+						<h3>07-Ins_Functions</h3>
+
+						<pre><code>
+function loanTree(income, debtIncomeRatio, yearsInJob,criminalRecord,goodCredit){
+	// Javascript doesn't have indentation! It uses curly brackets to encapsulate code.
+}
+
+is similar to:
+
+def loanTree(income, debtIncomeRatio, yearsInJob,criminalRecord,goodCredit):
+	// Code here
+						</code></pre>
+					</div> <!-- end #07-Ins_Functions  -->
+
+					<div id="08-Stu_Stats_Functions" class="student-block">
+						<h3>08-Stu_Stats_Functions: Your turn to try</h3>
+					</div> <!-- end #06-Stu_Movie_Scores -->
 
 				</div> <!-- end #main-content -->
 
@@ -89,8 +185,14 @@
 				<div id="right-sb" class="col-md-4">
 					<div id="right-sb-nav" class="list-group" id="toc" role="tablist">
 					  <a class="list-group-item list-group-item-action active"  href="#objectives" role="tab">Objectives</a>
-					  <a class="list-group-item list-group-item-action"  href="#priority" role="tab">Priority</a>
-					  <a class="list-group-item list-group-item-action"  href="#discussion" role="tab">Discussion</a>
+					  <a class="list-group-item list-group-item-action"  href="#why-we-learn" role="tab">Why We Learn</a>
+					  <a class="list-group-item list-group-item-action"  href="#01-Ins_Javascript" role="tab">01-Ins_Javascript</a>
+					  <a class="list-group-item list-group-item-action"  href="#02-Evr_Python_to_JavaScript" role="tab">02-Evr_Python_to_JavaScript</a>
+					  <a class="list-group-item list-group-item-action"  href="#04-Evr_JavaScript_Arrays" role="tab">04-Evr_JavaScript_Arrays</a>
+					  <a class="list-group-item list-group-item-action"  href="#05-Ins_Loops" role="tab">05-Ins_Loops</a>
+					  <a class="list-group-item list-group-item-action"  href="#06-Stu_Movie_Scores" role="tab">06-Stu_Movie_Scores</a>
+					  <a class="list-group-item list-group-item-action"  href="#07-Ins_Functions" role="tab">07-Ins_Functions</a>
+					  <a class="list-group-item list-group-item-action"  href="#08-Stu_Stats_Functions" role="tab">08-Stu_Stats_Functions</a>
 					</div>
 				
 				</div>
