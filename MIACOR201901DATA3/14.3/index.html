@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Jonathan Moo's Github Bio</title>
+
+
+		<link rel='stylesheet' id='bootstrap-css'  href='../../css/bootstrap.min.css' type='text/css' media='all' />
+		<link rel='stylesheet' id='bootstrap-grid-css'  href='../../css/bootstrap-grid.min.css' type='text/css' media='all' />
+		<link rel='stylesheet' id='custom-css'  href='../../css/style.css' type='text/css' media='all' /> 
+		<script src="https://d3js.org/d3.v5.min.js"></script>
+	</head>
+
+	<body>
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<a class="navbar-brand" href="#">Jonathan's Github Page</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active">
+						<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="../../MIACOR201901DATA3/11.2/index.html">11.2 Ref</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="../../MIACOR201901DATA3/11.3/index.html">11.3 Ref</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="../../MIACOR201901DATA3/12.1/index.html">12.1 Ref</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="../../MIACOR201901DATA3/12.3/index.html">12.3 Ref</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="../../MIACOR201901DATA3/13.1/index.html">13.1 Ref</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="../../MIACOR201901DATA3/13.2/index.html">13.2 Ref</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="../../MIACOR201901DATA3/13.3/index.html">13.3 Ref</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="../../MIACOR201901DATA3/14.1/index.html">14.1 Ref</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="../../MIACOR201901DATA3/14.2/index.html">14.2 Ref</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="../../MIACOR201901DATA3/14.3/index.html">14.3 Ref</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+		<div class="container-fluid">
+			<div class="row">
+				<div id="main-content" class="col-md-8">
+					<div class="objective-block">
+						<h3 id="objectives">Objectives For Lesson 14.3</h3>
+
+						<ul>
+							<li>Javascript!</li>
+							<ul>
+								<li>We'll explore the D3 library today.</li>
+								<li>We're only focused on FRONT-END development.</li>
+							</ul>
+						</ul>
+
+						
+					</div>
+
+					<div id="why-we-learn" class="instructor-block">
+						<h3>Why We Learn?</h3>
+						
+						<p><a href="https://d3js.org/">D3 means "Data-Driven Documents".</a> It's <strong>not only</strong> plotting nice graphs and make awesome visualization. The main purpose of D3 is about manipulating DOM (Document Object Model).</p>
+
+						<h5>You might ask, what is DOM?</h5>
+
+						<p>You've been dealing HTML for some time, and DOM is simply represented by the tags which you've been using. We call the tags within a HTML as "DOM elements".</p>
+
+						<p>The power to manipulate the tags or DOM elements <strong>without reloading the page</strong> is the reason why we can put awesome visualizations on the web.</p>
+
+						<p>This is for Data Visulization Engineers, which is a very specialized field.</p>
+
+					</div>
+
+					<div id="01-Evr_D3_Select" class="instructor-block">
+						<h3>01-Evr_D3_Select</h3>
+
+						<p>First, include the following tag within your HTML:</p>
+
+						<pre><code>&lt;script src="https://d3js.org/d3.v5.min.js"&gt;&lt;/script&gt;</code></pre>
+
+						<p>This pulls the file from the official repository from d3js.org.</p>
+
+						<p>D3 is similar to splinter or beautiful soup in Python. You can select elements and tags from code:</p>
+
+						<pre>
+							<code>
+d3.select(".instructor-block");
+							</code>
+						</pre>
+
+						<ul>
+							<li><code>select</code> takes the first element of the tag, very much similar like splinter where find() gets the first element too.</li>
+							<li><code>selectAll</code> take every element, just like findAll()</li>
+							<li>Within <code>select</code>, you can get a specific element with CSS syntax, where:</li>
+							<ul>
+								<li><code>.</code> (dots) represent classes.</li>
+								<li><code>#</code> (hex) represent ids.</li>
+							</ul>
+						</ul>
+
+						<p>You can then chain other methods to <code>select</code>, just like splinter and beautiful soup.</p>
+						<pre>
+							<code>
+d3.select(".instructor-block").text(); // Gets the text
+d3.select(".instructor-block").html(); // Gets the HTML
+							</code>
+						</pre>
+
+						<p>You can change the contents by including strings within the methods.</p>
+						<pre>
+							<code>
+d3.select(".instructor-block").text("Hello"); // Gets the text
+d3.select(".instructor-block").html("&lt;h1>Hello&lt;/h1>"); // Gets the HTML
+							</code>
+						</pre>
+
+						<h3>What does this all mean?</h3>
+						
+						<p>If you don't label your HTML properly with <code>id</code> and <code>class</code>, you'll never be able to get your desired effect.</p>
+
+						<p>Let's say you want to add a new link to your sidebar:</p>
+						<pre>
+							<code>
+// This is MY sidebar. Please don't copy and paste blindly.
+var newAnchor = d3.select("#right-sb-nav").append("a").attr("href","#").attr("class","list-group-item list-group-item-action").attr("role","tab").text("Another Link For Example");
+							</code>
+						</pre>
+					</div> <!-- -->
+				</div> <!-- end #main-content -->
+
+
+				<div id="right-sb" class="col-md-4">
+					<div id="right-sb-nav" class="list-group" id="toc" role="tablist">
+					  <a class="list-group-item list-group-item-action active"  href="#objectives" role="tab">Objectives</a>
+					  <a class="list-group-item list-group-item-action"  href="#why-we-learn" role="tab">Why We Learn</a>
+					  <a class="list-group-item list-group-item-action"  href="#01-Evr_D3_Select" role="tab">01-Evr_D3_Select</a>
+					</div>
+				
+				</div>
+			</div> <!-- end .row -->
+			
+		</div> <!-- end .container-fluid -->
+
+		<footer>
+			<script type="text/javascript" src="../../js/jquery-3.3.1.min.js"></script>
+			<script type="text/javascript" src="../../js/bootstrap.min.js"></script>
+
+			<script type="text/javascript">
+				var color = ['red','orange','yellow','green','blue','indigo','violet'];
+
+				function colorChange(element){
+					var random = Math.floor(Math.random() * color.length);
+
+					d3.selectAll(element).style("color", color[random]);
+
+					//console.log(element);
+
+					setInterval(() => {
+						// ".instructor-block h3"
+						random = Math.floor(Math.random() * color.length);
+						console.log(random, color[random], element);
+						d3.selectAll(element).style("color", color[random]);
+					},1000);
+				}
+			</script>
+
+		</footer>
+
+	</body>
+
+
+</html>
