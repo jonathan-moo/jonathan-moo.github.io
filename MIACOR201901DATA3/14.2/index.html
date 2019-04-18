@@ -4,9 +4,9 @@
 		<title>Jonathan Moo's Github Bio</title>
 
 
-		<link rel='stylesheet' id='bootstrap-css'  href='../../css/bootstrap.min.css' type='text/css' media='all' />
-		<link rel='stylesheet' id='bootstrap-grid-css'  href='../../css/bootstrap-grid.min.css' type='text/css' media='all' />
-		<link rel='stylesheet' id='custom-css'  href='../../css/style.css' type='text/css' media='all' /> 
+		<link rel='stylesheet' id='bootstrap-css'  href='css/bootstrap.min.css' type='text/css' media='all' />
+		<link rel='stylesheet' id='bootstrap-grid-css'  href='css/bootstrap-grid.min.css' type='text/css' media='all' />
+		<link rel='stylesheet' id='custom-css'  href='css/style.css' type='text/css' media='all' /> 
 		
 	</head>
 
@@ -23,16 +23,28 @@
 						<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="../../MIACOR201901DATA3/11.2/index.html">11.2 Ref</a>
+						<a class="nav-link" href="MIACOR201901DATA3/11.2/index.html">11.2 Ref</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="../../MIACOR201901DATA3/11.3/index.html">11.3 Ref</a>
+						<a class="nav-link" href="MIACOR201901DATA3/11.3/index.html">11.3 Ref</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="../../MIACOR201901DATA3/12.1/index.html">12.1 Ref</a>
+						<a class="nav-link" href="MIACOR201901DATA3/12.1/index.html">12.1 Ref</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="../../MIACOR201901DATA3/12.3/index.html">12.3 Ref</a>
+						<a class="nav-link" href="MIACOR201901DATA3/12.3/index.html">12.3 Ref</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="MIACOR201901DATA3/13.1/index.html">13.1 Ref</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="MIACOR201901DATA3/13.2/index.html">13.2 Ref</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="MIACOR201901DATA3/13.3/index.html">13.3 Ref</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="MIACOR201901DATA3/14.1/index.html">14.1 Ref</a>
 					</li>
 
 				</ul>
@@ -68,116 +80,294 @@
 
 					</div>
 
-					<div id="01-Ins_Javascript" class="instructor-block">
-						<h3>01-Ins_Javascript</h3>
+					<div id="01-Ins_forEach" class="instructor-block">
+						<h3>01-Ins_forEach</h3>
+						<p>We introduce a concept called "callback functions" here.</p>
 
-						<p>Javascript allows commands be run on the browser. It can be:</p>
-						<ul>
-							<li>Inline</li>
-							<li>From another file.</li>
-							<li><code>console.log();</code> is used as a debugging tool like 'print' in Python.</li>
-						</ul>
+						<p>This is given in your notes:</p>
+
+						<div class="row">
+							<div class="col-md-6 student-block">
+								<h4>For Loop</h4>
+								<pre>
+									<code>
+// Array of student names
+var students = ["Johnny", "Tyler", "Bodhi", "Pappas"];
+
+// This function will be called for each element in the array
+function printName(name) {
+  console.log(name);
+}
+
+// Loop through each student name and call the printName function
+for (var i = 0; i < students.length; i++) {
+  printName(students[i]);
+
+  students[i] = students[i] + " duh";
+}
+									</code>
+								</pre>
+							</div> <!-- end .col-md-6 student-block -->
+							<div class="col-md-6 student-block">
+								<h4>Foreach Loop</h4>
+								<pre>
+									<code>
+// Array of student names
+var students = ["Johnny", "Tyler", "Bodhi", "Pappas"];
+
+students.forEach(printName);
+
+// You can also define an anonymous function inline
+students.forEach(function(name) {
+  console.log(name + " duh");
+
+  return name + " duh";
+});
+
+									</code>
+								</pre>
+							</div> <!-- end .col-md-6 student-block -->
+						</div><!-- end .row -->
+
+						<div class="row">
+							<div class="col-md-12">
+								<p>If you were to do a <code>console.log(students);</code> for each block, what is the result?</p>
+							</div>
+						</div><!-- end .row -->
+
+						<div class="row">
+							<div class="col-md-12">
+								<ul>
+									<li>For Loop:</li>
+									<ul>
+										<li>Will it print "studentName" or "studentName duh"?</li>
+									</ul>
+									<li>ForEach Loop:</li>
+									<ul>
+										<li>Will it print "studentName" or "studentName duh"?</li>
+									</ul>
+								</ul>
+							</div>
+						</div><!-- end .row -->
+
+						<div class="row">
+							<div class="col-md-12">
+								<h4>This is the reason why people complain Javascript is difficult.</h4>
+
+								<p>There are people who complains it is difficult, but you need to understand why and not join the bandwagon.</p>
+
+								<p>Don't worry, we'll practice and improve along the way.</p>
+
+								<p>Some other stuff that you might not know: <a href="https://medium.com/front-end-weekly/3-things-you-didnt-know-about-the-foreach-loop-in-js-ff02cec465b1">3 things you didn’t know about the forEach loop in JS</a></p>
+							</div>
+						</div>
 					</div>
 
-					<div id="02-Evr_Python_to_JavaScript" class="student-block">
-						<h3>02-Evr_Python_to_JavaScript: Please try on your own!</h3>
-						<p>How to declare variables.</p>
-						<ul>
-							<li>Use var: <code>var x;</code></li>
-							<ul>
-								<li>You'll have to declare the data type before declaration.</li>
-							</ul>
-							<li>Use template literals: Start the string not with quotes, but with backquotes (I think they call it backticks in your instructions)<code>`${variable}`</code></li>
-							<ul>
-								<li>If you use quotes or double quotes, template literals cannot work.</li>
-								<li>Quotes or double quotes cannot run over the next line. You'll experience errors. But backticks can do multiple lines without breaking.</li>
-							</ul>
-						</ul>
+					<div id="02-Stu_Movie_Score" class="student-block">
+						<h3>02-Stu_Movie_Score: Your Turn</h3>
 
-						<p>Conditionals</p>
-						<ul>
-							<li>Use <code>===</code> instead of <code>==</code></li>
-							<ul>
-								<li><code>==</code> still works, but it doesn't check the type of the data</li>
-								<li>Example, <code>"2" == 2</code> will generate a <strong>True</strong>. But <code>"2"===2</code> will generate a <strong>False</strong>.</li>
-								<li>Instead of <code>and</code> in Python, use <code>&&</code> in Javascript.</li>
-								<li>Instead of <code>or</code> in Python, use <code>||</code> in Javascript.</li>
+						<p>Hint: You can declare arrays outside of the forEach function and push elements into the arrays.</p>
+
+					</div>
+
+					<div id="03-Ins_JavaScript_Objects" class="instructor-block">
+						<h3>03-Ins_JavaScript_Objects</h3>
+
+						<p>Objects in Python and Javascript are similar. I'll explain in the demo.</p>
+					</div>
+
+					<div id="04-Stu_Word_Counter" class="student-block">
+						<h3>04-Stu_Word_Counter: Your Turn</h3>
+					</div>
+
+					<div id="05-Evr_Map" class="instructor-block">
+						<h3>05-Evr_Map: Everyone, open up the activity and we'll do it together.</h3>
+
+						<div class="row">
+							<div class="col-md-6 student-block">
+								<h4>Map</h4>
+								<pre>
+									<code>
+var theStagesOfJS = ["confidence", "sadness", "confusion", "realization", "debugging", "satisfaction"];
+
+// Using the .map method
+var mapSimpleArray = theStagesOfJS.map(function(item) {
+  return item;
+});
+
+console.log(mapSimpleArray);
+									</code>
+								</pre>
+							</div> <!-- end .col-md-6 student-block -->
+							<div class="col-md-6 student-block">
+								<h4>Foreach Loop</h4>
+								<pre>
+									<code>
+var forEachStages = theStagesOfJS.forEach(function(each, index) {
+  // the return of forEach is ignored
+  
+  // This will print on your browser
+  console.log("ForEach Stages Start:")
+  console.log(`Stage ${index + 1}: ${each}`);
+  console.log("ForEach Stages End")
+  
+  return `Stage ${index + 1}: ${each}`;
+});
+
+console.log(forEachStages);
+
+									</code>
+								</pre>
+							</div> <!-- end .col-md-6 student-block -->
+						</div><!-- end .row -->
+
+						<div class="row">
+							<div class="col-md-6 instructor-block">
+								<h4>Map</h4>
 								<ul>
-									<li>Javascript comparisons are more inline with traditional computer science languages (C++, Java).</li>
+									<li>Returns an array.</li>
+									<li>Creates a new array by executing a function on each element.</li>
+									<li>Use this if you want a new object for each element.</li>
 								</ul>
-								<li>Javascript has no indentation. You use curly brackets to wrap code instead of indentation for hierarchy.</li>
+							</div>
+
+							<div class="col-md-6 instructor-block">
+								<h4>For Each</h4>
 								<ul>
-									<li><pre><code style="color:white;">
-if(x>y){
-// This (x>y) runs first
-
-
-	if(y < q){
-		// This (x < q) runs within the first curly brackets.
-	}
-}
-									</code></pre></li>
+									<li>Does not return an array.</li>
+									<li>Does not create a new array when executing a function on each element.</li>
+									<li>Use this if you don't want to change your data accidentally.</li>
 								</ul>
-							</ul>
-						</ul>
-					</div> <!-- end #02-Evr_Python_to_JavaScript-->
+							</div>
+						</div>
+					</div>
 
-					<div id="04-Evr_JavaScript_Arrays" class="instructor-block">
-						<h3>04-Evr_JavaScript_Arrays</h3>
+					<div id="06-Evr_Arrow_Functions" class="instructor-block">
+						<h3>06-Evr_Arrow_Functions: Let's open up this activity together.</h3>
+
+						<h4>Some history:</h4>
+						<p>In 2015, some folks decided to revamp Javascript and modernize it. We call this ES6 (or ECMA 2015). <em>Their naming convention needs help because they confuse themselves and us.</em></p>
+
+						<p>The majority of what you've learned in <strong>old-school Javascript</strong>. It doesn't matter what era you're in. If you only knew Javascript since 1995 and haven't upgraded yourself, you could still work with Javascript (but it's painful).</p>
+
+						<p>Then the guys got fancy, and they introduce something called "arrow functions".</p>
+
+						<div class="row">
+							<div class="col-md-6 student-block">
+								<h4>Old School</h4>
+								<pre>
+									<code>
+var theStagesOfJS = ["confidence", "sadness", "confusion", "realization", "debugging", "satisfaction"];
+
+// Using the .map method
+var mapSimpleArray = theStagesOfJS.map(function(item) {
+  return item;
+});
+
+console.log(mapSimpleArray);
+									</code>
+								</pre>
+							</div> <!-- end .col-md-6 student-block -->
+							<div class="col-md-6 student-block">
+								<h4>New School</h4>
+								<pre>
+									<code>
+var theStagesOfJS = ["confidence", "sadness", "confusion", "realization", "debugging", "satisfaction"];
+
+// Using the .map method
+var mapSimpleArray = theStagesOfJS.map((item) => {
+  return item;
+});
+
+console.log(mapSimpleArray);
+
+									</code>
+								</pre>
+							</div> <!-- end .col-md-6 student-block -->
+						</div><!-- end .row -->
+
+						<div class="row">
+							<div class="col-md-12">
+								<p>This works for EVERY FUNCTION. Just omit the "function", add an arrow, and it will work.</p>
+
+								<h4>Why didn't we learn this from the start?</h4>
+								<p>Don't ask me. It's part of your curriculum to know how we transit from old-school to modern day Javascript I guess.</p>
+							</div>
+						</div>
+					</div>
+
+
+					<div id="07-Ins_Object_Iteration" class="instructor-block">
+						<h3>07-Ins_Object_Iteration</h3>
+
+						<h4>Remember:</h4>
 						<ul>
-							<li>Use <code>var x = [];</code> in Javascript. Unlike Python list, we've to declare the data type.</li>
-							<li>List in Python = Arrays in Javascript. Just different terminologies.</li>
-							<li>Use <code>x.push();</code> to insert into your arrays. Python use <code>x.append()</code></li>
-							<li>Use <code>x.slice(1,3);</code> which means element 1 to 3. Remember, the index starts from zero.</li>
-							<li>Javascript join list: <code>x.join(" ");</code></li>
-							<ul>
-								<li>Python is strange in terms of joining list into a sentence: <code>" ".join(x)</code></li>
-							</ul>
+							<li><code>Object.keys</code>, <code>Object.values</code>, <code>Object.entries</code> return <strong>arrays</strong>.</li>
+							<li>Old school code has a habit of building on top of another, and you can you dot notation to chain functions: <code>Object.entries(userInfo).forEach(([key, value]) => console.log(`Key: ${key} and Value ${value}`));</code></li>
+							<li>Divide & Conquer. Know what it is first before chaining another function to an existing function.</li>
+							<li><strong>forEach</strong> work on arrays, not objects directly. We use Object's in-built methods to convert them into arrays, before using forEach to iterate.</li>
 						</ul>
 
-					</div> <!-- end #04-Evr_JavaScript_Arrays -->
+						<h4>Question: Can we use Map?</h4>
+					</div>
 
-					<div id="05-Ins_Loops" class="instructor-block">
-						<h3>05-Ins_Loops</h3>
-						<pre><code>
-var x = [0,1,2,3,4,5];
+					<div id="08-Stu_Object_Iteration" class="student-block">
+						<h3>08-Stu_Object_Iteration: Your Turn</h3>
+					</div>
 
-// You have to declare the running index for this. Typically, we use "i".
-// "i" is your counter. There is something called forEach, but we'll learn in the next lesson.
+					<div id="09-Ins_Filter" class="instructor-block">
+						<h3>09-Ins_Filter</h3>
 
-for(var i = 0; i < x.length; i++){
+						<p>Seems like this is important for your homework.</p>
 
-// This means i starts from index zero.
-// As long as i is smaller than the length of the array, increment by 1.
-// Old school coding style. Javascript exists from 1995!
-	
+						<ul>
+							<li>Similar to <code>map</code>, it returns an array.</li>
+							<li>Vastly similar to using <code>if</code> and <code>else</code>, except that you can do multiple conditionals on an array of objects easily. It's meant to shrink your code dramatically.</li>
+						</ul>
+
+						<h4>Example:</h4>
+						<pre>
+							<code>
+var simpsonsGender = [{
+  name: "Homer",
+  age: 45,
+  gender: "m"
+}, {
+  name: "Lisa",
+  age: 8,
+  gender: "f"
+}, {
+  name: "Marge",
+  age: 43,
+  gender: "f"
+}, {
+  name: "Bart",
+  age: 10,
+  gender: "m"
+}, {
+  name: "Maggie",
+  age: 1,
+  gender:"f"
+}];
+
+function selectFemaleYounger(person){
+  return person.age < 40 && person.gender === "f";
 }
-						</code></pre>
+							</code>
+						</pre>
+					</div>
 
-					</div> <!-- end #05-Ins_Loops -->
+					<div id="10-Stu_Filters" class="student-block">
+						<h3>10-Stu_Filters: Your Turn</h3>
+					</div>
 
-					<div id="06-Stu_Movie_Scores" class="student-block">
-						<h3>06-Stu_Movie_Scores: Your turn to try</h3>
-					</div> <!-- end #06-Stu_Movie_Scores -->
+					<div id="11-Ins_HTML_table" class="instructor-block">
+						<h3>11-Ins_HTML_table</h3>
 
-					<div id="07-Ins_Functions" class="instructor-block">
-						<h3>07-Ins_Functions</h3>
+						<p>All of a sudden, we talk about Bootstrap Tables. Not Javascript, but just HTML & CSS.</p>
 
-						<pre><code>
-function loanTree(income, debtIncomeRatio, yearsInJob,criminalRecord,goodCredit){
-	// Javascript doesn't have indentation! It uses curly brackets to encapsulate code.
-}
-
-is similar to:
-
-def loanTree(income, debtIncomeRatio, yearsInJob,criminalRecord,goodCredit):
-	// Code here
-						</code></pre>
-					</div> <!-- end #07-Ins_Functions  -->
-
-					<div id="08-Stu_Stats_Functions" class="student-block">
-						<h3>08-Stu_Stats_Functions: Your turn to try</h3>
-					</div> <!-- end #06-Stu_Movie_Scores -->
+						<p>It's part of homework, but I guess they want you to know that you'll be filtering and mapping arrays to create tables for a dashboard.</p>
+					</div>
 
 				</div> <!-- end #main-content -->
 
@@ -186,13 +376,17 @@ def loanTree(income, debtIncomeRatio, yearsInJob,criminalRecord,goodCredit):
 					<div id="right-sb-nav" class="list-group" id="toc" role="tablist">
 					  <a class="list-group-item list-group-item-action active"  href="#objectives" role="tab">Objectives</a>
 					  <a class="list-group-item list-group-item-action"  href="#why-we-learn" role="tab">Why We Learn</a>
-					  <a class="list-group-item list-group-item-action"  href="#01-Ins_Javascript" role="tab">01-Ins_Javascript</a>
-					  <a class="list-group-item list-group-item-action"  href="#02-Evr_Python_to_JavaScript" role="tab">02-Evr_Python_to_JavaScript</a>
-					  <a class="list-group-item list-group-item-action"  href="#04-Evr_JavaScript_Arrays" role="tab">04-Evr_JavaScript_Arrays</a>
-					  <a class="list-group-item list-group-item-action"  href="#05-Ins_Loops" role="tab">05-Ins_Loops</a>
-					  <a class="list-group-item list-group-item-action"  href="#06-Stu_Movie_Scores" role="tab">06-Stu_Movie_Scores</a>
-					  <a class="list-group-item list-group-item-action"  href="#07-Ins_Functions" role="tab">07-Ins_Functions</a>
-					  <a class="list-group-item list-group-item-action"  href="#08-Stu_Stats_Functions" role="tab">08-Stu_Stats_Functions</a>
+					  <a class="list-group-item list-group-item-action"  href="#01-Ins_forEach" role="tab">01-Ins_forEach</a>
+					  <a class="list-group-item list-group-item-action"  href="#02-Stu_Movie_Score" role="tab">02-Stu_Movie_Score</a>
+					  <a class="list-group-item list-group-item-action"  href="#03-Ins_JavaScript_Objects" role="tab">03-Ins_JavaScript_Objects</a>
+					  <a class="list-group-item list-group-item-action"  href="#04-Stu_Word_Counter" role="tab">04-Stu_Word_Counter</a>
+					  <a class="list-group-item list-group-item-action"  href="#05-Evr_Map" role="tab">05-Evr_Map</a>
+					  <a class="list-group-item list-group-item-action"  href="#06-Evr_Arrow_Functions" role="tab">06-Evr_Arrow_Functions</a>
+					  <a class="list-group-item list-group-item-action"  href="#07-Ins_Object_Iteration" role="tab">07-Ins_Object_Iteration</a>
+					  <a class="list-group-item list-group-item-action"  href="#08-Stu_Object_Iteration" role="tab">08-Stu_Object_Iteration</a>
+					  <a class="list-group-item list-group-item-action"  href="#09-Ins_Filter" role="tab">09-Ins_Filter</a>
+					  <a class="list-group-item list-group-item-action"  href="#10-Stu_Filters" role="tab">10-Stu_Filters</a>
+					  <a class="list-group-item list-group-item-action"  href="#11-Ins_HTML_table" role="tab">11-Ins_HTML_table</a>
 					</div>
 				
 				</div>
@@ -201,8 +395,8 @@ def loanTree(income, debtIncomeRatio, yearsInJob,criminalRecord,goodCredit):
 		</div> <!-- end .container-fluid -->
 
 		<footer>
-			<script type="text/javascript" src="../../js/jquery-3.3.1.min.js"></script>
-			<script type="text/javascript" src="../../js/bootstrap.min.js"></script>
+			<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+			<script type="text/javascript" src="js/bootstrap.min.js"></script>
 
 			<script type="text/javascript">
 				

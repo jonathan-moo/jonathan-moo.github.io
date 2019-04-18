@@ -46,6 +46,10 @@
 	color: white;
 }
 
+.student-block h4, .student-block pre, .student-block pre code{
+	color:white;
+}
+
 #right-sb-nav {
 	padding: 20px;
 }
