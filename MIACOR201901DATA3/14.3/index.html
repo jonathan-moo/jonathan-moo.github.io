@@ -50,7 +50,7 @@
 						<a class="nav-link" href="../../MIACOR201901DATA3/14.2/index.html">14.2 Ref</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="../../MIACOR201901DATA3/14.3/index.html">14.3 Ref</a>
+						<a class="nav-link" href=../../"MIACOR201901DATA3/14.3/index.html">14.3 Ref</a>
 					</li>
 				</ul>
 			</div>
@@ -141,7 +141,300 @@ d3.select(".instructor-block").html("&lt;h1>Hello&lt;/h1>"); // Gets the HTML
 var newAnchor = d3.select("#right-sb-nav").append("a").attr("href","#").attr("class","list-group-item list-group-item-action").attr("role","tab").text("Another Link For Example");
 							</code>
 						</pre>
-					</div> <!-- -->
+
+						<p>To add elements within a tag, <code>select</code> the element first, then use <code>append</code>:</p>
+
+						<pre>
+							<code>
+// This is MY sidebar. Please don't copy and paste blindly.
+var newAnchor = d3.select("#right-sb-nav").append("a");
+							</code>
+						</pre>
+
+						<p>You can attach attributes onto the same tag by using the <code>attr</code> method:</p>
+						<pre>
+							<code>
+// This is MY sidebar. Please don't copy and paste blindly.
+var newAnchor = d3.select("#right-sb-nav").append("a").attr("href","#");
+							</code>
+						</pre>
+
+						<p>Text and HTML affects the <strong>value</strong> The value is encapsulated by the resultant tags:</p>
+						<pre>
+							<code>
+// This is MY sidebar. Please don't copy and paste blindly.
+var newAnchor = d3.select("#right-sb-nav").append("a").attr("href","#").text("Another Link For Example");
+							</code>
+						</pre>
+
+					</div> <!-- end .instructor-block -->
+
+					<div id="02-Stu_D3_Select" class="student-block">
+						<h3>02-Stu_D3_Select: Your Turn</h3>
+					</div>
+
+					<div id="03-Evr_D3_Table" class="instructor-block">
+						<h3>03-Evr_D3_Table</h3>
+						
+						<p>You're given a JSON data which resembles data from MongoDB:</p>
+
+						<pre>
+							<code>
+var data = [
+  {
+    weekday: "SUN",
+    date: "July 1",
+    high: 76,
+    low: 63
+  }, {
+    weekday: "MON",
+    date: "July 2",
+    high: 77,
+    low: 63
+  }, {
+    weekday: "TUE",
+    date: "July 3",
+    high: 77,
+    low: 63
+  }, {
+    weekday: "WED",
+    date: "July 4",
+    high: 81,
+    low: 65
+  }, {
+    weekday: "THU",
+    date: "July 5",
+    high: 87,
+    low: 68
+  }, {
+    weekday: "FRI",
+    date: "July 6",
+    high: 91,
+    low: 71
+  }, {
+    weekday: "SAT",
+    date: "July 7",
+    high: 91,
+    low: 72
+  }
+];
+							</code>
+						</pre>
+
+						<p>The goal is to create a table out of the data. You <strong>SHOULD</strong> have a table tag within your HTML selected such as this:</p>
+						<pre>
+							<code>
+&lt;table id="table" class="table">
+	&lt;thead>
+	&lt;/thead>
+
+	&lt;tbody>
+	&lt;/tbody>
+&lt;table>						
+							</code>
+						</pre>
+
+						<p>If you don't have a placeholder such as the above, the D3 object has nothing to select, and it is difficult to add rows into nothing.</p>
+
+						<h4>Step 1: Loop through the data</h4>
+						<pre>
+							<code>
+var tbody = d3.select("tbody");
+
+data.forEach(function(weatherReport) {
+   console.log(weatherReport);
+});							
+							</code>
+						</pre>
+
+						<h4>Step 2: For every row, you want to encapsulate every row with a <code>&lt;tr>&lt;/tr></code> tag.</h4>
+						<pre>
+							<code>
+data.forEach(function(weatherReport) {
+   console.log(weatherReport);
+   var row = tbody.append("tr");
+   console.log(row);
+});						
+							</code>
+						</pre>
+
+						<p>I have a hidden table within this page. It will populate the tags according to the number of rows.</p>
+
+						<h4>Step 3: Use <code>Object.entries</code> to get the key-pair values:</h4>
+						<pre>
+							<code>
+data.forEach(function(weatherReport) {
+   console.log(weatherReport);
+   var row = tbody.append("tr");
+
+   Object.entries(weatherReport).forEach(function([key, value]) {
+     console.log(key, value);
+   });
+ });
+							</code>
+						</pre>
+
+						<h4>Step 4: Use d3 to append 1 cell per value</h4>
+
+						<p>Your notes have a slight mistake.</p>
+
+						<pre>
+							<code>
+data.forEach(function(weatherReport) {
+   console.log(weatherReport);
+   var row = tbody.append("tr");
+
+   Object.entries(weatherReport).forEach(function([key, value]) {
+     console.log(key, value);
+     // Append a cell to the row for each value
+     // in the weather report object
+     var cell = row.append("td");
+   });
+ });
+							</code>
+						</pre>
+
+						<h4>Step 5: Use d3 to append 1 cell per value</h4>
+
+						<pre>
+							<code>
+ data.forEach(function(weatherReport) {
+   console.log(weatherReport);
+   var row = tbody.append("tr");
+   Object.entries(weatherReport).forEach(function([key, value]) {
+     console.log(key, value);
+     // Append a cell to the row for each value
+     // in the weather report object
+     var cell = row.append("td");
+     cell.text(value);
+   });
+ });
+							</code>
+						</pre>
+
+						<h4>What about the column headers? (Not in your notes)</h4>
+
+						<p>Remember, most of the tables have structured column headers. So, select one of the rows, grab its keys using <code>Object.keys</code>.</p>
+
+						<pre>
+							<code>
+var thead = d3.select("thead");
+
+var column_headers = Object.keys(data[0]);
+
+var row = thead.append("tr");
+
+column_headers.forEach(header => {
+	var cell = row.append("th"); // following Bootstraps convention
+	cell.text(header);
+});
+
+							</code>
+						</pre>
+
+
+						<table class="table">
+							<thead id="thead">
+								
+							</thead>
+							<tbody id="tbody">
+								
+							</tbody>
+						</table>
+					</div>
+
+					<div id="04-Ins_Event_Listeners" class="instructor-block">
+						<h3>04-Ins_Event_Listeners</h3>
+
+						<p>Javascript has something called "event listeners". Event listeners allow interactions between the user and the page via:</p>
+						<ul>
+							<li>click</li>
+							<li>change</li>
+							<li>keydown</li>
+							<li>keyup</li>
+							<li>scroll</li>
+							<li>pointerenter</li>
+							<li>pointerleave</li>
+							<li>Too many to count! Check out <a href="https://developer.mozilla.org/en-US/docs/Web/Events">web events</a>.</li>
+						</ul>
+
+						<h4>Events have:</h4>
+						<ul>
+							<li>A target: the element or the reference of the object</li>
+							<li>A handler: a function which should be executed.</li>
+						</ul>
+
+						<p>Example:</p>
+						<button type="button" class="btn btn-primary" onclick='colorChange(".instructor-block h3");'>Headers will rotate in colors!</button>
+						<button type="button" id="link-change" class="color-change btn btn-primary">Links will rotate in colors!</button>
+
+						<div class="row">
+							<div class="input-group input-group-lg">
+								<input id="test-change" type="text" class="form-control" placeholder='Instead of "click", we can use "change".' aria-label="something" aria-describedby="basic-addon1">
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="input-group input-group-lg">
+								<input id="test-keydown" type="text" class="form-control" placeholder='Instead of "change", we can use "keydown".' aria-label="something" aria-describedby="basic-addon1">
+							</div>
+						</div>
+					</div>
+
+					<div id="05-Stu_onChange" class="student-block">
+						<h3>05-Stu_onChange: Your Turn</h3>
+					</div>
+					<div id="06-Stu_Button_Click" class="student-block">
+						<h3>06-Stu_Button_Click: Your Turn</h3>
+					</div>
+
+					<div id="07-Ins_This" class="instructor-block">
+						<h3>07-Ins_This</h3>
+
+						<p>Consider this code here:</p>
+						<pre>
+							<code>
+d3.selectAll("button").on("click", function() {
+  // What will be logged out? What is `this` in this case?
+  console.log(this);
+  // Answer: It will console log the `button` element.
+});
+
+							</code>
+						</pre>
+
+						<p><code>this</code> is a unique keyword, which exist in many programming languages. If you run code in an object, and you reference <code>this</code>, <code>this</code> <strong>refers to the object which it is in.</strong></p>
+
+						<p><code>this</code> is something that you don't need to excel in, because it borders into computer science. However, for Javascript, we use <code>this</code> to reference functions and objects.</p>
+
+					</div>
+
+					<div id="08-Ins_Forms" class="instructor-block">
+						<h3>08-Ins_Forms</h3>
+
+						<p>Forms are used to capture information, or part of your data collection process in some cases:</p>
+
+						<form>
+						  <div class="form-group">
+						    <label for="exampleInputEmail1">Email address</label>
+						    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+						    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+						  </div>
+						  <button id="submit" type="submit" class="btn btn-primary">Submit</button>
+						</form>
+
+						<div class="row">
+							<div class="col-md-12">
+								<p><strong>Submit</strong> is a convention that most developers use. You can use Javascript to send the information from forms and parse it into data.</p>
+							</div>
+						</div>
+
+						<p><strong>Extra information:</strong> HTML natively supports forms, and usually it sends data through a POST method. There are several ways of sending and obtaining data via forms, but POST forces the HTML to reload the page, or to redirect to another page natively.</p>
+
+						<p>That is why if we want to capture and send data through Javascript, we have to <strong>overwrite</strong> HTML's native behaviour with this code, if we use <code>d3</code> as our JS library: <code>d3.event.preventDefault();</code></p>
+
+						<p>This breaks the default behavior for HTML elements which is innately built.</p>
+					</div>
 				</div> <!-- end #main-content -->
 
 
@@ -150,6 +443,13 @@ var newAnchor = d3.select("#right-sb-nav").append("a").attr("href","#").attr("cl
 					  <a class="list-group-item list-group-item-action active"  href="#objectives" role="tab">Objectives</a>
 					  <a class="list-group-item list-group-item-action"  href="#why-we-learn" role="tab">Why We Learn</a>
 					  <a class="list-group-item list-group-item-action"  href="#01-Evr_D3_Select" role="tab">01-Evr_D3_Select</a>
+					  <a class="list-group-item list-group-item-action"  href="#02-Stu_D3_Select" role="tab">02-Stu_D3_Select</a>
+					  <a class="list-group-item list-group-item-action"  href="#03-Evr_D3_Table" role="tab">03-Evr_D3_Table</a>
+					  <a class="list-group-item list-group-item-action"  href="#04-Ins_Event_Listeners" role="tab">04-Ins_Event_Listeners</a>
+					  <a class="list-group-item list-group-item-action"  href="#05-Stu_onChange" role="tab">05-Stu_onChange</a>
+					  <a class="list-group-item list-group-item-action"  href="#06-Stu_Button_Click" role="tab">06-Stu_Button_Click</a>
+					  <a class="list-group-item list-group-item-action"  href="#07-Ins_This" role="tab">07-Ins_This</a>
+					  <a class="list-group-item list-group-item-action"  href="#08-Ins_Forms" role="tab">08-Ins_Forms</a>
 					</div>
 				
 				</div>
@@ -178,6 +478,46 @@ var newAnchor = d3.select("#right-sb-nav").append("a").attr("href","#").attr("cl
 						d3.selectAll(element).style("color", color[random]);
 					},1000);
 				}
+
+				var button = d3.select("#link-change");
+
+				button.on("click", function(){
+					console.log("A button was clicked!");
+					colorChange("a.list-group-item.list-group-item-action");
+					console.log("d3.event.target:")
+					console.log(d3.event.target);
+				});
+
+				var inputFieldChange = d3.select("#test-change");
+
+				inputFieldChange.on("change", () => {
+					var newText = d3.event.target.value;
+					console.log(newText);
+				});
+
+				var inputFieldKeydown = d3.select("#test-keydown");
+
+				inputFieldKeydown.on("keydown", () => {
+					var newText = d3.event.target.value;
+					console.log(newText);
+				});
+
+				var submit = d3.select("#submit");
+
+				submit.on("click",function(){
+					//d3.event.preventDefault();
+
+					// Select the input element and get the raw HTML node
+				  var inputElement = d3.select("#exampleInputEmail1");
+
+				  // Get the value property of the input element
+				  var inputValue = inputElement.property("value");
+
+				  console.log(inputValue);
+
+				});
+
+
 			</script>
 
 		</footer>

@@ -8,6 +8,7 @@
 		<link rel='stylesheet' id='bootstrap-grid-css'  href='css/bootstrap-grid.min.css' type='text/css' media='all' />
 		<link rel='stylesheet' id='custom-css'  href='css/style.css' type='text/css' media='all' /> 
 		<script src="https://d3js.org/d3.v5.min.js"></script>
+		<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 	</head>
 
 	<body>
@@ -59,7 +60,7 @@
 			<div class="row">
 				<div id="main-content" class="col-md-8">
 					<div class="objective-block">
-						<h3 id="objectives">Objectives For Lesson 14.3</h3>
+						<h3 id="objectives">Objectives For Lesson 15.1</h3>
 
 						<ul>
 							<li>Javascript!</li>
@@ -87,354 +88,299 @@
 
 					</div>
 
-					<div id="01-Evr_D3_Select" class="instructor-block">
-						<h3>01-Evr_D3_Select</h3>
-
-						<p>First, include the following tag within your HTML:</p>
-
-						<pre><code>&lt;script src="https://d3js.org/d3.v5.min.js"&gt;&lt;/script&gt;</code></pre>
-
-						<p>This pulls the file from the official repository from d3js.org.</p>
-
-						<p>D3 is similar to splinter or beautiful soup in Python. You can select elements and tags from code:</p>
-
-						<pre>
-							<code>
-d3.select(".instructor-block");
-							</code>
-						</pre>
-
-						<ul>
-							<li><code>select</code> takes the first element of the tag, very much similar like splinter where find() gets the first element too.</li>
-							<li><code>selectAll</code> take every element, just like findAll()</li>
-							<li>Within <code>select</code>, you can get a specific element with CSS syntax, where:</li>
-							<ul>
-								<li><code>.</code> (dots) represent classes.</li>
-								<li><code>#</code> (hex) represent ids.</li>
-							</ul>
-						</ul>
-
-						<p>You can then chain other methods to <code>select</code>, just like splinter and beautiful soup.</p>
-						<pre>
-							<code>
-d3.select(".instructor-block").text(); // Gets the text
-d3.select(".instructor-block").html(); // Gets the HTML
-							</code>
-						</pre>
-
-						<p>You can change the contents by including strings within the methods.</p>
-						<pre>
-							<code>
-d3.select(".instructor-block").text("Hello"); // Gets the text
-d3.select(".instructor-block").html("&lt;h1>Hello&lt;/h1>"); // Gets the HTML
-							</code>
-						</pre>
-
-						<h3>What does this all mean?</h3>
+					<div id="01-Evr_ES6" class="instructor-block">
+						<h3>01-Evr_ES6</h3>
 						
-						<p>If you don't label your HTML properly with <code>id</code> and <code>class</code>, you'll never be able to get your desired effect.</p>
+						<p>You've been coding with <code>var</code> for very long. It is time to convert <code>var</code> to <code>let</code> or <code>const</code>.</p>
 
-						<p>Let's say you want to add a new link to your sidebar:</p>
+						<h4>Why?</h4>
+
+						<p>Javascript was meant to be simple for browsers, but over the years, complexity crept it and Javascript was forced to evolve to suit today's needs. In <strong>1995</strong>, <code>var</code> was consistently used. But today, we must use only <code>let</code> or <code>const</code>.</p>
+
+						<p>Consider the code here:</p>
 						<pre>
 							<code>
-// This is MY sidebar. Please don't copy and paste blindly.
-var newAnchor = d3.select("#right-sb-nav").append("a").attr("href","#").attr("class","list-group-item list-group-item-action").attr("role","tab").text("Another Link For Example");
+function logger() {
+// returns "undefined", but code still runs.
+  console.log(x);
+  var x = "hi";
+}
+logger();
+
+function logger2() {
+// ReferenceError: y is not defined. Code will stop execution.
+  console.log(y);
+  let y = "hello";
+}
 							</code>
 						</pre>
 
-						<p>To add elements within a tag, <code>select</code> the element first, then use <code>append</code>:</p>
+						<p><code>var</code> is always global in scope. This means, within the code where it is run, <strong>the variables are accessible and exposed everywhere.</strong> <code>let</code> follows more conventional programming practices, where <strong>code within the block can only access the variable in which it was declared</strong>.</p>
+
+						<p><code>var</code> allows the variable to be declared but not initialized, but <code>let</code> is declared and initialized at the same time.</p>
+
+						<h4>From now on, use <code>let</code> instead of <code>var</code>.</h4>
+
+						<h4>What about <code>const</code>?</h4>
+
+						<p><code>const</code> is useful if you think that the variable should be immutable, or it should not be changed for anyone else. Things such as Pi, or standards should be defined with <code>const</code>.</p>
+
+						<p><strong>But</strong> if the variable is an <strong>object</strong> or <strong>array</strong>, it will not work as intended!</p>
 
 						<pre>
 							<code>
-// This is MY sidebar. Please don't copy and paste blindly.
-var newAnchor = d3.select("#right-sb-nav").append("a");
+								
+const myPets = ["dog", "cat", "rabbit", "some endangered species of sea turtle"];
+
+// myPets = "ferret"; //This will not work - stops execution
+
+// myPets = ["wolf", "giraffe", "parrot"]; //This will not work either
+
+// HOWEVER, we can still manipulate Objects and Arrays!
+console.log("before: ", myPets);
+myPets.pop();
+console.log("after: ", myPets);
 							</code>
 						</pre>
 
-						<p>You can attach attributes onto the same tag by using the <code>attr</code> method:</p>
-						<pre>
-							<code>
-// This is MY sidebar. Please don't copy and paste blindly.
-var newAnchor = d3.select("#right-sb-nav").append("a").attr("href","#");
-							</code>
-						</pre>
-
-						<p>Text and HTML affects the <strong>value</strong> The value is encapsulated by the resultant tags:</p>
-						<pre>
-							<code>
-// This is MY sidebar. Please don't copy and paste blindly.
-var newAnchor = d3.select("#right-sb-nav").append("a").attr("href","#").text("Another Link For Example");
-							</code>
-						</pre>
-
-					</div> <!-- end .instructor-block -->
-
-					<div id="02-Stu_D3_Select" class="student-block">
-						<h3>02-Stu_D3_Select: Your Turn</h3>
 					</div>
 
-					<div id="03-Evr_D3_Table" class="instructor-block">
-						<h3>03-Evr_D3_Table</h3>
-						
-						<p>You're given a JSON data which resembles data from MongoDB:</p>
+					<div id="02-Ins_Basic_Plots" class="instructor-block">
+						<h3>02-Ins_Basic_Plots</h3>
+
+						<div id="02-plot-part-1"></div>
+
+						<h4>How to do the above?</h4>
+
+						<p>Copy and paste this code: <code>&lt;script src="https://cdn.plot.ly/plotly-latest.min.js">&lt;/script></code></p>
+
+						<p><strong>There's no science to this.</strong> Other developers created a library to use charts, so we just use it accordingly. As long as we follow the documentation given by the library, we should be fine!</p>
 
 						<pre>
 							<code>
-var data = [
-  {
-    weekday: "SUN",
-    date: "July 1",
-    high: 76,
-    low: 63
-  }, {
-    weekday: "MON",
-    date: "July 2",
-    high: 77,
-    low: 63
-  }, {
-    weekday: "TUE",
-    date: "July 3",
-    high: 77,
-    low: 63
-  }, {
-    weekday: "WED",
-    date: "July 4",
-    high: 81,
-    low: 65
-  }, {
-    weekday: "THU",
-    date: "July 5",
-    high: 87,
-    low: 68
-  }, {
-    weekday: "FRI",
-    date: "July 6",
-    high: 91,
-    low: 71
-  }, {
-    weekday: "SAT",
-    date: "July 7",
-    high: 91,
-    low: 72
+var trace1 = {
+  x: ["beer", "wine", "martini", "margarita",
+    "ice tea", "rum & coke", "mai tai", "gin & tonic"], // notice it's an array of items?
+  y: [22.7, 17.1, 9.9, 8.7, 7.2, 6.1, 6.0, 4.6],
+  type: "bar"
+};
+
+var data = [trace1];
+
+var layout = {
+  title: "'Bar' Chart"
+};
+
+Plotly.newPlot("02-plot-part-1", data, layout); // 02-plot is the div ID which I specified in my code!
+							</code>
+						</pre>
+
+						<h4>How add attributes to your graph?</h4>
+
+						<div id="02-plot-part-2"></div>
+
+						<pre>
+							<code>
+var trace1 = {
+   x: ["beer", "wine", "martini", "margarita",
+       "ice tea", "rum & coke", "mai tai", "gin & tonic"],
+   y: [22.7, 17.1, 9.9, 8.7, 7.2, 6.1, 6.0, 4.6],
+   type: "bar"
+ };
+
+ var data = [trace1];
+ var layout = {
+   title: "'Bar' Chart",
+
+   xaxis: { title: "Drinks"},
+   yaxis: { title: "% of Drinks Ordered"}
+ };
+
+ Plotly.newPlot("02-plot-part-2", data, layout);
+							</code>
+						</pre>
+
+						
+						<h4>Let's make a line chart?</h4>
+
+						<div id="02-plot-part-3"></div>
+						<pre>
+							<code>
+ var trace1 = {
+   x: ["beer", "wine", "martini", "margarita",
+       "ice tea", "rum & coke", "mai tai", "gin & tonic"],
+   y: [22.7, 17.1, 9.9, 8.7, 7.2, 6.1, 6.0, 4.6],
+   type: "line"
+ };
+
+ var data = [trace1];
+
+ var layout = {
+   title: "'Line' Chart",
+ };
+
+ Plotly.newPlot("02-plot-part-3", data, layout);
+							</code>
+						</pre>
+
+
+						<h4>Broken Pie Chart?</h4>
+
+						<p>How do we fix this chart below? <em>Hint:</em> <a href="https://plot.ly/javascript/pie-charts/">https://plot.ly/javascript/pie-charts/</a></p>
+
+						<div id="02-plot-part-4"></div>
+						<pre>
+							<code>
+ // // Part 4 - Broken Pie Chart
+ var trace1 = {
+   x: ["beer", "wine", "martini", "margarita",
+       "ice tea", "rum & coke", "mai tai", "gin & tonic"],
+   y: [22.7, 17.1, 9.9, 8.7, 7.2, 6.1, 6.0, 4.6],
+   type: "pie"
+ };
+
+ var data = [trace1];
+
+ var layout = {
+   title: "'Bar' Chart",
+ };
+
+ Plotly.newPlot("02-plot-part-4", data, layout);
+							</code>
+						</pre>
+
+
+					</div>
+
+
+					<div id="03-Stu_First_Chart" class="student-block">
+						<h3>03-Stu_First_Chart: Your Turn</h3>
+
+					</div>
+
+					<div id="04-Ins_Multi_Trace" class="instructor-block">
+						<h3>04-Ins_Multi_Trace</h3>
+
+						<p>We want to do multiple trace in a plot:</p>
+
+						<div id="04-plot-part"></div>
+
+						<pre>
+							<code>
+// 04-plot-part
+
+ function randomNumbersBetween0and9(n) {
+  var randomNumberArray = [];
+  for (var i = 0; i < n; i++) {
+    randomNumberArray.push(Math.floor(Math.random() * 10));
   }
-];
+  return randomNumberArray;
+}
+
+// Create our first trace
+var trace1 = {
+  x: [1, 2, 3, 4, 5],
+  y: randomNumbersBetween0and9(5),
+  type: "scatter"
+};
+
+// Create our second trace
+var trace2 = {
+  x: [1, 2, 3, 4, 5],
+  y: randomNumbersBetween0and9(5),
+  type: "scatter"
+};
+
+// The data array consists of both traces
+var data = [trace1, trace2];
+
+// Note that we omitted the layout object this time
+// This will use default parameters for the layout
+Plotly.newPlot("04-plot-part", data);
 							</code>
 						</pre>
 
-						<p>The goal is to create a table out of the data. You <strong>SHOULD</strong> have a table tag within your HTML selected such as this:</p>
+					</div>
+
+					<div id="06-Ins_Sort_Slice" class="instructor-block">
+						<h3>06-Ins_Sort_Slice</h3>
+
+						<p>So you've grabbed a bunch of data from your MongoDB and/or your MySQL. Your data which you received in Javascript seems messy. What happens?</p>
+
+						<h4>Slicing: Getting part of the data</h4>
 						<pre>
 							<code>
-&lt;table id="table" class="table">
-	&lt;thead>
-	&lt;/thead>
+// Array of names
+const names = ["Jane", "John", "Jimbo", "Jedediah"];
 
-	&lt;tbody>
-	&lt;/tbody>
-&lt;table>						
+// Slices first two names
+const left = names.slice(0, 2);
+console.log(left);
+
+// Slices last two names and return
+const right = names.slice(2, 4);
+console.log(right);
+
 							</code>
 						</pre>
 
-						<p>If you don't have a placeholder such as the above, the D3 object has nothing to select, and it is difficult to add rows into nothing.</p>
+						<h4>Sorting: Organization</h4>
 
-						<h4>Step 1: Loop through the data</h4>
-						<pre>
-							<code>
-var tbody = d3.select("tbody");
+						<p>Sorting is like filters. It goes through the elements one by one.</p>
 
-data.forEach(function(weatherReport) {
-   console.log(weatherReport);
-});							
-							</code>
-						</pre>
+						<p>If the compare function returns a negative number for a pair of numbers, it will put them in the reverse order in the final array: [b, a]</p>
 
-						<h4>Step 2: For every row, you want to encapsulate every row with a <code>&lt;tr>&lt;/tr></code> tag.</h4>
-						<pre>
-							<code>
-data.forEach(function(weatherReport) {
-   console.log(weatherReport);
-   var row = tbody.append("tr");
-   console.log(row);
-});						
-							</code>
-						</pre>
-
-						<p>I have a hidden table within this page. It will populate the tags according to the number of rows.</p>
-
-						<h4>Step 3: Use <code>Object.entries</code> to get the key-pair values:</h4>
-						<pre>
-							<code>
-data.forEach(function(weatherReport) {
-   console.log(weatherReport);
-   var row = tbody.append("tr");
-
-   Object.entries(weatherReport).forEach(function([key, value]) {
-     console.log(key, value);
-   });
- });
-							</code>
-						</pre>
-
-						<h4>Step 4: Use d3 to append 1 cell per value</h4>
-
-						<p>Your notes have a slight mistake.</p>
+						<p>If the compare function returns a positive number for a pair of numbers, it will put them in the input order in the final array: [a, b]</p>
 
 						<pre>
 							<code>
-data.forEach(function(weatherReport) {
-   console.log(weatherReport);
-   var row = tbody.append("tr");
+// Sorts descending
+[3, 2, -120].sort(function compareFunction(firstNum, secondNum) {
+   // resulting order is (3, 2, -120)
+  return secondNum - firstNum;
 
-   Object.entries(weatherReport).forEach(function([key, value]) {
-     console.log(key, value);
-     // Append a cell to the row for each value
-     // in the weather report object
-     var cell = row.append("td");
-   });
- });
-							</code>
-						</pre>
-
-						<h4>Step 5: Use d3 to append 1 cell per value</h4>
-
-						<pre>
-							<code>
- data.forEach(function(weatherReport) {
-   console.log(weatherReport);
-   var row = tbody.append("tr");
-   Object.entries(weatherReport).forEach(function([key, value]) {
-     console.log(key, value);
-     // Append a cell to the row for each value
-     // in the weather report object
-     var cell = row.append("td");
-     cell.text(value);
-   });
- });
-							</code>
-						</pre>
-
-						<h4>What about the column headers? (Not in your notes)</h4>
-
-						<p>Remember, most of the tables have structured column headers. So, select one of the rows, grab its keys using <code>Object.keys</code>.</p>
-
-						<pre>
-							<code>
-var thead = d3.select("thead");
-
-var column_headers = Object.keys(data[0]);
-
-var row = thead.append("tr");
-
-column_headers.forEach(header => {
-	var cell = row.append("th"); // following Bootstraps convention
-	cell.text(header);
+  // 3 - firstNum, 2 - secondNum, first run: 2 - 3 < 0, since it gives a negative, [3] is the first element and [2] is placed AFTER [3], which gives [3,2]
+  // 2 - firstNum, -120 - secondNum, second run: (-120) - 2 < 0, since it gives a negative, [2] is the first element and [-120] is placed AFTER [2], which gives [2,-120]
+  // result = [3,2,-120]
 });
 
-							</code>
-						</pre>
 
+// Sorts ascending
+[3, 2, -120].sort(function compareFunction(firstNum, secondNum) {
+  // resulting order is (-120, 2, 3)
+  return firstNum - secondNum;
 
-						<table class="table">
-							<thead id="thead">
-								
-							</thead>
-							<tbody id="tbody">
-								
-							</tbody>
-						</table>
-					</div>
-
-					<div id="04-Ins_Event_Listeners" class="instructor-block">
-						<h3>04-Ins_Event_Listeners</h3>
-
-						<p>Javascript has something called "event listeners". Event listeners allow interactions between the user and the page via:</p>
-						<ul>
-							<li>click</li>
-							<li>change</li>
-							<li>keydown</li>
-							<li>keyup</li>
-							<li>scroll</li>
-							<li>pointerenter</li>
-							<li>pointerleave</li>
-							<li>Too many to count! Check out <a href="https://developer.mozilla.org/en-US/docs/Web/Events">web events</a>.</li>
-						</ul>
-
-						<h4>Events have:</h4>
-						<ul>
-							<li>A target: the element or the reference of the object</li>
-							<li>A handler: a function which should be executed.</li>
-						</ul>
-
-						<p>Example:</p>
-						<button type="button" class="btn btn-primary" onclick='colorChange(".instructor-block h3");'>Headers will rotate in colors!</button>
-						<button type="button" id="link-change" class="color-change btn btn-primary">Links will rotate in colors!</button>
-
-						<div class="row">
-							<div class="input-group input-group-lg">
-								<input id="test-change" type="text" class="form-control" placeholder='Instead of "click", we can use "change".' aria-label="something" aria-describedby="basic-addon1">
-							</div>
-						</div>
-
-						<div class="row">
-							<div class="input-group input-group-lg">
-								<input id="test-keydown" type="text" class="form-control" placeholder='Instead of "change", we can use "keydown".' aria-label="something" aria-describedby="basic-addon1">
-							</div>
-						</div>
-					</div>
-
-					<div id="05-Stu_onChange" class="student-block">
-						<h3>05-Stu_onChange: Your Turn</h3>
-					</div>
-					<div id="06-Stu_Button_Click" class="student-block">
-						<h3>06-Stu_Button_Click: Your Turn</h3>
-					</div>
-
-					<div id="07-Ins_This" class="instructor-block">
-						<h3>07-Ins_This</h3>
-
-						<p>Consider this code here:</p>
-						<pre>
-							<code>
-d3.selectAll("button").on("click", function() {
-  // What will be logged out? What is `this` in this case?
-  console.log(this);
-  // Answer: It will console log the `button` element.
+  // 3 - firstNum, 2 - secondNum, first run: 3 - 2 > 0, since it gives a positive, [3] is the first element and [2] is placed BEFORE [3], which give [2,3]
+  // 2 - firstNum, -120 - secondNum, second run: 2 - (-120) > 0, since it gives a positive, [2] is the first element, and [-120] is placed BEFORE [2], which give [-120, 2]
+  // result: [-120, 2, 3]
 });
 
+// Arrow Function
+[3, 2, -120].sort((first, second) => first - second);
+
+
 							</code>
 						</pre>
 
-						<p><code>this</code> is a unique keyword, which exist in many programming languages. If you run code in an object, and you reference <code>this</code>, <code>this</code> <strong>refers to the object which it is in.</strong></p>
+						<h4>Honestly, just remember the syntax above and forget about understanding the whole thing raw. Reverse the firstNum and secondNum to get your ascending or descending.</h4>
 
-						<p><code>this</code> is something that you don't need to excel in, because it borders into computer science. However, for Javascript, we use <code>this</code> to reference functions and objects.</p>
+						<p>Also, sorting is in place. <strong>This means the original array is being changed</strong>. Create a copy first before doing a sort.</p>
+
+						<h4>Actually, get your MongoDB or MySQL to sort for you when you pull your data. Saves time and effort.</h4>
 
 					</div>
 
-					<div id="08-Ins_Forms" class="instructor-block">
-						<h3>08-Ins_Forms</h3>
+					<div id="07-Stu_HBar" class="student-block">
+						<h3>07-Stu_HBar: Your Turn</h3>
 
-						<p>Forms are used to capture information, or part of your data collection process in some cases:</p>
-
-						<form>
-						  <div class="form-group">
-						    <label for="exampleInputEmail1">Email address</label>
-						    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-						    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-						  </div>
-						  <button id="submit" type="submit" class="btn btn-primary">Submit</button>
-						</form>
-
-						<div class="row">
-							<div class="col-md-12">
-								<p><strong>Submit</strong> is a convention that most developers use. You can use Javascript to send the information from forms and parse it into data.</p>
-							</div>
-						</div>
-
-						<p><strong>Extra information:</strong> HTML natively supports forms, and usually it sends data through a POST method. There are several ways of sending and obtaining data via forms, but POST forces the HTML to reload the page, or to redirect to another page natively.</p>
-
-						<p>That is why if we want to capture and send data through Javascript, we have to <strong>overwrite</strong> HTML's native behaviour with this code, if we use <code>d3</code> as our JS library: <code>d3.event.preventDefault();</code></p>
-
-						<p>This breaks the default behavior for HTML elements which is innately built.</p>
 					</div>
+
+					<div id="08-Stu_Scatter" class="student-block">
+						<h3>08-Stu_Scatter: Your Turn</h3>
+
+					</div>
+
+
 				</div> <!-- end #main-content -->
 
 
@@ -442,14 +388,14 @@ d3.selectAll("button").on("click", function() {
 					<div id="right-sb-nav" class="list-group" id="toc" role="tablist">
 					  <a class="list-group-item list-group-item-action active"  href="#objectives" role="tab">Objectives</a>
 					  <a class="list-group-item list-group-item-action"  href="#why-we-learn" role="tab">Why We Learn</a>
-					  <a class="list-group-item list-group-item-action"  href="#01-Evr_D3_Select" role="tab">01-Evr_D3_Select</a>
-					  <a class="list-group-item list-group-item-action"  href="#02-Stu_D3_Select" role="tab">02-Stu_D3_Select</a>
-					  <a class="list-group-item list-group-item-action"  href="#03-Evr_D3_Table" role="tab">03-Evr_D3_Table</a>
-					  <a class="list-group-item list-group-item-action"  href="#04-Ins_Event_Listeners" role="tab">04-Ins_Event_Listeners</a>
-					  <a class="list-group-item list-group-item-action"  href="#05-Stu_onChange" role="tab">05-Stu_onChange</a>
-					  <a class="list-group-item list-group-item-action"  href="#06-Stu_Button_Click" role="tab">06-Stu_Button_Click</a>
-					  <a class="list-group-item list-group-item-action"  href="#07-Ins_This" role="tab">07-Ins_This</a>
-					  <a class="list-group-item list-group-item-action"  href="#08-Ins_Forms" role="tab">08-Ins_Forms</a>
+					  <a class="list-group-item list-group-item-action"  href="#01-Evr_ES6" role="tab">01-Evr_ES6</a>
+					  <a class="list-group-item list-group-item-action"  href="#02-Ins_Basic_Plots" role="tab">02-Ins_Basic_Plots</a>
+					  <a class="list-group-item list-group-item-action"  href="#03-Stu_First_Chart" role="tab">03-Stu_First_Chart</a>
+					  <a class="list-group-item list-group-item-action"  href="#04-Ins_Multi_Trace" role="tab">04-Ins_Multi_Trace</a>
+					  <a class="list-group-item list-group-item-action"  href="#05-Stu_Multi_Trace" role="tab">05-Stu_Multi_Trace</a>
+					  <a class="list-group-item list-group-item-action"  href="#06-Ins_Sort_Slice" role="tab">06-Ins_Sort_Slice</a>
+					  <a class="list-group-item list-group-item-action"  href="#07-Stu_HBar" role="tab">07-Stu_HBar</a>
+					  <a class="list-group-item list-group-item-action"  href="#08-Stu_Scatter" role="tab">08-Stu_Scatter</a>
 					</div>
 				
 				</div>
@@ -462,60 +408,104 @@ d3.selectAll("button").on("click", function() {
 			<script type="text/javascript" src="js/bootstrap.min.js"></script>
 
 			<script type="text/javascript">
-				var color = ['red','orange','yellow','green','blue','indigo','violet'];
 
-				function colorChange(element){
-					var random = Math.floor(Math.random() * color.length);
+var trace1 = {
+  x: ["beer", "wine", "martini", "margarita",
+    "ice tea", "rum & coke", "mai tai", "gin & tonic"],
+  y: [22.7, 17.1, 9.9, 8.7, 7.2, 6.1, 6.0, 4.6],
+  type: "bar"
+};
 
-					d3.selectAll(element).style("color", color[random]);
+var data = [trace1];
 
-					//console.log(element);
+var layout = {
+  title: "'Bar' Chart"
+};
 
-					setInterval(() => {
-						// ".instructor-block h3"
-						random = Math.floor(Math.random() * color.length);
-						console.log(random, color[random], element);
-						d3.selectAll(element).style("color", color[random]);
-					},1000);
-				}
+Plotly.newPlot("02-plot-part-1", data, layout);
 
-				var button = d3.select("#link-change");
+// // Part 2 - Adding attributes
+var trace1 = {
+   x: ["beer", "wine", "martini", "margarita",
+       "ice tea", "rum & coke", "mai tai", "gin & tonic"],
+   y: [22.7, 17.1, 9.9, 8.7, 7.2, 6.1, 6.0, 4.6],
+   type: "bar"
+ };
 
-				button.on("click", function(){
-					console.log("A button was clicked!");
-					colorChange("a.list-group-item.list-group-item-action");
-					console.log("d3.event.target:")
-					console.log(d3.event.target);
-				});
+ var data = [trace1];
+ var layout = {
+   title: "'Bar' Chart",
 
-				var inputFieldChange = d3.select("#test-change");
+   xaxis: { title: "Drinks"},
+   yaxis: { title: "% of Drinks Ordered"}
+ };
 
-				inputFieldChange.on("change", () => {
-					var newText = d3.event.target.value;
-					console.log(newText);
-				});
+ Plotly.newPlot("02-plot-part-2", data, layout);
 
-				var inputFieldKeydown = d3.select("#test-keydown");
+ // // Part 3 - Line Chart
+ var trace1 = {
+   x: ["beer", "wine", "martini", "margarita",
+       "ice tea", "rum & coke", "mai tai", "gin & tonic"],
+   y: [22.7, 17.1, 9.9, 8.7, 7.2, 6.1, 6.0, 4.6],
+   type: "line"
+ };
 
-				inputFieldKeydown.on("keydown", () => {
-					var newText = d3.event.target.value;
-					console.log(newText);
-				});
+ var data = [trace1];
 
-				var submit = d3.select("#submit");
+ var layout = {
+   title: "'Line' Chart",
+ };
 
-				submit.on("click",function(){
-					d3.event.preventDefault();
+ Plotly.newPlot("02-plot-part-3", data, layout);
 
-					// Select the input element and get the raw HTML node
-				  var inputElement = d3.select("#exampleInputEmail1");
+ // // Part 4 - Broken Pie Chart
+ var trace1 = {
+   x: ["beer", "wine", "martini", "margarita",
+       "ice tea", "rum & coke", "mai tai", "gin & tonic"],
+   y: [22.7, 17.1, 9.9, 8.7, 7.2, 6.1, 6.0, 4.6],
+   type: "pie"
+ };
 
-				  // Get the value property of the input element
-				  var inputValue = inputElement.property("value");
+ var data = [trace1];
 
-				  console.log(inputValue);
+ var layout = {
+   title: "'Bar' Chart",
+ };
 
-				});
+ Plotly.newPlot("02-plot-part-4", data, layout);
+
+// 04-plot-part
+
+ function randomNumbersBetween0and9(n) {
+  var randomNumberArray = [];
+  for (var i = 0; i < n; i++) {
+    randomNumberArray.push(Math.floor(Math.random() * 10));
+  }
+  return randomNumberArray;
+}
+
+// Create our first trace
+var trace1 = {
+  x: [1, 2, 3, 4, 5],
+  y: randomNumbersBetween0and9(5),
+  type: "scatter"
+};
+
+// Create our second trace
+var trace2 = {
+  x: [1, 2, 3, 4, 5],
+  y: randomNumbersBetween0and9(5),
+  type: "scatter"
+};
+
+// The data array consists of both traces
+var data = [trace1, trace2];
+
+// Note that we omitted the layout object this time
+// This will use default parameters for the layout
+Plotly.newPlot("04-plot-part", data);
+
+
 			</script>
 
 		</footer>
