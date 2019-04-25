@@ -53,6 +53,9 @@
 					<li class="nav-item">
 						<a class="nav-link" href="MIACOR201901DATA3/14.3/index.html">14.3 Ref</a>
 					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="MIACOR201901DATA3/15.1/index.html">15.1 Ref</a>
+					</li>
 				</ul>
 			</div>
 		</nav>
@@ -60,13 +63,12 @@
 			<div class="row">
 				<div id="main-content" class="col-md-8">
 					<div class="objective-block">
-						<h3 id="objectives">Objectives For Lesson 15.1</h3>
+						<h3 id="objectives">Objectives For Lesson 15.2</h3>
 
 						<ul>
 							<li>Javascript!</li>
 							<ul>
-								<li>We'll explore the D3 library today.</li>
-								<li>We're only focused on FRONT-END development.</li>
+								<li>We'll explore the Plotly library today.</li>
 							</ul>
 						</ul>
 
@@ -84,302 +86,670 @@
 
 						<p>The power to manipulate the tags or DOM elements <strong>without reloading the page</strong> is the reason why we can put awesome visualizations on the web.</p>
 
-						<p>This is for Data Visulization Engineers, which is a very specialized field.</p>
+						<p>This is for Data Visualization Engineers, which is a very specialized field.</p>
 
 					</div>
 
-					<div id="01-Evr_ES6" class="instructor-block">
-						<h3>01-Evr_ES6</h3>
+					<div id="01-Ins_Dropdown_Events" class="instructor-block">
+						<h3>01-Ins_Dropdown_Events</h3>
+
+						<p>We are going to take some time to rehash some principles before moving forward.</p>
 						
-						<p>You've been coding with <code>var</code> for very long. It is time to convert <code>var</code> to <code>let</code> or <code>const</code>.</p>
+						<p>Last lesson, we created basic graphs.</p>
 
-						<h4>Why?</h4>
+						<p>This lesson, we're going to add additional interactivity to the graphs. One of the ways we do that is using <code>select</code> tags.</p>
 
-						<p>Javascript was meant to be simple for browsers, but over the years, complexity crept it and Javascript was forced to evolve to suit today's needs. In <strong>1995</strong>, <code>var</code> was consistently used. But today, we must use only <code>let</code> or <code>const</code>.</p>
+						<div id="HTML-Select">
+							<div class="row">
+								<div class="col-md-12">
+									<h4>Let's talk about the <code>select</code> tag.</h4>
+								</div>
+								<div class="col-md-6">
+								<h6>Raw HTML Version</h6>
+								 <select id="selDataset" onchange="printData(this.value)">
+								    <option value="dataset1">DataSet1</option>
+								    <option value="dataset2">DataSet2</option>
+								    <option value="dataset3">DataSet3</option>
+								  </select>
+								</div>
+								<div class="col-md-6">
+									<h6><a href="https://getbootstrap.com/docs/4.0/components/forms/">Bootstrap Version</a></h6>
 
-						<p>Consider the code here:</p>
-						<pre>
-							<code>
-function logger() {
-// returns "undefined", but code still runs.
-  console.log(x);
-  var x = "hi";
+									<select class="form-control" id="exampleFormControlSelect1" onchange="printData(this.value)">
+								      <option>1</option>
+								      <option>2</option>
+								      <option>3</option>
+								      <option>4</option>
+								      <option>5</option>
+								    </select>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-md-12">
+									<h4>What does this mean?</h4>
+
+									<p>The <code>select</code> tag is inbuilt within <strong>HTML</strong>, not <strong>Javascript</strong>. This is important to note so that you don't build things from scratch when it is freely given to you.</p>
+
+									<p>You'll notice within my HTML, there is this portion on the HTML tag: <code>onchange="printData(this.value)"</code></p>
+
+									<p>The first time I introduced this is in <strong>Lesson 14.3</strong>. It was not part of the curriculum, but I thought it was important for you to note that HTML can contain Javascript functions and it can be invoked when triggered.</p>
+
+									<p>This is the function:</p>
+									<pre>
+										<code>
+			function printData(value){
+				console.log(value);
+			}
+										</code>
+									</pre>
+
+									<p>So within the function, you can:</p>
+									<ul>
+										<li>Collect data value which was selected</li>
+										<li>Do something to that value.</li>
+									</ul>
+								</div>
+							</div> <!-- end .row -->
+						</div> <!-- end #HTML-Select -->
+
+						<div id="raw-DOM-element">
+							<p>You'll see in your notes a piece of code like this: <code>var LINE = document.getElementById("plot");</code></p>
+
+							<p>And you're wondering, <strong>WHAT ON EARTH IS THAT?</strong></p>
+
+							<h4>This is DOM element manipulation.</h4>
+
+							<p>You've been using the D3 library to select stuff, like: <code>d3.select("#HTML-Select");</code></p>
+
+							<p>The above is equivalent to <code>document.getElementById("HTML-Select");</code> This means, your browser has the ability to parse the HTML tags natively without any Javascript libraries!</p>
+
+							<p>The differences are:</p>
+
+							<ul>
+								<li><code>document</code> methods are more clunky. To get IDs, you have to use <code>document.getElementById</code>. To get classes, you have to use <code>document.getElementsClassName</code>, but <code>d3.select</code> helps us to differentiate IDs and classes with CSS conventions, such as <code>d3.select("#HTML-Select");</code> for IDS, and <code>d3.select(".instructor-block");</code></li>
+								<li>To reference an element within an element with raw DOM elements, you would have to keep chaining the <code>document</code> variable.</li>
+								<ul>
+									<li><code>document.getElementById("HTML-Select").getElementsByClassName("row");</code> will give you the values from the class name <code>row</code> <strong>within</strong> the ID <code>HTML-Select</code>.</li>
+								</ul>
+								<li>But to do the same above with d3, you would just need to do: <code>d3.select("#HTML-Select .row").html()</code></li>
+							</ul>
+
+							<h4>You're going to ask, why even learn raw DOM elements? Just use D3!</h4>
+
+							<p>But you must understand a corporation's perspective. D3 isn't created by your company. D3 is subject to change because it is created by others.</p>
+
+							<p>If a library ceases to function, or if it changes, you are going to be handicapped by the changes! Thus, understanding the original syntax helps you to mitigate this problem!</p>
+
+						</div><!-- end #raw-DOM-element -->
+
+						<div id="01-plot-graph">
+							<h4>Finally, let's plot graphs.</h4>
+
+							<p>You're given this code in the first activity:</p>
+							<pre>
+								<code>
+function init() {
+  data = [{
+    x: [1, 2, 3, 4, 5],
+    y: [1, 2, 4, 8, 16] }];
+  var LINE = document.getElementById("plot"); // in this HTML, I changed it to 01-plot so that I can put more plots in a single page.
+  console.log(LINE);
+  Plotly.plot(LINE, data);
 }
-logger();
 
-function logger2() {
-// ReferenceError: y is not defined. Code will stop execution.
-  console.log(y);
-  let y = "hello";
+function updatePlotly(newx, newy) {
+  var LINE = document.getElementById("plot"); // in this HTML, I changed it to 01-plot so that I can put more plots in a single page.
+
+  // Note the extra brackets around 'newx' and 'newy'
+  // This is because it is trying to set an array to it.
+  Plotly.restyle(LINE, "x", [newx]);
+  Plotly.restyle(LINE, "y", [newy]);
 }
-							</code>
-						</pre>
 
-						<p><code>var</code> is always global in scope. This means, within the code where it is run, <strong>the variables are accessible and exposed everywhere.</strong> <code>let</code> follows more conventional programming practices, where <strong>code within the block can only access the variable in which it was declared</strong>.</p>
+function getData(dataset) {
 
-						<p><code>var</code> allows the variable to be declared but not initialized, but <code>let</code> is declared and initialized at the same time.</p>
+  // Initialize empty arrays to contain our axes
+  var x = [];
+  var y = [];
 
-						<h4>From now on, use <code>let</code> instead of <code>var</code>.</h4>
+  // Fill the x and y arrays as a function of the selected dataset
+  // we prepare a new set of data here
 
-						<h4>What about <code>const</code>?</h4>
-
-						<p><code>const</code> is useful if you think that the variable should be immutable, or it should not be changed for anyone else. Things such as Pi, or standards should be defined with <code>const</code>.</p>
-
-						<p><strong>But</strong> if the variable is an <strong>object</strong> or <strong>array</strong>, it will not work as intended!</p>
-
-						<pre>
-							<code>
-								
-const myPets = ["dog", "cat", "rabbit", "some endangered species of sea turtle"];
-
-// myPets = "ferret"; //This will not work - stops execution
-
-// myPets = ["wolf", "giraffe", "parrot"]; //This will not work either
-
-// HOWEVER, we can still manipulate Objects and Arrays!
-console.log("before: ", myPets);
-myPets.pop();
-console.log("after: ", myPets);
-							</code>
-						</pre>
-
-					</div>
-
-					<div id="02-Ins_Basic_Plots" class="instructor-block">
-						<h3>02-Ins_Basic_Plots</h3>
-
-						<div id="02-plot-part-1"></div>
-
-						<h4>How to do the above?</h4>
-
-						<p>Copy and paste this code: <code>&lt;script src="https://cdn.plot.ly/plotly-latest.min.js">&lt;/script></code></p>
-
-						<p><strong>There's no science to this.</strong> Other developers created a library to use charts, so we just use it accordingly. As long as we follow the documentation given by the library, we should be fine!</p>
-
-						<pre>
-							<code>
-var trace1 = {
-  x: ["beer", "wine", "martini", "margarita",
-    "ice tea", "rum & coke", "mai tai", "gin & tonic"], // notice it's an array of items?
-  y: [22.7, 17.1, 9.9, 8.7, 7.2, 6.1, 6.0, 4.6],
-  type: "bar"
-};
-
-var data = [trace1];
-
-var layout = {
-  title: "'Bar' Chart"
-};
-
-Plotly.newPlot("02-plot-part-1", data, layout); // 02-plot is the div ID which I specified in my code!
-							</code>
-						</pre>
-
-						<h4>How add attributes to your graph?</h4>
-
-						<div id="02-plot-part-2"></div>
-
-						<pre>
-							<code>
-var trace1 = {
-   x: ["beer", "wine", "martini", "margarita",
-       "ice tea", "rum & coke", "mai tai", "gin & tonic"],
-   y: [22.7, 17.1, 9.9, 8.7, 7.2, 6.1, 6.0, 4.6],
-   type: "bar"
- };
-
- var data = [trace1];
- var layout = {
-   title: "'Bar' Chart",
-
-   xaxis: { title: "Drinks"},
-   yaxis: { title: "% of Drinks Ordered"}
- };
-
- Plotly.newPlot("02-plot-part-2", data, layout);
-							</code>
-						</pre>
-
-						
-						<h4>Let's make a line chart?</h4>
-
-						<div id="02-plot-part-3"></div>
-						<pre>
-							<code>
- var trace1 = {
-   x: ["beer", "wine", "martini", "margarita",
-       "ice tea", "rum & coke", "mai tai", "gin & tonic"],
-   y: [22.7, 17.1, 9.9, 8.7, 7.2, 6.1, 6.0, 4.6],
-   type: "line"
- };
-
- var data = [trace1];
-
- var layout = {
-   title: "'Line' Chart",
- };
-
- Plotly.newPlot("02-plot-part-3", data, layout);
-							</code>
-						</pre>
-
-
-						<h4>Broken Pie Chart?</h4>
-
-						<p>How do we fix this chart below? <em>Hint:</em> <a href="https://plot.ly/javascript/pie-charts/">https://plot.ly/javascript/pie-charts/</a></p>
-
-						<div id="02-plot-part-4"></div>
-						<pre>
-							<code>
- // // Part 4 - Broken Pie Chart
- var trace1 = {
-   x: ["beer", "wine", "martini", "margarita",
-       "ice tea", "rum & coke", "mai tai", "gin & tonic"],
-   y: [22.7, 17.1, 9.9, 8.7, 7.2, 6.1, 6.0, 4.6],
-   type: "pie"
- };
-
- var data = [trace1];
-
- var layout = {
-   title: "'Bar' Chart",
- };
-
- Plotly.newPlot("02-plot-part-4", data, layout);
-							</code>
-						</pre>
-
-
-					</div>
-
-
-					<div id="03-Stu_First_Chart" class="student-block">
-						<h3>03-Stu_First_Chart: Your Turn</h3>
-
-					</div>
-
-					<div id="04-Ins_Multi_Trace" class="instructor-block">
-						<h3>04-Ins_Multi_Trace</h3>
-
-						<p>We want to do multiple trace in a plot:</p>
-
-						<div id="04-plot-part"></div>
-
-						<pre>
-							<code>
-// 04-plot-part
-
- function randomNumbersBetween0and9(n) {
-  var randomNumberArray = [];
-  for (var i = 0; i < n; i++) {
-    randomNumberArray.push(Math.floor(Math.random() * 10));
+  switch (dataset) {
+  case "dataset1":
+    x = [1, 2, 3, 4, 5];
+    y = [0.1, 0.2, 0.3, 0.4, 0.5];
+    break;
+  case "dataset2":
+    x = [10, 20, 30, 40, 50];
+    y = [1, 10, 100, 1000, 10000];
+    break;
+  case "dataset3":
+    x = [100, 200, 300, 400, 500];
+    y = [10, 100, 50, 10, 0];
+    break;
+  default:
+    x = [1, 2, 3, 4, 5];
+    y = [1, 2, 3, 4, 5];
+    break;
   }
-  return randomNumberArray;
+
+  updatePlotly(x, y);
 }
 
-// Create our first trace
-var trace1 = {
-  x: [1, 2, 3, 4, 5],
-  y: randomNumbersBetween0and9(5),
-  type: "scatter"
-};
+init();
+								</code>
+							</pre>
 
-// Create our second trace
-var trace2 = {
-  x: [1, 2, 3, 4, 5],
-  y: randomNumbersBetween0and9(5),
-  type: "scatter"
-};
+							<p>The plot generates here:</p>
+							<div id="01-plot"></div>
 
-// The data array consists of both traces
-var data = [trace1, trace2];
+							<p>And this is our <code>select</code> dropdown:</p>
 
-// Note that we omitted the layout object this time
-// This will use default parameters for the layout
-Plotly.newPlot("04-plot-part", data);
-							</code>
-						</pre>
+							<select id="selDataset" onchange="getData(this.value)">
+							    <option value="dataset1">DataSet1</option>
+							    <option value="dataset2">DataSet2</option>
+							    <option value="dataset3">DataSet3</option>
+							  </select>
 
+							<p>Looking at the code, what gets invoked first?</p>
+						</div>
+
+					</div> 
+
+					<div id="02-Stu_Dropdown_Events" class="student-block">
+						<h3>02-Stu_Dropdown_Events: Your Turn</h3>
 					</div>
 
-					<div id="06-Ins_Sort_Slice" class="instructor-block">
-						<h3>06-Ins_Sort_Slice</h3>
+					<div id="03-Ins_D3_JSON" class="instructor-block">
+						<h3>03-Ins_D3_JSON</h3>
 
-						<p>So you've grabbed a bunch of data from your MongoDB and/or your MySQL. Your data which you received in Javascript seems messy. What happens?</p>
-
-						<h4>Slicing: Getting part of the data</h4>
-						<pre>
-							<code>
-// Array of names
-const names = ["Jane", "John", "Jimbo", "Jedediah"];
-
-// Slices first two names
-const left = names.slice(0, 2);
-console.log(left);
-
-// Slices last two names and return
-const right = names.slice(2, 4);
-console.log(right);
-
-							</code>
-						</pre>
-
-						<h4>Sorting: Organization</h4>
-
-						<p>Sorting is like filters. It goes through the elements one by one.</p>
-
-						<p>If the compare function returns a negative number for a pair of numbers, it will put them in the reverse order in the final array: [b, a]</p>
-
-						<p>If the compare function returns a positive number for a pair of numbers, it will put them in the input order in the final array: [a, b]</p>
+						<p>You're given this code:</p>
 
 						<pre>
 							<code>
-// Sorts descending
-[3, 2, -120].sort(function compareFunction(firstNum, secondNum) {
-   // resulting order is (3, 2, -120)
-  return secondNum - firstNum;
+const url = "https://api.spacexdata.com/v2/launchpads";
 
-  // 3 - firstNum, 2 - secondNum, first run: 2 - 3 < 0, since it gives a negative, [3] is the first element and [2] is placed AFTER [3], which gives [3,2]
-  // 2 - firstNum, -120 - secondNum, second run: (-120) - 2 < 0, since it gives a negative, [2] is the first element and [-120] is placed AFTER [2], which gives [2,-120]
-  // result = [3,2,-120]
+// Fetch the JSON data and console log it
+d3.json(url).then(function(data) {
+  console.log(data);
 });
 
+// Promise Pending
+const dataPromise = d3.json(url);
+console.log("Data Promise: ", dataPromise);
+							</code>
+						</pre>
 
-// Sorts ascending
-[3, 2, -120].sort(function compareFunction(firstNum, secondNum) {
-  // resulting order is (-120, 2, 3)
-  return firstNum - secondNum;
+						<p>D3 allows you to retrieve data from API urls and parse it into variables automatically for you!</p>
 
-  // 3 - firstNum, 2 - secondNum, first run: 3 - 2 > 0, since it gives a positive, [3] is the first element and [2] is placed BEFORE [3], which give [2,3]
-  // 2 - firstNum, -120 - secondNum, second run: 2 - (-120) > 0, since it gives a positive, [2] is the first element, and [-120] is placed BEFORE [2], which give [-120, 2]
-  // result: [-120, 2, 3]
-});
+						<p>Then, we decide to confuse you with the <strong>Promise</strong> concept in Javascript, which is found here:</p>
 
-// Arrow Function
-[3, 2, -120].sort((first, second) => first - second);
+						<pre>
+							<code>
+// Promise Pending
+const dataPromise = d3.json(url);
+console.log("Data Promise: ", dataPromise);	
+							</code>
+						</pre>
 
+						<p>So, let me explain the idea of <strong>Promises</strong>.</p>
+
+						<p>In English, we promise something, but we are only giving the assurance that we will do it. <strong>WE HAVE NOT DELIVERED YET.</strong> <em>And thus, the make or break of many marriages. (joking).</em></p>
+
+						<p>In Javascript, there are many components within a page which calls different APIs and data. <strong>You may request data from an API, but that doesn't mean the data will deliver!</strong></p>
+
+						<p><em>Side note: this behavior is called asynchronous. Synchronous is what you're used to, when code will break if a certain portion has errors. Async code WILL NOT BREAK and continue with the errors <strong>because different portions of code are independant of each other</strong>.</em></p>
+
+						<p>So some guy named this concept as <strong>Promise</strong>, and say if the data DOES DELIVER, we receive the data within a <strong>callback function</strong>. If the data DOES NOT DELIVER, we trigger an error <strong>within the same callback function</strong>.</p>
+
+						<p>There is a <strong>Promise</strong> object within the browser. <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">It has three states:</a></p>
+						<ul>
+							<li>Pending <em>(The start of marriages)</em></li>
+							<li>Fulfilled <em>(Disneyland kind of marriages)</em></li>
+							<li>Rejected <em>(You realized you're not in Disneyland.)</em></li>
+						</ul>
+
+						<h4>BUT, let's not go there yet. Unless you want to stay here till midnight.</h4>
+
+						<pre>
+							<code>
+// Promise Pending
+const dataPromise = d3.json(url);
+console.log("Data Promise: ", dataPromise);	
+							</code>
+						</pre>
+
+						<p>The promise here holds the response which is either one of the 3 states above, and/or the data if available.</p>
+					</div>
+
+					<div id="04-Stu_Stocks" class="student-block">
+						<h3>04-Stu_Stocks: Your Turn</h3>
+
+						<p>When you try to do the activity, you will meet errors. That's because you have to <strong>SIGN UP</strong> for your own API key in <a href="https://www.quandl.com/">Quandl.com</a> to fetch stock data.</p>
+
+						<pre>
+							<code>
+var apiKey = "your_api_key"; // Register with the link above
+
+var url =
+  `https://www.quandl.com/api/v3/datasets/WIKI/AMZN.json?start_date=2016-10-01&end_date=2017-10-01&api_key=${apiKey}`;
+
+/**
+ * Helper function to select stock data
+ * Returns an array of values
+ * @param {array} rows
+ * @param {integer} index
+ * index 0 - Date
+ * index 1 - Open
+ * index 2 - High
+ * index 3 - Low
+ * index 4 - Volume
+ */
+function unpack(rows, index) {
+	// You have to see what is the data to understand how this works
+  return rows.map(function(row) {
+    return row[index];
+  });
+}
+
+function buildPlot() {
+  d3.json(url).then(function(data) {
+
+    // DO IT YOURSELF. SOME HELPING CODE TO GET STARTED
+
+    var layout = {
+      title: `${stock} closing prices`,
+      xaxis: {
+        range: [startDate, endDate],
+        type: "date"
+      },
+      yaxis: {
+        autorange: true,
+        type: "linear"
+      }
+    };
+
+    Plotly.newPlot("plot", data, layout); // Rename it to the relevant HTML
+
+  });
+}
+
+buildPlot();
+							</code>
+						</pre>
+
+						<p>It plots here:</p>
+
+						<div id="04-plot"></div>
+
+						<p>The goal is:</p>
+						<ul>
+							<li>Break it apart to see what is the data.</li>
+							<li>Organize your data</li>
+							<li>Do your layout</li>
+							<li>Plot the graph</li>
+						</ul>
+
+					</div>
+
+					<div id="05-Stu_Stocks_Dynamic" class="student-block">
+						<h3>05-Stu_Stocks_Dynamic: Your Turn</h3>
+
+						<p>It's the same as the above graph, except that you must allow the user to input the stock name. <strong>You're going to code only the portion where a user inputs a value.</strong></p>
+
+						<p>From this to the end of all student activities, <strong>you're building it incrementally</strong> and not from scatch.</p>
+
+						<p>Example Stock Names:</p>
+						<ul>
+							<li>AMD</li>
+							<li>FB</li>
+							<li>TSLA</li>
+						</ul>
+
+						<pre>
+							<code>
+/**
+ * Helper function to select stock data
+ * Returns an array of values
+ * @param {array} rows
+ * @param {integer} index
+ * index 0 - Date
+ * index 1 - Open
+ * index 2 - High
+ * index 3 - Low
+ * index 4 - Volume
+ */
+function unpack(rows, index) {
+  return rows.map(function(row) {
+    return row[index];
+  });
+}
+
+// Submit Button handler
+function handleSubmit() {
+  // Prevent the page from refreshing
+  d3.event.preventDefault();
+
+  // Select the input value from the form
+
+  // clear the input value
+
+  // Build the plot with the new stock
+  buildPlot(stock);
+}
+
+function buildPlot(stock) {
+  var apiKey = "your_api_key";
+
+  var url = `https://www.quandl.com/api/v3/datasets/WIKI/${stock}.json?start_date=2016-10-01&end_date=2017-10-01&api_key=${apiKey}`;
+
+  d3.json(url).then(function(data) {
+
+    // Grab values from the response json object to build the plots
+    var name = data.dataset.name;
+    var stock = data.dataset.dataset_code;
+    var startDate = data.dataset.start_date;
+    var endDate = data.dataset.end_date;
+    var dates = unpack(data.dataset.data, 0);
+    var closingPrices = unpack(data.dataset.data, 1);
+
+    var trace1 = {
+      type: "scatter",
+      mode: "lines",
+      name: name,
+      x: dates,
+      y: closingPrices,
+      line: {
+        color: "#17BECF"
+      }
+    };
+
+    var data = [trace1];
+
+    var layout = {
+      title: `${stock} closing prices`,
+      xaxis: {
+        range: [startDate, endDate],
+        type: "date"
+      },
+      yaxis: {
+        autorange: true,
+        type: "linear"
+      }
+    };
+
+    Plotly.newPlot("plot", data, layout);
+
+  });
+}
+
+// Add event listener for submit button
+d3.select("#submit").on("click", handleSubmit);
 
 							</code>
 						</pre>
 
-						<h4>Honestly, just remember the syntax above and forget about understanding the whole thing raw. Reverse the firstNum and secondNum to get your ascending or descending.</h4>
+						<p>It plots here if you put an input:</p>
 
-						<p>Also, sorting is in place. <strong>This means the original array is being changed</strong>. Create a copy first before doing a sort.</p>
+						<form class="form-inline">
+						    <div class="form-group">
+						      <input type="text" class="form-control stockInput" id="stockInput" placeholder="Enter a stock">
+						    </div>
+						    <button id="submit" type="submit" class="btn btn-default submit">Plot Stock</button>
+						  </form>
 
-						<h4>Actually, get your MongoDB or MySQL to sort for you when you pull your data. Saves time and effort.</h4>
-
+						  <div class="row">
+						  	<div class="col-md-12">
+								<div id="05-plot"></div>
+							</div>
+						</div>
 					</div>
 
-					<div id="07-Stu_HBar" class="student-block">
-						<h3>07-Stu_HBar: Your Turn</h3>
+					<div id="06-Stu_Stocks_CandleStick" class="student-block">
+						<h3>06-Stu_Stocks_CandleStick: Your Turn</h3>
+						<pre>
+							<code>
+/**
+ * Helper function to select stock data
+ * Returns an array of values
+ * @param {array} rows
+ * @param {integer} index
+ * index 0 - Date
+ * index 1 - Open
+ * index 2 - High
+ * index 3 - Low
+ * index 4 - Close
+ * index 5 - Volume
+ */
+function unpack(rows, index) {
+  return rows.map(function(row) {
+    return row[index];
+  });
+}
 
+// Submit Button handler
+function handleSubmit() {
+  // Prevent the page from refreshing
+  d3.event.preventDefault();
+
+  // Select the input value from the form
+  var stock = d3.select("#stockInput").node().value;
+  console.log(stock);
+
+  // clear the input value
+  d3.select("#stockInput").node().value = "";
+
+  // Build the plot with the new stock
+  buildPlot(stock);
+}
+
+function buildPlot(stock) {
+  var apiKey = "your_api_key";
+
+  var url = `https://www.quandl.com/api/v3/datasets/WIKI/${stock}.json?start_date=2016-10-01&end_date=2017-10-01&api_key=${apiKey}`;
+
+  d3.json(url).then(function(data) {
+
+    // Grab values from the response json object to build the plots
+    var name = data.dataset.name;
+    var stock = data.dataset.dataset_code;
+    var startDate = data.dataset.start_date;
+    var endDate = data.dataset.end_date;
+    var dates = unpack(data.dataset.data, 0);
+
+	// @TODO: Unpack the open, close, high, and low prices
+
+    var trace1 = {
+      type: "scatter",
+      mode: "lines",
+      name: name,
+      x: dates,
+      y: closingPrices,
+      line: {
+        color: "#17BECF"
+      }
+    };
+
+    // Candlestick Trace
+    var trace2 = {
+      type: "candlestick",
+      x: dates,
+      high: highPrices,
+      low: lowPrices,
+      open: openingPrices,
+      close: closingPrices
+    };
+
+    var data = [trace1, trace2];
+
+    var layout = {
+      title: `${stock} closing prices`,
+      xaxis: {
+        range: [startDate, endDate],
+        type: "date"
+      },
+      yaxis: {
+        autorange: true,
+        type: "linear"
+      }
+    };
+
+    Plotly.newPlot("plot", data, layout);
+  });
+}
+
+// Add event listener for submit button
+d3.select("#submit").on("click", handleSubmit);				
+							</code>
+						</pre>
+						<p>It plots here if you put an input:</p>
+
+						  <div class="row">
+						  	<div class="col-md-12">
+								<div id="06-plot"></div>
+							</div>
+						</div>
 					</div>
 
-					<div id="08-Stu_Scatter" class="student-block">
-						<h3>08-Stu_Scatter: Your Turn</h3>
+					<div id="07-Stu_Stocks_Rolling_Avg" class="student-block">
+						<h3>07-Stu_Stocks_Rolling_Avg: Your Turn</h3>
+						<pre>
+							<code>
+/**
+ * Helper function to select stock data
+ * Returns an array of values
+ * @param {array} rows
+ * @param {integer} index
+ * index 0 - Date
+ * index 1 - Open
+ * index 2 - High
+ * index 3 - Low
+ * index 4 - Close
+ * index 5 - Volume
+ */
+function unpack(rows, index) {
+  return rows.map(function(row) {
+    return row[index];
+  });
+}
 
+// Calculate a rolling average for an array
+function rollingAverage(arr, windowPeriod = 10) {
+  // rolling averages array to return
+  var averages = [];
+
+ // @TODO: YOUR CODE HERE
+
+
+  return averages;
+}
+
+// Submit Button handler
+function handleSubmit() {
+  // Prevent the page from refreshing
+  d3.event.preventDefault();
+
+  // Select the input value from the form
+  var stock = d3.select("#stockInput").node().value;
+  console.log(stock);
+
+  // clear the input value
+  d3.select("#stockInput").node().value = "";
+
+  // Build the plot with the new stock
+  buildPlot(stock);
+}
+
+function buildPlot(stock) {
+  var apiKey = "ppvzoohSZsStRq8whQr9";
+
+  var url = `https://www.quandl.com/api/v3/datasets/WIKI/${stock}.json?start_date=2016-10-01&end_date=2017-10-01&api_key=${apiKey}`;
+
+  d3.json(url).then(function(data) {
+
+    // Grab values from the response json object to build the plots
+    var name = data.dataset.name;
+    var stock = data.dataset.dataset_code;
+    var startDate = data.dataset.start_date;
+    var endDate = data.dataset.end_date;
+    var dates = unpack(data.dataset.data, 0);
+    var openingPrices = unpack(data.dataset.data, 1);
+    var highPrices = unpack(data.dataset.data, 2);
+    var lowPrices = unpack(data.dataset.data, 3);
+    var closingPrices = unpack(data.dataset.data, 4);
+    var rollingPeriod = 30;
+    var rollingAvgClosing = rollingAverage(closingPrices, rollingPeriod);
+
+    var trace1 = {
+      type: "scatter",
+      mode: "lines",
+      name: name,
+      x: dates,
+      y: closingPrices,
+      line: {
+        color: "#17BECF"
+      }
+    };
+
+    // Candlestick Trace
+    var trace2 = {
+      type: "candlestick",
+      x: dates,
+      high: highPrices,
+      low: lowPrices,
+      open: openingPrices,
+      close: closingPrices
+    };
+
+    // Rolling Averages Trace
+    var trace3 = {
+      type: "scatter",
+      mode: "lines",
+      name: "Rolling",
+      x: dates.slice(0, dates.length - rollingPeriod),
+      y: rollingAvgClosing
+    };
+
+    var data = [trace1, trace2, trace3];
+
+    var layout = {
+      title: `${stock} closing prices`,
+      xaxis: {
+        range: [startDate, endDate],
+        type: "date"
+      },
+      yaxis: {
+        autorange: true,
+        type: "linear"
+      }
+    };
+
+    Plotly.newPlot("plot", data, layout);
+
+  });
+}
+
+// Add event listener for submit button
+d3.select("#submit").on("click", handleSubmit);
+							</code>
+						</pre>
+						<p>It plots here if you put an input:</p>
+
+						  <div class="row">
+						  	<div class="col-md-12">
+								<div id="07-plot"></div>
+							</div>
+						</div>
 					</div>
 
+					<div id="08-Stu_Stocks_Report" class="student-block">
+						<h3>08-Stu_Stocks_Report: Your Turn</h3>
+
+						<p>This is built upon everything you've learned before.</p>
+
+					</div>
 
 				</div> <!-- end #main-content -->
 
@@ -388,14 +758,14 @@ console.log(right);
 					<div id="right-sb-nav" class="list-group" id="toc" role="tablist">
 					  <a class="list-group-item list-group-item-action active"  href="#objectives" role="tab">Objectives</a>
 					  <a class="list-group-item list-group-item-action"  href="#why-we-learn" role="tab">Why We Learn</a>
-					  <a class="list-group-item list-group-item-action"  href="#01-Evr_ES6" role="tab">01-Evr_ES6</a>
-					  <a class="list-group-item list-group-item-action"  href="#02-Ins_Basic_Plots" role="tab">02-Ins_Basic_Plots</a>
-					  <a class="list-group-item list-group-item-action"  href="#03-Stu_First_Chart" role="tab">03-Stu_First_Chart</a>
-					  <a class="list-group-item list-group-item-action"  href="#04-Ins_Multi_Trace" role="tab">04-Ins_Multi_Trace</a>
-					  <a class="list-group-item list-group-item-action"  href="#05-Stu_Multi_Trace" role="tab">05-Stu_Multi_Trace</a>
-					  <a class="list-group-item list-group-item-action"  href="#06-Ins_Sort_Slice" role="tab">06-Ins_Sort_Slice</a>
-					  <a class="list-group-item list-group-item-action"  href="#07-Stu_HBar" role="tab">07-Stu_HBar</a>
-					  <a class="list-group-item list-group-item-action"  href="#08-Stu_Scatter" role="tab">08-Stu_Scatter</a>
+					  <a class="list-group-item list-group-item-action"  href="#01-Ins_Dropdown_Events" role="tab">01-Ins_Dropdown_Events</a>
+					  <a class="list-group-item list-group-item-action"  href="#02-Stu_Dropdown_Events" role="tab">02-Stu_Dropdown_Events</a>
+					  <a class="list-group-item list-group-item-action"  href="#03-Ins_D3_JSON" role="tab">03-Ins_D3_JSON</a>
+					  <a class="list-group-item list-group-item-action"  href="#04-Stu_Stocks" role="tab">04-Stu_Stocks</a>
+					  <a class="list-group-item list-group-item-action"  href="#05-Stu_Stocks_Dynamic" role="tab">05-Stu_Stocks_Dynamic</a>
+					  <a class="list-group-item list-group-item-action"  href="#06-Stu_Stocks_CandleStick" role="tab">06-Stu_Stocks_CandleStick</a>
+					  <a class="list-group-item list-group-item-action"  href="#07-Stu_Stocks_Rolling_Avg" role="tab">07-Stu_Stocks_Rolling_Avg</a>
+					  <a class="list-group-item list-group-item-action"  href="#08-Stu_Stocks_Report" role="tab">08-Stu_Stocks_Report</a>
 					</div>
 				
 				</div>
@@ -408,103 +778,352 @@ console.log(right);
 			<script type="text/javascript" src="js/bootstrap.min.js"></script>
 
 			<script type="text/javascript">
-
-var trace1 = {
-  x: ["beer", "wine", "martini", "margarita",
-    "ice tea", "rum & coke", "mai tai", "gin & tonic"],
-  y: [22.7, 17.1, 9.9, 8.7, 7.2, 6.1, 6.0, 4.6],
-  type: "bar"
-};
-
-var data = [trace1];
-
-var layout = {
-  title: "'Bar' Chart"
-};
-
-Plotly.newPlot("02-plot-part-1", data, layout);
-
-// // Part 2 - Adding attributes
-var trace1 = {
-   x: ["beer", "wine", "martini", "margarita",
-       "ice tea", "rum & coke", "mai tai", "gin & tonic"],
-   y: [22.7, 17.1, 9.9, 8.7, 7.2, 6.1, 6.0, 4.6],
-   type: "bar"
- };
-
- var data = [trace1];
- var layout = {
-   title: "'Bar' Chart",
-
-   xaxis: { title: "Drinks"},
-   yaxis: { title: "% of Drinks Ordered"}
- };
-
- Plotly.newPlot("02-plot-part-2", data, layout);
-
- // // Part 3 - Line Chart
- var trace1 = {
-   x: ["beer", "wine", "martini", "margarita",
-       "ice tea", "rum & coke", "mai tai", "gin & tonic"],
-   y: [22.7, 17.1, 9.9, 8.7, 7.2, 6.1, 6.0, 4.6],
-   type: "line"
- };
-
- var data = [trace1];
-
- var layout = {
-   title: "'Line' Chart",
- };
-
- Plotly.newPlot("02-plot-part-3", data, layout);
-
- // // Part 4 - Broken Pie Chart
- var trace1 = {
-   x: ["beer", "wine", "martini", "margarita",
-       "ice tea", "rum & coke", "mai tai", "gin & tonic"],
-   y: [22.7, 17.1, 9.9, 8.7, 7.2, 6.1, 6.0, 4.6],
-   type: "pie"
- };
-
- var data = [trace1];
-
- var layout = {
-   title: "'Bar' Chart",
- };
-
- Plotly.newPlot("02-plot-part-4", data, layout);
-
-// 04-plot-part
-
- function randomNumbersBetween0and9(n) {
-  var randomNumberArray = [];
-  for (var i = 0; i < n; i++) {
-    randomNumberArray.push(Math.floor(Math.random() * 10));
-  }
-  return randomNumberArray;
+// 01
+function printData(value){
+	console.log(value);
 }
 
-// Create our first trace
-var trace1 = {
-  x: [1, 2, 3, 4, 5],
-  y: randomNumbersBetween0and9(5),
-  type: "scatter"
-};
+function init() {
+  data = [{
+    x: [1, 2, 3, 4, 5],
+    y: [1, 2, 4, 8, 16] }];
+  var LINE = document.getElementById("01-plot");
+  console.log(LINE);
+  Plotly.plot(LINE, data);
+}
 
-// Create our second trace
-var trace2 = {
-  x: [1, 2, 3, 4, 5],
-  y: randomNumbersBetween0and9(5),
-  type: "scatter"
-};
+function updatePlotly(newx, newy) {
+  var LINE = document.getElementById("01-plot");
 
-// The data array consists of both traces
-var data = [trace1, trace2];
+  // Note the extra brackets around 'newx' and 'newy'
+  Plotly.restyle(LINE, "x", [newx]);
+  Plotly.restyle(LINE, "y", [newy]);
+}
 
-// Note that we omitted the layout object this time
-// This will use default parameters for the layout
-Plotly.newPlot("04-plot-part", data);
+function getData(dataset) {
 
+  // Initialize empty arrays to contain our axes
+  var x = [];
+  var y = [];
+
+  // Fill the x and y arrays as a function of the selected dataset
+  switch (dataset) {
+  case "dataset1":
+    x = [1, 2, 3, 4, 5];
+    y = [0.1, 0.2, 0.3, 0.4, 0.5];
+    break;
+  case "dataset2":
+    x = [10, 20, 30, 40, 50];
+    y = [1, 10, 100, 1000, 10000];
+    break;
+  case "dataset3":
+    x = [100, 200, 300, 400, 500];
+    y = [10, 100, 50, 10, 0];
+    break;
+  default:
+    x = [1, 2, 3, 4, 5];
+    y = [1, 2, 3, 4, 5];
+    break;
+  }
+
+  updatePlotly(x, y);
+}
+
+init();
+
+// 04
+var apiKey = "_o3wCfBk2R9sTS_kyH_x"; // Register with the link above
+
+var url =
+  `https://www.quandl.com/api/v3/datasets/WIKI/AMZN.json?start_date=2016-10-01&end_date=2017-10-01&api_key=${apiKey}`;
+
+/**
+ * Helper function to select stock data
+ * Returns an array of values
+ * @param {array} rows
+ * @param {integer} index
+ * index 0 - Date
+ * index 1 - Open
+ * index 2 - High
+ * index 3 - Low
+ * index 4 - Volume
+ */
+function unpack(rows, index) {
+  return rows.map(function(row) {
+    return row[index];
+  });
+}
+
+function buildPlot() {
+  d3.json(url).then(function(data) {
+
+    // Grab values from the data json object to build the plots
+    var name = data.dataset.name;
+    var stock = data.dataset.dataset_code;
+    var startDate = data.dataset.start_date;
+    var endDate = data.dataset.end_date;
+    var dates = unpack(data.dataset.data, 0);
+    var closingPrices = unpack(data.dataset.data, 1);
+
+    var trace1 = {
+      type: "scatter",
+      mode: "lines",
+      name: name,
+      x: dates,
+      y: closingPrices,
+      line: {
+        color: "#17BECF"
+      }
+    };
+
+    var data = [trace1];
+
+    var layout = {
+      title: `${stock} closing prices`,
+      xaxis: {
+        range: [startDate, endDate],
+        type: "date"
+      },
+      yaxis: {
+        autorange: true,
+        type: "linear"
+      }
+    };
+
+    Plotly.newPlot("04-plot", data, layout); // Rename it to the relevant HTML
+
+  });
+}
+
+buildPlot();
+
+// 05
+
+/**
+ * Helper function to select stock data
+ * Returns an array of values
+ * @param {array} rows
+ * @param {integer} index
+ * index 0 - Date
+ * index 1 - Open
+ * index 2 - High
+ * index 3 - Low
+ * index 4 - Volume
+ */
+function unpack(rows, index) {
+  return rows.map(function(row) {
+    return row[index];
+  });
+}
+
+// Submit Button handler
+function handleSubmit() {
+  // Prevent the page from refreshing
+  d3.event.preventDefault();
+
+  // Select the input value from the form
+  var stock = d3.select(".stockInput").node().value;
+  console.log(stock);
+
+  // clear the input value
+  d3.select(".stockInput").node().value = "";
+
+  // Build the plot with the new stock
+  buildDynamicPlot(stock);
+  buildCandleStickPlot(stock);
+  buildRollingAvgPlot(stock);
+}
+
+function buildDynamicPlot(stock) {
+  var apiKey = "_o3wCfBk2R9sTS_kyH_x";
+
+  var url = `https://www.quandl.com/api/v3/datasets/WIKI/${stock}.json?start_date=2016-10-01&end_date=2017-10-01&api_key=${apiKey}`;
+
+  d3.json(url).then(function(data) {
+
+    // Grab values from the response json object to build the plots
+    var name = data.dataset.name;
+    var stock = data.dataset.dataset_code;
+    var startDate = data.dataset.start_date;
+    var endDate = data.dataset.end_date;
+    var dates = unpack(data.dataset.data, 0);
+    var closingPrices = unpack(data.dataset.data, 1);
+
+    var trace1 = {
+      type: "scatter",
+      mode: "lines",
+      name: name,
+      x: dates,
+      y: closingPrices,
+      line: {
+        color: "#17BECF"
+      }
+    };
+
+    var data = [trace1];
+
+    var layout = {
+      title: `${stock} closing prices`,
+      xaxis: {
+        range: [startDate, endDate],
+        type: "date"
+      },
+      yaxis: {
+        autorange: true,
+        type: "linear"
+      }
+    };
+
+    Plotly.newPlot("05-plot", data, layout);
+
+  });
+}
+
+function buildCandleStickPlot(stock) {
+  var apiKey = "_o3wCfBk2R9sTS_kyH_x";
+
+  var url = `https://www.quandl.com/api/v3/datasets/WIKI/${stock}.json?start_date=2016-10-01&end_date=2017-10-01&api_key=${apiKey}`;
+
+  d3.json(url).then(function(data) {
+
+    // Grab values from the response json object to build the plots
+    var name = data.dataset.name;
+    var stock = data.dataset.dataset_code;
+    var startDate = data.dataset.start_date;
+    var endDate = data.dataset.end_date;
+    var dates = unpack(data.dataset.data, 0);
+    var openingPrices = unpack(data.dataset.data, 1);
+    var highPrices = unpack(data.dataset.data, 2);
+    var lowPrices = unpack(data.dataset.data, 3);
+    var closingPrices = unpack(data.dataset.data, 4);
+
+    var trace1 = {
+      type: "scatter",
+      mode: "lines",
+      name: name,
+      x: dates,
+      y: closingPrices,
+      line: {
+        color: "#17BECF"
+      }
+    };
+
+    // Candlestick Trace
+    var trace2 = {
+      type: "candlestick",
+      x: dates,
+      high: highPrices,
+      low: lowPrices,
+      open: openingPrices,
+      close: closingPrices
+    };
+
+    var data = [trace1, trace2];
+
+    var layout = {
+      title: `${stock} closing prices`,
+      xaxis: {
+        range: [startDate, endDate],
+        type: "date"
+      },
+      yaxis: {
+        autorange: true,
+        type: "linear"
+      }
+    };
+
+    Plotly.newPlot("06-plot", data, layout);
+  });
+}
+
+function rollingAverage(arr, windowPeriod = 10) {
+  // rolling averages array to return
+  var averages = [];
+
+  // Loop through all of the data
+  for (var i = 0; i < arr.length - windowPeriod + 1; i++) {
+    // calculate the average for a window of data
+    var sum = 0;
+    for (var j = 0; j < windowPeriod; j++) {
+      sum += arr[i + j];
+    }
+    // calculate the average and push it to the averages array
+    averages.push(sum / windowPeriod);
+  }
+  return averages;
+}
+
+function buildRollingAvgPlot(stock) {
+  var apiKey = "_o3wCfBk2R9sTS_kyH_x";
+
+  var url = `https://www.quandl.com/api/v3/datasets/WIKI/${stock}.json?start_date=2016-10-01&end_date=2017-10-01&api_key=${apiKey}`;
+
+  d3.json(url).then(function(data) {
+
+    // Grab values from the response json object to build the plots
+    var name = data.dataset.name;
+    var stock = data.dataset.dataset_code;
+    var startDate = data.dataset.start_date;
+    var endDate = data.dataset.end_date;
+    var dates = unpack(data.dataset.data, 0);
+    var openingPrices = unpack(data.dataset.data, 1);
+    var highPrices = unpack(data.dataset.data, 2);
+    var lowPrices = unpack(data.dataset.data, 3);
+    var closingPrices = unpack(data.dataset.data, 4);
+    var rollingPeriod = 30;
+    var rollingAvgClosing = rollingAverage(closingPrices, rollingPeriod);
+
+    var trace1 = {
+      type: "scatter",
+      mode: "lines",
+      name: name,
+      x: dates,
+      y: closingPrices,
+      line: {
+        color: "#17BECF"
+      }
+    };
+
+    // Candlestick Trace
+    var trace2 = {
+      type: "candlestick",
+      x: dates,
+      high: highPrices,
+      low: lowPrices,
+      open: openingPrices,
+      close: closingPrices
+    };
+
+    // Rolling Averages Trace
+    var trace3 = {
+      type: "scatter",
+      mode: "lines",
+      name: "Rolling",
+      x: dates.slice(0, dates.length - rollingPeriod),
+      y: rollingAvgClosing
+    };
+
+    var data = [trace1, trace2, trace3];
+
+    var layout = {
+      title: `${stock} closing prices`,
+      xaxis: {
+        range: [startDate, endDate],
+        type: "date"
+      },
+      yaxis: {
+        autorange: true,
+        type: "linear"
+      }
+    };
+
+    Plotly.newPlot("07-plot", data, layout);
+
+  });
+}
+
+// Add event listener for submit button
+d3.select(".submit").on("click", handleSubmit);
 
 			</script>
 

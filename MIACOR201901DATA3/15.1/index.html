@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Jonathan Moo's Github Bio</title>
+
+
+		<link rel='stylesheet' id='bootstrap-css'  href='../../css/bootstrap.min.css' type='text/css' media='all' />
+		<link rel='stylesheet' id='bootstrap-grid-css'  href='../../css/bootstrap-grid.min.css' type='text/css' media='all' />
+		<link rel='stylesheet' id='custom-css'  href='../../css/style.css' type='text/css' media='all' /> 
+		<script src="https://d3js.org/d3.v5.min.js"></script>
+		<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+	</head>
+
+	<body>
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<a class="navbar-brand" href="#">Jonathan's Github Page</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active">
+						<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="../../MIACOR201901DATA3/11.2/index.html">11.2 Ref</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="../../MIACOR201901DATA3/11.3/index.html">11.3 Ref</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="../../MIACOR201901DATA3/12.1/index.html">12.1 Ref</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="../../MIACOR201901DATA3/12.3/index.html">12.3 Ref</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="../../MIACOR201901DATA3/13.1/index.html">13.1 Ref</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="../../MIACOR201901DATA3/13.2/index.html">13.2 Ref</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="../../MIACOR201901DATA3/13.3/index.html">13.3 Ref</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="../../MIACOR201901DATA3/14.1/index.html">14.1 Ref</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="MIACOR201901DATA3/14.2/index.html">14.2 Ref</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="../../MIACOR201901DATA3/14.3/index.html">14.3 Ref</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+		<div class="container-fluid">
+			<div class="row">
+				<div id="main-content" class="col-md-8">
+					<div class="objective-block">
+						<h3 id="objectives">Objectives For Lesson 15.1</h3>
+
+						<ul>
+							<li>Javascript!</li>
+							<ul>
+								<li>We'll explore the D3 library today.</li>
+								<li>We're only focused on FRONT-END development.</li>
+							</ul>
+						</ul>
+
+						
+					</div>
+
+					<div id="why-we-learn" class="instructor-block">
+						<h3>Why We Learn?</h3>
+						
+						<p><a href="https://d3js.org/">D3 means "Data-Driven Documents".</a> It's <strong>not only</strong> plotting nice graphs and make awesome visualization. The main purpose of D3 is about manipulating DOM (Document Object Model).</p>
+
+						<h5>You might ask, what is DOM?</h5>
+
+						<p>You've been dealing HTML for some time, and DOM is simply represented by the tags which you've been using. We call the tags within a HTML as "DOM elements".</p>
+
+						<p>The power to manipulate the tags or DOM elements <strong>without reloading the page</strong> is the reason why we can put awesome visualizations on the web.</p>
+
+						<p>This is for Data Visulization Engineers, which is a very specialized field.</p>
+
+					</div>
+
+					<div id="01-Evr_ES6" class="instructor-block">
+						<h3>01-Evr_ES6</h3>
+						
+						<p>You've been coding with <code>var</code> for very long. It is time to convert <code>var</code> to <code>let</code> or <code>const</code>.</p>
+
+						<h4>Why?</h4>
+
+						<p>Javascript was meant to be simple for browsers, but over the years, complexity crept it and Javascript was forced to evolve to suit today's needs. In <strong>1995</strong>, <code>var</code> was consistently used. But today, we must use only <code>let</code> or <code>const</code>.</p>
+
+						<p>Consider the code here:</p>
+						<pre>
+							<code>
+function logger() {
+// returns "undefined", but code still runs.
+  console.log(x);
+  var x = "hi";
+}
+logger();
+
+function logger2() {
+// ReferenceError: y is not defined. Code will stop execution.
+  console.log(y);
+  let y = "hello";
+}
+							</code>
+						</pre>
+
+						<p><code>var</code> is always global in scope. This means, within the code where it is run, <strong>the variables are accessible and exposed everywhere.</strong> <code>let</code> follows more conventional programming practices, where <strong>code within the block can only access the variable in which it was declared</strong>.</p>
+
+						<p><code>var</code> allows the variable to be declared but not initialized, but <code>let</code> is declared and initialized at the same time.</p>
+
+						<h4>From now on, use <code>let</code> instead of <code>var</code>.</h4>
+
+						<h4>What about <code>const</code>?</h4>
+
+						<p><code>const</code> is useful if you think that the variable should be immutable, or it should not be changed for anyone else. Things such as Pi, or standards should be defined with <code>const</code>.</p>
+
+						<p><strong>But</strong> if the variable is an <strong>object</strong> or <strong>array</strong>, it will not work as intended!</p>
+
+						<pre>
+							<code>
+								
+const myPets = ["dog", "cat", "rabbit", "some endangered species of sea turtle"];
+
+// myPets = "ferret"; //This will not work - stops execution
+
+// myPets = ["wolf", "giraffe", "parrot"]; //This will not work either
+
+// HOWEVER, we can still manipulate Objects and Arrays!
+console.log("before: ", myPets);
+myPets.pop();
+console.log("after: ", myPets);
+							</code>
+						</pre>
+
+					</div>
+
+					<div id="02-Ins_Basic_Plots" class="instructor-block">
+						<h3>02-Ins_Basic_Plots</h3>
+
+						<div id="02-plot-part-1"></div>
+
+						<h4>How to do the above?</h4>
+
+						<p>Copy and paste this code: <code>&lt;script src="https://cdn.plot.ly/plotly-latest.min.js">&lt;/script></code></p>
+
+						<p><strong>There's no science to this.</strong> Other developers created a library to use charts, so we just use it accordingly. As long as we follow the documentation given by the library, we should be fine!</p>
+
+						<pre>
+							<code>
+var trace1 = {
+  x: ["beer", "wine", "martini", "margarita",
+    "ice tea", "rum & coke", "mai tai", "gin & tonic"], // notice it's an array of items?
+  y: [22.7, 17.1, 9.9, 8.7, 7.2, 6.1, 6.0, 4.6],
+  type: "bar"
+};
+
+var data = [trace1];
+
+var layout = {
+  title: "'Bar' Chart"
+};
+
+Plotly.newPlot("02-plot-part-1", data, layout); // 02-plot is the div ID which I specified in my code!
+							</code>
+						</pre>
+
+						<h4>How add attributes to your graph?</h4>
+
+						<div id="02-plot-part-2"></div>
+
+						<pre>
+							<code>
+var trace1 = {
+   x: ["beer", "wine", "martini", "margarita",
+       "ice tea", "rum & coke", "mai tai", "gin & tonic"],
+   y: [22.7, 17.1, 9.9, 8.7, 7.2, 6.1, 6.0, 4.6],
+   type: "bar"
+ };
+
+ var data = [trace1];
+ var layout = {
+   title: "'Bar' Chart",
+
+   xaxis: { title: "Drinks"},
+   yaxis: { title: "% of Drinks Ordered"}
+ };
+
+ Plotly.newPlot("02-plot-part-2", data, layout);
+							</code>
+						</pre>
+
+						
+						<h4>Let's make a line chart?</h4>
+
+						<div id="02-plot-part-3"></div>
+						<pre>
+							<code>
+ var trace1 = {
+   x: ["beer", "wine", "martini", "margarita",
+       "ice tea", "rum & coke", "mai tai", "gin & tonic"],
+   y: [22.7, 17.1, 9.9, 8.7, 7.2, 6.1, 6.0, 4.6],
+   type: "line"
+ };
+
+ var data = [trace1];
+
+ var layout = {
+   title: "'Line' Chart",
+ };
+
+ Plotly.newPlot("02-plot-part-3", data, layout);
+							</code>
+						</pre>
+
+
+						<h4>Broken Pie Chart?</h4>
+
+						<p>How do we fix this chart below? <em>Hint:</em> <a href="https://plot.ly/javascript/pie-charts/">https://plot.ly/javascript/pie-charts/</a></p>
+
+						<div id="02-plot-part-4"></div>
+						<pre>
+							<code>
+ // // Part 4 - Broken Pie Chart
+ var trace1 = {
+   x: ["beer", "wine", "martini", "margarita",
+       "ice tea", "rum & coke", "mai tai", "gin & tonic"],
+   y: [22.7, 17.1, 9.9, 8.7, 7.2, 6.1, 6.0, 4.6],
+   type: "pie"
+ };
+
+ var data = [trace1];
+
+ var layout = {
+   title: "'Bar' Chart",
+ };
+
+ Plotly.newPlot("02-plot-part-4", data, layout);
+							</code>
+						</pre>
+
+
+					</div>
+
+
+					<div id="03-Stu_First_Chart" class="student-block">
+						<h3>03-Stu_First_Chart: Your Turn</h3>
+
+					</div>
+
+					<div id="04-Ins_Multi_Trace" class="instructor-block">
+						<h3>04-Ins_Multi_Trace</h3>
+
+						<p>We want to do multiple trace in a plot:</p>
+
+						<div id="04-plot-part"></div>
+
+						<pre>
+							<code>
+// 04-plot-part
+
+ function randomNumbersBetween0and9(n) {
+  var randomNumberArray = [];
+  for (var i = 0; i < n; i++) {
+    randomNumberArray.push(Math.floor(Math.random() * 10));
+  }
+  return randomNumberArray;
+}
+
+// Create our first trace
+var trace1 = {
+  x: [1, 2, 3, 4, 5],
+  y: randomNumbersBetween0and9(5),
+  type: "scatter"
+};
+
+// Create our second trace
+var trace2 = {
+  x: [1, 2, 3, 4, 5],
+  y: randomNumbersBetween0and9(5),
+  type: "scatter"
+};
+
+// The data array consists of both traces
+var data = [trace1, trace2];
+
+// Note that we omitted the layout object this time
+// This will use default parameters for the layout
+Plotly.newPlot("04-plot-part", data);
+							</code>
+						</pre>
+
+					</div>
+
+					<div id="06-Ins_Sort_Slice" class="instructor-block">
+						<h3>06-Ins_Sort_Slice</h3>
+
+						<p>So you've grabbed a bunch of data from your MongoDB and/or your MySQL. Your data which you received in Javascript seems messy. What happens?</p>
+
+						<h4>Slicing: Getting part of the data</h4>
+						<pre>
+							<code>
+// Array of names
+const names = ["Jane", "John", "Jimbo", "Jedediah"];
+
+// Slices first two names
+const left = names.slice(0, 2);
+console.log(left);
+
+// Slices last two names and return
+const right = names.slice(2, 4);
+console.log(right);
+
+							</code>
+						</pre>
+
+						<h4>Sorting: Organization</h4>
+
+						<p>Sorting is like filters. It goes through the elements one by one.</p>
+
+						<p>If the compare function returns a negative number for a pair of numbers, it will put them in the reverse order in the final array: [b, a]</p>
+
+						<p>If the compare function returns a positive number for a pair of numbers, it will put them in the input order in the final array: [a, b]</p>
+
+						<pre>
+							<code>
+// Sorts descending
+[3, 2, -120].sort(function compareFunction(firstNum, secondNum) {
+   // resulting order is (3, 2, -120)
+  return secondNum - firstNum;
+
+  // 3 - firstNum, 2 - secondNum, first run: 2 - 3 < 0, since it gives a negative, [3] is the first element and [2] is placed AFTER [3], which gives [3,2]
+  // 2 - firstNum, -120 - secondNum, second run: (-120) - 2 < 0, since it gives a negative, [2] is the first element and [-120] is placed AFTER [2], which gives [2,-120]
+  // result = [3,2,-120]
+});
+
+
+// Sorts ascending
+[3, 2, -120].sort(function compareFunction(firstNum, secondNum) {
+  // resulting order is (-120, 2, 3)
+  return firstNum - secondNum;
+
+  // 3 - firstNum, 2 - secondNum, first run: 3 - 2 > 0, since it gives a positive, [3] is the first element and [2] is placed BEFORE [3], which give [2,3]
+  // 2 - firstNum, -120 - secondNum, second run: 2 - (-120) > 0, since it gives a positive, [2] is the first element, and [-120] is placed BEFORE [2], which give [-120, 2]
+  // result: [-120, 2, 3]
+});
+
+// Arrow Function
+[3, 2, -120].sort((first, second) => first - second);
+
+
+							</code>
+						</pre>
+
+						<h4>Honestly, just remember the syntax above and forget about understanding the whole thing raw. Reverse the firstNum and secondNum to get your ascending or descending.</h4>
+
+						<p>Also, sorting is in place. <strong>This means the original array is being changed</strong>. Create a copy first before doing a sort.</p>
+
+						<h4>Actually, get your MongoDB or MySQL to sort for you when you pull your data. Saves time and effort.</h4>
+
+					</div>
+
+					<div id="07-Stu_HBar" class="student-block">
+						<h3>07-Stu_HBar: Your Turn</h3>
+
+					</div>
+
+					<div id="08-Stu_Scatter" class="student-block">
+						<h3>08-Stu_Scatter: Your Turn</h3>
+
+					</div>
+
+
+				</div> <!-- end #main-content -->
+
+
+				<div id="right-sb" class="col-md-4">
+					<div id="right-sb-nav" class="list-group" id="toc" role="tablist">
+					  <a class="list-group-item list-group-item-action active"  href="#objectives" role="tab">Objectives</a>
+					  <a class="list-group-item list-group-item-action"  href="#why-we-learn" role="tab">Why We Learn</a>
+					  <a class="list-group-item list-group-item-action"  href="#01-Evr_ES6" role="tab">01-Evr_ES6</a>
+					  <a class="list-group-item list-group-item-action"  href="#02-Ins_Basic_Plots" role="tab">02-Ins_Basic_Plots</a>
+					  <a class="list-group-item list-group-item-action"  href="#03-Stu_First_Chart" role="tab">03-Stu_First_Chart</a>
+					  <a class="list-group-item list-group-item-action"  href="#04-Ins_Multi_Trace" role="tab">04-Ins_Multi_Trace</a>
+					  <a class="list-group-item list-group-item-action"  href="#05-Stu_Multi_Trace" role="tab">05-Stu_Multi_Trace</a>
+					  <a class="list-group-item list-group-item-action"  href="#06-Ins_Sort_Slice" role="tab">06-Ins_Sort_Slice</a>
+					  <a class="list-group-item list-group-item-action"  href="#07-Stu_HBar" role="tab">07-Stu_HBar</a>
+					  <a class="list-group-item list-group-item-action"  href="#08-Stu_Scatter" role="tab">08-Stu_Scatter</a>
+					</div>
+				
+				</div>
+			</div> <!-- end .row -->
+			
+		</div> <!-- end .container-fluid -->
+
+		<footer>
+			<script type="text/javascript" src="../../js/jquery-3.3.1.min.js"></script>
+			<script type="text/javascript" src="../../js/bootstrap.min.js"></script>
+
+			<script type="text/javascript">
+
+var trace1 = {
+  x: ["beer", "wine", "martini", "margarita",
+    "ice tea", "rum & coke", "mai tai", "gin & tonic"],
+  y: [22.7, 17.1, 9.9, 8.7, 7.2, 6.1, 6.0, 4.6],
+  type: "bar"
+};
+
+var data = [trace1];
+
+var layout = {
+  title: "'Bar' Chart"
+};
+
+Plotly.newPlot("02-plot-part-1", data, layout);
+
+// // Part 2 - Adding attributes
+var trace1 = {
+   x: ["beer", "wine", "martini", "margarita",
+       "ice tea", "rum & coke", "mai tai", "gin & tonic"],
+   y: [22.7, 17.1, 9.9, 8.7, 7.2, 6.1, 6.0, 4.6],
+   type: "bar"
+ };
+
+ var data = [trace1];
+ var layout = {
+   title: "'Bar' Chart",
+
+   xaxis: { title: "Drinks"},
+   yaxis: { title: "% of Drinks Ordered"}
+ };
+
+ Plotly.newPlot("02-plot-part-2", data, layout);
+
+ // // Part 3 - Line Chart
+ var trace1 = {
+   x: ["beer", "wine", "martini", "margarita",
+       "ice tea", "rum & coke", "mai tai", "gin & tonic"],
+   y: [22.7, 17.1, 9.9, 8.7, 7.2, 6.1, 6.0, 4.6],
+   type: "line"
+ };
+
+ var data = [trace1];
+
+ var layout = {
+   title: "'Line' Chart",
+ };
+
+ Plotly.newPlot("02-plot-part-3", data, layout);
+
+ // // Part 4 - Broken Pie Chart
+ var trace1 = {
+   labels: ["beer", "wine", "martini", "margarita",
+       "ice tea", "rum & coke", "mai tai", "gin & tonic"],
+   values: [22.7, 17.1, 9.9, 8.7, 7.2, 6.1, 6.0, 4.6],
+   type: "pie"
+ };
+
+ var data = [trace1];
+
+ var layout = {
+   title: "'Bar' Chart",
+ };
+
+ Plotly.newPlot("02-plot-part-4", data, layout);
+
+// 04-plot-part
+
+ function randomNumbersBetween0and9(n) {
+  var randomNumberArray = [];
+  for (var i = 0; i < n; i++) {
+    randomNumberArray.push(Math.floor(Math.random() * 10));
+  }
+  return randomNumberArray;
+}
+
+// Create our first trace
+var trace1 = {
+  x: [1, 2, 3, 4, 5],
+  y: randomNumbersBetween0and9(5),
+  type: "scatter"
+};
+
+// Create our second trace
+var trace2 = {
+  x: [1, 2, 3, 4, 5],
+  y: randomNumbersBetween0and9(5),
+  type: "scatter"
+};
+
+// The data array consists of both traces
+var data = [trace1, trace2];
+
+// Note that we omitted the layout object this time
+// This will use default parameters for the layout
+Plotly.newPlot("04-plot-part", data);
+
+
+			</script>
+
+		</footer>
+
+	</body>
+
+
+</html>
