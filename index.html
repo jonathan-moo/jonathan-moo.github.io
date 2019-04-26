@@ -56,6 +56,9 @@
 					<li class="nav-item">
 						<a class="nav-link" href="MIACOR201901DATA3/15.1/index.html">15.1 Ref</a>
 					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="MIACOR201901DATA3/15.2/index.html">15.2 Ref</a>
+					</li>
 				</ul>
 			</div>
 		</nav>
@@ -63,12 +66,12 @@
 			<div class="row">
 				<div id="main-content" class="col-md-8">
 					<div class="objective-block">
-						<h3 id="objectives">Objectives For Lesson 15.2</h3>
+						<h3 id="objectives">Objectives For Lesson 15.3</h3>
 
 						<ul>
-							<li>Javascript!</li>
+							<li>Flask and building a web service for data</li>
 							<ul>
-								<li>We'll explore the Plotly library today.</li>
+								<li>We'll launch your data dashboard on the web.</li>
 							</ul>
 						</ul>
 
@@ -78,679 +81,382 @@
 					<div id="why-we-learn" class="instructor-block">
 						<h3>Why We Learn?</h3>
 						
-						<p><a href="https://d3js.org/">D3 means "Data-Driven Documents".</a> It's <strong>not only</strong> plotting nice graphs and make awesome visualization. The main purpose of D3 is about manipulating DOM (Document Object Model).</p>
+						<p>You're building towards a full-stack service for data.</p>
 
-						<h5>You might ask, what is DOM?</h5>
+						<h4>What does "full-stack" mean?</h4>
 
-						<p>You've been dealing HTML for some time, and DOM is simply represented by the tags which you've been using. We call the tags within a HTML as "DOM elements".</p>
+						<p>It means you're building a <strong>complete solution</strong> with minimal outside help:</p>
+						<ul>
+							<li>Backend - Setting up databases and getting your business logic and data in.</li>
+							<li>Middleware - Flask as your system which interfaces between your backend and frontend</li>
+							<li>Frontend - Dashboards and visualization</li>
+						</ul>
 
-						<p>The power to manipulate the tags or DOM elements <strong>without reloading the page</strong> is the reason why we can put awesome visualizations on the web.</p>
-
-						<p>This is for Data Visualization Engineers, which is a very specialized field.</p>
 
 					</div>
 
-					<div id="01-Ins_Dropdown_Events" class="instructor-block">
-						<h3>01-Ins_Dropdown_Events</h3>
-
-						<p>We are going to take some time to rehash some principles before moving forward.</p>
+					<div id="01-Ins_Basic_Flask_Plotly" class="instructor-block">
+						<h3>01-Ins_Basic_Flask_Plotly</h3>
 						
-						<p>Last lesson, we created basic graphs.</p>
+						<p>We'll dive right into Flask, and display a graph via a web server.</p>
 
-						<p>This lesson, we're going to add additional interactivity to the graphs. One of the ways we do that is using <code>select</code> tags.</p>
+						<p>You'll realize there are two sections:</p>
+						<ul>
+							<li><code>/line</code> route is the API.</li>
+							<li>The index page is your webpage.</li>
+						</ul>
 
-						<div id="HTML-Select">
-							<div class="row">
-								<div class="col-md-12">
-									<h4>Let's talk about the <code>select</code> tag.</h4>
-								</div>
-								<div class="col-md-6">
-								<h6>Raw HTML Version</h6>
-								 <select id="selDataset" onchange="printData(this.value)">
-								    <option value="dataset1">DataSet1</option>
-								    <option value="dataset2">DataSet2</option>
-								    <option value="dataset3">DataSet3</option>
-								  </select>
-								</div>
-								<div class="col-md-6">
-									<h6><a href="https://getbootstrap.com/docs/4.0/components/forms/">Bootstrap Version</a></h6>
+						<p>This is a typical setup. Usually, we grab data from an API, and then display the data via visualizations. With Flask, you can do both at the same time.</p>
 
-									<select class="form-control" id="exampleFormControlSelect1" onchange="printData(this.value)">
-								      <option>1</option>
-								      <option>2</option>
-								      <option>3</option>
-								      <option>4</option>
-								      <option>5</option>
-								    </select>
-								</div>
+						<h4>Note</h4>
+						<p>In our example, we're using Javascript to pull the data from the API which you have in your Flask. The data is not delivered through the passing of variables from the <code>render_template</code> method in Flask.</p>
+					</div>
+
+					<div id="02-Stu_Song_Lyrics" class="student-block">
+						<h3>02-Stu_Song_Lyrics: Your Turn</h3>
+
+						<p>Before we begin, in your student activity, there is a <code>lyrics.py</code> and a <code>lyrics.txt</code>. They are basically your data sources, and they are imported into your <code>app.py</code> file.</p>
+
+						<ul>
+							<li><strong>collections</strong> is a standard Python library. <code>Counter</code> helps to count objects.</li>
+							<li>Same as the homework, <strong>where you tested your web scraping script to see if it's working before you integrate it into your Flask app</strong>, run the code and see the results.</li>
+						</ul>
+
+						<h4>Remember <code>zip</code>?</h4>
+
+						<p>It combines iterables (dict or lists) into a single entity</p>
+						<p>To unzip, put the asterisk (*) in front of the iterable when using zip, because asterisk is to unpacks (or unzips in layman terms) a list-type container. Then assign the variables <strong>according to the respective order</strong>.</p>
+
+					</div>
+
+					<div id="03-Ins_Fullstack_Flask_Plotly" class="instructor-block">
+						<h3>03-Ins_Fullstack_Flask_Plotly</h3>
+
+						<p>This time, we're integrating our app with a SQLite database, <strong>and this is going to be part of your homework.</strong></p>
+
+						<h4>If you haven't:</h4>
+
+						<p>Install flask_sqlalchemy: <code>pip install flask_sqlachemy</code></p>
+
+						<h4>What is the difference between using the SQLalchemy in the past and using flask_sqlalchemy?</h4>
+
+						<p>Basically, flask_sqlalchemy is a <strong>wrapper library</strong> around SQLalchemy, so that Flask as a framework integrates well with SQLalchemy. Good wrapper libraries usually don't massively overwrite the original library itself.</p>
+
+						<p>Wrapper libraries are very common since developers don't like to repeat themselves when writing code.</p>
+
+						<div class="row student-block">
+							<div class="col-md-6">
+								<h4>Lesson 15.3</h4>
+								<pre>
+									<code>
+import pandas as pd
+
+from flask import (
+    Flask,
+    render_template,
+    jsonify)
+
+from flask_sqlalchemy import SQLAlchemy
+
+app = Flask(__name__)
+
+# The database URI
+app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///db/emoji.sqlite"
+
+db = SQLAlchemy(app)
+
+
+# Create our database model
+class Emoji(db.Model):
+    __tablename__ = 'emoji'
+
+    id = db.Column(db.Integer, primary_key=True)
+    emoji_char = db.Column(db.String)
+    emoji_id = db.Column(db.String)
+    name = db.Column(db.String)
+    score = db.Column(db.Integer)
+
+    def __repr__(self):
+        return '&lt;Emoji %r>' % (self.name)
+									</code>
+								</pre>
 							</div>
+							<div class="col-md-6">
+								<h3>lesson 10.1, 10-Ins_SQL_Alchemy_Revisited</h3>
+								<pre>
+									<code>
+# Dependencies
+# ----------------------------------
+# Imports the method used for connecting to DBs
+from sqlalchemy import create_engine
 
-							<div class="row">
-								<div class="col-md-12">
-									<h4>What does this mean?</h4>
+# Imports the methods needed to abstract classes into tables
+from sqlalchemy.ext.declarative import declarative_base
 
-									<p>The <code>select</code> tag is inbuilt within <strong>HTML</strong>, not <strong>Javascript</strong>. This is important to note so that you don't build things from scratch when it is freely given to you.</p>
+# Allow us to declare column types
+from sqlalchemy import Column, Integer, String, Float 
 
-									<p>You'll notice within my HTML, there is this portion on the HTML tag: <code>onchange="printData(this.value)"</code></p>
+# Sets an object to utilize the default declarative base in SQL Alchemy
+Base = declarative_base()
 
-									<p>The first time I introduced this is in <strong>Lesson 14.3</strong>. It was not part of the curriculum, but I thought it was important for you to note that HTML can contain Javascript functions and it can be invoked when triggered.</p>
 
-									<p>This is the function:</p>
-									<pre>
-										<code>
-			function printData(value){
-				console.log(value);
-			}
-										</code>
-									</pre>
+# Creates Classes which will serve as the anchor points for our Tables
+class Dog(Base):
+    __tablename__ = 'dog'
+    id = Column(Integer, primary_key=True)
+    name = Column(String(255))
+    color = Column(String(255))
+    age = Column(Integer)
 
-									<p>So within the function, you can:</p>
-									<ul>
-										<li>Collect data value which was selected</li>
-										<li>Do something to that value.</li>
-									</ul>
-								</div>
-							</div> <!-- end .row -->
-						</div> <!-- end #HTML-Select -->
+									</code>
+								</pre>
+							</div>
+						</div> <!-- end .row.student-block -->
 
-						<div id="raw-DOM-element">
-							<p>You'll see in your notes a piece of code like this: <code>var LINE = document.getElementById("plot");</code></p>
+						<div class="row student-block">
+							<div class="col-md-12">
+								<h3>Lesson 10.3, taken from 10-Ins_Flask_with_ORM</h3>
+								<pre>
+									<code>
+import numpy as np
 
-							<p>And you're wondering, <strong>WHAT ON EARTH IS THAT?</strong></p>
+import sqlalchemy
+from sqlalchemy.ext.automap import automap_base
+from sqlalchemy.orm import Session
+from sqlalchemy import create_engine, func
 
-							<h4>This is DOM element manipulation.</h4>
+from flask import Flask, jsonify
 
-							<p>You've been using the D3 library to select stuff, like: <code>d3.select("#HTML-Select");</code></p>
 
-							<p>The above is equivalent to <code>document.getElementById("HTML-Select");</code> This means, your browser has the ability to parse the HTML tags natively without any Javascript libraries!</p>
+#################################################
+# Database Setup
+#################################################
+engine = create_engine("sqlite:///titanic.sqlite")
 
-							<p>The differences are:</p>
+# reflect an existing database into a new model
+Base = automap_base() # automap_base is to reflect. declarative_base() is to create a new database
+# reflect the tables
+Base.prepare(engine, reflect=True)
 
-							<ul>
-								<li><code>document</code> methods are more clunky. To get IDs, you have to use <code>document.getElementById</code>. To get classes, you have to use <code>document.getElementsClassName</code>, but <code>d3.select</code> helps us to differentiate IDs and classes with CSS conventions, such as <code>d3.select("#HTML-Select");</code> for IDS, and <code>d3.select(".instructor-block");</code></li>
-								<li>To reference an element within an element with raw DOM elements, you would have to keep chaining the <code>document</code> variable.</li>
+# Save reference to the table
+Passenger = Base.classes.passenger
+
+# Create our session (link) from Python to the DB
+session = Session(engine)
+
+#################################################
+# Flask Setup
+#################################################
+app = Flask(__name__)
+									</code>
+								</pre>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-md-12">
+								<h4>What is the difference between the two sets of code in terms of initialization? (You can also compare lesson 10.1, 10-Ins_SQL_Alchemy_Revisited)</h4>
+
 								<ul>
-									<li><code>document.getElementById("HTML-Select").getElementsByClassName("row");</code> will give you the values from the class name <code>row</code> <strong>within</strong> the ID <code>HTML-Select</code>.</li>
+									<li><code>flask_sqlalchemy</code> provides an <code>app.config['SQLALCHEMY_DATBASE_URL']</code> for database creation, while if you use the <code>sqlalchemy</code> library raw, you have to create a bunch of code to get started.</li>
+									<li>But you still need to create the classes in Python, so that you can create your tables.</li>
+									<li>Syntax is almost the same and you can compare it side-by-side, but because <code>flask_sqlalchemy</code> is a wrapper library, it needs a <code>db.SQLAlchemy(app)</code> to extract the SQLAlchemy library from itself.</li>
 								</ul>
-								<li>But to do the same above with d3, you would just need to do: <code>d3.select("#HTML-Select .row").html()</code></li>
+
+								<h4>Now, we get the database stuff out of the way, I'm going to reiterate the MVC model again.</h4>
+								<ul>
+									<li>Model: Get your data and business logic up first and make sure it's there.</li>
+									<ul>
+										<li>All the database and its data</li>
+										<li>All the APIs</li>
+									</ul>
+									<li>View: Get your visuals up. You might have to do the controller first based on certain conditions, but try to get a template out first.</li>
+									<ul>
+										<li>To reference a file within your flask app, use the <code>{{ url_for('static', filename='js/app.js') }}</code> in your <code>index.html.</code></li>
+										<li><code>url_for(endpoint, **values)</code> <a href="http://flask.pocoo.org/docs/1.0/api/">generates a URL to the given endpoint with the method provided.</a></li>
+										<li><code>'static'</code> is generally the folder, since we use folders as directories for URLs. <code>filename</code> is the path from <code>'static'</code>.</li>
+									</ul>
+									<li>Controller: Connects and interface the Model and View together.</li>
+								</ul>
+							</div>
+						</div>
+
+					</div>
+
+					<div id="05-Evr_Flask_Requests" class="instructor-block">
+						<h3>05-Evr_Flask_Requests</h3>
+
+						<h4>Ref: <a href="https://www.w3schools.com/tags/ref_httpmethods.asp">GET and POST methods</a></h4>
+
+						<p>The web has many standard protocols in getting and sending data. We use primarily <code>GET</code> and <code>POST</code>. All browsers recognize them as standard.</p>
+
+						<h4>GET</h4>
+						<ul>
+							<li>You can use a URL route to retrieve data on the browser in the address bar.</li>
+							<li>Less secure, has a data limit.</li>
+						</ul>
+
+						<h4>POST</h4>
+						<ul>
+							<li>They are not visually exposed on the browser. It doesn't mean it is not used in the background.</li>
+							<li>Standard protocol for <code>forms</code> in HTML. Remember how I said <code>forms</code> force a web page reload? That's because HTML is inbuilt with the capability of sending <code>POST</code> requests through <code>forms</code>, and they do it by redirections.</li>
+						</ul>
+					</div>
+
+					<div id="06_Ins_Flask_SQLAlchemy" class="instructor-block">
+						<h3>06_Ins_Flask_SQLAlchemy</h3>
+
+						<p>In this activity, we are using a <code>form</code> to capture data via <code>POST</code>, and then storing it into a sqlite. If we trigger the <code>/api/data</code> endpoint, we should be able to see the data.</p>
+
+						<p>You start with an empty database. This is part of the data collection process in ETL.</p>
+
+						<p>The code is very similar to the previous activity.</p>
+					</div>
+
+					<div id="07-Stu_Pet_Pals" class="student-block">
+						<h3>07-Stu_Pet_Pals</h3>
+
+						<p>In this activity, we are using a <code>form</code> to capture data via <code>POST</code>, and then storing it into a sqlite. If we trigger the <code>/api/data</code> endpoint, we should be able to see the data.</p>
+
+						<p>The code is very similar to the previous activity.</p>
+
+						<h4>Bonus</h4>
+						<p>Plotly has a geolocation visualizer. Look into the docs and try it out!</p>
+					</div>
+
+					<div id="08-Ins_Pet_Pals_Refactor" class="instructor-block">
+						<h3>08-Ins_Pet_Pals_Refactor</h3>
+
+						<p>In our previous activities, we build a web app and run it in our local machines. But for deployment standards, it's bad practice. We'll need to refactor code to make it deployable on the web.</p>
+
+						<h4>Before we begin</h4>
+
+						<p>Take a look at our folder structure</p>
+						<img src="img/refactor01.png" class="img-fluid" />
+
+						<ul>
+							<li>The first layer contains:</li>
+							<ul>
+								<li><strong>initdb.py</strong> -- Remember MVC? This is to initialize the database.</li>
+								<li><strong>requirements.txt</strong> -- It lists the libraries we use. We call these libraries, <strong>dependencies</strong>.</li>
+								<li><strong>run.sh</strong> -- this is a shell script file. Remember how we do certain commands in our terminal, such as <code>cd DataViz-Lesson-Plans</code> and <code>python app.py</code>? This helps to run such commands <strong>in sequence</strong> in a file. Widely used in production servers to ensure consistency.</li>
+								<li><strong>Procfile</strong> is a file needed to launch your code into Heroku. We'll talk about it in the next activity.</li>
+								<li><strong>pet_pals folder</strong> -- contains your actual Flask app files</li>
 							</ul>
-
-							<h4>You're going to ask, why even learn raw DOM elements? Just use D3!</h4>
-
-							<p>But you must understand a corporation's perspective. D3 isn't created by your company. D3 is subject to change because it is created by others.</p>
-
-							<p>If a library ceases to function, or if it changes, you are going to be handicapped by the changes! Thus, understanding the original syntax helps you to mitigate this problem!</p>
-
-						</div><!-- end #raw-DOM-element -->
-
-						<div id="01-plot-graph">
-							<h4>Finally, let's plot graphs.</h4>
-
-							<p>You're given this code in the first activity:</p>
-							<pre>
-								<code>
-function init() {
-  data = [{
-    x: [1, 2, 3, 4, 5],
-    y: [1, 2, 4, 8, 16] }];
-  var LINE = document.getElementById("plot"); // in this HTML, I changed it to 01-plot so that I can put more plots in a single page.
-  console.log(LINE);
-  Plotly.plot(LINE, data);
-}
-
-function updatePlotly(newx, newy) {
-  var LINE = document.getElementById("plot"); // in this HTML, I changed it to 01-plot so that I can put more plots in a single page.
-
-  // Note the extra brackets around 'newx' and 'newy'
-  // This is because it is trying to set an array to it.
-  Plotly.restyle(LINE, "x", [newx]);
-  Plotly.restyle(LINE, "y", [newy]);
-}
-
-function getData(dataset) {
-
-  // Initialize empty arrays to contain our axes
-  var x = [];
-  var y = [];
-
-  // Fill the x and y arrays as a function of the selected dataset
-  // we prepare a new set of data here
-
-  switch (dataset) {
-  case "dataset1":
-    x = [1, 2, 3, 4, 5];
-    y = [0.1, 0.2, 0.3, 0.4, 0.5];
-    break;
-  case "dataset2":
-    x = [10, 20, 30, 40, 50];
-    y = [1, 10, 100, 1000, 10000];
-    break;
-  case "dataset3":
-    x = [100, 200, 300, 400, 500];
-    y = [10, 100, 50, 10, 0];
-    break;
-  default:
-    x = [1, 2, 3, 4, 5];
-    y = [1, 2, 3, 4, 5];
-    break;
-  }
-
-  updatePlotly(x, y);
-}
-
-init();
-								</code>
-							</pre>
-
-							<p>The plot generates here:</p>
-							<div id="01-plot"></div>
-
-							<p>And this is our <code>select</code> dropdown:</p>
-
-							<select id="selDataset" onchange="getData(this.value)">
-							    <option value="dataset1">DataSet1</option>
-							    <option value="dataset2">DataSet2</option>
-							    <option value="dataset3">DataSet3</option>
-							  </select>
-
-							<p>Looking at the code, what gets invoked first?</p>
-						</div>
-
-					</div> 
-
-					<div id="02-Stu_Dropdown_Events" class="student-block">
-						<h3>02-Stu_Dropdown_Events: Your Turn</h3>
-					</div>
-
-					<div id="03-Ins_D3_JSON" class="instructor-block">
-						<h3>03-Ins_D3_JSON</h3>
-
-						<p>You're given this code:</p>
-
-						<pre>
-							<code>
-const url = "https://api.spacexdata.com/v2/launchpads";
-
-// Fetch the JSON data and console log it
-d3.json(url).then(function(data) {
-  console.log(data);
-});
-
-// Promise Pending
-const dataPromise = d3.json(url);
-console.log("Data Promise: ", dataPromise);
-							</code>
-						</pre>
-
-						<p>D3 allows you to retrieve data from API urls and parse it into variables automatically for you!</p>
-
-						<p>Then, we decide to confuse you with the <strong>Promise</strong> concept in Javascript, which is found here:</p>
-
-						<pre>
-							<code>
-// Promise Pending
-const dataPromise = d3.json(url);
-console.log("Data Promise: ", dataPromise);	
-							</code>
-						</pre>
-
-						<p>So, let me explain the idea of <strong>Promises</strong>.</p>
-
-						<p>In English, we promise something, but we are only giving the assurance that we will do it. <strong>WE HAVE NOT DELIVERED YET.</strong> <em>And thus, the make or break of many marriages. (joking).</em></p>
-
-						<p>In Javascript, there are many components within a page which calls different APIs and data. <strong>You may request data from an API, but that doesn't mean the data will deliver!</strong></p>
-
-						<p><em>Side note: this behavior is called asynchronous. Synchronous is what you're used to, when code will break if a certain portion has errors. Async code WILL NOT BREAK and continue with the errors <strong>because different portions of code are independant of each other</strong>.</em></p>
-
-						<p>So some guy named this concept as <strong>Promise</strong>, and say if the data DOES DELIVER, we receive the data within a <strong>callback function</strong>. If the data DOES NOT DELIVER, we trigger an error <strong>within the same callback function</strong>.</p>
-
-						<p>There is a <strong>Promise</strong> object within the browser. <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">It has three states:</a></p>
-						<ul>
-							<li>Pending <em>(The start of marriages)</em></li>
-							<li>Fulfilled <em>(Disneyland kind of marriages)</em></li>
-							<li>Rejected <em>(You realized you're not in Disneyland.)</em></li>
+							<li>pet_pals folder contains:</li>
+							<ul>
+								<li>Standard files which you've been working with so far to run Flask apps.</li>
+								<li><code>__init__.py</code> - See <a href="https://docs.python.org/3/tutorial/modules.html#packages">https://docs.python.org/3/tutorial/modules.html#packages</a>. Basically it "packages" your files, and it indicates the root level path for your app.</li>
+								<li><strong>The root level path shouldn't be in the first layer</strong>, but in the <code>pet_pals</code> folder, because that is where your Flask app runs. The first layer contains the metadata (extra information) needed to run the app.</li>
+							</ul>
 						</ul>
 
-						<h4>BUT, let's not go there yet. Unless you want to stay here till midnight.</h4>
+						<h4>With this file structure, how do I run the file?</h4>
+						<p>Run it at the directory where <code>run.sh</code> is. Type: <code>sh runs.sh</code>.</p>
 
-						<pre>
-							<code>
-// Promise Pending
-const dataPromise = d3.json(url);
-console.log("Data Promise: ", dataPromise);	
-							</code>
-						</pre>
-
-						<p>The promise here holds the response which is either one of the 3 states above, and/or the data if available.</p>
-					</div>
-
-					<div id="04-Stu_Stocks" class="student-block">
-						<h3>04-Stu_Stocks: Your Turn</h3>
-
-						<p>When you try to do the activity, you will meet errors. That's because you have to <strong>SIGN UP</strong> for your own API key in <a href="https://www.quandl.com/">Quandl.com</a> to fetch stock data.</p>
-
-						<pre>
-							<code>
-var apiKey = "your_api_key"; // Register with the link above
-
-var url =
-  `https://www.quandl.com/api/v3/datasets/WIKI/AMZN.json?start_date=2016-10-01&end_date=2017-10-01&api_key=${apiKey}`;
-
-/**
- * Helper function to select stock data
- * Returns an array of values
- * @param {array} rows
- * @param {integer} index
- * index 0 - Date
- * index 1 - Open
- * index 2 - High
- * index 3 - Low
- * index 4 - Volume
- */
-function unpack(rows, index) {
-	// You have to see what is the data to understand how this works
-  return rows.map(function(row) {
-    return row[index];
-  });
-}
-
-function buildPlot() {
-  d3.json(url).then(function(data) {
-
-    // DO IT YOURSELF. SOME HELPING CODE TO GET STARTED
-
-    var layout = {
-      title: `${stock} closing prices`,
-      xaxis: {
-        range: [startDate, endDate],
-        type: "date"
-      },
-      yaxis: {
-        autorange: true,
-        type: "linear"
-      }
-    };
-
-    Plotly.newPlot("plot", data, layout); // Rename it to the relevant HTML
-
-  });
-}
-
-buildPlot();
-							</code>
-						</pre>
-
-						<p>It plots here:</p>
-
-						<div id="04-plot"></div>
-
-						<p>The goal is:</p>
+						<p>In the run.sh, it contains the following code: <code>FLASK_APP=pet_pals/app.py flask run</code>, where:</p>
 						<ul>
-							<li>Break it apart to see what is the data.</li>
-							<li>Organize your data</li>
-							<li>Do your layout</li>
-							<li>Plot the graph</li>
+							<li><code>FLASK_APP=pet_pals/app.py</code> stores the FLASK_APP variable in your environment.</li>
+							<li>I will demonstrate it in my <code>.bash_profile</code> in my computer, but we won't go too deep because you're not training to be dev-ops engineers.</li>
+							<li><code>flask run</code> simply runs the <code>flask</code> command, with the action to <code>run</code> the app, and the environment is given above. For documentation: <a href="http://flask.pocoo.org/docs/1.0/cli/">http://flask.pocoo.org/docs/1.0/cli/</a></li>
+							<li>If you go to your terminal and type <code>flask</code>, you will see the help page of the command <code>flask</code>. This is <code>flask</code> is an executable command on your terminal.</li>
+							<li>To reiterate, shell scripts such as <code>run.sh</code> allows you to standardize code which is run on terminals in a single file. That is all there is to it.</li>
 						</ul>
 
+						<h3>WHY ARE WE LEARNING THIS COMPLICATED STUFF?</h3>
+						<p>Because you're deploying your app onto the World Wide Web, namely, <a href="https://www.heroku.com/">Heroku</a>.</p>
+
+						<p>Heroku, and most hosting services, doesn't know what kind of libraries or dependencies you need to run your app. The above will tell the service how to run your code, and publish it into the World Wide Web.</p>
+
+						<h3>If in doubt, copy and paste.</h3>
+
+						<p>Not like I want to cut corners but I doubt you can understand everything in one go. It will take time to digest.</p>
+
+						<p>Don't think our average salary is so easy to earn: <a href="https://www.payscale.com/research/US/Job=Data_Scientist_%2F_Engineer/Salary">https://www.payscale.com/research/US/Job=Data_Scientist_%2F_Engineer/Salary</a></p>
+
 					</div>
 
-					<div id="05-Stu_Stocks_Dynamic" class="student-block">
-						<h3>05-Stu_Stocks_Dynamic: Your Turn</h3>
+					<div id="09-Evr_Pet_Pals_Heroku" class="instructor-block">
+						<h3>09-Evr_Pet_Pals_Heroku</h3>
 
-						<p>It's the same as the above graph, except that you must allow the user to input the stock name. <strong>You're going to code only the portion where a user inputs a value.</strong></p>
+						<p>Guess what, this is for your homework.</p>
 
-						<p>From this to the end of all student activities, <strong>you're building it incrementally</strong> and not from scatch.</p>
-
-						<p>Example Stock Names:</p>
 						<ul>
-							<li>AMD</li>
-							<li>FB</li>
-							<li>TSLA</li>
+							<li>Prepare the application with additional configuration files (Procfile and requirements.txt)</li>
+							<li>Create the Heroku application</li>
+							<li>Prepare the Heroku database</li>
 						</ul>
 
-						<pre>
-							<code>
-/**
- * Helper function to select stock data
- * Returns an array of values
- * @param {array} rows
- * @param {integer} index
- * index 0 - Date
- * index 1 - Open
- * index 2 - High
- * index 3 - Low
- * index 4 - Volume
- */
-function unpack(rows, index) {
-  return rows.map(function(row) {
-    return row[index];
-  });
-}
+						<p>We'll go step-by-step.</p>
 
-// Submit Button handler
-function handleSubmit() {
-  // Prevent the page from refreshing
-  d3.event.preventDefault();
+						<h4>Part 1: Configuration Files</h4>
+						<ul>
+							<li>We'll create a new conda environment just for this app. All of our project dependencies (requirements.txt) will be installed in this environment. <em>Note: This should only contain python 3.6 and not anaconda.</em></li>
+							<ul>
+								<li>Run: <code>conda create -n pet_pals_env python=3.6</code></li>
+								<li>Activate this environment before proceeding: <code>source activate pet_pals_env</code></li>
+							</ul>
+							<li>Install gunicorn: <code>pip install gunicorn</code>. This is a high performance web server that can run Flask app in a production environment</li>
+							<li>We'll also use <strong>Postgres</strong>, with <code>pip install psycopg2</code>. <strong>Postgres</strong> is another database server software, similar to <strong>MySQL</strong>.</li>
+							<li>Make sure every dependencies are installed:</li>
+							<ul>
+								<li><code>pip install flask</code></li>
+								<li><code>pip install flask-sqlalchemy</code></li>
+								<li><code>pip install pandas</code></li>
+							</ul>
+							<li>Initialize the database with: <code>initdb.py</code></li>
+							<li>Run the app with: <code>sh run.sh</code></li>
+						</ul>
 
-  // Select the input value from the form
+						<p>If you did everything above and your app runs normally, this means your application is working. Everything should be working before your code is loaded up into a web server!</p>
 
-  // clear the input value
+						<p>Now that it works, run <code>pip freeze > requirements.txt</code>. It takes all the dependencies, and outputs them into a file.</p>
+						<p>Last, we create the <code>Procfile</code>, and put the following line in it: <code>web: gunicorn pet_pals.app:app</code></p>
+						<ul>
+							<li><strong>pet_pals</strong> is the name of the folder, and <code>__init__.py</code> determines the root level of your app.</li>
+						</ul>
+					
+						<h4>Part 2: Creating the Heroku App</h4>
 
-  // Build the plot with the new stock
-  buildPlot(stock);
-}
+						<ul>
+							<li>Sign up for Heroku. There is a free tier for it: <a href="https://www.heroku.com/pricing">https://www.heroku.com/pricing</a></li>
+							<li>Create a new app. Name it however you want it, <strong>but the names are unique throughout Heroku</strong>. This means you probably can't copy my naming convention.</li>
+							<ul>
+								<li><img src="img/heroku-01.png" class="img-fluid"/></li>
+							</ul>
+							<li>Go to the <strong>Deploy</strong> section, and follow the steps to deploy the app.</li>
+							<ul>
+								<li><img src="img/heroku-02.png" class="img-fluid"/></li>
+								<li>Although you can link Github with Heroku, we'll do the <strong>Heroku Git</strong>. So, you've to install Heroku Cli and the documentation is here: <a href="https://devcenter.heroku.com/articles/heroku-cli">https://devcenter.heroku.com/articles/heroku-cli</a></li>
+							</ul>
+						</ul>
 
-function buildPlot(stock) {
-  var apiKey = "your_api_key";
-
-  var url = `https://www.quandl.com/api/v3/datasets/WIKI/${stock}.json?start_date=2016-10-01&end_date=2017-10-01&api_key=${apiKey}`;
-
-  d3.json(url).then(function(data) {
-
-    // Grab values from the response json object to build the plots
-    var name = data.dataset.name;
-    var stock = data.dataset.dataset_code;
-    var startDate = data.dataset.start_date;
-    var endDate = data.dataset.end_date;
-    var dates = unpack(data.dataset.data, 0);
-    var closingPrices = unpack(data.dataset.data, 1);
-
-    var trace1 = {
-      type: "scatter",
-      mode: "lines",
-      name: name,
-      x: dates,
-      y: closingPrices,
-      line: {
-        color: "#17BECF"
-      }
-    };
-
-    var data = [trace1];
-
-    var layout = {
-      title: `${stock} closing prices`,
-      xaxis: {
-        range: [startDate, endDate],
-        type: "date"
-      },
-      yaxis: {
-        autorange: true,
-        type: "linear"
-      }
-    };
-
-    Plotly.newPlot("plot", data, layout);
-
-  });
-}
-
-// Add event listener for submit button
-d3.select("#submit").on("click", handleSubmit);
-
-							</code>
-						</pre>
-
-						<p>It plots here if you put an input:</p>
-
-						<form class="form-inline">
-						    <div class="form-group">
-						      <input type="text" class="form-control stockInput" id="stockInput" placeholder="Enter a stock">
-						    </div>
-						    <button id="submit" type="submit" class="btn btn-default submit">Plot Stock</button>
-						  </form>
-
-						  <div class="row">
-						  	<div class="col-md-12">
-								<div id="05-plot"></div>
-							</div>
-						</div>
-					</div>
-
-					<div id="06-Stu_Stocks_CandleStick" class="student-block">
-						<h3>06-Stu_Stocks_CandleStick: Your Turn</h3>
-						<pre>
-							<code>
-/**
- * Helper function to select stock data
- * Returns an array of values
- * @param {array} rows
- * @param {integer} index
- * index 0 - Date
- * index 1 - Open
- * index 2 - High
- * index 3 - Low
- * index 4 - Close
- * index 5 - Volume
- */
-function unpack(rows, index) {
-  return rows.map(function(row) {
-    return row[index];
-  });
-}
-
-// Submit Button handler
-function handleSubmit() {
-  // Prevent the page from refreshing
-  d3.event.preventDefault();
-
-  // Select the input value from the form
-  var stock = d3.select("#stockInput").node().value;
-  console.log(stock);
-
-  // clear the input value
-  d3.select("#stockInput").node().value = "";
-
-  // Build the plot with the new stock
-  buildPlot(stock);
-}
-
-function buildPlot(stock) {
-  var apiKey = "your_api_key";
-
-  var url = `https://www.quandl.com/api/v3/datasets/WIKI/${stock}.json?start_date=2016-10-01&end_date=2017-10-01&api_key=${apiKey}`;
-
-  d3.json(url).then(function(data) {
-
-    // Grab values from the response json object to build the plots
-    var name = data.dataset.name;
-    var stock = data.dataset.dataset_code;
-    var startDate = data.dataset.start_date;
-    var endDate = data.dataset.end_date;
-    var dates = unpack(data.dataset.data, 0);
-
-	// @TODO: Unpack the open, close, high, and low prices
-
-    var trace1 = {
-      type: "scatter",
-      mode: "lines",
-      name: name,
-      x: dates,
-      y: closingPrices,
-      line: {
-        color: "#17BECF"
-      }
-    };
-
-    // Candlestick Trace
-    var trace2 = {
-      type: "candlestick",
-      x: dates,
-      high: highPrices,
-      low: lowPrices,
-      open: openingPrices,
-      close: closingPrices
-    };
-
-    var data = [trace1, trace2];
-
-    var layout = {
-      title: `${stock} closing prices`,
-      xaxis: {
-        range: [startDate, endDate],
-        type: "date"
-      },
-      yaxis: {
-        autorange: true,
-        type: "linear"
-      }
-    };
-
-    Plotly.newPlot("plot", data, layout);
-  });
-}
-
-// Add event listener for submit button
-d3.select("#submit").on("click", handleSubmit);				
-							</code>
-						</pre>
-						<p>It plots here if you put an input:</p>
-
-						  <div class="row">
-						  	<div class="col-md-12">
-								<div id="06-plot"></div>
-							</div>
-						</div>
-					</div>
-
-					<div id="07-Stu_Stocks_Rolling_Avg" class="student-block">
-						<h3>07-Stu_Stocks_Rolling_Avg: Your Turn</h3>
-						<pre>
-							<code>
-/**
- * Helper function to select stock data
- * Returns an array of values
- * @param {array} rows
- * @param {integer} index
- * index 0 - Date
- * index 1 - Open
- * index 2 - High
- * index 3 - Low
- * index 4 - Close
- * index 5 - Volume
- */
-function unpack(rows, index) {
-  return rows.map(function(row) {
-    return row[index];
-  });
-}
-
-// Calculate a rolling average for an array
-function rollingAverage(arr, windowPeriod = 10) {
-  // rolling averages array to return
-  var averages = [];
-
- // @TODO: YOUR CODE HERE
+						<h4>Part 3: Prepare the Database</h4>
+						<ul>
+							<li>Navigate to <strong>Resources</strong>, and look for <strong>Heroku Postgres</strong> under <strong>Add-ons</strong>. Make sure to use the <strong>Free Version:</strong></li>
+							<ul>
+								<li><img src="img/heroku-03.png" class="img-fluid"/></li>
+							</ul>
+							<li>Under settings, click on <code>Reveal Config Variables</code>. The connection string to the database should be available:</li>
+							<ul>
+								<li><img src="img/heroku-03.png" class="img-fluid"></li>
+							</ul>
+							<li>Heroku will automatically assign this URI string to the DATABASE_URL environment variable that is used within app.py. The code that is already in app.py will be able to use that environment variable to connect to the Heroku database:</li>
+							<ul>
+								<li><pre><code>
+# DATABASE_URL will contain the database connection string:
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', '')
+# Connects to the database using the app config
+db = SQLAlchemy(app)
+								</code></pre></li>
+							</ul>
+							<li>After you've installed the <strong>Heroku Cli</strong> and running everything in <strong>Part 2</strong>, your files should be in Heroku. Run: <code>heroku run python initdb.py</code></li>
+							<li>You can open the application using <code>heroku open</code> from the terminal.</li>
+						</ul>
 
 
-  return averages;
-}
-
-// Submit Button handler
-function handleSubmit() {
-  // Prevent the page from refreshing
-  d3.event.preventDefault();
-
-  // Select the input value from the form
-  var stock = d3.select("#stockInput").node().value;
-  console.log(stock);
-
-  // clear the input value
-  d3.select("#stockInput").node().value = "";
-
-  // Build the plot with the new stock
-  buildPlot(stock);
-}
-
-function buildPlot(stock) {
-  var apiKey = "ppvzoohSZsStRq8whQr9";
-
-  var url = `https://www.quandl.com/api/v3/datasets/WIKI/${stock}.json?start_date=2016-10-01&end_date=2017-10-01&api_key=${apiKey}`;
-
-  d3.json(url).then(function(data) {
-
-    // Grab values from the response json object to build the plots
-    var name = data.dataset.name;
-    var stock = data.dataset.dataset_code;
-    var startDate = data.dataset.start_date;
-    var endDate = data.dataset.end_date;
-    var dates = unpack(data.dataset.data, 0);
-    var openingPrices = unpack(data.dataset.data, 1);
-    var highPrices = unpack(data.dataset.data, 2);
-    var lowPrices = unpack(data.dataset.data, 3);
-    var closingPrices = unpack(data.dataset.data, 4);
-    var rollingPeriod = 30;
-    var rollingAvgClosing = rollingAverage(closingPrices, rollingPeriod);
-
-    var trace1 = {
-      type: "scatter",
-      mode: "lines",
-      name: name,
-      x: dates,
-      y: closingPrices,
-      line: {
-        color: "#17BECF"
-      }
-    };
-
-    // Candlestick Trace
-    var trace2 = {
-      type: "candlestick",
-      x: dates,
-      high: highPrices,
-      low: lowPrices,
-      open: openingPrices,
-      close: closingPrices
-    };
-
-    // Rolling Averages Trace
-    var trace3 = {
-      type: "scatter",
-      mode: "lines",
-      name: "Rolling",
-      x: dates.slice(0, dates.length - rollingPeriod),
-      y: rollingAvgClosing
-    };
-
-    var data = [trace1, trace2, trace3];
-
-    var layout = {
-      title: `${stock} closing prices`,
-      xaxis: {
-        range: [startDate, endDate],
-        type: "date"
-      },
-      yaxis: {
-        autorange: true,
-        type: "linear"
-      }
-    };
-
-    Plotly.newPlot("plot", data, layout);
-
-  });
-}
-
-// Add event listener for submit button
-d3.select("#submit").on("click", handleSubmit);
-							</code>
-						</pre>
-						<p>It plots here if you put an input:</p>
-
-						  <div class="row">
-						  	<div class="col-md-12">
-								<div id="07-plot"></div>
-							</div>
-						</div>
-					</div>
-
-					<div id="08-Stu_Stocks_Report" class="student-block">
-						<h3>08-Stu_Stocks_Report: Your Turn</h3>
-
-						<p>This is built upon everything you've learned before.</p>
 
 					</div>
-
 				</div> <!-- end #main-content -->
 
 
@@ -758,14 +464,15 @@ d3.select("#submit").on("click", handleSubmit);
 					<div id="right-sb-nav" class="list-group" id="toc" role="tablist">
 					  <a class="list-group-item list-group-item-action active"  href="#objectives" role="tab">Objectives</a>
 					  <a class="list-group-item list-group-item-action"  href="#why-we-learn" role="tab">Why We Learn</a>
-					  <a class="list-group-item list-group-item-action"  href="#01-Ins_Dropdown_Events" role="tab">01-Ins_Dropdown_Events</a>
-					  <a class="list-group-item list-group-item-action"  href="#02-Stu_Dropdown_Events" role="tab">02-Stu_Dropdown_Events</a>
-					  <a class="list-group-item list-group-item-action"  href="#03-Ins_D3_JSON" role="tab">03-Ins_D3_JSON</a>
-					  <a class="list-group-item list-group-item-action"  href="#04-Stu_Stocks" role="tab">04-Stu_Stocks</a>
-					  <a class="list-group-item list-group-item-action"  href="#05-Stu_Stocks_Dynamic" role="tab">05-Stu_Stocks_Dynamic</a>
-					  <a class="list-group-item list-group-item-action"  href="#06-Stu_Stocks_CandleStick" role="tab">06-Stu_Stocks_CandleStick</a>
-					  <a class="list-group-item list-group-item-action"  href="#07-Stu_Stocks_Rolling_Avg" role="tab">07-Stu_Stocks_Rolling_Avg</a>
-					  <a class="list-group-item list-group-item-action"  href="#08-Stu_Stocks_Report" role="tab">08-Stu_Stocks_Report</a>
+					  <a class="list-group-item list-group-item-action"  href="#01-Ins_Basic_Flask_Plotly" role="tab">01-Ins_Basic_Flask_Plotly</a>
+					  <a class="list-group-item list-group-item-action"  href="#02-Stu_Song_Lyrics" role="tab">02-Stu_Song_Lyrics</a>
+					  <a class="list-group-item list-group-item-action"  href="#03-Ins_Fullstack_Flask_Plotly" role="tab">03-Ins_Fullstack_Flask_Plotly</a>
+					  <a class="list-group-item list-group-item-action"  href="#04-Stu_Bigfoot" role="tab">04-Stu_Bigfoot</a>
+					  <a class="list-group-item list-group-item-action"  href="#05-Evr_Flask_Requests" role="tab">05-Evr_Flask_Requests</a>
+					  <a class="list-group-item list-group-item-action"  href="#06_Ins_Flask_SQLAlchemy" role="tab">06_Ins_Flask_SQLAlchemy</a>
+					  <a class="list-group-item list-group-item-action"  href="#07-Stu_Pet_Pals" role="tab">07-Stu_Pet_Pals</a>
+					  <a class="list-group-item list-group-item-action"  href="#08-Ins_Pet_Pals_Refactor" role="tab">08-Ins_Pet_Pals_Refactor</a>
+					  <a class="list-group-item list-group-item-action"  href="#09-Evr_Pet_Pals_Heroku" role="tab">09-Evr_Pet_Pals_Heroku</a>
 					</div>
 				
 				</div>
@@ -778,352 +485,6 @@ d3.select("#submit").on("click", handleSubmit);
 			<script type="text/javascript" src="js/bootstrap.min.js"></script>
 
 			<script type="text/javascript">
-// 01
-function printData(value){
-	console.log(value);
-}
-
-function init() {
-  data = [{
-    x: [1, 2, 3, 4, 5],
-    y: [1, 2, 4, 8, 16] }];
-  var LINE = document.getElementById("01-plot");
-  console.log(LINE);
-  Plotly.plot(LINE, data);
-}
-
-function updatePlotly(newx, newy) {
-  var LINE = document.getElementById("01-plot");
-
-  // Note the extra brackets around 'newx' and 'newy'
-  Plotly.restyle(LINE, "x", [newx]);
-  Plotly.restyle(LINE, "y", [newy]);
-}
-
-function getData(dataset) {
-
-  // Initialize empty arrays to contain our axes
-  var x = [];
-  var y = [];
-
-  // Fill the x and y arrays as a function of the selected dataset
-  switch (dataset) {
-  case "dataset1":
-    x = [1, 2, 3, 4, 5];
-    y = [0.1, 0.2, 0.3, 0.4, 0.5];
-    break;
-  case "dataset2":
-    x = [10, 20, 30, 40, 50];
-    y = [1, 10, 100, 1000, 10000];
-    break;
-  case "dataset3":
-    x = [100, 200, 300, 400, 500];
-    y = [10, 100, 50, 10, 0];
-    break;
-  default:
-    x = [1, 2, 3, 4, 5];
-    y = [1, 2, 3, 4, 5];
-    break;
-  }
-
-  updatePlotly(x, y);
-}
-
-init();
-
-// 04
-var apiKey = "_o3wCfBk2R9sTS_kyH_x"; // Register with the link above
-
-var url =
-  `https://www.quandl.com/api/v3/datasets/WIKI/AMZN.json?start_date=2016-10-01&end_date=2017-10-01&api_key=${apiKey}`;
-
-/**
- * Helper function to select stock data
- * Returns an array of values
- * @param {array} rows
- * @param {integer} index
- * index 0 - Date
- * index 1 - Open
- * index 2 - High
- * index 3 - Low
- * index 4 - Volume
- */
-function unpack(rows, index) {
-  return rows.map(function(row) {
-    return row[index];
-  });
-}
-
-function buildPlot() {
-  d3.json(url).then(function(data) {
-
-    // Grab values from the data json object to build the plots
-    var name = data.dataset.name;
-    var stock = data.dataset.dataset_code;
-    var startDate = data.dataset.start_date;
-    var endDate = data.dataset.end_date;
-    var dates = unpack(data.dataset.data, 0);
-    var closingPrices = unpack(data.dataset.data, 1);
-
-    var trace1 = {
-      type: "scatter",
-      mode: "lines",
-      name: name,
-      x: dates,
-      y: closingPrices,
-      line: {
-        color: "#17BECF"
-      }
-    };
-
-    var data = [trace1];
-
-    var layout = {
-      title: `${stock} closing prices`,
-      xaxis: {
-        range: [startDate, endDate],
-        type: "date"
-      },
-      yaxis: {
-        autorange: true,
-        type: "linear"
-      }
-    };
-
-    Plotly.newPlot("04-plot", data, layout); // Rename it to the relevant HTML
-
-  });
-}
-
-buildPlot();
-
-// 05
-
-/**
- * Helper function to select stock data
- * Returns an array of values
- * @param {array} rows
- * @param {integer} index
- * index 0 - Date
- * index 1 - Open
- * index 2 - High
- * index 3 - Low
- * index 4 - Volume
- */
-function unpack(rows, index) {
-  return rows.map(function(row) {
-    return row[index];
-  });
-}
-
-// Submit Button handler
-function handleSubmit() {
-  // Prevent the page from refreshing
-  d3.event.preventDefault();
-
-  // Select the input value from the form
-  var stock = d3.select(".stockInput").node().value;
-  console.log(stock);
-
-  // clear the input value
-  d3.select(".stockInput").node().value = "";
-
-  // Build the plot with the new stock
-  buildDynamicPlot(stock);
-  buildCandleStickPlot(stock);
-  buildRollingAvgPlot(stock);
-}
-
-function buildDynamicPlot(stock) {
-  var apiKey = "_o3wCfBk2R9sTS_kyH_x";
-
-  var url = `https://www.quandl.com/api/v3/datasets/WIKI/${stock}.json?start_date=2016-10-01&end_date=2017-10-01&api_key=${apiKey}`;
-
-  d3.json(url).then(function(data) {
-
-    // Grab values from the response json object to build the plots
-    var name = data.dataset.name;
-    var stock = data.dataset.dataset_code;
-    var startDate = data.dataset.start_date;
-    var endDate = data.dataset.end_date;
-    var dates = unpack(data.dataset.data, 0);
-    var closingPrices = unpack(data.dataset.data, 1);
-
-    var trace1 = {
-      type: "scatter",
-      mode: "lines",
-      name: name,
-      x: dates,
-      y: closingPrices,
-      line: {
-        color: "#17BECF"
-      }
-    };
-
-    var data = [trace1];
-
-    var layout = {
-      title: `${stock} closing prices`,
-      xaxis: {
-        range: [startDate, endDate],
-        type: "date"
-      },
-      yaxis: {
-        autorange: true,
-        type: "linear"
-      }
-    };
-
-    Plotly.newPlot("05-plot", data, layout);
-
-  });
-}
-
-function buildCandleStickPlot(stock) {
-  var apiKey = "_o3wCfBk2R9sTS_kyH_x";
-
-  var url = `https://www.quandl.com/api/v3/datasets/WIKI/${stock}.json?start_date=2016-10-01&end_date=2017-10-01&api_key=${apiKey}`;
-
-  d3.json(url).then(function(data) {
-
-    // Grab values from the response json object to build the plots
-    var name = data.dataset.name;
-    var stock = data.dataset.dataset_code;
-    var startDate = data.dataset.start_date;
-    var endDate = data.dataset.end_date;
-    var dates = unpack(data.dataset.data, 0);
-    var openingPrices = unpack(data.dataset.data, 1);
-    var highPrices = unpack(data.dataset.data, 2);
-    var lowPrices = unpack(data.dataset.data, 3);
-    var closingPrices = unpack(data.dataset.data, 4);
-
-    var trace1 = {
-      type: "scatter",
-      mode: "lines",
-      name: name,
-      x: dates,
-      y: closingPrices,
-      line: {
-        color: "#17BECF"
-      }
-    };
-
-    // Candlestick Trace
-    var trace2 = {
-      type: "candlestick",
-      x: dates,
-      high: highPrices,
-      low: lowPrices,
-      open: openingPrices,
-      close: closingPrices
-    };
-
-    var data = [trace1, trace2];
-
-    var layout = {
-      title: `${stock} closing prices`,
-      xaxis: {
-        range: [startDate, endDate],
-        type: "date"
-      },
-      yaxis: {
-        autorange: true,
-        type: "linear"
-      }
-    };
-
-    Plotly.newPlot("06-plot", data, layout);
-  });
-}
-
-function rollingAverage(arr, windowPeriod = 10) {
-  // rolling averages array to return
-  var averages = [];
-
-  // Loop through all of the data
-  for (var i = 0; i < arr.length - windowPeriod + 1; i++) {
-    // calculate the average for a window of data
-    var sum = 0;
-    for (var j = 0; j < windowPeriod; j++) {
-      sum += arr[i + j];
-    }
-    // calculate the average and push it to the averages array
-    averages.push(sum / windowPeriod);
-  }
-  return averages;
-}
-
-function buildRollingAvgPlot(stock) {
-  var apiKey = "_o3wCfBk2R9sTS_kyH_x";
-
-  var url = `https://www.quandl.com/api/v3/datasets/WIKI/${stock}.json?start_date=2016-10-01&end_date=2017-10-01&api_key=${apiKey}`;
-
-  d3.json(url).then(function(data) {
-
-    // Grab values from the response json object to build the plots
-    var name = data.dataset.name;
-    var stock = data.dataset.dataset_code;
-    var startDate = data.dataset.start_date;
-    var endDate = data.dataset.end_date;
-    var dates = unpack(data.dataset.data, 0);
-    var openingPrices = unpack(data.dataset.data, 1);
-    var highPrices = unpack(data.dataset.data, 2);
-    var lowPrices = unpack(data.dataset.data, 3);
-    var closingPrices = unpack(data.dataset.data, 4);
-    var rollingPeriod = 30;
-    var rollingAvgClosing = rollingAverage(closingPrices, rollingPeriod);
-
-    var trace1 = {
-      type: "scatter",
-      mode: "lines",
-      name: name,
-      x: dates,
-      y: closingPrices,
-      line: {
-        color: "#17BECF"
-      }
-    };
-
-    // Candlestick Trace
-    var trace2 = {
-      type: "candlestick",
-      x: dates,
-      high: highPrices,
-      low: lowPrices,
-      open: openingPrices,
-      close: closingPrices
-    };
-
-    // Rolling Averages Trace
-    var trace3 = {
-      type: "scatter",
-      mode: "lines",
-      name: "Rolling",
-      x: dates.slice(0, dates.length - rollingPeriod),
-      y: rollingAvgClosing
-    };
-
-    var data = [trace1, trace2, trace3];
-
-    var layout = {
-      title: `${stock} closing prices`,
-      xaxis: {
-        range: [startDate, endDate],
-        type: "date"
-      },
-      yaxis: {
-        autorange: true,
-        type: "linear"
-      }
-    };
-
-    Plotly.newPlot("07-plot", data, layout);
-
-  });
-}
-
-// Add event listener for submit button
-d3.select(".submit").on("click", handleSubmit);
 
 			</script>
 
