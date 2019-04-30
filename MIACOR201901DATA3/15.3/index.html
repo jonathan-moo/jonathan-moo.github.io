@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Jonathan Moo's Github Bio</title>
+
+
+		<link rel='stylesheet' id='bootstrap-css'  href='../../css/bootstrap.min.css' type='text/css' media='all' />
+		<link rel='stylesheet' id='bootstrap-grid-css'  href='../../css/bootstrap-grid.min.css' type='text/css' media='all' />
+		<link rel='stylesheet' id='custom-css'  href='../../css/style.css' type='text/css' media='all' /> 
+		<script src="https://d3js.org/d3.v5.min.js"></script>
+		<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+	</head>
+
+	<body>
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<a class="navbar-brand" href="#">Jonathan's Github Page</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active">
+						<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="../../MIACOR201901DATA3/11.2/index.html">11.2 Ref</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="../../MIACOR201901DATA3/11.3/index.html">11.3 Ref</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="../../MIACOR201901DATA3/12.1/index.html">12.1 Ref</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="../../MIACOR201901DATA3/12.3/index.html">12.3 Ref</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="../../MIACOR201901DATA3/13.1/index.html">13.1 Ref</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="../../MIACOR201901DATA3/13.2/index.html">13.2 Ref</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="../../MIACOR201901DATA3/13.3/index.html">13.3 Ref</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="../../MIACOR201901DATA3/14.1/index.html">14.1 Ref</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="../../MIACOR201901DATA3/14.2/index.html">14.2 Ref</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="../../MIACOR201901DATA3/14.3/index.html">14.3 Ref</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="../../MIACOR201901DATA3/15.1/index.html">15.1 Ref</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="../../MIACOR201901DATA3/15.2/index.html">15.2 Ref</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+		<div class="container-fluid">
+			<div class="row">
+				<div id="main-content" class="col-md-8">
+					<div class="objective-block">
+						<h3 id="objectives">Objectives For Lesson 15.3</h3>
+
+						<ul>
+							<li>Flask and building a web service for data</li>
+							<ul>
+								<li>We'll launch your data dashboard on the web.</li>
+							</ul>
+						</ul>
+
+						
+					</div>
+
+					<div id="why-we-learn" class="instructor-block">
+						<h3>Why We Learn?</h3>
+						
+						<p>You're building towards a full-stack service for data.</p>
+
+						<h4>What does "full-stack" mean?</h4>
+
+						<p>It means you're building a <strong>complete solution</strong> with minimal outside help:</p>
+						<ul>
+							<li>Backend - Setting up databases and getting your business logic and data in.</li>
+							<li>Middleware - Flask as your system which interfaces between your backend and frontend</li>
+							<li>Frontend - Dashboards and visualization</li>
+						</ul>
+
+
+					</div>
+
+					<div id="01-Ins_Basic_Flask_Plotly" class="instructor-block">
+						<h3>01-Ins_Basic_Flask_Plotly</h3>
+						
+						<p>We'll dive right into Flask, and display a graph via a web server.</p>
+
+						<p>You'll realize there are two sections:</p>
+						<ul>
+							<li><code>/line</code> route is the API.</li>
+							<li>The index page is your webpage.</li>
+						</ul>
+
+						<p>This is a typical setup. Usually, we grab data from an API, and then display the data via visualizations. With Flask, you can do both at the same time.</p>
+
+						<h4>Note</h4>
+						<p>In our example, we're using Javascript to pull the data from the API which you have in your Flask. The data is not delivered through the passing of variables from the <code>render_template</code> method in Flask.</p>
+					</div>
+
+					<div id="02-Stu_Song_Lyrics" class="student-block">
+						<h3>02-Stu_Song_Lyrics: Your Turn</h3>
+
+						<p>Before we begin, in your student activity, there is a <code>lyrics.py</code> and a <code>lyrics.txt</code>. They are basically your data sources, and they are imported into your <code>app.py</code> file.</p>
+
+						<ul>
+							<li><strong>collections</strong> is a standard Python library. <code>Counter</code> helps to count objects.</li>
+							<li>Same as the homework, <strong>where you tested your web scraping script to see if it's working before you integrate it into your Flask app</strong>, run the code and see the results.</li>
+						</ul>
+
+						<h4>Remember <code>zip</code>?</h4>
+
+						<p>It combines iterables (dict or lists) into a single entity</p>
+						<p>To unzip, put the asterisk (*) in front of the iterable when using zip, because asterisk is to unpacks (or unzips in layman terms) a list-type container. Then assign the variables <strong>according to the respective order</strong>.</p>
+
+					</div>
+
+					<div id="03-Ins_Fullstack_Flask_Plotly" class="instructor-block">
+						<h3>03-Ins_Fullstack_Flask_Plotly</h3>
+
+						<p>This time, we're integrating our app with a SQLite database, <strong>and this is going to be part of your homework.</strong></p>
+
+						<h4>If you haven't:</h4>
+
+						<p>Install flask_sqlalchemy: <code>pip install flask_sqlachemy</code></p>
+
+						<h4>What is the difference between using the SQLalchemy in the past and using flask_sqlalchemy?</h4>
+
+						<p>Basically, flask_sqlalchemy is a <strong>wrapper library</strong> around SQLalchemy, so that Flask as a framework integrates well with SQLalchemy. Good wrapper libraries usually don't massively overwrite the original library itself.</p>
+
+						<p>Wrapper libraries are very common since developers don't like to repeat themselves when writing code.</p>
+
+						<div class="row student-block">
+							<div class="col-md-6">
+								<h4>Lesson 15.3</h4>
+								<pre>
+									<code>
+import pandas as pd
+
+from flask import (
+    Flask,
+    render_template,
+    jsonify)
+
+from flask_sqlalchemy import SQLAlchemy
+
+app = Flask(__name__)
+
+# The database URI
+app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///db/emoji.sqlite"
+
+db = SQLAlchemy(app)
+
+
+# Create our database model
+class Emoji(db.Model):
+    __tablename__ = 'emoji'
+
+    id = db.Column(db.Integer, primary_key=True)
+    emoji_char = db.Column(db.String)
+    emoji_id = db.Column(db.String)
+    name = db.Column(db.String)
+    score = db.Column(db.Integer)
+
+    def __repr__(self):
+        return '&lt;Emoji %r>' % (self.name)
+									</code>
+								</pre>
+							</div>
+							<div class="col-md-6">
+								<h3>lesson 10.1, 10-Ins_SQL_Alchemy_Revisited</h3>
+								<pre>
+									<code>
+# Dependencies
+# ----------------------------------
+# Imports the method used for connecting to DBs
+from sqlalchemy import create_engine
+
+# Imports the methods needed to abstract classes into tables
+from sqlalchemy.ext.declarative import declarative_base
+
+# Allow us to declare column types
+from sqlalchemy import Column, Integer, String, Float 
+
+# Sets an object to utilize the default declarative base in SQL Alchemy
+Base = declarative_base()
+
+
+# Creates Classes which will serve as the anchor points for our Tables
+class Dog(Base):
+    __tablename__ = 'dog'
+    id = Column(Integer, primary_key=True)
+    name = Column(String(255))
+    color = Column(String(255))
+    age = Column(Integer)
+
+									</code>
+								</pre>
+							</div>
+						</div> <!-- end .row.student-block -->
+
+						<div class="row student-block">
+							<div class="col-md-12">
+								<h3>Lesson 10.3, taken from 10-Ins_Flask_with_ORM</h3>
+								<pre>
+									<code>
+import numpy as np
+
+import sqlalchemy
+from sqlalchemy.ext.automap import automap_base
+from sqlalchemy.orm import Session
+from sqlalchemy import create_engine, func
+
+from flask import Flask, jsonify
+
+
+#################################################
+# Database Setup
+#################################################
+engine = create_engine("sqlite:///titanic.sqlite")
+
+# reflect an existing database into a new model
+Base = automap_base() # automap_base is to reflect. declarative_base() is to create a new database
+# reflect the tables
+Base.prepare(engine, reflect=True)
+
+# Save reference to the table
+Passenger = Base.classes.passenger
+
+# Create our session (link) from Python to the DB
+session = Session(engine)
+
+#################################################
+# Flask Setup
+#################################################
+app = Flask(__name__)
+									</code>
+								</pre>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-md-12">
+								<h4>What is the difference between the two sets of code in terms of initialization? (You can also compare lesson 10.1, 10-Ins_SQL_Alchemy_Revisited)</h4>
+
+								<ul>
+									<li><code>flask_sqlalchemy</code> provides an <code>app.config['SQLALCHEMY_DATBASE_URL']</code> for database creation, while if you use the <code>sqlalchemy</code> library raw, you have to create a bunch of code to get started.</li>
+									<li>But you still need to create the classes in Python, so that you can create your tables.</li>
+									<li>Syntax is almost the same and you can compare it side-by-side, but because <code>flask_sqlalchemy</code> is a wrapper library, it needs a <code>db.SQLAlchemy(app)</code> to extract the SQLAlchemy library from itself.</li>
+								</ul>
+
+								<h4>Now, we get the database stuff out of the way, I'm going to reiterate the MVC model again.</h4>
+								<ul>
+									<li>Model: Get your data and business logic up first and make sure it's there.</li>
+									<ul>
+										<li>All the database and its data</li>
+										<li>All the APIs</li>
+									</ul>
+									<li>View: Get your visuals up. You might have to do the controller first based on certain conditions, but try to get a template out first.</li>
+									<ul>
+										<li>To reference a file within your flask app, use the <code>{{ url_for('static', filename='js/app.js') }}</code> in your <code>index.html.</code></li>
+										<li><code>url_for(endpoint, **values)</code> <a href="http://flask.pocoo.org/docs/1.0/api/">generates a URL to the given endpoint with the method provided.</a></li>
+										<li><code>'static'</code> is generally the folder, since we use folders as directories for URLs. <code>filename</code> is the path from <code>'static'</code>.</li>
+									</ul>
+									<li>Controller: Connects and interface the Model and View together.</li>
+								</ul>
+							</div>
+						</div>
+
+					</div>
+
+					<div id="05-Evr_Flask_Requests" class="instructor-block">
+						<h3>05-Evr_Flask_Requests</h3>
+
+						<h4>Ref: <a href="https://www.w3schools.com/tags/ref_httpmethods.asp">GET and POST methods</a></h4>
+
+						<p>The web has many standard protocols in getting and sending data. We use primarily <code>GET</code> and <code>POST</code>. All browsers recognize them as standard.</p>
+
+						<h4>GET</h4>
+						<ul>
+							<li>You can use a URL route to retrieve data on the browser in the address bar.</li>
+							<li>Less secure, has a data limit.</li>
+						</ul>
+
+						<h4>POST</h4>
+						<ul>
+							<li>They are not visually exposed on the browser. It doesn't mean it is not used in the background.</li>
+							<li>Standard protocol for <code>forms</code> in HTML. Remember how I said <code>forms</code> force a web page reload? That's because HTML is inbuilt with the capability of sending <code>POST</code> requests through <code>forms</code>, and they do it by redirections.</li>
+						</ul>
+					</div>
+
+					<div id="06_Ins_Flask_SQLAlchemy" class="instructor-block">
+						<h3>06_Ins_Flask_SQLAlchemy</h3>
+
+						<p>In this activity, we are using a <code>form</code> to capture data via <code>POST</code>, and then storing it into a sqlite. If we trigger the <code>/api/data</code> endpoint, we should be able to see the data.</p>
+
+						<p>You start with an empty database. This is part of the data collection process in ETL.</p>
+
+						<p>The code is very similar to the previous activity.</p>
+					</div>
+
+					<div id="07-Stu_Pet_Pals" class="student-block">
+						<h3>07-Stu_Pet_Pals</h3>
+
+						<p>In this activity, we are using a <code>form</code> to capture data via <code>POST</code>, and then storing it into a sqlite. If we trigger the <code>/api/data</code> endpoint, we should be able to see the data.</p>
+
+						<p>The code is very similar to the previous activity.</p>
+
+						<h4>Bonus</h4>
+						<p>Plotly has a geolocation visualizer. Look into the docs and try it out!</p>
+					</div>
+
+					<div id="08-Ins_Pet_Pals_Refactor" class="instructor-block">
+						<h3>08-Ins_Pet_Pals_Refactor</h3>
+
+						<p>In our previous activities, we build a web app and run it in our local machines. But for deployment standards, it's bad practice. We'll need to refactor code to make it deployable on the web.</p>
+
+						<h4>Before we begin</h4>
+
+						<p>Take a look at our folder structure</p>
+						<img src="img/refactor01.png" class="img-fluid" />
+
+						<ul>
+							<li>The first layer contains:</li>
+							<ul>
+								<li><strong>initdb.py</strong> -- Remember MVC? This is to initialize the database.</li>
+								<li><strong>requirements.txt</strong> -- It lists the libraries we use. We call these libraries, <strong>dependencies</strong>.</li>
+								<li><strong>run.sh</strong> -- this is a shell script file. Remember how we do certain commands in our terminal, such as <code>cd DataViz-Lesson-Plans</code> and <code>python app.py</code>? This helps to run such commands <strong>in sequence</strong> in a file. Widely used in production servers to ensure consistency.</li>
+								<li><strong>Procfile</strong> is a file needed to launch your code into Heroku. We'll talk about it in the next activity.</li>
+								<li><strong>pet_pals folder</strong> -- contains your actual Flask app files</li>
+							</ul>
+							<li>pet_pals folder contains:</li>
+							<ul>
+								<li>Standard files which you've been working with so far to run Flask apps.</li>
+								<li><code>__init__.py</code> - See <a href="https://docs.python.org/3/tutorial/modules.html#packages">https://docs.python.org/3/tutorial/modules.html#packages</a>. Basically it "packages" your files, and it indicates the root level path for your app.</li>
+								<li><strong>The root level path shouldn't be in the first layer</strong>, but in the <code>pet_pals</code> folder, because that is where your Flask app runs. The first layer contains the metadata (extra information) needed to run the app.</li>
+							</ul>
+						</ul>
+
+						<h4>With this file structure, how do I run the file?</h4>
+						<p>Run it at the directory where <code>run.sh</code> is. Type: <code>sh runs.sh</code>.</p>
+
+						<p>In the run.sh, it contains the following code: <code>FLASK_APP=pet_pals/app.py flask run</code>, where:</p>
+						<ul>
+							<li><code>FLASK_APP=pet_pals/app.py</code> stores the FLASK_APP variable in your environment.</li>
+							<li>I will demonstrate it in my <code>.bash_profile</code> in my computer, but we won't go too deep because you're not training to be dev-ops engineers.</li>
+							<li><code>flask run</code> simply runs the <code>flask</code> command, with the action to <code>run</code> the app, and the environment is given above. For documentation: <a href="http://flask.pocoo.org/docs/1.0/cli/">http://flask.pocoo.org/docs/1.0/cli/</a></li>
+							<li>If you go to your terminal and type <code>flask</code>, you will see the help page of the command <code>flask</code>. This is <code>flask</code> is an executable command on your terminal.</li>
+							<li>To reiterate, shell scripts such as <code>run.sh</code> allows you to standardize code which is run on terminals in a single file. That is all there is to it.</li>
+						</ul>
+
+						<h3>WHY ARE WE LEARNING THIS COMPLICATED STUFF?</h3>
+						<p>Because you're deploying your app onto the World Wide Web, namely, <a href="https://www.heroku.com/">Heroku</a>.</p>
+
+						<p>Heroku, and most hosting services, doesn't know what kind of libraries or dependencies you need to run your app. The above will tell the service how to run your code, and publish it into the World Wide Web.</p>
+
+						<h3>If in doubt, copy and paste.</h3>
+
+						<p>Not like I want to cut corners but I doubt you can understand everything in one go. It will take time to digest.</p>
+
+						<p>Don't think our average salary is so easy to earn: <a href="https://www.payscale.com/research/US/Job=Data_Scientist_%2F_Engineer/Salary">https://www.payscale.com/research/US/Job=Data_Scientist_%2F_Engineer/Salary</a></p>
+
+					</div>
+
+					<div id="09-Evr_Pet_Pals_Heroku" class="instructor-block">
+						<h3>09-Evr_Pet_Pals_Heroku</h3>
+
+						<p>Guess what, this is for your homework.</p>
+
+						<ul>
+							<li>Prepare the application with additional configuration files (Procfile and requirements.txt)</li>
+							<li>Create the Heroku application</li>
+							<li>Prepare the Heroku database</li>
+						</ul>
+
+						<p>We'll go step-by-step.</p>
+
+						<h4>Part 1: Configuration Files</h4>
+						<ul>
+							<li>We'll create a new conda environment just for this app. All of our project dependencies (requirements.txt) will be installed in this environment. <em>Note: This should only contain python 3.6 and not anaconda.</em></li>
+							<ul>
+								<li>Run: <code>conda create -n pet_pals_env python=3.6</code></li>
+								<li>Activate this environment before proceeding: <code>source activate pet_pals_env</code></li>
+							</ul>
+							<li>Install gunicorn: <code>pip install gunicorn</code>. This is a high performance web server that can run Flask app in a production environment</li>
+							<li>We'll also use <strong>Postgres</strong>, with <code>pip install psycopg2</code>. <strong>Postgres</strong> is another database server software, similar to <strong>MySQL</strong>.</li>
+							<li>Make sure every dependencies are installed:</li>
+							<ul>
+								<li><code>pip install flask</code></li>
+								<li><code>pip install flask-sqlalchemy</code></li>
+								<li><code>pip install pandas</code></li>
+							</ul>
+							<li>Initialize the database with: <code>initdb.py</code></li>
+							<li>Run the app with: <code>sh run.sh</code></li>
+						</ul>
+
+						<p>If you did everything above and your app runs normally, this means your application is working. Everything should be working before your code is loaded up into a web server!</p>
+
+						<p>Now that it works, run <code>pip freeze > requirements.txt</code>. It takes all the dependencies, and outputs them into a file.</p>
+						<p>Last, we create the <code>Procfile</code>, and put the following line in it: <code>web: gunicorn pet_pals.app:app</code></p>
+						<ul>
+							<li><strong>pet_pals</strong> is the name of the folder, and <code>__init__.py</code> determines the root level of your app.</li>
+						</ul>
+					
+						<h4>Part 2: Creating the Heroku App</h4>
+
+						<ul>
+							<li>Sign up for Heroku. There is a free tier for it: <a href="https://www.heroku.com/pricing">https://www.heroku.com/pricing</a></li>
+							<li>Create a new app. Name it however you want it, <strong>but the names are unique throughout Heroku</strong>. This means you probably can't copy my naming convention.</li>
+							<ul>
+								<li><img src="img/heroku-01.png" class="img-fluid"/></li>
+							</ul>
+							<li>Go to the <strong>Deploy</strong> section, and follow the steps to deploy the app.</li>
+							<ul>
+								<li><img src="img/heroku-02.png" class="img-fluid"/></li>
+								<li>Although you can link Github with Heroku, we'll do the <strong>Heroku Git</strong>. So, you've to install Heroku Cli and the documentation is here: <a href="https://devcenter.heroku.com/articles/heroku-cli">https://devcenter.heroku.com/articles/heroku-cli</a></li>
+							</ul>
+						</ul>
+
+						<h4>Part 3: Prepare the Database</h4>
+						<ul>
+							<li>Navigate to <strong>Resources</strong>, and look for <strong>Heroku Postgres</strong> under <strong>Add-ons</strong>. Make sure to use the <strong>Free Version:</strong></li>
+							<ul>
+								<li><img src="img/heroku-03.png" class="img-fluid"/></li>
+							</ul>
+							<li>Under settings, click on <code>Reveal Config Variables</code>. The connection string to the database should be available:</li>
+							<ul>
+								<li><img src="img/heroku-03.png" class="img-fluid"></li>
+							</ul>
+							<li>Heroku will automatically assign this URI string to the DATABASE_URL environment variable that is used within app.py. The code that is already in app.py will be able to use that environment variable to connect to the Heroku database:</li>
+							<ul>
+								<li><pre><code>
+# DATABASE_URL will contain the database connection string:
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', '')
+# Connects to the database using the app config
+db = SQLAlchemy(app)
+								</code></pre></li>
+							</ul>
+							<li>After you've installed the <strong>Heroku Cli</strong> and running everything in <strong>Part 2</strong>, your files should be in Heroku. Run: <code>heroku run python initdb.py</code></li>
+							<li>You can open the application using <code>heroku open</code> from the terminal.</li>
+						</ul>
+
+
+
+					</div>
+				</div> <!-- end #main-content -->
+
+
+				<div id="right-sb" class="col-md-4">
+					<div id="right-sb-nav" class="list-group" id="toc" role="tablist">
+					  <a class="list-group-item list-group-item-action active"  href="#objectives" role="tab">Objectives</a>
+					  <a class="list-group-item list-group-item-action"  href="#why-we-learn" role="tab">Why We Learn</a>
+					  <a class="list-group-item list-group-item-action"  href="#01-Ins_Basic_Flask_Plotly" role="tab">01-Ins_Basic_Flask_Plotly</a>
+					  <a class="list-group-item list-group-item-action"  href="#02-Stu_Song_Lyrics" role="tab">02-Stu_Song_Lyrics</a>
+					  <a class="list-group-item list-group-item-action"  href="#03-Ins_Fullstack_Flask_Plotly" role="tab">03-Ins_Fullstack_Flask_Plotly</a>
+					  <a class="list-group-item list-group-item-action"  href="#04-Stu_Bigfoot" role="tab">04-Stu_Bigfoot</a>
+					  <a class="list-group-item list-group-item-action"  href="#05-Evr_Flask_Requests" role="tab">05-Evr_Flask_Requests</a>
+					  <a class="list-group-item list-group-item-action"  href="#06_Ins_Flask_SQLAlchemy" role="tab">06_Ins_Flask_SQLAlchemy</a>
+					  <a class="list-group-item list-group-item-action"  href="#07-Stu_Pet_Pals" role="tab">07-Stu_Pet_Pals</a>
+					  <a class="list-group-item list-group-item-action"  href="#08-Ins_Pet_Pals_Refactor" role="tab">08-Ins_Pet_Pals_Refactor</a>
+					  <a class="list-group-item list-group-item-action"  href="#09-Evr_Pet_Pals_Heroku" role="tab">09-Evr_Pet_Pals_Heroku</a>
+					</div>
+				
+				</div>
+			</div> <!-- end .row -->
+			
+		</div> <!-- end .container-fluid -->
+
+		<footer>
+			<script type="text/javascript" src="../../js/jquery-3.3.1.min.js"></script>
+			<script type="text/javascript" src="../../js/bootstrap.min.js"></script>
+
+			<script type="text/javascript">
+
+			</script>
+
+		</footer>
+
+	</body>
+
+
+</html>

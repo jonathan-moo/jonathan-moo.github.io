@@ -59,6 +59,9 @@
 					<li class="nav-item">
 						<a class="nav-link" href="MIACOR201901DATA3/15.2/index.html">15.2 Ref</a>
 					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="MIACOR201901DATA3/15.3/index.html">15.3 Ref</a>
+					</li>
 				</ul>
 			</div>
 		</nav>
@@ -66,13 +69,10 @@
 			<div class="row">
 				<div id="main-content" class="col-md-8">
 					<div class="objective-block">
-						<h3 id="objectives">Objectives For Lesson 15.3</h3>
+						<h3 id="objectives">Objectives For Lesson 16.1</h3>
 
 						<ul>
-							<li>Flask and building a web service for data</li>
-							<ul>
-								<li>We'll launch your data dashboard on the web.</li>
-							</ul>
+							<li>More D3!</li>
 						</ul>
 
 						
@@ -81,382 +81,600 @@
 					<div id="why-we-learn" class="instructor-block">
 						<h3>Why We Learn?</h3>
 						
-						<p>You're building towards a full-stack service for data.</p>
-
-						<h4>What does "full-stack" mean?</h4>
-
-						<p>It means you're building a <strong>complete solution</strong> with minimal outside help:</p>
-						<ul>
-							<li>Backend - Setting up databases and getting your business logic and data in.</li>
-							<li>Middleware - Flask as your system which interfaces between your backend and frontend</li>
-							<li>Frontend - Dashboards and visualization</li>
-						</ul>
-
+						<p>We're going more in-depth with D3 because D3 is really powerful in manipulating data in the browser.</p>
 
 					</div>
 
-					<div id="01-Ins_Basic_Flask_Plotly" class="instructor-block">
-						<h3>01-Ins_Basic_Flask_Plotly</h3>
+					<div id="01-Evr_Binding_Data" class="instructor-block">
+						<h3>01-Evr_Binding_Data</h3>
 						
-						<p>We'll dive right into Flask, and display a graph via a web server.</p>
-
-						<p>You'll realize there are two sections:</p>
+						<p>Some links to look into before we start:</p>
 						<ul>
-							<li><code>/line</code> route is the API.</li>
-							<li>The index page is your webpage.</li>
+							<li><a href="https://d3js.org/">D3 Official Website</a></li>
+							<li><a href="https://github.com/d3/d3/wiki/Gallery">D3 Gallery</a></li>
+							<li><a href="https://github.com/coding-boot-camp/DataViz-Lesson-Plans/blob/master/01-Lesson-Plans/16-D3/Supplemental/D3_Reference_Guide.pdf">D3 Reference Guide</a></li>
+							<li><a href="https://github.com/coding-boot-camp/DataViz-Lesson-Plans/blob/master/01-Lesson-Plans/16-D3/StudentGuide.md">Student Guide</a></li>
 						</ul>
 
-						<p>This is a typical setup. Usually, we grab data from an API, and then display the data via visualizations. With Flask, you can do both at the same time.</p>
-
-						<h4>Note</h4>
-						<p>In our example, we're using Javascript to pull the data from the API which you have in your Flask. The data is not delivered through the passing of variables from the <code>render_template</code> method in Flask.</p>
-					</div>
-
-					<div id="02-Stu_Song_Lyrics" class="student-block">
-						<h3>02-Stu_Song_Lyrics: Your Turn</h3>
-
-						<p>Before we begin, in your student activity, there is a <code>lyrics.py</code> and a <code>lyrics.txt</code>. They are basically your data sources, and they are imported into your <code>app.py</code> file.</p>
-
-						<ul>
-							<li><strong>collections</strong> is a standard Python library. <code>Counter</code> helps to count objects.</li>
-							<li>Same as the homework, <strong>where you tested your web scraping script to see if it's working before you integrate it into your Flask app</strong>, run the code and see the results.</li>
+						<h4>D3 Features</h4>
+						<ul class="test">
+							<li><strong>Selections:</strong> D3 makes it simple to CRUD (Create, Read, Update, Delete) elements in the DOM with its easy-to-follow method chaining syntax.</li>
+							<li><strong>Transitions:</strong> D3 makes animating and transitioning elements on the page a breeze.</li>
+							<li><strong>Data-Binding:</strong> D3 allows us to associate data with elements in the DOM. We can make changes programatically.</li>
 						</ul>
 
-						<h4>Remember <code>zip</code>?</h4>
+						<h4>What is Data-Binding in reality?</h4>
+						<h5>.each()</h5>
+						<p><code>.each()</code> works like <code>forEach</code> in Javascript. I added the class <code>.test</code> because there are many unordered list on this page, but we'll only affect the list above.</p>
 
-						<p>It combines iterables (dict or lists) into a single entity</p>
-						<p>To unzip, put the asterisk (*) in front of the iterable when using zip, because asterisk is to unpacks (or unzips in layman terms) a list-type container. Then assign the variables <strong>according to the respective order</strong>.</p>
+						<p><strong>Remember:</strong> Using <code>selectAll</code>, the nested elements are affected <strong>row by row</strong>.</p>
+
+						<pre>
+							<code>
+// 1-.each()
+d3.select("ul.test").selectAll("li");
+
+d3.select("ul.test").selectAll("li")
+    .each(function(d, i) {
+      console.log("element", this); // remember "this"? this is the element itself. 
+      console.log("data", d); // this is undefined from the start
+      console.log("index", i); // index of the array
+    });
+							</code>
+						</pre>
+
+						<h5>.data()</h5>
+
+						<p>There is this things about <code>data undefined</code> within the console.log, which we we will discuss next. This data method is to bind one of the DOM elements to the Javascript. It is <code>undefined</code> because we haven't associated anything to each of the elements with data.</p>
+
+						<pre>
+							<code>
+d3.select("ul.test").selectAll("li").data();
+							</code>
+						</pre>
+
+						<p>What if we bind some data to the list?</p>
+
+						<pre>
+							<code>
+var arr = [50, 55];
+d3.select("ul.test").selectAll("li").data(arr);
+d3.select("ul.test").selectAll("li").data();
+							</code>
+						</pre>
+
+						<p>Once we bind an array of data with the unordered list, we start to see something different in the console when we do this again:</p>
+
+						<pre>
+							<code>
+d3.select("ul.test").selectAll("li")
+    .each(function(d, i) {
+      console.log("element", this);
+      console.log("data", d); // this d is no longer empty
+      console.log("index", i);
+    });
+							</code>
+						</pre>
+
+						<p>The data in the array corresponds to each element in the unordered list. If there are not enough elements in the array, the rest will become undefined.</p>
+
+						<h5>.text()</h5>
+
+						<p>After we bind, we modify the data:</p>
+
+						<pre>
+							<code>
+var arr = [50, 55, 53];
+
+d3.select("ul.test").selectAll("li")
+    .data(arr)
+    .text(function(d) {
+      return d;
+    });
+							</code>
+						</pre>
+
+						<p>The above code:</p>
+						<ul>
+							<li><strong>Selects</strong> the elements which you want to modify.</li>
+							<li><strong>Binds</strong> each element with the data from the array</li>
+							<li><strong>Modifies</strong> each element with the associated data.</li>
+						</ul>
+
+						<p>To make changes in HTML with D3, you'll have to bind the elements with the data first.</p>
+
+						<h5 id="without-enter">What if you want to replace and add more rows to the list?</h5>
+
+						<p>In lesson 14.3, you've learned how to use <code>.append</code> to add rows to tables. Can we use it here?</p>
+
+						<pre>
+							<code>
+var arr = [50, 55, 53, 56, 68];
+d3.select("ul.test").selectAll("li")
+    .data(arr)
+    .append("li")
+    .text(function(d) {
+      return d;
+    });
+							</code>
+						</pre>
+
+						<p>Let's take a look when we use the above code. You'll realize:</p>
+
+						<ul>
+							<li>None of the existing data is replaced, even though <code>.text</code> is being used.</li>
+							<li>The first three elements are appended <strong>after</strong> each element of the existing row.</li>
+						</ul>
+
+						<p>To read it line-by-line, we examine the above code with this:</p>
+						<pre>
+							<code>
+var arr = [50, 55, 53, 56, 68];
+d3.select("ul.test").selectAll("li")
+    .data(arr)
+    .append("li")
+    .text(function(d) {
+      return d;
+    }).each(function(d, i) {
+      console.log("element", this); // remember "this"? this is the element itself. 
+      console.log("data", d); // this is undefined from the start
+      console.log("index", i); // index of the array
+    });
+							</code>
+						</pre>
+						<p>You'll notice:</p>
+						<ul>
+							<li><code>selectAll</code> examines the list items row-by-row.</li>
+							<li>For the selected row, it binds the data using <code>.data</code>.</li>
+							<li>But <code>append</code> <strong>forces</strong> the creation of a new list item, and uses the data to create a new list item!</li>
+							<li>The cycle repeats for each row.</li>
+						</ul>
+
+						<h5>Therefore, to replace the list and add more rows with the array:</h5>
+						<ul>
+							<li>We replace the existing elements first.</li>
+							<li>Then we use <code>.enter</code> and subsequently <code>.append</code> to add new rows.</li>
+						</ul>
+
+						<pre>
+							<code>
+var arr = [50, 55, 53, 56, 68];
+
+d3.select("ul")
+    .selectAll("li")
+    .data(arr)
+    .text(function(d) {
+      return d;
+    });
+
+d3.select("ul.test")
+    .selectAll("li")
+    .data(arr)
+    .enter()
+    .append("li")
+    .text(function(d) {
+      return d;
+    });
+							</code>
+						</pre>
+
+						<p>In your <a href="https://github.com/coding-boot-camp/DataViz-Lesson-Plans/blob/master/01-Lesson-Plans/16-D3/Supplemental/D3_Reference_Guide.pdf">reference guide</a>, it says that <code>.enter</code> creates a placeholder for the new list item to be added in. This will work not only for lists, but for tables.</p>
+
+
+						<h5 id="remove">What if you want to remove an element?</h5>
+
+						<pre>
+							<code>
+var arr = [50, 55];
+d3.select("ul.test")
+    .selectAll("li")
+    .data(arr)
+    .exit()
+    .remove();
+							</code>
+						</pre>
+
+						<p>Notice that the amount of list items which is deleted corresponds to the difference between the array length and the list items? If <code>array length >= number of list items</code>, nothing will be deleted.</p>
+
+						<p><code>.exit</code> selects the difference between the array length and the number of the list items, and <code>remove</code> will remove it.</p>
 
 					</div>
 
-					<div id="03-Ins_Fullstack_Flask_Plotly" class="instructor-block">
-						<h3>03-Ins_Fullstack_Flask_Plotly</h3>
+					<div id="02-Ins_Complex_Data" class="instructor-block">
+						<h3>02-Ins_Complex_Data</h3>
 
-						<p>This time, we're integrating our app with a SQLite database, <strong>and this is going to be part of your homework.</strong></p>
+						<p>Why learn the above segment? Consider this:</p>
 
-						<h4>If you haven't:</h4>
+						<pre>
+							<code>
+var complexData = [{
+  title: "javascript",
+  url: "https://media.giphy.com/media/10bdAP4IOmoN7G/giphy.gif"
+},
+{
+  title: "python",
+  url: "https://media.giphy.com/media/2yP1jNgjNAkvu/giphy.gif"
+},
+{
+  title: "css",
+  url: "https://media.giphy.com/media/TsxMkIKHpvFaU/giphy.gif"
+}
+];
 
-						<p>Install flask_sqlalchemy: <code>pip install flask_sqlachemy</code></p>
+d3.select(".img-gallery").selectAll("div")
+  .data(complexData)
+  .enter() // creates placeholder for new data
+  .append("div") // appends a div to placeholder
+  .classed("col-md-4 thumbnail", true) // sets the class of the new div
+  .html(function(d) {
+    return `&lt;img src="${d.url}" class="img-fluid">`;
+  }); // sets the html in the div to an image tag with the link
+							</code>
+						</pre>
 
-						<h4>What is the difference between using the SQLalchemy in the past and using flask_sqlalchemy?</h4>
+						<p>I have hidden a <code>img-gallery</code> class in this HTML:</p>
+						
+						<div class="row img-gallery">
 
-						<p>Basically, flask_sqlalchemy is a <strong>wrapper library</strong> around SQLalchemy, so that Flask as a framework integrates well with SQLalchemy. Good wrapper libraries usually don't massively overwrite the original library itself.</p>
-
-						<p>Wrapper libraries are very common since developers don't like to repeat themselves when writing code.</p>
-
-						<div class="row student-block">
-							<div class="col-md-6">
-								<h4>Lesson 15.3</h4>
-								<pre>
-									<code>
-import pandas as pd
-
-from flask import (
-    Flask,
-    render_template,
-    jsonify)
-
-from flask_sqlalchemy import SQLAlchemy
-
-app = Flask(__name__)
-
-# The database URI
-app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///db/emoji.sqlite"
-
-db = SQLAlchemy(app)
-
-
-# Create our database model
-class Emoji(db.Model):
-    __tablename__ = 'emoji'
-
-    id = db.Column(db.Integer, primary_key=True)
-    emoji_char = db.Column(db.String)
-    emoji_id = db.Column(db.String)
-    name = db.Column(db.String)
-    score = db.Column(db.Integer)
-
-    def __repr__(self):
-        return '&lt;Emoji %r>' % (self.name)
-									</code>
-								</pre>
-							</div>
-							<div class="col-md-6">
-								<h3>lesson 10.1, 10-Ins_SQL_Alchemy_Revisited</h3>
-								<pre>
-									<code>
-# Dependencies
-# ----------------------------------
-# Imports the method used for connecting to DBs
-from sqlalchemy import create_engine
-
-# Imports the methods needed to abstract classes into tables
-from sqlalchemy.ext.declarative import declarative_base
-
-# Allow us to declare column types
-from sqlalchemy import Column, Integer, String, Float 
-
-# Sets an object to utilize the default declarative base in SQL Alchemy
-Base = declarative_base()
-
-
-# Creates Classes which will serve as the anchor points for our Tables
-class Dog(Base):
-    __tablename__ = 'dog'
-    id = Column(Integer, primary_key=True)
-    name = Column(String(255))
-    color = Column(String(255))
-    age = Column(Integer)
-
-									</code>
-								</pre>
-							</div>
-						</div> <!-- end .row.student-block -->
-
-						<div class="row student-block">
-							<div class="col-md-12">
-								<h3>Lesson 10.3, taken from 10-Ins_Flask_with_ORM</h3>
-								<pre>
-									<code>
-import numpy as np
-
-import sqlalchemy
-from sqlalchemy.ext.automap import automap_base
-from sqlalchemy.orm import Session
-from sqlalchemy import create_engine, func
-
-from flask import Flask, jsonify
-
-
-#################################################
-# Database Setup
-#################################################
-engine = create_engine("sqlite:///titanic.sqlite")
-
-# reflect an existing database into a new model
-Base = automap_base() # automap_base is to reflect. declarative_base() is to create a new database
-# reflect the tables
-Base.prepare(engine, reflect=True)
-
-# Save reference to the table
-Passenger = Base.classes.passenger
-
-# Create our session (link) from Python to the DB
-session = Session(engine)
-
-#################################################
-# Flask Setup
-#################################################
-app = Flask(__name__)
-									</code>
-								</pre>
-							</div>
 						</div>
 
-						<div class="row">
-							<div class="col-md-12">
-								<h4>What is the difference between the two sets of code in terms of initialization? (You can also compare lesson 10.1, 10-Ins_SQL_Alchemy_Revisited)</h4>
+						<p>So you can do tricks with this in your dashboard. To note:</p>
+						<ul>
+							<li><code>.classed</code> adds class attributes to the <code>.append("div")</code> above it.</li>
+							<li>We use <code>.html</code> instead of <code>.text</code> because we want to create new elements in the HTML, and not generate text only.</li>
+						</ul>
 
-								<ul>
-									<li><code>flask_sqlalchemy</code> provides an <code>app.config['SQLALCHEMY_DATBASE_URL']</code> for database creation, while if you use the <code>sqlalchemy</code> library raw, you have to create a bunch of code to get started.</li>
-									<li>But you still need to create the classes in Python, so that you can create your tables.</li>
-									<li>Syntax is almost the same and you can compare it side-by-side, but because <code>flask_sqlalchemy</code> is a wrapper library, it needs a <code>db.SQLAlchemy(app)</code> to extract the SQLAlchemy library from itself.</li>
-								</ul>
+					</div>
 
-								<h4>Now, we get the database stuff out of the way, I'm going to reiterate the MVC model again.</h4>
-								<ul>
-									<li>Model: Get your data and business logic up first and make sure it's there.</li>
-									<ul>
-										<li>All the database and its data</li>
-										<li>All the APIs</li>
-									</ul>
-									<li>View: Get your visuals up. You might have to do the controller first based on certain conditions, but try to get a template out first.</li>
-									<ul>
-										<li>To reference a file within your flask app, use the <code>{{ url_for('static', filename='js/app.js') }}</code> in your <code>index.html.</code></li>
-										<li><code>url_for(endpoint, **values)</code> <a href="http://flask.pocoo.org/docs/1.0/api/">generates a URL to the given endpoint with the method provided.</a></li>
-										<li><code>'static'</code> is generally the folder, since we use folders as directories for URLs. <code>filename</code> is the path from <code>'static'</code>.</li>
-									</ul>
-									<li>Controller: Connects and interface the Model and View together.</li>
-								</ul>
-							</div>
+					<div id="03-Stu_D3_Table" class="student-block">
+						<h3>03-Stu_D3_Table: Your Turn</h3>
+
+					</div>
+
+					<div id="04-Evr_Enter_Exit_Update" class="instructor-block">
+						<h3>04-Evr_Enter_Exit_Update</h3>
+
+						<p>Open the activity and follow along. I am building it here so that we don't have to keep switching screens.</p>
+
+						<p>The following are step-by-step explanations of whatever we covered today so far. Instead of lists, we are modifying div classes.</p>
+
+						<style>
+					        .temps {
+					            display: inline-block;
+					            margin-right: 20px;
+					            width: 100px;
+					            height: 100px;
+					            background-color: #bf5700;
+					            color: #343f47;
+					        }
+
+					    </style>
+
+						<div id="content">
+							<div class="temps"></div>
+							<div class="temps"></div>
+							<div class="temps"></div>
 						</div>
 
+						<h4>Basic Data Bind</h4>
+
+						<p>The above CSS is this code here:</p>
+						<pre>
+							<code>
+.temps {
+    display: inline-block;
+    margin-right: 20px;
+    width: 100px;
+    height: 100px;
+    background-color: #bf5700;
+    color: #343f47;
+}
+							</code>
+						</pre>
+
+						<h5>What happens if we run the code below?</h5>
+
+						<pre>
+							<code>
+var austinTemps = [76, 59, 59, 73, 71];
+d3.selectAll("#content").selectAll(".temps")
+    .data(austinTemps)
+    .style("height", function(d) {
+      return d + "px";
+    });
+							</code>
+						</pre>
+
+						<p>As there are no <code>.enter()</code> or <code>.append()</code>, the code takes the 1st 3 elements and replaces the existing CSS with it.</p>
+
+						<h4>Updating the new elements only</h4>
+
+						<h5>What happens if we run the code below?</h5>
+
+						<pre>
+							<code>
+var austinTemps = [76, 59, 59, 73, 71];
+d3.select("#content").selectAll(".temps")
+    .data(austinTemps)
+    .enter()
+    .append("div")
+    .classed("temps", true)
+    .style("height", function(d) {
+      return d + "px";
+    });
+							</code>
+						</pre>
+
+						<p><code>.enter()</code> creates a placeholder if there isn't an existing DOM element within the HTML, and <code>.appends()</code> a div class to it, while attributing a class with <code>.classed</code>.</p>
+
+						<h4>Updating the old elements only</h4>
+
+						<h5>What happens if we run the code below?</h5>
+
+						<pre>
+							<code>
+var austinTemps = [76, 59, 59, 73, 71];
+var selection = d3.select("#content").selectAll(".temps")
+    .data(austinTemps);
+
+selection.enter() // adds new elements AFTER the old elements have been exhausted
+    .append("div")
+    .classed("temps", true);
+
+selection.style("height", function(d) {
+  return d + "px";
+});
+							</code>
+						</pre>
+
+						<p>This is the first time we are extracting DOM elements into a variable called <code>selection</code>. Notice that you can break things apart and run one-by-one to get a desired effect.</p>
+
+						<p>The above is almost the same as <a href="#without-enter">here</a>, except that we have <code>.enter()</code> right after <code>.data</code>.</p>
+
+						<p><code>.enter()</code> creates new elements <strong>AFTER</strong> all the elements have been displayed. It's more like <strong>if there is an existing element within the array that corresponds with the index of the selected element, it ignores any change.</strong></p>
+
+						<p>The <code>.style</code> then changes the old elements only.</p>
+
+						<p>We're only describing the code, so try to use the code below in your code and the above explanation to debug.</p>
+
+						<h4>Updating both new and old elements</h4>
+
+						<pre>
+							<code>
+var austinTemps = [76, 59, 59, 73, 71];
+var selection = d3.select("#content").selectAll(".temps")
+    .data(austinTemps);
+
+selection.enter()
+    .append("div")
+    .classed("temps", true)
+    .merge(selection)
+    .style("height", function(d) {
+      return d + "px";
+    });
+							</code>
+						</pre>
+
+						<p>We introduce a new method called <code>.merge()</code>. Merge helps to combine the array elements above (when they are bound by <code>.data</code>) with the existing DOM elements on the HTML. <code>.style</code> will affect the merged content then.</p>
+
+						<h4>Exit and remove elements</h4>
+
+						<p>We start with 3 blocks, and now we want to remove 2 of them:</p>
+
+						<pre>
+							<code>
+var austinTemps = [76];
+
+var selection = d3.select("#content").selectAll(".temps")
+    .data(austinTemps);
+
+selection.enter()
+    .append("div")
+    .classed("temps", true)
+    .merge(selection)
+    .style("height", function(d) {
+      return d + "px";
+    });
+
+selection.exit().remove();
+							</code>
+						</pre>
+
+						<p>Again, <code>exit</code> selects the difference between the array and the existing elements through data-bind, and <code>remove</code> deletes the elements. <a href="#remove">It's similar to what we have covered before.</a></p>
+
+						<h4>How about making only one function and we use it everywhere we go?</h4>
+
+						<pre>
+							<code>
+function update(data) {
+
+  var selection = d3.select("#content").selectAll(".temps")
+        .data(data);
+
+  selection.enter()
+        .append("div")
+        .classed("temps", true)
+        .merge(selection)
+        .style("height", function(d) {
+          return d + "px";
+        });
+
+  selection.exit().remove();
+}
+
+/* Test 1 */
+var austinTemps = [100, 103, 105, 110, 100, 98];
+update(austinTemps);
+
+/* Test 2 */
+austinTemps = [80];
+update(austinTemps);
+							</code>
+						</pre>
+
+						<p>To test it:</p>
+
+						<ul>
+							<li>Load the function into your browser</li>
+							<li>Run each test separately.</li>
+						</ul>
+
 					</div>
 
-					<div id="05-Evr_Flask_Requests" class="instructor-block">
-						<h3>05-Evr_Flask_Requests</h3>
+					<div id="05-Ins_SVG" class="instructor-block">
+						<h3>05-Ins_SVG: What is SVG?</h3>
 
-						<h4>Ref: <a href="https://www.w3schools.com/tags/ref_httpmethods.asp">GET and POST methods</a></h4>
-
-						<p>The web has many standard protocols in getting and sending data. We use primarily <code>GET</code> and <code>POST</code>. All browsers recognize them as standard.</p>
-
-						<h4>GET</h4>
+						<p>It stands for "Scalable Vector Graphics". In layman terms, we use code to draw:</p>
 						<ul>
-							<li>You can use a URL route to retrieve data on the browser in the address bar.</li>
-							<li>Less secure, has a data limit.</li>
+							<li>Uses an XML syntax, which is almost identical to HTML and can be used as HTML too.</li>
+							<li>Usually we do it for basic shapes. You've got to be an expert among experts to draw Mona Lisa out with SVG.</li>
+							<li>Unlike images like jpg or png which are static, SVG is dynamic and can modified in real-time via code.</li>
 						</ul>
 
-						<h4>POST</h4>
-						<ul>
-							<li>They are not visually exposed on the browser. It doesn't mean it is not used in the background.</li>
-							<li>Standard protocol for <code>forms</code> in HTML. Remember how I said <code>forms</code> force a web page reload? That's because HTML is inbuilt with the capability of sending <code>POST</code> requests through <code>forms</code>, and they do it by redirections.</li>
-						</ul>
-					</div>
+						<p>Consider it here:</p>
+						<svg width="100" height="150">
+					        <rect x="0" y="0" width="50" height="50" fill="green" />
+					        <circle cx="25" cy="75" r="25" fill="purple" />
+					        <line x1="5" y1="100" x2="40" y2="140" stroke="gray" stroke-width="5" />
+					    </svg>
 
-					<div id="06_Ins_Flask_SQLAlchemy" class="instructor-block">
-						<h3>06_Ins_Flask_SQLAlchemy</h3>
+					    <p>And this is the code:</p>
+					    <pre>
+					    	<code>
+&lt;svg width="100" height="150">
+    &lt;rect x="0" y="0" width="50" height="50" fill="green" />
+    &lt;circle cx="25" cy="75" r="25" fill="purple" />
+    &lt;line x1="5" y1="100" x2="40" y2="140" stroke="gray" stroke-width="5" />
+&lt;/svg>
+						    </code>
+						</pre>
 
-						<p>In this activity, we are using a <code>form</code> to capture data via <code>POST</code>, and then storing it into a sqlite. If we trigger the <code>/api/data</code> endpoint, we should be able to see the data.</p>
+						<h4>Now why are we drawing with code?</h4>
 
-						<p>You start with an empty database. This is part of the data collection process in ETL.</p>
+						<p>All javascript visualization libraries have their pros and cons. There are times you want to create your own and D3 can help you with that.</p>
 
-						<p>The code is very similar to the previous activity.</p>
-					</div>
-
-					<div id="07-Stu_Pet_Pals" class="student-block">
-						<h3>07-Stu_Pet_Pals</h3>
-
-						<p>In this activity, we are using a <code>form</code> to capture data via <code>POST</code>, and then storing it into a sqlite. If we trigger the <code>/api/data</code> endpoint, we should be able to see the data.</p>
-
-						<p>The code is very similar to the previous activity.</p>
-
-						<h4>Bonus</h4>
-						<p>Plotly has a geolocation visualizer. Look into the docs and try it out!</p>
-					</div>
-
-					<div id="08-Ins_Pet_Pals_Refactor" class="instructor-block">
-						<h3>08-Ins_Pet_Pals_Refactor</h3>
-
-						<p>In our previous activities, we build a web app and run it in our local machines. But for deployment standards, it's bad practice. We'll need to refactor code to make it deployable on the web.</p>
-
-						<h4>Before we begin</h4>
-
-						<p>Take a look at our folder structure</p>
-						<img src="img/refactor01.png" class="img-fluid" />
+						<h4>What to look out for?</h4>
 
 						<ul>
-							<li>The first layer contains:</li>
+							<li>All shapes have different requirements and standards, example:</li>
 							<ul>
-								<li><strong>initdb.py</strong> -- Remember MVC? This is to initialize the database.</li>
-								<li><strong>requirements.txt</strong> -- It lists the libraries we use. We call these libraries, <strong>dependencies</strong>.</li>
-								<li><strong>run.sh</strong> -- this is a shell script file. Remember how we do certain commands in our terminal, such as <code>cd DataViz-Lesson-Plans</code> and <code>python app.py</code>? This helps to run such commands <strong>in sequence</strong> in a file. Widely used in production servers to ensure consistency.</li>
-								<li><strong>Procfile</strong> is a file needed to launch your code into Heroku. We'll talk about it in the next activity.</li>
-								<li><strong>pet_pals folder</strong> -- contains your actual Flask app files</li>
+								<li><code>rect</code> uses x and y.</li>
+								<li><code>circle</code> uses cx and cy.</li>
 							</ul>
-							<li>pet_pals folder contains:</li>
-							<ul>
-								<li>Standard files which you've been working with so far to run Flask apps.</li>
-								<li><code>__init__.py</code> - See <a href="https://docs.python.org/3/tutorial/modules.html#packages">https://docs.python.org/3/tutorial/modules.html#packages</a>. Basically it "packages" your files, and it indicates the root level path for your app.</li>
-								<li><strong>The root level path shouldn't be in the first layer</strong>, but in the <code>pet_pals</code> folder, because that is where your Flask app runs. The first layer contains the metadata (extra information) needed to run the app.</li>
-							</ul>
+							<li>We use Javascript to make it dynamic.</li>
+							<li>Since SVG can exist as HTML, we can apply CSS rules as well.</li>
+							<li>Use this reference for basic shapes: <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Basic_Shapes">https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Basic_Shapes</a></li>
 						</ul>
-
-						<h4>With this file structure, how do I run the file?</h4>
-						<p>Run it at the directory where <code>run.sh</code> is. Type: <code>sh runs.sh</code>.</p>
-
-						<p>In the run.sh, it contains the following code: <code>FLASK_APP=pet_pals/app.py flask run</code>, where:</p>
-						<ul>
-							<li><code>FLASK_APP=pet_pals/app.py</code> stores the FLASK_APP variable in your environment.</li>
-							<li>I will demonstrate it in my <code>.bash_profile</code> in my computer, but we won't go too deep because you're not training to be dev-ops engineers.</li>
-							<li><code>flask run</code> simply runs the <code>flask</code> command, with the action to <code>run</code> the app, and the environment is given above. For documentation: <a href="http://flask.pocoo.org/docs/1.0/cli/">http://flask.pocoo.org/docs/1.0/cli/</a></li>
-							<li>If you go to your terminal and type <code>flask</code>, you will see the help page of the command <code>flask</code>. This is <code>flask</code> is an executable command on your terminal.</li>
-							<li>To reiterate, shell scripts such as <code>run.sh</code> allows you to standardize code which is run on terminals in a single file. That is all there is to it.</li>
-						</ul>
-
-						<h3>WHY ARE WE LEARNING THIS COMPLICATED STUFF?</h3>
-						<p>Because you're deploying your app onto the World Wide Web, namely, <a href="https://www.heroku.com/">Heroku</a>.</p>
-
-						<p>Heroku, and most hosting services, doesn't know what kind of libraries or dependencies you need to run your app. The above will tell the service how to run your code, and publish it into the World Wide Web.</p>
-
-						<h3>If in doubt, copy and paste.</h3>
-
-						<p>Not like I want to cut corners but I doubt you can understand everything in one go. It will take time to digest.</p>
-
-						<p>Don't think our average salary is so easy to earn: <a href="https://www.payscale.com/research/US/Job=Data_Scientist_%2F_Engineer/Salary">https://www.payscale.com/research/US/Job=Data_Scientist_%2F_Engineer/Salary</a></p>
 
 					</div>
 
-					<div id="09-Evr_Pet_Pals_Heroku" class="instructor-block">
-						<h3>09-Evr_Pet_Pals_Heroku</h3>
+					<div id="06-Stu_SVG_Stickman" class="student-block">
+						<h3>06-Stu_SVG_Stickman: Your Turn</h3>
+					</div>
 
-						<p>Guess what, this is for your homework.</p>
+					<div id="07-Evr_D3_Bullseye" class="instructor-block">
+						<h3>07-Evr_D3_Bullseye</h3>
 
-						<ul>
-							<li>Prepare the application with additional configuration files (Procfile and requirements.txt)</li>
-							<li>Create the Heroku application</li>
-							<li>Prepare the Heroku database</li>
-						</ul>
+						<p>This is code we're given, but I modified it to display in this HTML:</p>
+						<pre>
+							<code>
+var svg = d3.select("#example-07").append("svg");
 
-						<p>We'll go step-by-step.</p>
+svg.attr("width", "100px").attr("height", "100px");
 
-						<h4>Part 1: Configuration Files</h4>
-						<ul>
-							<li>We'll create a new conda environment just for this app. All of our project dependencies (requirements.txt) will be installed in this environment. <em>Note: This should only contain python 3.6 and not anaconda.</em></li>
-							<ul>
-								<li>Run: <code>conda create -n pet_pals_env python=3.6</code></li>
-								<li>Activate this environment before proceeding: <code>source activate pet_pals_env</code></li>
-							</ul>
-							<li>Install gunicorn: <code>pip install gunicorn</code>. This is a high performance web server that can run Flask app in a production environment</li>
-							<li>We'll also use <strong>Postgres</strong>, with <code>pip install psycopg2</code>. <strong>Postgres</strong> is another database server software, similar to <strong>MySQL</strong>.</li>
-							<li>Make sure every dependencies are installed:</li>
-							<ul>
-								<li><code>pip install flask</code></li>
-								<li><code>pip install flask-sqlalchemy</code></li>
-								<li><code>pip install pandas</code></li>
-							</ul>
-							<li>Initialize the database with: <code>initdb.py</code></li>
-							<li>Run the app with: <code>sh run.sh</code></li>
-						</ul>
+svg.append("circle")
+    .attr("cx", 50)
+    .attr("cy", 25)
+    .attr("r", 25)
+    .attr("stroke", "gray")
+    .attr("stroke-width", "5")
+    .attr("fill", "none");
 
-						<p>If you did everything above and your app runs normally, this means your application is working. Everything should be working before your code is loaded up into a web server!</p>
+// Part 2
+// Binding the SVG to data
 
-						<p>Now that it works, run <code>pip freeze > requirements.txt</code>. It takes all the dependencies, and outputs them into a file.</p>
-						<p>Last, we create the <code>Procfile</code>, and put the following line in it: <code>web: gunicorn pet_pals.app:app</code></p>
-						<ul>
-							<li><strong>pet_pals</strong> is the name of the folder, and <code>__init__.py</code> determines the root level of your app.</li>
-						</ul>
-					
-						<h4>Part 2: Creating the Heroku App</h4>
+var svg = d3.select("#example-07").append("svg");
 
-						<ul>
-							<li>Sign up for Heroku. There is a free tier for it: <a href="https://www.heroku.com/pricing">https://www.heroku.com/pricing</a></li>
-							<li>Create a new app. Name it however you want it, <strong>but the names are unique throughout Heroku</strong>. This means you probably can't copy my naming convention.</li>
-							<ul>
-								<li><img src="img/heroku-01.png" class="img-fluid"/></li>
-							</ul>
-							<li>Go to the <strong>Deploy</strong> section, and follow the steps to deploy the app.</li>
-							<ul>
-								<li><img src="img/heroku-02.png" class="img-fluid"/></li>
-								<li>Although you can link Github with Heroku, we'll do the <strong>Heroku Git</strong>. So, you've to install Heroku Cli and the documentation is here: <a href="https://devcenter.heroku.com/articles/heroku-cli">https://devcenter.heroku.com/articles/heroku-cli</a></li>
-							</ul>
-						</ul>
+svg.attr("width", "100px").attr("height", "100px");
 
-						<h4>Part 3: Prepare the Database</h4>
-						<ul>
-							<li>Navigate to <strong>Resources</strong>, and look for <strong>Heroku Postgres</strong> under <strong>Add-ons</strong>. Make sure to use the <strong>Free Version:</strong></li>
-							<ul>
-								<li><img src="img/heroku-03.png" class="img-fluid"/></li>
-							</ul>
-							<li>Under settings, click on <code>Reveal Config Variables</code>. The connection string to the database should be available:</li>
-							<ul>
-								<li><img src="img/heroku-03.png" class="img-fluid"></li>
-							</ul>
-							<li>Heroku will automatically assign this URI string to the DATABASE_URL environment variable that is used within app.py. The code that is already in app.py will be able to use that environment variable to connect to the Heroku database:</li>
-							<ul>
-								<li><pre><code>
-# DATABASE_URL will contain the database connection string:
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', '')
-# Connects to the database using the app config
-db = SQLAlchemy(app)
-								</code></pre></li>
-							</ul>
-							<li>After you've installed the <strong>Heroku Cli</strong> and running everything in <strong>Part 2</strong>, your files should be in Heroku. Run: <code>heroku run python initdb.py</code></li>
-							<li>You can open the application using <code>heroku open</code> from the terminal.</li>
-						</ul>
+var circles = svg.selectAll("circle");
 
+var rValues = [40, 25, 10];
 
+circles.data(rValues)
+    .enter()
+    .append("circle")
+    .attr("cx", 50)
+    .attr("cy", 50)
+    .attr("r", function(d) {
+      return d;
+    })
+    .attr("stroke", "black")
+    .attr("stroke-width", "5")
+    .attr("fill", "red");
+							</code>
+						</pre>
+						<div id="example-07"></div>
+
+						<h4>What does this mean?</h4>
+
+						<p>Things like <code>sin</code>, <code>cos</code>, <code>tan</code> graphs can be plotted dynamically using SVG.</p>
+					</div>
+
+					<div id="08-Stu_Data_Rectangles" class="student-block">
+						<h3>08-Stu_Data_Rectangles: Your Turn</h3>
 
 					</div>
+
+					<div id="09-Stu_UpsideDownBarChart" class="student-block">
+						<h3>09-Stu_UpsideDownBarChart: Your Turn</h3>
+
+					</div>
+
+					<div id="10-Evr_Bar_Chart_Refactored" class="instructor-block">
+						<h3>10-Evr_Bar_Chart_Refactored</h3>
+						<pre>
+							<code>
+// Dataset we will be using to set the height of our rectangles.
+var booksReadThisYear = [17, 23, 20, 34];
+
+// Setting the dimensions for the SVG container
+var svgHeight = 600;
+var svgWidth = 400;
+
+var svg = d3
+  .select("#svg-area")
+  .append("svg")
+  .attr("height", svgHeight)
+  .attr("width", svgWidth);
+
+// svgGroup now refers to the `g` (group) element appended.
+// The SVG group would normally be aligned to the top left edge of the chart.
+// Now it is offset to the right and down using the transform attribute
+var svgGroup = svg.append("g")
+  .attr("transform", "translate(50, 100)");
+
+// Selects all rectangles currently on the page - which is none - and binds our dataset to them. If there are no rectangles, it will append one for each piece of data.
+svgGroup.selectAll("rect")
+  .data(booksReadThisYear)
+  .enter()
+  .append("rect")
+  .attr("width", 50)
+  .attr("height", function(data) {
+    return data * 10;
+  })
+  .attr("x", function(data, index) {
+    return index * 60;
+  })
+  .attr("y", function(data) {
+    return 600 - data * 10;
+  })
+  .attr("class", "bar");
+							</code>
+						</pre>
+						<div id="svg-area"></div>
+					</div>
+
 				</div> <!-- end #main-content -->
 
 
@@ -464,15 +682,15 @@ db = SQLAlchemy(app)
 					<div id="right-sb-nav" class="list-group" id="toc" role="tablist">
 					  <a class="list-group-item list-group-item-action active"  href="#objectives" role="tab">Objectives</a>
 					  <a class="list-group-item list-group-item-action"  href="#why-we-learn" role="tab">Why We Learn</a>
-					  <a class="list-group-item list-group-item-action"  href="#01-Ins_Basic_Flask_Plotly" role="tab">01-Ins_Basic_Flask_Plotly</a>
-					  <a class="list-group-item list-group-item-action"  href="#02-Stu_Song_Lyrics" role="tab">02-Stu_Song_Lyrics</a>
-					  <a class="list-group-item list-group-item-action"  href="#03-Ins_Fullstack_Flask_Plotly" role="tab">03-Ins_Fullstack_Flask_Plotly</a>
-					  <a class="list-group-item list-group-item-action"  href="#04-Stu_Bigfoot" role="tab">04-Stu_Bigfoot</a>
-					  <a class="list-group-item list-group-item-action"  href="#05-Evr_Flask_Requests" role="tab">05-Evr_Flask_Requests</a>
-					  <a class="list-group-item list-group-item-action"  href="#06_Ins_Flask_SQLAlchemy" role="tab">06_Ins_Flask_SQLAlchemy</a>
-					  <a class="list-group-item list-group-item-action"  href="#07-Stu_Pet_Pals" role="tab">07-Stu_Pet_Pals</a>
-					  <a class="list-group-item list-group-item-action"  href="#08-Ins_Pet_Pals_Refactor" role="tab">08-Ins_Pet_Pals_Refactor</a>
-					  <a class="list-group-item list-group-item-action"  href="#09-Evr_Pet_Pals_Heroku" role="tab">09-Evr_Pet_Pals_Heroku</a>
+					  <a class="list-group-item list-group-item-action"  href="#01-Evr_Binding_Data" role="tab">01-Evr_Binding_Data</a>
+					  <a class="list-group-item list-group-item-action"  href="#02-Ins_Complex_Data" role="tab">02-Ins_Complex_Data</a>
+					  <a class="list-group-item list-group-item-action"  href="#03-Stu_D3_Table" role="tab">03-Stu_D3_Table</a>
+					  <a class="list-group-item list-group-item-action"  href="#04-Evr_Enter_Exit_Update" role="tab">04-Evr_Enter_Exit_Update</a>
+					  <a class="list-group-item list-group-item-action"  href="#05-Ins_SVG" role="tab">05-Ins_SVG</a>
+					  <a class="list-group-item list-group-item-action"  href="#06-Stu_SVG_Stickman" role="tab">06-Stu_SVG_Stickmanemy</a>
+					  <a class="list-group-item list-group-item-action"  href="#07-Evr_D3_Bullseye" role="tab">07-Evr_D3_Bullseye</a>
+					  <a class="list-group-item list-group-item-action"  href="#08-Stu_Data_Rectangles" role="tab">08-Stu_Data_Rectangles</a>
+					  <a class="list-group-item list-group-item-action"  href="#09-Stu_UpsideDownBarChart" role="tab">09-Stu_UpsideDownBarChart</a>
 					</div>
 				
 				</div>
