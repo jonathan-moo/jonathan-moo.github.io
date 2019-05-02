@@ -21,46 +21,26 @@
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav mr-auto">
 					<li class="nav-item active">
-						<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+						<a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
 					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="MIACOR201901DATA3/11.2/index.html">11.2 Ref</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="MIACOR201901DATA3/11.3/index.html">11.3 Ref</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="MIACOR201901DATA3/12.1/index.html">12.1 Ref</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="MIACOR201901DATA3/12.3/index.html">12.3 Ref</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="MIACOR201901DATA3/13.1/index.html">13.1 Ref</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="MIACOR201901DATA3/13.2/index.html">13.2 Ref</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="MIACOR201901DATA3/13.3/index.html">13.3 Ref</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="MIACOR201901DATA3/14.1/index.html">14.1 Ref</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="MIACOR201901DATA3/14.2/index.html">14.2 Ref</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="MIACOR201901DATA3/14.3/index.html">14.3 Ref</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="MIACOR201901DATA3/15.1/index.html">15.1 Ref</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="MIACOR201901DATA3/15.2/index.html">15.2 Ref</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="MIACOR201901DATA3/15.3/index.html">15.3 Ref</a>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Lessons</a>
+						<div class="dropdown-menu">
+							<a class="dropdown-item" href="MIACOR201901DATA3/11.2/index.html">11.2 Ref</a>
+							<a class="dropdown-item" href="MIACOR201901DATA3/11.3/index.html">11.3 Ref</a>
+							<a class="dropdown-item" href="MIACOR201901DATA3/12.1/index.html">12.1 Ref</a>
+							<a class="dropdown-item" href="MIACOR201901DATA3/12.3/index.html">12.3 Ref</a>
+							<a class="dropdown-item" href="MIACOR201901DATA3/13.1/index.html">13.1 Ref</a>
+							<a class="dropdown-item" href="MIACOR201901DATA3/13.2/index.html">13.2 Ref</a>
+							<a class="dropdown-item" href="MIACOR201901DATA3/13.3/index.html">13.3 Ref</a>
+							<a class="dropdown-item" href="MIACOR201901DATA3/14.1/index.html">14.1 Ref</a>
+							<a class="dropdown-item" href="MIACOR201901DATA3/14.2/index.html">14.2 Ref</a>
+							<a class="dropdown-item" href="MIACOR201901DATA3/14.3/index.html">14.3 Ref</a>
+							<a class="dropdown-item" href="MIACOR201901DATA3/15.1/index.html">15.1 Ref</a>
+							<a class="dropdown-item" href="MIACOR201901DATA3/15.2/index.html">15.2 Ref</a>
+							<a class="dropdown-item" href="MIACOR201901DATA3/15.3/index.html">15.3 Ref</a>
+							<a class="dropdown-item" href="MIACOR201901DATA3/16.1/index.html">16.1 Ref</a>
+						</div>
 					</li>
 				</ul>
 			</div>
@@ -68,23 +48,6 @@
 		<div class="container-fluid">
 			<div class="row">
 				<div id="main-content" class="col-md-8">
-					<div id="hw-review-15.3" class="instructor-block">
-						<h3>Homework review</h3>
-
-						<p>Last Sat we had some installation problems. I think some of you tried this code and an error occured:</p>
-
-						<p><code>pip install psycopg2</code></p>
-
-						<p>Turns out that we need to install Postgre database first in our local machines before we can even try to use the pip install.</p>
-
-						<h4>Mac Homebrew Postgres Install</h4>
-
-						<p><code>brew install postgre</code></p>
-
-						<h4>Windows Postgres Install</h4>
-
-						<p>Use this link here: <a href="https://www.postgresql.org/download/windows/">https://www.postgresql.org/download/windows/</a></p>
-					</div>
 					<div class="objective-block">
 						<h3 id="objectives">Objectives For Lesson 16.1</h3>
 
@@ -97,600 +60,639 @@
 
 					<div id="why-we-learn" class="instructor-block">
 						<h3>Why We Learn?</h3>
-						
 						<p>We're going more in-depth with D3 because D3 is really powerful in manipulating data in the browser.</p>
-
 					</div>
 
-					<div id="01-Evr_Binding_Data" class="instructor-block">
-						<h3>01-Evr_Binding_Data</h3>
-						
-						<p>Some links to look into before we start:</p>
-						<ul>
-							<li><a href="https://d3js.org/">D3 Official Website</a></li>
-							<li><a href="https://github.com/d3/d3/wiki/Gallery">D3 Gallery</a></li>
-							<li><a href="https://github.com/coding-boot-camp/DataViz-Lesson-Plans/blob/master/01-Lesson-Plans/16-D3/Supplemental/D3_Reference_Guide.pdf">D3 Reference Guide</a></li>
-							<li><a href="https://github.com/coding-boot-camp/DataViz-Lesson-Plans/blob/master/01-Lesson-Plans/16-D3/StudentGuide.md">Student Guide</a></li>
+					<div id="01-Par_Review_D3" class="instructor-block">
+						<h3>01-Par_Review_D3</h3>
+						<p>Work in pairs and answer the questions given in <code>questions.js</code>.</p>
+
+						<h4>D3 Review</h4>
+						<p>The activity gave you the following code.</p>
+						<pre>
+							<code>
+/* 4. Imagine three &lt;li> elements already exist on the page.  Create code to update the text of those elements while also adding three new elements to match the array below. */
+var arr = [1, 1, 2, 3, 5, 8];
+var ul = d3.select("ul#test-01");
+
+// YOUR CODE HERE //
+var selection = ul.selectAll("li")
+  .data(arr);
+selection.enter()
+  .append("li")
+  .merge(selection)
+  .text(function(d) {
+    return d;
+  });
+
+/* Bonus - Refactor your solution to number 4 above using the ES6 syntax for arrow functions. Then, modify the code to set the text of each
+  element to "&lt;index in the array>: &lt;item from the array>" */
+  var selection = ul.selectAll("li") // creates virtual selection
+  .data(arr); // binds data
+selection.enter()
+  .append("li") // appends li element for each item in array (since there are currently none)
+  .merge(selection)
+  .text((d, i) => `${i}: ${d}`);
+							</code>
+						</pre>
+
+						<ul id="test-01">
+							<li>Dimitri</li>
+							<li>Dimitri</li>
+							<li>Dimitri</li>
 						</ul>
-
-						<h4>D3 Features</h4>
-						<ul class="test">
-							<li><strong>Selections:</strong> D3 makes it simple to CRUD (Create, Read, Update, Delete) elements in the DOM with its easy-to-follow method chaining syntax.</li>
-							<li><strong>Transitions:</strong> D3 makes animating and transitioning elements on the page a breeze.</li>
-							<li><strong>Data-Binding:</strong> D3 allows us to associate data with elements in the DOM. We can make changes programatically.</li>
-						</ul>
-
-						<h4>What is Data-Binding in reality?</h4>
-						<h5>.each()</h5>
-						<p><code>.each()</code> works like <code>forEach</code> in Javascript. I added the class <code>.test</code> because there are many unordered list on this page, but we'll only affect the list above.</p>
-
-						<p><strong>Remember:</strong> Using <code>selectAll</code>, the nested elements are affected <strong>row by row</strong>.</p>
-
-						<pre>
-							<code>
-// 1-.each()
-d3.select("ul.test").selectAll("li");
-
-d3.select("ul.test").selectAll("li")
-    .each(function(d, i) {
-      console.log("element", this); // remember "this"? this is the element itself. 
-      console.log("data", d); // this is undefined from the start
-      console.log("index", i); // index of the array
-    });
-							</code>
-						</pre>
-
-						<h5>.data()</h5>
-
-						<p>There is this things about <code>data undefined</code> within the console.log, which we we will discuss next. This data method is to bind one of the DOM elements to the Javascript. It is <code>undefined</code> because we haven't associated anything to each of the elements with data.</p>
-
-						<pre>
-							<code>
-d3.select("ul.test").selectAll("li").data();
-							</code>
-						</pre>
-
-						<p>What if we bind some data to the list?</p>
-
-						<pre>
-							<code>
-var arr = [50, 55];
-d3.select("ul.test").selectAll("li").data(arr);
-d3.select("ul.test").selectAll("li").data();
-							</code>
-						</pre>
-
-						<p>Once we bind an array of data with the unordered list, we start to see something different in the console when we do this again:</p>
-
-						<pre>
-							<code>
-d3.select("ul.test").selectAll("li")
-    .each(function(d, i) {
-      console.log("element", this);
-      console.log("data", d); // this d is no longer empty
-      console.log("index", i);
-    });
-							</code>
-						</pre>
-
-						<p>The data in the array corresponds to each element in the unordered list. If there are not enough elements in the array, the rest will become undefined.</p>
-
-						<h5>.text()</h5>
-
-						<p>After we bind, we modify the data:</p>
-
-						<pre>
-							<code>
-var arr = [50, 55, 53];
-
-d3.select("ul.test").selectAll("li")
-    .data(arr)
-    .text(function(d) {
-      return d;
-    });
-							</code>
-						</pre>
-
-						<p>The above code:</p>
-						<ul>
-							<li><strong>Selects</strong> the elements which you want to modify.</li>
-							<li><strong>Binds</strong> each element with the data from the array</li>
-							<li><strong>Modifies</strong> each element with the associated data.</li>
-						</ul>
-
-						<p>To make changes in HTML with D3, you'll have to bind the elements with the data first.</p>
-
-						<h5 id="without-enter">What if you want to replace and add more rows to the list?</h5>
-
-						<p>In lesson 14.3, you've learned how to use <code>.append</code> to add rows to tables. Can we use it here?</p>
-
-						<pre>
-							<code>
-var arr = [50, 55, 53, 56, 68];
-d3.select("ul.test").selectAll("li")
-    .data(arr)
-    .append("li")
-    .text(function(d) {
-      return d;
-    });
-							</code>
-						</pre>
-
-						<p>Let's take a look when we use the above code. You'll realize:</p>
-
-						<ul>
-							<li>None of the existing data is replaced, even though <code>.text</code> is being used.</li>
-							<li>The first three elements are appended <strong>after</strong> each element of the existing row.</li>
-						</ul>
-
-						<p>To read it line-by-line, we examine the above code with this:</p>
-						<pre>
-							<code>
-var arr = [50, 55, 53, 56, 68];
-d3.select("ul.test").selectAll("li")
-    .data(arr)
-    .append("li")
-    .text(function(d) {
-      return d;
-    }).each(function(d, i) {
-      console.log("element", this); // remember "this"? this is the element itself. 
-      console.log("data", d); // this is undefined from the start
-      console.log("index", i); // index of the array
-    });
-							</code>
-						</pre>
-						<p>You'll notice:</p>
-						<ul>
-							<li><code>selectAll</code> examines the list items row-by-row.</li>
-							<li>For the selected row, it binds the data using <code>.data</code>.</li>
-							<li>But <code>append</code> <strong>forces</strong> the creation of a new list item, and uses the data to create a new list item!</li>
-							<li>The cycle repeats for each row.</li>
-						</ul>
-
-						<h5>Therefore, to replace the list and add more rows with the array:</h5>
-						<ul>
-							<li>We replace the existing elements first.</li>
-							<li>Then we use <code>.enter</code> and subsequently <code>.append</code> to add new rows.</li>
-						</ul>
-
-						<pre>
-							<code>
-var arr = [50, 55, 53, 56, 68];
-
-d3.select("ul")
-    .selectAll("li")
-    .data(arr)
-    .text(function(d) {
-      return d;
-    });
-
-d3.select("ul.test")
-    .selectAll("li")
-    .data(arr)
-    .enter()
-    .append("li")
-    .text(function(d) {
-      return d;
-    });
-							</code>
-						</pre>
-
-						<p>In your <a href="https://github.com/coding-boot-camp/DataViz-Lesson-Plans/blob/master/01-Lesson-Plans/16-D3/Supplemental/D3_Reference_Guide.pdf">reference guide</a>, it says that <code>.enter</code> creates a placeholder for the new list item to be added in. This will work not only for lists, but for tables.</p>
-
-
-						<h5 id="remove">What if you want to remove an element?</h5>
-
-						<pre>
-							<code>
-var arr = [50, 55];
-d3.select("ul.test")
-    .selectAll("li")
-    .data(arr)
-    .exit()
-    .remove();
-							</code>
-						</pre>
-
-						<p>Notice that the amount of list items which is deleted corresponds to the difference between the array length and the list items? If <code>array length >= number of list items</code>, nothing will be deleted.</p>
-
-						<p><code>.exit</code> selects the difference between the array length and the number of the list items, and <code>remove</code> will remove it.</p>
-
 					</div>
 
-					<div id="02-Ins_Complex_Data" class="instructor-block">
-						<h3>02-Ins_Complex_Data</h3>
+					<div id="02-Ins_Loading_Data" class="instructor-block">
+						<h3>02-Ins_Loading_Data</h3>
 
-						<p>Why learn the above segment? Consider this:</p>
-
-						<pre>
-							<code>
-var complexData = [{
-  title: "javascript",
-  url: "https://media.giphy.com/media/10bdAP4IOmoN7G/giphy.gif"
-},
-{
-  title: "python",
-  url: "https://media.giphy.com/media/2yP1jNgjNAkvu/giphy.gif"
-},
-{
-  title: "css",
-  url: "https://media.giphy.com/media/TsxMkIKHpvFaU/giphy.gif"
-}
-];
-
-d3.select(".img-gallery").selectAll("div")
-  .data(complexData)
-  .enter() // creates placeholder for new data
-  .append("div") // appends a div to placeholder
-  .classed("col-md-4 thumbnail", true) // sets the class of the new div
-  .html(function(d) {
-    return `&lt;img src="${d.url}" class="img-fluid">`;
-  }); // sets the html in the div to an image tag with the link
-							</code>
-						</pre>
-
-						<p>I have hidden a <code>img-gallery</code> class in this HTML:</p>
-						
-						<div class="row img-gallery">
-
-						</div>
-
-						<p>So you can do tricks with this in your dashboard. To note:</p>
-						<ul>
-							<li><code>.classed</code> adds class attributes to the <code>.append("div")</code> above it.</li>
-							<li>We use <code>.html</code> instead of <code>.text</code> because we want to create new elements in the HTML, and not generate text only.</li>
-						</ul>
-
-					</div>
-
-					<div id="03-Stu_D3_Table" class="student-block">
-						<h3>03-Stu_D3_Table: Your Turn</h3>
-
-					</div>
-
-					<div id="04-Evr_Enter_Exit_Update" class="instructor-block">
-						<h3>04-Evr_Enter_Exit_Update</h3>
-
-						<p>Open the activity and follow along. I am building it here so that we don't have to keep switching screens.</p>
-
-						<p>The following are step-by-step explanations of whatever we covered today so far. Instead of lists, we are modifying div classes.</p>
-
-						<style>
-					        .temps {
-					            display: inline-block;
-					            margin-right: 20px;
-					            width: 100px;
-					            height: 100px;
-					            background-color: #bf5700;
-					            color: #343f47;
-					        }
-
-					    </style>
-
-						<div id="content">
-							<div class="temps"></div>
-							<div class="temps"></div>
-							<div class="temps"></div>
-						</div>
-
-						<h4>Basic Data Bind</h4>
-
-						<p>The above CSS is this code here:</p>
-						<pre>
-							<code>
-.temps {
-    display: inline-block;
-    margin-right: 20px;
-    width: 100px;
-    height: 100px;
-    background-color: #bf5700;
-    color: #343f47;
-}
-							</code>
-						</pre>
-
-						<h5>What happens if we run the code below?</h5>
+						<p>We are given this code, and in my server, there is an "hours-of-tv-watched.csv".</p>
 
 						<pre>
 							<code>
-var austinTemps = [76, 59, 59, 73, 71];
-d3.selectAll("#content").selectAll(".temps")
-    .data(austinTemps)
-    .style("height", function(d) {
-      return d + "px";
-    });
-							</code>
-						</pre>
+d3.csv("assets/hours-of-tv-watched.csv", function(error, tvData) {
+  if (error) return console.warn(error);
 
-						<p>As there are no <code>.enter()</code> or <code>.append()</code>, the code takes the 1st 3 elements and replaces the existing CSS with it.</p>
+  console.log(tvData);
 
-						<h4>Updating the new elements only</h4>
+  // log a list of names
+  var names = tvData.map(data => data.name);
+  console.log("names", names);
 
-						<h5>What happens if we run the code below?</h5>
-
-						<pre>
-							<code>
-var austinTemps = [76, 59, 59, 73, 71];
-d3.select("#content").selectAll(".temps")
-    .data(austinTemps)
-    .enter()
-    .append("div")
-    .classed("temps", true)
-    .style("height", function(d) {
-      return d + "px";
-    });
-							</code>
-						</pre>
-
-						<p><code>.enter()</code> creates a placeholder if there isn't an existing DOM element within the HTML, and <code>.appends()</code> a div class to it, while attributing a class with <code>.classed</code>.</p>
-
-						<h4>Updating the old elements only</h4>
-
-						<h5>What happens if we run the code below?</h5>
-
-						<pre>
-							<code>
-var austinTemps = [76, 59, 59, 73, 71];
-var selection = d3.select("#content").selectAll(".temps")
-    .data(austinTemps);
-
-selection.enter() // adds new elements AFTER the old elements have been exhausted
-    .append("div")
-    .classed("temps", true);
-
-selection.style("height", function(d) {
-  return d + "px";
+  // Cast each hours value in tvData as a number using the unary + operator
+  tvData.forEach(function(data) {
+    data.hours = +data.hours;
+    console.log("Name:", data.name);
+    console.log("Hours:", data.hours);
+  });
 });
 							</code>
 						</pre>
 
-						<p>This is the first time we are extracting DOM elements into a variable called <code>selection</code>. Notice that you can break things apart and run one-by-one to get a desired effect.</p>
+						<p>If you run the following code in your activity from your local computer, there is an error. (For your reference: <a href="https://stackoverflow.com/questions/20041656/xmlhttprequest-cannot-load-file-cross-origin-requests-are-only-supported-for-ht)">https://stackoverflow.com/questions/20041656/xmlhttprequest-cannot-load-file-cross-origin-requests-are-only-supported-for-ht</a></p>
 
-						<p>The above is almost the same as <a href="#without-enter">here</a>, except that we have <code>.enter()</code> right after <code>.data</code>.</p>
+						<p>This is often found when you use Javascript to request for data. Javascript only allows data to be requested <strong>from the same domain URL,</strong> because it is too powerful and it can hack into computers. So modern browsers made sure to block and protect your computer.</p>
 
-						<p><code>.enter()</code> creates new elements <strong>AFTER</strong> all the elements have been displayed. It's more like <strong>if there is an existing element within the array that corresponds with the index of the selected element, it ignores any change.</strong></p>
+						<p>So how do you get the example to work?</p> 
+						<p>Run a mini-server from Terminal by typing: <code>python -m http.server</code>.</p> 
+						<p>Of course, make sure you're in your correct environment first. <strong>This is part of your homework.</strong></p>
 
-						<p>The <code>.style</code> then changes the old elements only.</p>
+						<p>Without <code>Flask</code>, your python command can create a local server on your computer. The default address is: <code>localhost:8000</code></p>
 
-						<p>We're only describing the code, so try to use the code below in your code and the above explanation to debug.</p>
+						<p>Notice that the above code has an <code>+</code> unary operator at the assignment of the <code>data.hours</code>. This is a common practice to ensure numeric data is parsed correctly, i.e. parseInt(). For more reference: <a href="https://scotch.io/tutorials/javascript-unary-operators-simple-and-useful">https://scotch.io/tutorials/javascript-unary-operators-simple-and-useful</a></p>
 
-						<h4>Updating both new and old elements</h4>
 
-						<pre>
-							<code>
-var austinTemps = [76, 59, 59, 73, 71];
-var selection = d3.select("#content").selectAll(".temps")
-    .data(austinTemps);
+					</div>
 
-selection.enter()
-    .append("div")
-    .classed("temps", true)
-    .merge(selection)
-    .style("height", function(d) {
-      return d + "px";
-    });
-							</code>
-						</pre>
+					<div id="03-Par_BarChart_From_CSV" class="student-block">
+						<h3>03-Par_BarChart_From_CSV</h3>
 
-						<p>We introduce a new method called <code>.merge()</code>. Merge helps to combine the array elements above (when they are bound by <code>.data</code>) with the existing DOM elements on the HTML. <code>.style</code> will affect the merged content then.</p>
+						<p>Create a bar chart to reflect the CSV data. It's a reference from your previous lesson in 16.1, so go through it as your reference. You're already given some starter code.</p>
+					</div>
 
-						<h4>Exit and remove elements</h4>
+					<div id="04-Evr_Scales" class="instructor-block">
+						<h3>04-Evr_Scales</h3>
 
-						<p>We start with 3 blocks, and now we want to remove 2 of them:</p>
+						<p>D3 has certain math functions for you, and it helps you just like how <code>pandas</code> does.</p>
+
+						<h4>Max, Min, Extent</h4>
 
 						<pre>
 							<code>
-var austinTemps = [76];
+// Part 1: Max, Min, Extent
+var dataArr = [10, 20, 2000];
 
-var selection = d3.select("#content").selectAll(".temps")
-    .data(austinTemps);
-
-selection.enter()
-    .append("div")
-    .classed("temps", true)
-    .merge(selection)
-    .style("height", function(d) {
-      return d + "px";
-    });
-
-selection.exit().remove();
+console.log("min value ", d3.min(dataArr));
+console.log("max value ", d3.max(dataArr));
+console.log("min and max values ", d3.extent(dataArr));
 							</code>
 						</pre>
 
-						<p>Again, <code>exit</code> selects the difference between the array and the existing elements through data-bind, and <code>remove</code> deletes the elements. <a href="#remove">It's similar to what we have covered before.</a></p>
+						<p>Extend is basically the domain in an array.</p>
 
-						<h4>How about making only one function and we use it everywhere we go?</h4>
+						<h4>scaleLinear</h4>
 
-						<pre>
-							<code>
-function update(data) {
+						<p>We scale the pixels because charts are defined by pixels. Single-digit pixels are simply too small to visualize.</p>
 
-  var selection = d3.select("#content").selectAll(".temps")
-        .data(data);
-
-  selection.enter()
-        .append("div")
-        .classed("temps", true)
-        .merge(selection)
-        .style("height", function(d) {
-          return d + "px";
-        });
-
-  selection.exit().remove();
-}
-
-/* Test 1 */
-var austinTemps = [100, 103, 105, 110, 100, 98];
-update(austinTemps);
-
-/* Test 2 */
-austinTemps = [80];
-update(austinTemps);
-							</code>
-						</pre>
-
-						<p>To test it:</p>
+						<img src="img/Evr_Scales_visual.png" class="img-fluid"/>
 
 						<ul>
-							<li>Load the function into your browser</li>
-							<li>Run each test separately.</li>
+							<li><strong>Domain:</strong> Bounds of the data</li>
+							<li><strong>Range:</strong> Bounds of the chart</li>
+						</ul>
+
+						<p>Imagine you have test scores with possible scores from 0 to 100, and you want to graph them in an SVG that is 1000 pixels high.</p>
+
+						<pre>
+							<code>
+var testScores = [50, 90, 95, 75, 85];
+							</code>
+						</pre>
+
+						<p>You can hard-code it and do the domain and range:</p>
+
+						<pre>
+							<code>
+var yScale = d3.scaleLinear()
+    .domain([0, 100])
+    .range([0, 1000]);
+
+console.log(`50 returns ${yScale(50)}`);
+console.log(`75 returns ${yScale(75)}`);
+console.log(`100 returns ${yScale(100)}`);
+							</code>
+						</pre>
+
+						<p>Or you can use what you've just learned and do <code>max</code> and <code>min</code>.</p>
+
+						<pre>
+							<code>
+var svgHeight = 1000;
+
+var yScale = d3.scaleLinear()
+  .domain([0, d3.max(testScores)])
+  .range([0, svgHeight]);
+
+
+console.log(`50 returns ${yScale(50)}`);
+console.log(`75 returns ${yScale(75)}`);
+console.log(`95 returns ${yScale(95)}`);
+							</code>
+						</pre>
+
+						<p>You can use extend too:</p>
+						<pre>
+							<code>
+var svgHeight = 1000;
+
+var yScale = d3.scaleLinear()
+  .domain(d3.extent(testScores))
+  .range([0, svgHeight]);
+
+
+console.log(`50 returns ${yScale(50)}`);
+console.log(`75 returns ${yScale(75)}`);
+console.log(`95 returns ${yScale(95)}`);
+							</code>
+						</pre>
+
+						<p><strong>Notice that the first element returns zero.</strong> Why?</p>
+
+						<h4>scaleBand</h4>
+
+						<p>Imagine you want to visualize student grade information on a bar chart.</p>
+
+						<pre>
+							<code>
+svgHeight = 600;
+var svgWidth = 1000;
+
+testScores = [90, 85, 75, 90];
+var students = ["Han", "Sarah", "Matt", "Ruchi"];
+
+var xScale = d3.scaleBand() // scaleBand helps to plot the spacing between each bars.
+  .domain(students)
+  .range([0, svgWidth]);
+
+console.log(`Han's x-coordinate: ${xScale("Han")}`);
+console.log(`Sarah's x-coordinate: ${xScale(students[1])}`);
+console.log(`Matt's x-coordinate: ${xScale("Matt")}`);
+console.log(`Ruchi's x-coordinate: ${xScale(students[3])}`);
+
+console.log(`Each band is ${xScale.bandwidth()} pixels wide.`);
+
+// The y values are scaled separately.
+
+var yScale = d3.scaleLinear()
+  .domain([0, 100])
+  .range([0, svgHeight]);
+
+console.log(`The height of Han's bar: ${yScale(testScores[0])}`);
+							</code>
+						</pre>
+
+						<p>More resources for D3 scales:</p>
+						<ul>
+							<li><a href="http://alignedleft.com/tutorials/d3/scales">D3 Scales Tutorial - D3 Scales Tutorial</a></li>
+							<li><a href="http://d3indepth.com/scales/">D3 in Depth - Scales</a></li>
 						</ul>
 
 					</div>
 
-					<div id="05-Ins_SVG" class="instructor-block">
-						<h3>05-Ins_SVG: What is SVG?</h3>
+					<div id="05-Ins_Intro_To_Axes" class="instructor-block">
+						<h3>05-Ins_Intro_To_Axes</h3>
 
-						<p>It stands for "Scalable Vector Graphics". In layman terms, we use code to draw:</p>
+						<p>Some explanations before we begin:</p>
 						<ul>
-							<li>Uses an XML syntax, which is almost identical to HTML and can be used as HTML too.</li>
-							<li>Usually we do it for basic shapes. You've got to be an expert among experts to draw Mona Lisa out with SVG.</li>
-							<li>Unlike images like jpg or png which are static, SVG is dynamic and can modified in real-time via code.</li>
+							<li><strong>svgHeight:</strong> How much height to render</li>
+							<li><strong>svgWidth:</strong> How much width to render</li>
+							<li><strong>margin:</strong> Spacing between elements</li>
+							<li><strong>chartHeight:</strong> The actual chart height within the SVG container.</li>
+							<li><strong>chartWidth:</strong> The actual chart width within the SVG container.</li>
+							<li><strong>g:</strong> Container used to group other SVG elements, so that ransformations can be done to all child elements within.</li>
 						</ul>
 
-						<p>Consider it here:</p>
-						<svg width="100" height="150">
-					        <rect x="0" y="0" width="50" height="50" fill="green" />
-					        <circle cx="25" cy="75" r="25" fill="purple" />
-					        <line x1="5" y1="100" x2="40" y2="140" stroke="gray" stroke-width="5" />
-					    </svg>
+						<h4>Prepare the data and the SVG container:</h4>
 
-					    <p>And this is the code:</p>
-					    <pre>
-					    	<code>
-&lt;svg width="100" height="150">
-    &lt;rect x="0" y="0" width="50" height="50" fill="green" />
-    &lt;circle cx="25" cy="75" r="25" fill="purple" />
-    &lt;line x1="5" y1="100" x2="40" y2="140" stroke="gray" stroke-width="5" />
-&lt;/svg>
-						    </code>
-						</pre>
+						<p>Always prepare the data, and the SVG container itself first:</p>
 
-						<h4>Now why are we drawing with code?</h4>
-
-						<p>All javascript visualization libraries have their pros and cons. There are times you want to create your own and D3 can help you with that.</p>
-
-						<h4>What to look out for?</h4>
-
-						<ul>
-							<li>All shapes have different requirements and standards, example:</li>
-							<ul>
-								<li><code>rect</code> uses x and y.</li>
-								<li><code>circle</code> uses cx and cy.</li>
-							</ul>
-							<li>We use Javascript to make it dynamic.</li>
-							<li>Since SVG can exist as HTML, we can apply CSS rules as well.</li>
-							<li>Use this reference for basic shapes: <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Basic_Shapes">https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Basic_Shapes</a></li>
-						</ul>
-
-					</div>
-
-					<div id="06-Stu_SVG_Stickman" class="student-block">
-						<h3>06-Stu_SVG_Stickman: Your Turn</h3>
-					</div>
-
-					<div id="07-Evr_D3_Bullseye" class="instructor-block">
-						<h3>07-Evr_D3_Bullseye</h3>
-
-						<p>This is code we're given, but I modified it to display in this HTML:</p>
 						<pre>
 							<code>
-var svg = d3.select("#example-07").append("svg");
+// data
+var dataArray = [1, 2, 3];
+var dataCategories = ["one", "two", "three"];
 
-svg.attr("width", "100px").attr("height", "100px");
+/* Preparing The Container */
+// svg container
+var svgHeight = 400;
+var svgWidth = 1000;
 
-svg.append("circle")
-    .attr("cx", 50)
-    .attr("cy", 25)
-    .attr("r", 25)
-    .attr("stroke", "gray")
-    .attr("stroke-width", "5")
-    .attr("fill", "none");
+// margins
+var margin = {
+  top: 50,
+  right: 50,
+  bottom: 50,
+  left: 50
+};
 
-// Part 2
-// Binding the SVG to data
+// chart area minus margins
+var chartHeight = svgHeight - margin.top - margin.bottom; // this is enforcing by hand
+var chartWidth = svgWidth - margin.left - margin.right;
 
-var svg = d3.select("#example-07").append("svg");
-
-svg.attr("width", "100px").attr("height", "100px");
-
-var circles = svg.selectAll("circle");
-
-var rValues = [40, 25, 10];
-
-circles.data(rValues)
-    .enter()
-    .append("circle")
-    .attr("cx", 50)
-    .attr("cy", 50)
-    .attr("r", function(d) {
-      return d;
-    })
-    .attr("stroke", "black")
-    .attr("stroke-width", "5")
-    .attr("fill", "red");
-							</code>
-						</pre>
-						<div id="example-07"></div>
-
-						<h4>What does this mean?</h4>
-
-						<p>Things like <code>sin</code>, <code>cos</code>, <code>tan</code> graphs can be plotted dynamically using SVG.</p>
-					</div>
-
-					<div id="08-Stu_Data_Rectangles" class="student-block">
-						<h3>08-Stu_Data_Rectangles: Your Turn</h3>
-
-					</div>
-
-					<div id="09-Stu_UpsideDownBarChart" class="student-block">
-						<h3>09-Stu_UpsideDownBarChart: Your Turn</h3>
-
-					</div>
-
-					<div id="10-Evr_Bar_Chart_Refactored" class="instructor-block">
-						<h3>10-Evr_Bar_Chart_Refactored</h3>
-						<pre>
-							<code>
-// Dataset we will be using to set the height of our rectangles.
-var booksReadThisYear = [17, 23, 20, 34];
-
-// Setting the dimensions for the SVG container
-var svgHeight = 600;
-var svgWidth = 400;
-
-var svg = d3
-  .select("#svg-area")
-  .append("svg")
+// create svg container
+var svg = d3.select("#svg-area-05").append("svg")
   .attr("height", svgHeight)
   .attr("width", svgWidth);
 
-// svgGroup now refers to the `g` (group) element appended.
-// The SVG group would normally be aligned to the top left edge of the chart.
-// Now it is offset to the right and down using the transform attribute
-var svgGroup = svg.append("g")
-  .attr("transform", "translate(50, 100)");
+// shift everything over by the margins
+var chartGroup = svg.append("g")
+  .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
-// Selects all rectangles currently on the page - which is none - and binds our dataset to them. If there are no rectangles, it will append one for each piece of data.
-svgGroup.selectAll("rect")
-  .data(booksReadThisYear)
-  .enter()
-  .append("rect")
-  .attr("width", 50)
-  .attr("height", function(data) {
-    return data * 10;
-  })
-  .attr("x", function(data, index) {
-    return index * 60;
-  })
-  .attr("y", function(data) {
-    return 600 - data * 10;
-  })
-  .attr("class", "bar");
+/* Preparing The Container End */
 							</code>
 						</pre>
-						<div id="svg-area"></div>
+
+						<h4>Scale your graph into proportions</h4>
+
+						<p>You've learned how to scale it earlier.</p>
+
+						<pre>
+							<code>
+/* Scaling The Graph Into Proportions */
+
+// scale y to chart height
+var yScale = d3.scaleLinear()
+  .domain([0, d3.max(dataArray)])
+  .range([chartHeight, 0]);
+
+// scale x to chart width
+var xScale = d3.scaleBand()
+  .domain(dataCategories)
+  .range([0, chartWidth])
+  .padding(0.05);
+
+/* Scaling The Graph Into Proportions End */
+
+							</code>
+						</pre>
+
+						<h4>*New* Creating axes</h4>
+
+						<p>Load the scales previously and form both yAxis and xAxis</p>
+
+						<pre>
+							<code>
+// create axes
+var yAxis = d3.axisLeft(yScale); // methods are native within d3
+var xAxis = d3.axisBottom(xScale);
+							</code>
+						</pre>
+
+						<p>Only then can you render it into a <code>g</code> tag. To those who're familiar with Photoshop, usually you'll want to group graphics together and label them to reuse, correct? Same principle here.</p>
+
+						<pre>
+							<code>
+// set x to the bottom of the chart
+// You append to &lt;g>, since you're rendering from it.
+chartGroup.append("g")
+  .attr("transform", `translate(0, ${chartHeight})`)
+  .call(xAxis); // This takes the xAxis variable and loads it into &lt;g>
+
+// set y to the y axis
+// This syntax allows us to call the axis function
+// and pass in the selector without breaking the chaining
+chartGroup.append("g") // You append to &lt;g>, since you're rendering from it.
+  .call(yAxis); // This takes the yAxis variable and loads it into &lt;g>
+
+/* Note: The above code is equivalent to this:
+    var g = chartGroup.append("g");
+
+    yAxis(g);
+*/
+							</code>
+						</pre>
+
+						<p>The <code>g</code> tag groups the variables of the axis together, and renders them. Because the xAxis is going to be on the bottom, you'll have to use <code>transform</code> and <code>translate</code> to place it at the bottom of the graph. Otherwise, it will render from the top.</p>
+
+						<h4>Finally, load the data into your graph in <code>chartGroup</code>:</h4>
+
+						<pre>
+							<code>
+
+
+// Append Data to chartGroup
+chartGroup.selectAll(".bar")
+  .data(dataArray)
+  .enter()
+  .append("rect")
+  .classed("bar", true)
+  .attr("x", (d, i) => xScale(dataCategories[i]))
+  .attr("y", d => yScale(d))
+  .attr("width", xScale.bandwidth())
+  .attr("height", d => chartHeight - yScale(d));
+
+							</code>
+						</pre>
+
+						<p>So the steps are:</p>
+						<ul>
+							<li>Prepare the container</li>
+							<li>Scale the graph into proportions</li>
+							<li>Create your axes and render them</li>
+							<li>Load the data into your graph.</li>
+						</ul>
+
+						<p>I've hidden a divider here:</p>
+						<div id="svg-area-05"></div>
+
+						<p>Some additional references: <a href="https://github.com/pshrmn/notes/blob/master/d3/axes.md">Notes on D3 Axes - Paul Sherman</a></p>
+
+						<style>
+.bar {
+  fill: purple;
+}
+
+.bar:hover {
+  fill: orange;
+}
+						</style>
+							
 					</div>
+					<div id="06-Stu_Complete_Bar_Chart" class="student-block">
+						<h3>06-Stu_Complete_Bar_Chart: Your Turn</h3>
+
+						<p>This is mostly built on the solution from activity 3. Draw a bar chart from CSV complete with axes.</p>
+
+						<p>Don't forget to run your server: <code>python -m http.server</code></p>
+
+					</div>
+
+					<div id="07-Ins_Line_Generators_Intro" class="instructor-block">
+						<h3>07-Ins_Line_Generators_Intro</h3>
+
+						<div class="row">
+							<div class="col-md-12">
+								<h2>Generating a Path with HTML</h2>
+								<svg id="path-1" width="400" height="250">
+								<path d="M100,120 200,250 300,160 400,200" style="stroke:black; stroke-width:3; fill: none;"></path>
+								</svg>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-md-12">
+								<p>The above is generated by the following code:</p>
+								<pre>
+									<code>
+&lt;svg id="path-1" width="400" height="250">
+	&lt;path d="M100,120 200,250 300,160 400,200" style="stroke:black; stroke-width:3; fill: none;">&lt;/path>
+&lt;/svg>
+									</code>
+								</pre>
+
+								<h4>What's happening above?</h4>
+								<ul>
+									<li>The <code>path</code> tag is where the container for lines.</li>
+									<li><code>d</code> contains the drawing commands, as though you're drawing from a pen:</li>
+									<ul>
+										<li><code>M</code> is the "move to" command and will cause a "pen" to draw at the specific coordinate.</li>
+										<li>The coordinate is represented by <code>x,y</code>, i.e. <code>200,250</code></li>
+										<li><code>L</code> is the "line to" command and will draw a line from the current point to the coorindates specified.</li>
+										<ul>
+											<li>You can't see the <code>L</code> yet, but you shall see it in the next example.</li>
+										</ul>
+									</ul>
+								</ul>
+							</div>
+						</div>
+
+						<div class="row">
+							<!-- Part 2 : see path-2.js -->
+							<div class="col-md-12">
+								<h2>Generating a Path with D3 and an Array</h2>
+								<svg id="path-2" width="400" height="250" xmlns="http://www.w3.org/2000/svg"></svg>
+							</div>
+
+							
+						</div>
+
+						<div class="row">
+							<div class="col-md-12">
+								<p>There is an <code>svg#path-2</code> above.</p>
+								<pre>
+									<code>
+// Generating a Path with D3 and an Array
+
+var coordinates = [
+  [100, 120],
+  [200, 250],
+  [300, 160],
+  [400, 200]
+];
+
+var lineGenerator = d3.line();
+
+console.log("Drawing commands:", lineGenerator(coordinates));
+
+var svg = d3.select("#path-2");
+
+svg.append("path")
+  .attr("fill", "none")
+  .attr("stroke", "blue")
+  .attr("stroke-width", 5)
+  .attr("d", lineGenerator(coordinates));
+									</code>
+								</pre>
+
+								<h4>What's happening above?</h4>
+								<ul>
+									<li><code>d3.line()</code> creates a function to store an array of coorindates, and create the drawing commands with the <code>d</code> attribute.</li>
+									<li><code>lineGenerator</code> will create <code>M100,120L200,250L300,160L400,200</code> as you've seen previously.</li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-md-12">
+								<h2>Scaling and Using Accessor Functions</h2>
+								<svg id="path-3" width="400" height="250" xmlns="http://www.w3.org/2000/svg"></svg>
+							</div>
+
+						</div>
+						<div class="row">
+							<div class="col-md-12">
+								<p>There is an <code>svg#path-3</code> above.</p>
+								<pre>
+									<code>
+// Scaling and Using Accessor Functions
+var dataArray = [
+  { x: 10, y: 12 },
+  { x: 20, y: 25 },
+  { x: 30, y: 16 },
+  { x: 40, y: 20 }
+];
+
+var xScale = d3.scaleLinear()
+  .domain([0, d3.max(dataArray, d => d.x)])
+  .range([0, 400]);
+
+var yScale = d3.scaleLinear()
+  .domain([0, d3.max(dataArray, d => d.y)])
+  .range([0, 250]);
+
+var lineGenerator = d3.line()
+  .x(d => xScale(d.x))
+  .y(d => yScale(d.y));
+
+console.log("Drawing commands:", lineGenerator(dataArray));
+
+var svg = d3.select("#path-3");
+
+svg.append("path")
+  .attr("fill", "none")
+  .attr("stroke", "orange")
+  .attr("stroke-width", 5)
+  .attr("d", lineGenerator(dataArray));
+									</code>
+								</pre>
+								<h4>What's happening above?</h4>
+								<ul>
+									<li>The previous examples are using <code>pixels</code> to generate the lines, but you're not likely to be given pixels. Most likely, it will be coordinates which you have to craft by yourself.</li>
+									<li>Use <code>xScale</code> and <code>yScale</code> to generate the <code>domain</code> and <code>range</code>.</li>
+									<li>Pass the both scales when you create the <code>lineGenerator</code>.</li>
+									<li>Draw your graph. The coorindates given in <code>lineGenerator</code> will be scaled.</li>
+								</ul>
+							</div>
+						</div>
+
+					</div>
+
+					<div id="08-Stu_Generating_Lines" class="student-block">
+						<h3>08-Stu_Generating_Lines: Your turn</h3>
+
+						<p>Don't forget to run your server: <code>python -m http.server</code></p>
+
+						<p>Refresh your page if you see the old graphs.</p>
+
+					</div>
+
+					<div id="09-Ins_LineChart" class="instructor-block">
+						<h3>09-Ins_LineChart</h3>
+
+						<pre>
+							<code>
+// Define SVG area dimensions
+var svgWidth = 960;
+var svgHeight = 500;
+
+// Define the chart's margins as an object
+var margin = {
+  top: 60,
+  right: 60,
+  bottom: 60,
+  left: 60
+};
+
+// Define dimensions of the chart area
+var chartWidth = svgWidth - margin.left - margin.right;
+var chartHeight = svgHeight - margin.top - margin.bottom;
+
+// Select body, append SVG area to it, and set its dimensions
+var svg = d3.select("#svg-area-09")
+  .append("svg")
+  .attr("width", svgWidth)
+  .attr("height", svgHeight);
+
+// Append a group area, then set its margins
+var chartGroup = svg.append("g")
+  .attr("transform", `translate(${margin.left}, ${margin.top})`);
+
+// Configure a parseTime function which will return a new Date object from a string
+var parseTime = d3.timeParse("%Y");
+
+// Load data from forcepoints.csv
+d3.csv("assets/forcepoints.csv", function(error, forceData) {
+
+  // Throw an error if one occurs
+  if (error) throw error;
+
+  // Print the forceData
+  console.log(forceData);
+
+  // Format the date and cast the force value to a number
+  forceData.forEach(function(data) {
+    data.date = parseTime(data.date);
+    data.force = +data.force;
+  });
+
+  // Configure a time scale
+  // d3.extent returns the an array containing the min and max values for the property specified
+  var xTimeScale = d3.scaleTime()
+    .domain(d3.extent(forceData, data => data.date))
+    .range([0, chartWidth]);
+
+  // Configure a linear scale with a range between the chartHeight and 0
+  var yLinearScale = d3.scaleLinear()
+    .domain([0, d3.max(forceData, data => data.force)])
+    .range([chartHeight, 0]);
+
+  // Create two new functions passing the scales in as arguments
+  // These will be used to create the chart's axes
+  var bottomAxis = d3.axisBottom(xTimeScale);
+  var leftAxis = d3.axisLeft(yLinearScale);
+
+  // Configure a line function which will plot the x and y coordinates using our scales
+  var drawLine = d3.line()
+    .x(data => xTimeScale(data.date))
+    .y(data => yLinearScale(data.force));
+
+  // Append an SVG path and plot its points using the line function
+  chartGroup.append("path")
+    // The drawLine function returns the instructions for creating the line for forceData
+    .attr("d", drawLine(forceData))
+    .classed("line", true);
+
+  // Append an SVG group element to the chartGroup, create the left axis inside of it
+  chartGroup.append("g")
+    .classed("axis", true)
+    .call(leftAxis);
+
+  // Append an SVG group element to the chartGroup, create the bottom axis inside of it
+  // Translate the bottom axis to the bottom of the page
+  chartGroup.append("g")
+    .classed("axis", true)
+    .attr("transform", `translate(0, ${chartHeight})`)
+    .call(bottomAxis);
+});
+
+							</code>
+						</pre>
+
+						<p>Hidden div here:</p>
+						<div id="svg-area-09"></div>
+
+					</div>
+
 
 				</div> <!-- end #main-content -->
 
@@ -699,15 +701,15 @@ svgGroup.selectAll("rect")
 					<div id="right-sb-nav" class="list-group" id="toc" role="tablist">
 					  <a class="list-group-item list-group-item-action active"  href="#objectives" role="tab">Objectives</a>
 					  <a class="list-group-item list-group-item-action"  href="#why-we-learn" role="tab">Why We Learn</a>
-					  <a class="list-group-item list-group-item-action"  href="#01-Evr_Binding_Data" role="tab">01-Evr_Binding_Data</a>
-					  <a class="list-group-item list-group-item-action"  href="#02-Ins_Complex_Data" role="tab">02-Ins_Complex_Data</a>
-					  <a class="list-group-item list-group-item-action"  href="#03-Stu_D3_Table" role="tab">03-Stu_D3_Table</a>
-					  <a class="list-group-item list-group-item-action"  href="#04-Evr_Enter_Exit_Update" role="tab">04-Evr_Enter_Exit_Update</a>
-					  <a class="list-group-item list-group-item-action"  href="#05-Ins_SVG" role="tab">05-Ins_SVG</a>
-					  <a class="list-group-item list-group-item-action"  href="#06-Stu_SVG_Stickman" role="tab">06-Stu_SVG_Stickmanemy</a>
-					  <a class="list-group-item list-group-item-action"  href="#07-Evr_D3_Bullseye" role="tab">07-Evr_D3_Bullseye</a>
-					  <a class="list-group-item list-group-item-action"  href="#08-Stu_Data_Rectangles" role="tab">08-Stu_Data_Rectangles</a>
-					  <a class="list-group-item list-group-item-action"  href="#09-Stu_UpsideDownBarChart" role="tab">09-Stu_UpsideDownBarChart</a>
+					  <a class="list-group-item list-group-item-action"  href="#01-Par_Review_D3" role="tab">01-Par_Review_D3</a>
+					  <a class="list-group-item list-group-item-action"  href="#02-Ins_Loading_Data" role="tab">02-Ins_Loading_Data</a>
+					  <a class="list-group-item list-group-item-action"  href="#03-Par_BarChart_From_CSV" role="tab">03-Par_BarChart_From_CSV</a>
+					  <a class="list-group-item list-group-item-action"  href="#04-Evr_Scales" role="tab">04-Evr_Scales</a>
+					  <a class="list-group-item list-group-item-action"  href="#05-Ins_Intro_To_Axes" role="tab">05-Ins_Intro_To_Axes</a>
+					  <a class="list-group-item list-group-item-action"  href="#06-Stu_Complete_Bar_Chart" role="tab">06-Stu_Complete_Bar_Chart</a>
+					  <a class="list-group-item list-group-item-action"  href="07-Ins_Line_Generators_Intro" role="tab">07-Ins_Line_Generators_Intro</a>
+					  <a class="list-group-item list-group-item-action"  href="#08-Stu_Generating_Lines" role="tab">08-Stu_Generating_Lines</a>
+					  <a class="list-group-item list-group-item-action"  href="#09-Ins_LineChart" role="tab">09-Ins_LineChart</a>
 					</div>
 				
 				</div>
