@@ -332,7 +332,7 @@ app = Flask(__name__)
 						<h4>Before we begin</h4>
 
 						<p>Take a look at our folder structure</p>
-						<img src="img/refactor01.png" class="img-fluid" />
+						<img src="../../img/refactor01.png" class="img-fluid" />
 
 						<ul>
 							<li>The first layer contains:</li>
@@ -422,11 +422,11 @@ app = Flask(__name__)
 							<li>Sign up for Heroku. There is a free tier for it: <a href="https://www.heroku.com/pricing">https://www.heroku.com/pricing</a></li>
 							<li>Create a new app. Name it however you want it, <strong>but the names are unique throughout Heroku</strong>. This means you probably can't copy my naming convention.</li>
 							<ul>
-								<li><img src="img/heroku-01.png" class="img-fluid"/></li>
+								<li><img src="../../img/heroku-01.png" class="img-fluid"/></li>
 							</ul>
 							<li>Go to the <strong>Deploy</strong> section, and follow the steps to deploy the app.</li>
 							<ul>
-								<li><img src="img/heroku-02.png" class="img-fluid"/></li>
+								<li><img src="../../img/heroku-02.png" class="img-fluid"/></li>
 								<li>Although you can link Github with Heroku, we'll do the <strong>Heroku Git</strong>. So, you've to install Heroku Cli and the documentation is here: <a href="https://devcenter.heroku.com/articles/heroku-cli">https://devcenter.heroku.com/articles/heroku-cli</a></li>
 							</ul>
 						</ul>
@@ -435,11 +435,11 @@ app = Flask(__name__)
 						<ul>
 							<li>Navigate to <strong>Resources</strong>, and look for <strong>Heroku Postgres</strong> under <strong>Add-ons</strong>. Make sure to use the <strong>Free Version:</strong></li>
 							<ul>
-								<li><img src="img/heroku-03.png" class="img-fluid"/></li>
+								<li><img src="../../img/heroku-03.png" class="img-fluid"/></li>
 							</ul>
 							<li>Under settings, click on <code>Reveal Config Variables</code>. The connection string to the database should be available:</li>
 							<ul>
-								<li><img src="img/heroku-03.png" class="img-fluid"></li>
+								<li><img src="../../img/heroku-03.png" class="img-fluid"></li>
 							</ul>
 							<li>Heroku will automatically assign this URI string to the DATABASE_URL environment variable that is used within app.py. The code that is already in app.py will be able to use that environment variable to connect to the Heroku database:</li>
 							<ul>
