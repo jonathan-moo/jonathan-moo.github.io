@@ -1,0 +1,1363 @@
+<!DOCTYPE html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Jonathan Moo's Github Bio</title>
+
+
+		<link rel='stylesheet' id='bootstrap-css'  href='../../css/bootstrap.min.css' type='text/css' media='all' />
+		<link rel='stylesheet' id='bootstrap-grid-css'  href='../../css/bootstrap-grid.min.css' type='text/css' media='all' />
+		<link rel='stylesheet' id='custom-css'  href='../../css/style.css' type='text/css' media='all' /> 
+		<script src="https://d3js.org/d3.v5.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.9.1/d3-tip.js"></script>
+		<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+	</head>
+
+	<body>
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<a class="navbar-brand" href="#">Jonathan's Github Page</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active">
+						<a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Lessons</a>
+						<div class="dropdown-menu">
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/11.2/index.html">11.2 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/11.3/index.html">11.3 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/12.1/index.html">12.1 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/12.3/index.html">12.3 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/13.1/index.html">13.1 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/13.2/index.html">13.2 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/13.3/index.html">13.3 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/14.1/index.html">14.1 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/14.2/index.html">14.2 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/14.3/index.html">14.3 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/15.1/index.html">15.1 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/15.2/index.html">15.2 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/15.3/index.html">15.3 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/16.1/index.html">16.1 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/16.2/index.html">16.2 Ref</a>
+              <a class="dropdown-item" href="../../MIACOR201901DATA3/16.3/index.html">16.3 Ref</a>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</nav>
+		<div class="container-fluid">
+			<div class="row">
+				<div id="main-content" class="col-md-8">
+					<div class="objective-block">
+						<h3 id="objectives">Objectives For Lesson 16.3</h3>
+
+						<ul>
+							<li>More D3!</li>
+						</ul>
+
+						
+					</div>
+
+					<div id="why-we-learn" class="instructor-block">
+						<h3>Why We Learn?</h3>
+						<p>We're going more in-depth with D3 because D3 is really powerful in manipulating data in the browser.</p>
+					</div>
+
+					<div id="01-Evr_Multiline" class="instructor-block">
+						<h3>01-Evr_Multiline</h3>
+
+						<p>Remember the 4 steps?</p>
+						<ul>
+							<li>Prepare the SVG container</li>
+							<li>Scale the graph into proportions</li>
+							<li>Create your axes and render them</li>
+							<li>Load the data into your graph.</li>
+						</ul>
+
+						<h4>Prepare the SVG container</h4>
+						<pre>
+							<code>
+// Step 1: Set up our chart
+//= ================================
+var svgWidth = 960;
+var svgHeight = 500;
+
+var margin = {
+  top: 20,
+  right: 40,
+  bottom: 60,
+  left: 50
+};
+
+var width = svgWidth - margin.left - margin.right;
+var height = svgHeight - margin.top - margin.bottom;
+
+// Step 2: Create an SVG wrapper,
+// append an SVG group that will hold our chart,
+// and shift the latter by left and top margins.
+// =================================
+var svg = d3
+  .select("#svg-01")
+  .append("svg")
+  .attr("width", svgWidth)
+  .attr("height", svgHeight);
+
+var chartGroup = svg.append("g")
+  .attr("transform", `translate(${margin.left}, ${margin.top})`);
+							</code>
+						</pre>
+
+						<p>You should see:</p>
+						<ul>
+							<li>The <code>svg</code> tag to draw. This is your canvas.</li>
+							<li>The <code>g</code> tag for grouping SVG elements and transforming them to the lower axes.</li>
+						</ul>
+
+						<h4>Scale the graph into proportions</h4>
+
+						<p>You'll notice a little difference between my code and the activity's code:</p>
+
+						<p><code>d3.csv("assets/donuts.csv").then(function(donutData){</code> vs <code>d3.csv("donuts.csv", function(error, donutData) {</code></p>
+
+						<p>If you're using <strong>D3 version 5</strong>, you'll have to use <code>d3.csv("assets/donuts.csv").then(function(donutData){</code>.</p>
+
+						<pre>
+							<code>
+d3.csv("assets/donuts.csv").then(function(donutData){
+// Donut data
+//	date,morning,evening
+//	30-Apr, 60, 70
+//	27-Apr,	70, 60
+//	26-Apr, 40, 90
+//	25-Apr,	60, 50
+//	24-Apr, 80, 30
+//	23-Apr, 45, 60
+//	20-Apr, 50, 40
+//	19-Apr, 40, 70	
+
+
+
+  // Step 4: Parse the data
+  // Format the data and convert to numerical and date values
+  // =================================
+  // Create a function to parse date and time
+  var parseTime = d3.timeParse("%d-%b");
+
+  // Format the data
+  donutData.forEach(function(data) {
+    data.date = parseTime(data.date);
+    data.morning = +data.morning;
+    data.evening = +data.evening;
+  });
+
+  // Step 5: Create the scales for the chart
+  // =================================
+  var xTimeScale = d3.scaleTime()
+    .domain(d3.extent(donutData, d => d.date))
+    .range([0, width]);
+
+  var yLinearScale = d3.scaleLinear().range([height, 0]);
+
+  // Step 6: Set up the y-axis domain
+  // ==============================================
+  // @NEW! determine the max y value
+  // find the max of the morning data
+  var morningMax = d3.max(donutData, d => d.morning);
+
+  // find the max of the evening data
+  var eveningMax = d3.max(donutData, d => d.evening);
+
+  var yMax;
+  if (morningMax > eveningMax) {
+    yMax = morningMax;
+  }
+  else {
+    yMax = eveningMax;
+  }
+
+  // var yMax = morningMax > eveningMax ? morningMax : eveningMax;
+
+  // Use the yMax value to set the yLinearScale domain
+  yLinearScale.domain([0, yMax]);
+
+});
+							</code>
+						</pre>
+
+						<p>You'll have to scale the proportions within the <code>d3.csv</code> function because you're using the data to scale the graph.</p>
+
+						<h4>Create your axes and render them</h4>
+
+						<pre>
+							<code>
+d3.csv("assets/donuts.csv").then(function(donutData){
+  // Step 4: Parse the data
+  // Format the data and convert to numerical and date values
+  // =================================
+  // Create a function to parse date and time
+  var parseTime = d3.timeParse("%d-%b");
+
+  // Format the data
+  donutData.forEach(function(data) {
+    data.date = parseTime(data.date);
+    data.morning = +data.morning;
+    data.evening = +data.evening;
+  });
+
+  // Step 5: Create the scales for the chart
+  // =================================
+  var xTimeScale = d3.scaleTime()
+    .domain(d3.extent(donutData, d => d.date))
+    .range([0, width]);
+
+  var yLinearScale = d3.scaleLinear().range([height, 0]);
+
+  // Step 6: Set up the y-axis domain
+  // ==============================================
+  // @NEW! determine the max y value
+  // find the max of the morning data
+  var morningMax = d3.max(donutData, d => d.morning);
+
+  // find the max of the evening data
+  var eveningMax = d3.max(donutData, d => d.evening);
+
+  var yMax;
+  if (morningMax > eveningMax) {
+    yMax = morningMax;
+  }
+  else {
+    yMax = eveningMax;
+  }
+
+  // var yMax = morningMax > eveningMax ? morningMax : eveningMax;
+
+  // Use the yMax value to set the yLinearScale domain
+  yLinearScale.domain([0, yMax]);
+
+
+  // Step 7: Create the axes
+  // =================================
+  var bottomAxis = d3.axisBottom(xTimeScale).tickFormat(d3.timeFormat("%d-%b"));
+  var leftAxis = d3.axisLeft(yLinearScale);
+
+  // Step 8: Append the axes to the chartGroup
+  // ==============================================
+  // Add x-axis
+  chartGroup.append("g")
+    .attr("transform", `translate(0, ${height})`)
+    .call(bottomAxis);
+
+  // Add y-axis
+  chartGroup.append("g").call(leftAxis);
+});
+							</code>
+						</pre>
+
+						<p>From here, you should be able to see the 2 axes.</p>
+
+						<h4>Load the data into your graph.</h4>
+						<pre>
+							<code>
+d3.csv("assets/donuts.csv").then(function(donutData){
+  // Step 4: Parse the data
+  // Format the data and convert to numerical and date values
+  // =================================
+  // Create a function to parse date and time
+  var parseTime = d3.timeParse("%d-%b");
+
+  // Format the data
+  donutData.forEach(function(data) {
+    data.date = parseTime(data.date);
+    data.morning = +data.morning;
+    data.evening = +data.evening;
+  });
+
+  // Step 5: Create the scales for the chart
+  // =================================
+  var xTimeScale = d3.scaleTime()
+    .domain(d3.extent(donutData, d => d.date))
+    .range([0, width]);
+
+  var yLinearScale = d3.scaleLinear().range([height, 0]);
+
+  // Step 6: Set up the y-axis domain
+  // ==============================================
+  // @NEW! determine the max y value
+  // find the max of the morning data
+  var morningMax = d3.max(donutData, d => d.morning);
+
+  // find the max of the evening data
+  var eveningMax = d3.max(donutData, d => d.evening);
+
+  var yMax;
+  if (morningMax > eveningMax) {
+    yMax = morningMax;
+  }
+  else {
+    yMax = eveningMax;
+  }
+
+  // var yMax = morningMax > eveningMax ? morningMax : eveningMax;
+
+  // Use the yMax value to set the yLinearScale domain
+  yLinearScale.domain([0, yMax]);
+
+
+  // Step 7: Create the axes
+  // =================================
+  var bottomAxis = d3.axisBottom(xTimeScale).tickFormat(d3.timeFormat("%d-%b"));
+  var leftAxis = d3.axisLeft(yLinearScale);
+
+  // Step 8: Append the axes to the chartGroup
+  // ==============================================
+  // Add x-axis
+  chartGroup.append("g")
+    .attr("transform", `translate(0, ${height})`)
+    .call(bottomAxis);
+
+  // Add y-axis
+  chartGroup.append("g").call(leftAxis);
+
+  // Step 9: Set up two line generators and append two SVG paths
+  // ==============================================
+
+  // Line generator for morning data
+  var line1 = d3.line()
+    .x(d => xTimeScale(d.date))
+    .y(d => yLinearScale(d.morning));
+
+  // Line generator for evening data
+  var line2 = d3.line()
+    .x(d => xTimeScale(d.date))
+    .y(d => yLinearScale(d.evening));
+
+  // Append a path for line1
+  chartGroup
+    .append("path")
+    .attr("d", line1(donutData))
+    .classed("line green", true);
+
+  // Append a path for line2
+  chartGroup
+    .data([donutData])
+    .append("path")
+    .attr("d", line2)
+    .classed("line orange", true);
+
+});
+							</code>
+						</pre>
+
+						<p>Hidden div here:</p>
+						<div id="svg-01"></div>
+
+						<style>
+.line {
+  fill: none;
+  stroke-width: 2px;
+}
+
+.orange {
+  stroke: orange;
+}
+
+.green {
+  stroke: green;
+}
+						</style>
+					</div>
+
+					<div id="02-Evr_Multiple_Axes" class="instructor-block">
+						<h3>02-Evr_Multiple_Axes</h3>
+
+						<p>Here, we only add <strong>an additional axes</strong>. To prevent myself from being too long-winded, I'm only going to explain the difference between this activity and the previous.</p>
+
+						<h4>What is the difference?</h4>
+						<ul>
+							<li>We have a third scale here:</li>
+							<ul>
+								<li><pre>
+									<code>
+var yLinearScale2 = d3.scaleLinear()
+    .domain([0, d3.max(donutData, d => d.evening)])
+    .range([height, 0]);	
+									</code>
+								</pre></li>
+							</ul>
+							<li>We create a <code>rightAxis</code> with <code>d3.axisRight(yLinearScale2);</code></li>
+							<ul>
+								<li><pre>
+									<code>
+var rightAxis = d3.axisRight(yLinearScale2);
+									</code>
+								</pre></li>
+							</ul>
+							<li>Then we append the <code>rightAxis</code>  to the right side of the display with <code>g</code> and its attribute <code>transform</code></li>
+							<ul>
+								<li><pre>
+									<code>
+chartGroup.append("g").attr("transform", `translate(${width}, 0)`).call(rightAxis);
+									</code>
+								</pre></li>
+								<li>You need <code>g</code> and its attribute <code>transform</code> because every element is rendered from the <strong>top-left (0,0)</strong>.</li>
+							</ul>
+						</ul>
+
+						<p>From here, <strong>you should see 3 axes</strong>. But that's not all:</p>
+						<pre>
+							<code>
+var line1 = d3
+    .line()
+    .x(d => xTimeScale(d.date))
+    .y(d => yLinearScale1(d.morning));
+
+  var line2 = d3
+    .line()
+    .x(d => xTimeScale(d.date))
+    .y(d => yLinearScale2(d.evening));
+							</code>
+						</pre>
+
+						<p>Notice how <code>d.morning</code> is mapped to <code>yLinearScale1</code>, and <code>d.evening</code> is mapped to <code>yLinearScale2</code>?</p>
+
+						<p><strong>Map the data to its relevant y-axis when you're using multiple axes.</strong> Then you won't confuse your clients.</p>
+
+						<h4>Final Result:</h4>
+						<pre>
+							<code>
+// Step 1: Set up our chart
+//= ================================
+var svgWidth = 960;
+var svgHeight = 500;
+
+var margin = {
+  top: 20,
+  right: 40,
+  bottom: 60,
+  left: 50
+};
+
+var width = svgWidth - margin.left - margin.right;
+var height = svgHeight - margin.top - margin.bottom;
+
+// Step 2: Create an SVG wrapper,
+// append an SVG group that will hold our chart,
+// and shift the latter by left and top margins.
+// =================================
+var svg = d3
+  .select("#svg-02")
+  .append("svg")
+  .attr("width", svgWidth)
+  .attr("height", svgHeight);
+
+var chartGroup = svg.append("g")
+  .attr("transform", `translate(${margin.left}, ${margin.top})`);
+
+// Step 3:
+// Import data from the donuts.csv file
+// =================================
+d3.csv("assets/donuts.csv").then(function(donutData){
+
+  // Step 4: Parse the data
+  // Format the data and convert to numerical and date values
+  // =================================
+  // Create a function to parse date and time
+  var parseTime = d3.timeParse("%d-%b");
+
+  // Format the data
+  donutData.forEach(function(data) {
+    data.date = parseTime(data.date);
+    data.morning = +data.morning;
+    data.evening = +data.evening;
+  });
+
+  // Step 5: Create Scales
+  //= ============================================
+  var xTimeScale = d3.scaleTime()
+    .domain(d3.extent(donutData, d => d.date))
+    .range([0, width]);
+
+  var yLinearScale1 = d3.scaleLinear()
+    .domain([0, d3.max(donutData, d => d.morning)])
+    .range([height, 0]);
+
+  var yLinearScale2 = d3.scaleLinear()
+    .domain([0, d3.max(donutData, d => d.evening)])
+    .range([height, 0]);
+
+  // Step 6: Create Axes
+  // =============================================
+  var bottomAxis = d3.axisBottom(xTimeScale).tickFormat(d3.timeFormat("%d-%b"));
+  var leftAxis = d3.axisLeft(yLinearScale1);
+  var rightAxis = d3.axisRight(yLinearScale2);
+
+
+  // Step 7: Append the axes to the chartGroup
+  // ==============================================
+  // Add bottomAxis
+  chartGroup.append("g").attr("transform", `translate(0, ${height})`).call(bottomAxis);
+
+  // Add leftAxis to the left side of the display
+  chartGroup.append("g").call(leftAxis);
+
+  // Add rightAxis to the right side of the display
+  chartGroup.append("g").attr("transform", `translate(${width}, 0)`).call(rightAxis);
+
+
+  // Step 8: Set up two line generators and append two SVG paths
+  // ==============================================
+  // Line generators for each line
+  var line1 = d3
+    .line()
+    .x(d => xTimeScale(d.date))
+    .y(d => yLinearScale1(d.morning));
+
+  var line2 = d3
+    .line()
+    .x(d => xTimeScale(d.date))
+    .y(d => yLinearScale2(d.evening));
+
+
+  // Append a path for line1
+  chartGroup.append("path")
+    .data([donutData])
+    .attr("d", line1)
+    .classed("line green", true);
+
+  // Append a path for line2
+  chartGroup.append("path")
+    .data([donutData])
+    .attr("d", line2)
+    .classed("line orange", true);
+
+});
+
+							</code>
+						</pre>
+
+						<p>Hidden div here:</p>
+						<div id="svg-02"></div>
+
+					</div>
+
+					<div id="03-Evr_Readability" class="instructor-block">
+						<h3>03-Evr_Readability</h3>
+
+						<p>Multiple-axes graphs are hard to read, so you'll need to use styling to make it easy. One of the ways we can do that is to color-code the axes:</p>
+						<pre>
+							<code>
+// CHANGE THE TEXT TO THE CORRECT COLOR
+  chartGroup.append("g")
+    .attr("stroke", "green") // NEW!
+    .call(leftAxis);
+
+  // CHANGE THE TEXT TO THE CORRECT COLOR
+  chartGroup.append("g")
+    .attr("transform", `translate(${width}, 0)`)
+    .attr("stroke", "orange") // NEW!
+    .call(rightAxis);
+							</code>
+						</pre>
+
+						<p>And we can add color-coded text to inform your clients:</p>
+						<pre>
+							<code>
+chartGroup.append("text")
+    // Position the text
+    // Center the text:
+    // (https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/text-anchor)
+    .attr("transform", `translate(${width / 2}, ${height + margin.top + 20})`)
+    .attr("text-anchor", "middle")
+    .attr("font-size", "16px")
+    .attr("fill", "green")
+    .text("Morning Donut Craving Level");
+
+  chartGroup.append("text")
+    .attr("transform", `translate(${width / 2}, ${height + margin.top + 37})`)
+    .attr("text-anchor", "middle")
+    .attr("font-size", "16px")
+    .attr("fill", "orange")
+    .text("Evening Donut Craving Level");
+							</code>
+						</pre>
+
+						<p>All the above can be <strong>rendered separately</strong> and experimented.</p>
+
+						<h4>Final Result:</h4>
+
+						<pre>
+							<code>
+// Step 1: Set up our chart
+//= ================================
+var svgWidth = 960;
+var svgHeight = 500;
+
+var margin = {
+  top: 20,
+  right: 40,
+  bottom: 60,
+  left: 50
+};
+
+var width = svgWidth - margin.left - margin.right;
+var height = svgHeight - margin.top - margin.bottom;
+
+// Step 2: Create an SVG wrapper,
+// append an SVG group that will hold our chart,
+// and shift the latter by left and top margins.
+// =================================
+var svg = d3
+  .select("#svg-03")
+  .append("svg")
+  .attr("width", svgWidth)
+  .attr("height", svgHeight);
+
+var chartGroup = svg.append("g")
+  .attr("transform", `translate(${margin.left}, ${margin.top})`);
+
+// Step 3:
+// Import data from the donuts.csv file
+// =================================
+d3.csv("assets/donuts.csv").then(function(donutData){
+
+  // Step 4: Parse the data
+  // Format the data and convert to numerical and date values
+  // =================================
+  // Create a function to parse date and time
+  var parseTime = d3.timeParse("%d-%b");
+
+  // Format the data
+  donutData.forEach(function(data) {
+    data.date = parseTime(data.date);
+    data.morning = +data.morning;
+    data.evening = +data.evening;
+  });
+
+  // Step 5: Create Scales
+  //= ============================================
+  var xTimeScale = d3.scaleTime()
+    .domain(d3.extent(donutData, d => d.date))
+    .range([0, width]);
+
+  var yLinearScale1 = d3.scaleLinear()
+    .domain([0, d3.max(donutData, d => d.morning)])
+    .range([height, 0]);
+
+  var yLinearScale2 = d3.scaleLinear()
+    .domain([0, d3.max(donutData, d => d.evening)])
+    .range([height, 0]);
+
+  // Step 6: Create Axes
+  // =============================================
+  var bottomAxis = d3.axisBottom(xTimeScale).tickFormat(d3.timeFormat("%d-%b"));
+  var leftAxis = d3.axisLeft(yLinearScale1);
+  var rightAxis = d3.axisRight(yLinearScale2);
+
+
+  // Step 7: Append the axes to the chartGroup - ADD STYLING
+  // ==============================================
+  // Add bottomAxis
+  chartGroup.append("g")
+    .attr("transform", `translate(0, ${height})`)
+    .call(bottomAxis);
+
+  // CHANGE THE TEXT TO THE CORRECT COLOR
+  chartGroup.append("g")
+    .attr("stroke", "green") // NEW!
+    .call(leftAxis);
+
+  // CHANGE THE TEXT TO THE CORRECT COLOR
+  chartGroup.append("g")
+    .attr("transform", `translate(${width}, 0)`)
+    .attr("stroke", "orange") // NEW!
+    .call(rightAxis);
+
+
+  // Step 8: Set up two line generators and append two SVG paths
+  // ==============================================
+  // Line generators for each line
+  var line1 = d3
+    .line()
+    .x(d => xTimeScale(d.date))
+    .y(d => yLinearScale1(d.morning));
+
+  var line2 = d3
+    .line()
+    .x(d => xTimeScale(d.date))
+    .y(d => yLinearScale2(d.evening));
+
+  // Append a path for line1
+  chartGroup.append("path")
+    .data([donutData])
+    .attr("d", line1)
+    .classed("line green", true);
+
+  // Append a path for line2
+  chartGroup.append("path")
+    .data([donutData])
+    .attr("d", line2)
+    .classed("line orange", true);
+
+  // NEW! Step 9: Add color coded titles to the x-axis
+  // YOUR CODE HERE
+
+  chartGroup.append("text")
+    // Position the text
+    // Center the text:
+    // (https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/text-anchor)
+    .attr("transform", `translate(${width / 2}, ${height + margin.top + 20})`)
+    .attr("text-anchor", "middle")
+    .attr("font-size", "16px")
+    .attr("fill", "green")
+    .text("Morning Donut Craving Level");
+
+  chartGroup.append("text")
+    .attr("transform", `translate(${width / 2}, ${height + margin.top + 37})`)
+    .attr("text-anchor", "middle")
+    .attr("font-size", "16px")
+    .attr("fill", "orange")
+    .text("Evening Donut Craving Level");
+
+});
+
+							</code>
+						</pre>
+
+						<p>Hidden Div:</p>
+						<div id="svg-03"></div>
+
+					</div>
+
+					<div id="04-Stu_Multi_Lines_Axes" class="student-block">
+						<h3>04-Stu_Multi_Lines_Axes: Your Turn</h3>
+
+					</div>
+
+					<div id="05-Evr_Event_Listeners" class="instructor-block">
+						<h3>05-Evr_Event_Listeners</h3>
+
+						<p>We want to make the graph a little more responsive whenever the screen is resized.</p>
+
+						<pre>
+							<code>
+// data
+var dataArray = [1, 2, 3];
+var dataCategories = ["one", "two", "three"];
+
+function makeResponsive() {
+
+    // if the SVG area isn't empty when the browser loads,
+    // remove it and replace it with a resized version of the chart
+  var svgArea = d3.select("#svg-05").select("svg");
+
+  if (!svgArea.empty()) {
+    svgArea.remove();
+  }
+
+    // svg params
+  var svgHeight = window.innerHeight;
+  var svgWidth = window.innerWidth;
+
+    // margins
+  var margin = {
+    top: 50,
+    right: 50,
+    bottom: 50,
+    left: 50
+  };
+
+    // chart area minus margins
+  var chartHeight = svgHeight - margin.top - margin.bottom;
+  var chartWidth = svgWidth - margin.left - margin.right;
+
+    // create svg container
+  var svg = d3.select("#svg-05").append("svg")
+        .attr("height", svgHeight)
+        .attr("width", svgWidth);
+
+    // shift everything over by the margins
+  var chartGroup = svg.append("g")
+        .attr("transform", `translate(${margin.left}, ${margin.top})`);
+
+    // scale y to chart height
+  var yScale = d3.scaleLinear()
+        .domain([0, d3.max(dataArray)])
+        .range([chartHeight, 0]);
+
+    // scale x to chart width
+  var xScale = d3.scaleBand()
+        .domain(dataCategories)
+        .range([0, chartWidth])
+        .padding(0.1);
+
+    // create axes
+  var yAxis = d3.axisLeft(yScale);
+  var xAxis = d3.axisBottom(xScale);
+
+    // set x to the bottom of the chart
+  chartGroup.append("g")
+        .attr("transform", `translate(0, ${chartHeight})`)
+        .call(xAxis);
+
+    // set y to the y axis
+  chartGroup.append("g")
+        .call(yAxis);
+
+
+  chartGroup.selectAll("rect")
+        .data(dataArray)
+        .enter()
+        .append("rect")
+        .attr("x", (d, i) => xScale(dataCategories[i]))
+        .attr("y", d => yScale(d))
+        .attr("width", xScale.bandwidth())
+        .attr("height", d => chartHeight - yScale(d))
+        .attr("fill", "green")
+        // event listener for onclick event
+        .on("click", function(d, i) {
+          alert(`Hey! You clicked bar ${dataCategories[i]}!`);
+        })
+        // event listener for mouseover
+        .on("mouseover", function() {
+          d3.select(this)
+                .attr("fill", "red");
+        })
+        // event listener for mouseout
+        .on("mouseout", function() {
+          d3.select(this)
+                .attr("fill", "green");
+        });
+}
+
+makeResponsive();
+
+// Event listener for window resize.
+// When the browser window is resized, makeResponsive() is called.
+d3.select(window).on("resize", makeResponsive);
+
+							</code>
+						</pre>
+
+						<p>Hidden Div here:</p>
+						<div id="svg-05"></div>
+
+						<h4>How do we make the graph responsive?</h4>
+						<ul>
+							<li>Build your graph first.</li>
+							<li>Wrap your graph in a function. You can name it <code>makeResponsive()</code>.</li>
+							<li>Within your HTML, you should have a placeholder to render the <code>svg</code> tag. <strong>Empty it within the <code>makeResponsive</code> function before your graph code.</strong></li>
+							<ul>
+								<li><pre>
+									<code>
+var svgArea = d3.select("#svg-05").select("svg");
+
+if (!svgArea.empty()) {
+svgArea.remove();
+}
+									</code>
+								</pre></li>
+								<li>If you don't empty the placeholder, you're going to keep adding more and more elements into your graph.</li>
+							</ul>
+							<li>Grab the <code>svgHeight</code> and <code>svgWidth</code> using <code>window.innerHeight</code> and <code>window.innerWidth</code>.</li>
+							<ul>
+								<li><pre><code>
+// svg params
+var svgHeight = window.innerHeight;
+var svgWidth = window.innerWidth;
+
+// margins
+var margin = {
+	top: 50,
+	right: 50,
+	bottom: 50,
+	left: 50
+};
+
+// chart area minus margins
+var chartHeight = svgHeight - margin.top - margin.bottom;
+var chartWidth = svgWidth - margin.left - margin.right;
+								</code></pre></li>
+								<li><code>window</code> is your browser's window. <code>innerHeight</code> and <code>innerWidth</code> are inbuilt functions to grab the sizes.</li>
+								<li>Your window size is going to change dynamically, so we're getting the initial attributes of your window.</li>
+							</ul>
+							<li>Finally, we use <code>d3.select(window).on("resize", makeResponsive);</code></li>
+							<ul>
+								<li>The above code <strong>targets</strong> the window with the <code>d3.select</code>, and on <code>resize</code> attribute, we pass in our <code>makeResponsive</code> function to generate the graph.</li>
+							</ul>
+						</ul>
+
+						<h4>Mouse interactions on the graph</h4>
+
+						<p>Lastly, because the graphs are part of HTML, you can use Javascript to invoke mouse interactions:</p>
+
+						<pre>
+							<code>
+chartGroup.selectAll("rect")
+        .data(dataArray)
+        .enter()
+        .append("rect")
+        .attr("x", (d, i) => xScale(dataCategories[i]))
+        .attr("y", d => yScale(d))
+        .attr("width", xScale.bandwidth())
+        .attr("height", d => chartHeight - yScale(d))
+        .attr("fill", "green")
+        // event listener for onclick event
+        .on("click", function(d, i) {
+          alert(`Hey! You clicked bar ${dataCategories[i]}!`);
+        })
+        // event listener for mouseover
+        .on("mouseover", function() {
+          d3.select(this)
+                .attr("fill", "red");
+        })
+        // event listener for mouseout
+        .on("mouseout", function() {
+          d3.select(this)
+                .attr("fill", "green");
+});
+							</code>
+						</pre>
+
+						<p>These are some of the things you've done before in your previous lessons on Javascript interactions, but for here, we can chain Javascript interactions on the graph.</p>
+
+					</div>
+
+					<div id="06-Ins_Tooltips" class="instructor-block">
+						<h3>06-Ins_Tooltips</h3>
+
+						<p>At this point, we're building from the previous code so everything is going to look very similar.</p>
+
+						<ul>
+							<li>Create your graph as usual, with the responsive features.</li>
+							<li>After you create your path and its coordinates, you can add points to it by data-binding each coordinate as a circle:</li>
+							<ul>
+								<li><pre><code>
+// create path
+chartGroup.append("path")
+.attr("d", line(pizzasEatenByMonth))
+.attr("fill", "none")
+.attr("stroke", "blue");
+
+// append circles to data points
+var circlesGroup = chartGroup.selectAll("circle")
+.data(pizzasEatenByMonth)
+.enter()
+.append("circle")
+.attr("cx", (d, i) => xScale(i))
+.attr("cy", d 
+								</code></pre></li>
+							</ul>
+							<li>Within the body or container, create an additional <code>div</code> to render the tooltip.</li>
+							<ul>
+								<li><code>var toolTip = d3.select("body").append("div").attr("class", "tooltip");</code></li>
+							</ul>
+							<li>As the <code>circleGroup</code> should be filled with red dots on the graph, we code the interactions to it by rendering each <code>toolTip</code> within each <code>mouseover</code>.</li>
+							<ul>
+								<li><pre>
+									<code>
+// Step 2: Add an onmouseover event to display a tooltip
+  // ========================================================
+  circlesGroup.on("mouseover", function(d, i) {
+    toolTip.style("display", "block");
+    toolTip.html(`Pizzas eaten: &lt;strong>${pizzasEatenByMonth[i]}&lt;/strong>`)
+      .style("left", d3.event.pageX + "px")
+      .style("top", d3.event.pageY + "px");
+  })
+    // Step 3: Add an onmouseout event to make the tooltip invisible
+    .on("mouseout", function() {
+      toolTip.style("display", "none");
+    });
+}
+									</code>
+								</pre></li>
+							</ul>
+						</ul>
+
+
+					</div>
+
+					<div id="07-Stu_Add_Tooltips" class="student-block">
+						<h3>07-Stu_Add_Tooltips: Your turn</h3>
+					</div>
+
+
+					<div id="08-Ins_D3_Tip" class="instructor-block">
+						<h3>08-Ins_D3_Tip</h3>
+
+						<p>We decided to make your lives easier by importing this in your HTML code to create tooltips: <code>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.9.1/d3-tip.js">&lt;script></code></p>
+
+						<p>It gives you the power to create tooltips with this function: <code>d3.tip()</code></p>
+
+						<p>What you've learned in the previous activity doesn't disappear. You still need to create the data points and the mouse interactions to make your tool tips works:</p>
+
+						<ul>
+							<li>Create the <code>circle</code> tags for every data point in your array.</li>
+							<li>Create the tooltip with <code>d3.tip</code></li>
+							<li>Within the <code>chartGroup</code>, use the method <code>call</code> to activate your tooltip</li>
+							<li>For your <code>circles</code>, create the mouse interactions as intended.</li>
+							<ul>
+								<li><code>toolTip</code> has both <code>show</code> and <code>hide</code> methods to display your tooltip.</li>
+							</ul>
+						</ul>
+
+						<pre>
+							<code>
+// append circles
+      var circlesGroup = chartGroup.selectAll("circle")
+        .data(medalData)
+        .enter()
+        .append("circle")
+        .attr("cx", d => xTimeScale(d.date))
+        .attr("cy", d => yLinearScale(d.medals))
+        .attr("r", "10")
+        .attr("fill", "gold")
+        .attr("stroke-width", "1")
+        .attr("stroke", "black");
+
+      // Date formatter to display dates nicely
+      var dateFormatter = d3.timeFormat("%d-%b");
+
+      // Step 1: Initialize Tooltip
+      var toolTip = d3.tip()
+        .attr("class", "tooltip")
+        .offset([80, -60])
+        .html(function(d) {
+          return (`&lt;strong>${dateFormatter(d.date)}&lt;strong>&lt;hr>${d.medals}
+          medal(s) won`);
+        });
+
+      // Step 2: Create the tooltip in chartGroup.
+      chartGroup.call(toolTip);
+
+      // Step 3: Create "mouseover" event listener to display tooltip
+      circlesGroup.on("mouseover", function(d) {
+        toolTip.show(d, this);
+      })
+      // Step 4: Create "mouseout" event listener to hide tooltip
+        .on("mouseout", function(d) {
+          toolTip.hide(d);
+        });
+							</code>
+						</pre>
+
+						<h4>Final Result</h4>
+						<pre>
+							<code>
+// The code for the chart is wrapped inside a function that
+// automatically resizes the chart
+function makeResponsive() {
+
+  // if the SVG area isn't empty when the browser loads,
+  // remove it and replace it with a resized version of the chart
+  var svgArea = d3.select("#svg-08").select("svg");
+
+  // clear svg is not empty
+  if (!svgArea.empty()) {
+    svgArea.remove();
+  }
+
+  // SVG wrapper dimensions are determined by the current width and
+  // height of the browser window.
+  var svgWidth = window.innerWidth;
+  var svgHeight = window.innerHeight;
+
+  var margin = {
+    top: 50,
+    bottom: 50,
+    right: 50,
+    left: 50
+  };
+
+  var height = svgHeight - margin.top - margin.bottom;
+  var width = svgWidth - margin.left - margin.right;
+
+  // Append SVG element
+  var svg = d3
+    .select("#svg-08")
+    .append("svg")
+    .attr("height", svgHeight)
+    .attr("width", svgWidth);
+
+  // Append group element
+  var chartGroup = svg.append("g")
+    .attr("transform", `translate(${margin.left}, ${margin.top})`);
+
+  // Read CSV
+  d3.csv("assets/norway_medals.csv")
+    .then(function(medalData) {
+
+      // create date parser
+      var dateParser = d3.timeParse("%d-%b");
+
+      // parse data
+      medalData.forEach(function(data) {
+        data.date = dateParser(data.date);
+        data.medals = +data.medals;
+      });
+
+      // create scales
+      var xTimeScale = d3.scaleTime()
+        .domain(d3.extent(medalData, d => d.date))
+        .range([0, width]);
+
+      var yLinearScale = d3.scaleLinear()
+        .domain([0, d3.max(medalData, d => d.medals)])
+        .range([height, 0]);
+
+      // create axes
+      var xAxis = d3.axisBottom(xTimeScale).tickFormat(d3.timeFormat("%d-%b"));
+      var yAxis = d3.axisLeft(yLinearScale).ticks(6);
+
+      // append axes
+      chartGroup.append("g")
+        .attr("transform", `translate(0, ${height})`)
+        .call(xAxis);
+
+      chartGroup.append("g")
+        .call(yAxis);
+
+      // line generator
+      var line = d3.line()
+        .x(d => xTimeScale(d.date))
+        .y(d => yLinearScale(d.medals));
+
+      // append line
+      chartGroup.append("path")
+        .data([medalData])
+        .attr("d", line)
+        .attr("fill", "none")
+        .attr("stroke", "red");
+
+      // append circles
+      var circlesGroup = chartGroup.selectAll("circle")
+        .data(medalData)
+        .enter()
+        .append("circle")
+        .attr("cx", d => xTimeScale(d.date))
+        .attr("cy", d => yLinearScale(d.medals))
+        .attr("r", "10")
+        .attr("fill", "gold")
+        .attr("stroke-width", "1")
+        .attr("stroke", "black");
+
+      // Date formatter to display dates nicely
+      var dateFormatter = d3.timeFormat("%d-%b");
+
+      // Step 1: Initialize Tooltip
+      var toolTip = d3.tip()
+        .attr("class", "tooltip")
+        .offset([80, -60])
+        .html(function(d) {
+          return (`&lt;strong>${dateFormatter(d.date)}&lt;strong>&lt;hr>${d.medals}
+          medal(s) won`);
+        });
+
+      // Step 2: Create the tooltip in chartGroup.
+      chartGroup.call(toolTip);
+
+      // Step 3: Create "mouseover" event listener to display tooltip
+      circlesGroup.on("mouseover", function(d) {
+        toolTip.show(d, this);
+      })
+      // Step 4: Create "mouseout" event listener to hide tooltip
+        .on("mouseout", function(d) {
+          toolTip.hide(d);
+        });
+    });
+}
+
+// When the browser loads, makeResponsive() is called.
+makeResponsive();
+
+// When the browser window is resized, makeResponsive() is called.
+d3.select(window).on("resize", makeResponsive);
+
+							</code>
+						</pre>
+
+						<p>Hidden Div here:</p>
+						<div id="svg-08"></div>
+					</div>
+
+					<div id="09-Stu_Hair_Metal" class="student-block">
+						<h3>09-Stu_Hair_Metal: Your turn</h3>
+					</div>
+
+
+					<div id="10-Ins_Transitions" class="instructor-block">
+						<h3>10-Ins_Transitions</h3>
+
+						<p>Transitions are effects that make your visualizations more dynamic and intuitive. The code below is something that you're familiar with, but we are adding some transition effects onto the hovering of the elements.</p>
+
+						<p>Let's look at this code:</p>
+
+						<pre>
+							<code>
+barsGroup.on("mouseover", function() {
+  d3.select(this)
+            .transition()
+            .duration(500)
+            .attr("fill", "red");
+})
+    .on("mouseout", function() {
+      d3.select(this)
+            .transition()
+            .duration(500)
+            .attr("fill", "green");
+    });
+							</code>
+						</pre>
+
+						<p>The <code>transition</code> method cause a delay effect when we hover our mouse cursor over the graph. By pairing it with <code>duration</code>, we gave a <strong>500ms or 0.5s</strong> delay when it transits from one color to another.</p>
+
+						<p>It doesn't always have to be the filling of colors, but when you want to make changes to the style, it will cause a delay effect for you.</p>
+
+						<h4>Final Result</h4>
+
+						<pre>
+							<code>
+// data
+var dataArray = [1, 2, 3];
+var dataCategories = ["one", "two", "three"];
+
+// svg container
+var height = 600;
+var width = 1000;
+
+// margins
+var margin = {
+  top: 50,
+  right: 50,
+  bottom: 50,
+  left: 50
+};
+
+// chart area minus margins
+var chartHeight = height - margin.top - margin.bottom;
+var chartWidth = width - margin.left - margin.right;
+
+// create svg container
+var svg = d3.select("#svg-10").append("svg")
+    .attr("height", height)
+    .attr("width", width);
+
+// shift everything over by the margins
+var chartGroup = svg.append("g")
+    .attr("transform", `translate(${margin.left}, ${margin.top})`);
+
+// scale y to chart height
+var yScale = d3.scaleLinear()
+    .domain([0, d3.max(dataArray)])
+    .range([chartHeight, 0]);
+
+// scale x to chart width
+var xScale = d3.scaleBand()
+    .domain(dataCategories)
+    .range([0, chartWidth])
+    .padding(0.1);
+
+// create axes
+var yAxis = d3.axisLeft(yScale);
+var xAxis = d3.axisBottom(xScale);
+
+// set x to the bottom of the chart
+chartGroup.append("g")
+    .attr("transform", `translate(0, ${chartHeight})`)
+    .call(xAxis);
+
+// set y to the y axis
+chartGroup.append("g")
+    .call(yAxis);
+
+// Create the rectangles using data binding
+var barsGroup = chartGroup.selectAll("rect")
+    .data(dataArray)
+    .enter()
+    .append("rect")
+    .attr("x", (d, i) => xScale(dataCategories[i]))
+    .attr("y", d => yScale(d))
+    .attr("width", xScale.bandwidth())
+    .attr("height", d => chartHeight - yScale(d))
+    .attr("fill", "green");
+
+// Create the event listeners with transitions
+barsGroup.on("mouseover", function() {
+  d3.select(this)
+            .transition()
+            .duration(500)
+            .attr("fill", "red");
+})
+    .on("mouseout", function() {
+      d3.select(this)
+            .transition()
+            .duration(500)
+            .attr("fill", "green");
+    });
+
+							</code>
+						</pre>
+
+						<p>Hidden Div Here:</p>
+						<div id="svg-10"></div>
+					</div>
+
+					<div id="11-Stu_Transitions" class="student-block">
+						<h3>11-Stu_Transitions: Your Turn</h3>
+
+					</div>
+
+					<div id="12-Par_Hair_Metal_Conclusion" class="student-block">
+						<h3>12-Par_Hair_Metal_Conclusion: Your Turn</h3>
+
+						<p>This is quite a difficult activity. I'll need to demonstrate to you first.</p>
+
+						<p>The goal is not for you to code it out, but to read and see how you can interpret the code together. This is very crucial not only when you're building your visualization dashboards, but in all manner of data science related coding.</p>
+
+						<p>All of you come to me, and you'll notice that I'm usually able to read your code and pick out the mistakes within a couple of minutes. But you don't always have me. When you work in the field, you may have to check your colleagues' work, or others have to check your work.</p>
+
+						<p>So this exercise is to dissect code mentally with your partner, and we'll discuss how we can do it later.</p>
+
+					</div>
+				</div> <!-- end #main-content -->
+
+
+				<div id="right-sb" class="col-md-4">
+					<div id="right-sb-nav" class="list-group" id="toc" role="tablist">
+					  <a class="list-group-item list-group-item-action active"  href="#objectives" role="tab">Objectives</a>
+					  <a class="list-group-item list-group-item-action"  href="#why-we-learn" role="tab">Why We Learn</a>
+					  <a class="list-group-item list-group-item-action"  href="#01-Evr_Multiline" role="tab">01-Evr_Multiline</a>
+					  <a class="list-group-item list-group-item-action"  href="#02-Evr_Multiple_Axes" role="tab">02-Evr_Multiple_Axes</a>
+					  <a class="list-group-item list-group-item-action"  href="#03-Evr_Readability" role="tab">03-Evr_Readability</a>
+					  <a class="list-group-item list-group-item-action"  href="#04-Stu_Multi_Lines_Axes" role="tab">04-Stu_Multi_Lines_Axes</a>
+					  <a class="list-group-item list-group-item-action"  href="#05-Evr_Event_Listeners" role="tab">05-Evr_Event_Listeners</a>
+					  <a class="list-group-item list-group-item-action"  href="#06-Ins_Tooltips" role="tab">06-Ins_Tooltips</a>
+					  <a class="list-group-item list-group-item-action"  href="#07-Stu_Add_Tooltips" role="tab">07-Stu_Add_Tooltips</a>
+					  <a class="list-group-item list-group-item-action"  href="#08-Ins_D3_Tip" role="tab">08-Ins_D3_Tip</a>
+					  <a class="list-group-item list-group-item-action"  href="#09-Stu_Hair_Metal" role="tab">09-Stu_Hair_Metal</a>
+					  <a class="list-group-item list-group-item-action"  href="#10-Ins_Transitions" role="tab">10-Ins_Transitions</a>
+					  <a class="list-group-item list-group-item-action"  href="#11-Stu_Transitions" role="tab">11-Stu_Transitions</a>
+					  <a class="list-group-item list-group-item-action"  href="#12-Par_Hair_Metal_Conclusion" role="tab">12-Par_Hair_Metal_Conclusion</a>
+					</div>
+				
+				</div>
+			</div> <!-- end .row -->
+			
+		</div> <!-- end .container-fluid -->
+
+		<footer>
+			<script type="text/javascript" src="../../js/jquery-3.3.1.min.js"></script>
+			<script type="text/javascript" src="../../js/bootstrap.min.js"></script>
+
+			<script type="text/javascript">
+
+			</script>
+
+		</footer>
+
+	</body>
+
+
+</html>
