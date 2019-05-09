@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Jonathan Moo's Github Bio</title>
+
+
+		<link rel='stylesheet' id='bootstrap-css'  href='../../css/bootstrap.min.css' type='text/css' media='all' />
+		<link rel='stylesheet' id='bootstrap-grid-css'  href='../../css/bootstrap-grid.min.css' type='text/css' media='all' />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+   integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+   crossorigin=""/>
+		<link rel='stylesheet' id='custom-css'  href='../../css/style.css' type='text/css' media='all' /> 
+		<script src="https://d3js.org/d3.v5.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.9.1/d3-tip.js"></script>
+		<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+     <!-- Make sure you put this AFTER Leaflet's CSS -->
+     <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+       integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+       crossorigin=""></script>
+	</head>
+
+	<body>
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<a class="navbar-brand" href="#">Jonathan's Github Page</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active">
+						<a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Lessons</a>
+						<div class="dropdown-menu">
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/11.2/index.html">11.2 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/11.3/index.html">11.3 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/12.1/index.html">12.1 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/12.3/index.html">12.3 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/13.1/index.html">13.1 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/13.2/index.html">13.2 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/13.3/index.html">13.3 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/14.1/index.html">14.1 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/14.2/index.html">14.2 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/14.3/index.html">14.3 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/15.1/index.html">15.1 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/15.2/index.html">15.2 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/15.3/index.html">15.3 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/16.1/index.html">16.1 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/16.2/index.html">16.2 Ref</a>
+              <a class="dropdown-item" href="../../MIACOR201901DATA3/16.3/index.html">16.3 Ref</a>
+              <a class="dropdown-item" href="../../MIACOR201901DATA3/17.1/index.html">17.1 Ref</a>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</nav>
+		<div class="container-fluid">
+			<div class="row">
+				<div id="main-content" class="col-md-8">
+					<div class="objective-block">
+						<h3 id="objectives">Objectives For Lesson 17.1</h3>
+
+						<ul>
+							<li>Data Visualization With Leaflet</li>
+						</ul>
+
+					</div>
+
+					<div id="why-we-learn" class="instructor-block">
+						<h3>Why We Learn?</h3>
+						<p>Geographical mapping is essential for all geo-location data. Especially when you're are working with a company which has international presence.</p>
+
+            <h4>Examples</h4>
+            <ul>
+              <li><a href="https://carto.com/blog/understand-and-predict-zika-in-brazil/">https://carto.com/blog/understand-and-predict-zika-in-brazil/</a></li>
+              <li><a href="https://insights.spotify.com/us/2016/12/07/musical-map-of-the-world-2-0/">https://insights.spotify.com/us/2016/12/07/musical-map-of-the-world-2-0/</a></li>
+            </ul>
+
+            <p>We'll be using <strong>Leaflet.js</strong>, and you should take a look at the docs to find out more: <a href="https://leafletjs.com/">https://leafletjs.com/</a></p>
+					</div>
+
+          <div id="before-we-begin" class="student-block">
+            <h3>Before We Begin:</h3>
+            <p>Register a free account at <a href="https://www.mapbox.com">https://www.mapbox.com</a>. It gives live location data and it is needed within the activities.</p>
+
+            <p>After registration, grab your token form the page here:</p>
+
+            <img src="../../img/mapbox_token.png" class="img-fluid" />
+          </div>
+
+          <div id="01-Ins_Basic_Map" class="instructor-block">
+            <h3>01-Ins_Basic_Map</h3>
+
+            <p>As we every new library, we need to reference them on our HTML page before we can use them. Place this in the <code>head</code> section of your document:</p>
+            <pre>
+              <code>
+&lt;link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+   integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+   crossorigin=""/>
+              </code>
+            </pre>
+
+            <p>Then, place the Leaflet Javascript file <strong>after</strong> Leaflet's CSS:</p>
+            <pre>
+              <code>
+ &lt;!-- Make sure you put this AFTER Leaflet's CSS -->
+ &lt;script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+   integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+   crossorigin=""></script>
+              </code>
+            </pre>
+
+            <p>Those are prerequisites before you can use the library. And just like any library, you'll need to place a <code>div</code> element with a certain <code>id</code> to render the map.</p>
+
+            <p>Hidden Div here:</p>
+            <div id="map-01"></div>
+
+            <p>In your activity, there is a <code>config.js</code> to store your MapBox token. <strong>Replace</strong> that token with your own.</p>
+
+            <p>Also, this is Leaflet's quickstart guide: <a href="https://leafletjs.com/examples/quick-start/">https://leafletjs.com/examples/quick-start/</a></p>
+
+            <p>This is our initial code:</p>
+
+            <pre>
+              <code>
+// Creating our initial map object
+// We set the longitude, latitude, and the starting zoom level
+// This gets inserted into the div with an id of 'map'
+var myMap = L.map("map-01", {
+  center: [45.52, -122.67],
+  zoom: 13
+});
+
+// Adding a tile layer (the background map image) to our map
+// We use the addTo method to add objects to our map
+L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}", {
+  attribution: "Map data &copy; &lt;a href=\"https://www.openstreetmap.org/\">OpenStreetMap&lt;/a> contributors, &lt;a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA&lt;/a>, Imagery © &lt;a href=\"https://www.mapbox.com/\">Mapbox&lt;/a>",
+  maxZoom: 18,
+  id: "mapbox.streets",
+  accessToken: API_KEY
+}).addTo(myMap);
+              </code>
+            </pre>
+
+            <h4>To create a map:</h4>
+            <ul>
+              <li>Initialize the Map Object:</li>
+              <ul>
+                <li><strong>L.map</strong> accepts 2 arguments:</li>
+                <ul>
+                  <li>The first is the <code>id</code> of the HTML element which Leaflet should insert the map into.</li>
+                  <li>The second is an object containing initial options for the new map ("center" and "zoom" in this example).</li>
+                  <ul>
+                    <li><strong>center</strong> is the <strong>latitude</strong> and <strong>longitude</strong> of what you want to project.</li>
+                  </ul>
+                </ul>
+                <li>Leaflet only helps to render the map and give it a space, but the actual map data comes from Mapbox, and it will come from the Tile Layer.</li>
+              </ul>
+              <li>Initialize the Tile Layer:</li>
+              <ul>
+                  <li>This is the actual data itself, and it renders the map data into Leaflet.</li>
+                  <li>We configure the tile layer by:</li>
+                  <ul>
+                    <li>Passing in a formatted <code>queryUrl</code> to the <code>tileLayer</code> method.</li>
+                    <li>Using the callback function <code>addTo</code>, we place our map as an object in it. <strong>We'll invoke this method whenever we want to add something to a map.</strong></li>
+                  </ul>
+                  <li>The following map IDs are accessible to all accounts using a valid access token:</li>
+                  <ul>
+                    <li>mapbox.streets</li>
+                    <li>mapbox.light</li>
+                    <li>mapbox.dark</li>
+                    <li>mapbox.satellite</li>
+                    <li>mapbox.streets-satellite</li>
+                    <li>mapbox.wheatpaste</li>
+                    <li>mapbox.streets-basic</li>
+                    <li>mapbox.comic</li>
+                    <li>mapbox.outdoors</li>
+                    <li>mapbox.run-bike-hike</li>
+                    <li>mapbox.pencil</li>
+                    <li>mapbox.pirates</li>
+                    <li>mapbox.emerald</li>
+                    <li>mapbox.high-contrast</li>
+                  </ul>
+                  <li><strong>Attribution</strong> is to give credits to where you are getting your map data.</li>
+              </ul>
+            </ul>
+
+            <h4>Some things to note:</h4>
+            <ul>
+              <li>Set your <code>div</code> element's height in your CSS or you won't see anything.</li>
+              <ul>
+                <li>In your activity, it is set to <code>height: 100%;</code>, but for my HTML it is set to <code>height:500px;</code>.</li>
+              </ul>
+            </ul>
+            <style>
+              div[id^="map-"]{
+                height:500px;
+              }
+            </style>
+
+          </div>
+
+          <div id="02-Ins_Markers" class="instructor-block">
+            <h3>02-Ins_Markers</h3>
+
+            <p>Add markers <strong>AFTER</strong> rendering the map. They can be done separately.</p>
+
+            <pre>
+              <code>
+// Create a new marker
+// Pass in some initial options, and then add it to the map using the addTo method
+var marker = L.marker([45.52, -122.67], {
+  draggable: true,
+  title: "My First Marker"
+}).addTo(myMap);
+
+// Binding a pop-up to our marker
+marker.bindPopup("Hello There!");
+              </code>
+            </pre>
+
+            <h4>Properties of the marker</h4>
+            <ul>
+              <li>The latitude and longitude are placed in an array.</li>
+              <li><code>draggable: true</code> allows the marker to be dragged.</li>
+              <li><code>marker.bindPopup</code> allows text to indicate information when the marker is clicked.</li>
+              <li>Read the documentation for more info: <a href="https://leafletjs.com/reference-1.0.3.html#marker-option">https://leafletjs.com/reference-1.0.3.html#marker-option</a></li>
+            </ul>
+
+            <p>You'll notice that without the <strong>Tiles Layer</strong>, markers can be placed independently. This is important for bug fixing.</p>
+
+            <h4>Final Render</h4>
+            <pre>
+              <code>
+// Creating our initial map object
+// We set the longitude, latitude, and the starting zoom level
+// This gets inserted into the div with an id of 'map'
+var myMap = L.map("map-02", {
+  center: [45.52, -122.67],
+  zoom: 13
+});
+
+// Adding a tile layer (the background map image) to our map
+// We use the addTo method to add objects to our map
+L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}", {
+  attribution: "Map data &copy; &lt;a href=\"https://www.openstreetmap.org/\">OpenStreetMap&lt;/a> contributors, &lt;a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA&lt;/a>, Imagery © &lt;a href=\"https://www.mapbox.com/\">Mapbox&lt;/a>",
+  maxZoom: 18,
+  id: "mapbox.streets",
+  accessToken: API_KEY
+}).addTo(myMap);
+
+// Create a new marker
+// Pass in some initial options, and then add it to the map using the addTo method
+var marker = L.marker([45.52, -122.67], {
+  draggable: true,
+  title: "My First Marker"
+}).addTo(myMap);
+
+// Binding a pop-up to our marker
+marker.bindPopup("Hello There!");
+
+              </code>
+            </pre>
+
+            <p>Hidden Div here:</p>
+            <div id="map-02"></div>
+          </div>
+
+          <div id="03-Stu_City_Markers" class="student-block">
+            <h3>03-Stu_City_Markers: Your Turn</h3>
+
+          </div>
+
+          <div id="04-Ins_Other_Markers" class="instructor-block">
+            <h3>04-Ins_Other_Markers</h3>
+
+            <p>You can add other types of markers, and it uses <strong>SVG</strong> which you've learned to do that.</p>
+
+            <pre>
+              <code>
+// Create a circle and pass in some initial options
+L.circle([45.52, -122.69], {
+  color: "green",
+  fillColor: "green",
+  fillOpacity: 0.75,
+  radius: 500
+}).addTo(myMap);
+
+// Create a Polygon and pass in some initial options
+L.polygon([
+  [45.54, -122.68],
+  [45.55, -122.68],
+  [45.55, -122.66]
+], {
+  color: "yellow",
+  fillColor: "yellow",
+  fillOpacity: 0.75
+}).addTo(myMap);
+
+// Coordinates for each point to be used in the polyline
+var line = [
+  [45.51, -122.68],
+  [45.50, -122.60],
+  [45.48, -122.70],
+  [45.54, -122.75]
+];
+
+// Create a polyline using the line coordinates and pass in some initial options
+L.polyline(line, {
+  color: "red"
+}).addTo(myMap);
+
+// Create a rectangle and pass in some initial options
+L.rectangle([
+  [45.55, -122.64],
+  [45.54, -122.61]
+], {
+  color: "black",
+  weight: 3,
+  stroke: true
+}).addTo(myMap);
+              </code>
+            </pre>
+
+
+            <h4>Final Render:</h4>
+            <pre>
+              <code>
+// Create an initial map object
+// Set the longitude, latitude, and the starting zoom level
+var myMap = L.map("map-04").setView([45.52, -122.67], 13);
+
+// Add a tile layer (the background map image) to our map
+// Use the addTo method to add objects to our map
+L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}", {
+  attribution: "Map data &copy; &lt;a href=\"https://www.openstreetmap.org/\">OpenStreetMap&lt;/a> contributors, &lt;a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA&lt;/a>, Imagery © &lt;a href=\"https://www.mapbox.com/\">Mapbox&lt;/a>",
+  maxZoom: 18,
+  id: "mapbox.streets",
+  accessToken: API_KEY
+}).addTo(myMap);
+
+// Create a new marker
+L.marker([45.52, -122.67]).addTo(myMap);
+
+// Create a circle and pass in some initial options
+L.circle([45.52, -122.69], {
+  color: "green",
+  fillColor: "green",
+  fillOpacity: 0.75,
+  radius: 500
+}).addTo(myMap);
+
+// Create a Polygon and pass in some initial options
+L.polygon([
+  [45.54, -122.68],
+  [45.55, -122.68],
+  [45.55, -122.66]
+], {
+  color: "yellow",
+  fillColor: "yellow",
+  fillOpacity: 0.75
+}).addTo(myMap);
+
+// Coordinates for each point to be used in the polyline
+var line = [
+  [45.51, -122.68],
+  [45.50, -122.60],
+  [45.48, -122.70],
+  [45.54, -122.75]
+];
+
+// Create a polyline using the line coordinates and pass in some initial options
+L.polyline(line, {
+  color: "red"
+}).addTo(myMap);
+
+// Create a rectangle and pass in some initial options
+L.rectangle([
+  [45.55, -122.64],
+  [45.54, -122.61]
+], {
+  color: "black",
+  weight: 3,
+  stroke: true
+}).addTo(myMap);
+
+              </code>
+            </pre>
+
+            <p>Hidden Div here:</p>
+            <div id="map-04"></div>
+          </div>
+
+          <div id="05-Stu_Other_Markers" class="student-block">
+            <h3>05-Stu_Other_Markers: Your Turn</h3>
+          </div>
+
+          <div id="06-Ins_City_Population" class="instructor-block">
+            <h3>06-Ins_City_Population</h3>
+
+            <p>You can add visual proportions to the data using its size. One of the ways we can do it is through <strong>a circle marker's radius</strong>.</p>
+
+            <pre>
+              <code>
+// Define a markerSize function that will give each city a different radius based on its population
+function markerSize(population) {
+  return population / 40;
+}
+
+// Each city object contains the city's name, location and population
+var cities = [
+  {
+    name: "New York",
+    location: [40.7128, -74.0059],
+    population: 8550405
+  },
+  {
+    name: "Chicago",
+    location: [41.8781, -87.6298],
+    population: 2720546
+  },
+  {
+    name: "Houston",
+    location: [29.7604, -95.3698],
+    population: 2296224
+  },
+  {
+    name: "Los Angeles",
+    location: [34.0522, -118.2437],
+    population: 3971883
+  },
+  {
+    name: "Omaha",
+    location: [41.2524, -95.9980],
+    population: 446599
+  }
+];
+
+// Loop through the cities array and create one marker for each city object
+for (var i = 0; i < cities.length; i++) {
+  L.circle(cities[i].location, {
+    fillOpacity: 0.75,
+    color: "white",
+    fillColor: "purple",
+    // Setting our circle's radius equal to the output of our markerSize function
+    // This will make our marker's size proportionate to its population
+    radius: markerSize(cities[i].population)
+  }).bindPopup("&lt;h1>" + cities[i].name + "&lt;/h1> &lt;hr> &lt;h3>Population: " + cities[i].population + "&lt;/h3>").addTo(myMap);
+}
+              </code>
+            </pre>
+
+            <p><code>markerSize</code> returns the proportions of the population by dividing it by 40.</p>
+
+
+            <h4>Final Render:</h4>
+            <pre>
+              <code>
+// Create a map object
+var myMap = L.map("map-06", {
+  center: [37.09, -95.71],
+  zoom: 5
+});
+
+L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}", {
+  attribution: "Map data &copy; &lt;a href=\"https://www.openstreetmap.org/\">OpenStreetMap&lt;/a> contributors, &lt;a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA&lt;/a>, Imagery © &lt;a href=\"https://www.mapbox.com/\">Mapbox&lt;/a>",
+  maxZoom: 18,
+  id: "mapbox.streets-basic",
+  accessToken: API_KEY
+}).addTo(myMap);
+
+// Define a markerSize function that will give each city a different radius based on its population
+function markerSize(population) {
+  return population / 40;
+}
+
+// Each city object contains the city's name, location and population
+var cities = [
+  {
+    name: "New York",
+    location: [40.7128, -74.0059],
+    population: 8550405
+  },
+  {
+    name: "Chicago",
+    location: [41.8781, -87.6298],
+    population: 2720546
+  },
+  {
+    name: "Houston",
+    location: [29.7604, -95.3698],
+    population: 2296224
+  },
+  {
+    name: "Los Angeles",
+    location: [34.0522, -118.2437],
+    population: 3971883
+  },
+  {
+    name: "Omaha",
+    location: [41.2524, -95.9980],
+    population: 446599
+  }
+];
+
+// Loop through the cities array and create one marker for each city object
+for (var i = 0; i < cities.length; i++) {
+  L.circle(cities[i].location, {
+    fillOpacity: 0.75,
+    color: "white",
+    fillColor: "purple",
+    // Setting our circle's radius equal to the output of our markerSize function
+    // This will make our marker's size proportionate to its population
+    radius: markerSize(cities[i].population)
+  }).bindPopup("&lt;h1>" + cities[i].name + "&lt;/h1> &lt;hr> &lt;h3>Population: " + cities[i].population + "&lt;/h3>").addTo(myMap);
+}
+
+              </code>
+            </pre>
+
+            <p>Hidden Div here:</p>
+            <div id="map-06"></div>
+          </div>
+
+          <div id="07-Stu_Country_World_Cup" class="student-block">
+            <h3>07-Stu_Country_World_Cup: Your Turn</h3>
+          </div>
+
+          <div id="08-Ins_Layers" class="instructor-block">
+            <h3>08-Ins_Layers</h3>
+
+            <p>So far we've been only rendering a single map type (layer). It's possible to use multiple layers with the same map, and we toggle between them using <strong>layer control</strong>.</p>
+
+            <p>Leaflet has two types of layers:</p>
+            <ul>
+              <li><strong>Base Layers</strong>: These are mutually exclusive where only one can be visible at a time. In our example, we have a light and dark theme.</li>
+              <li><strong>Overlays</strong>: It spreads a canvas over the base layers and can be turned off.</li>
+            </ul>
+
+            <h4>Layer groups</h4>
+
+            <p>Supposed you have a bunch of layers you want to group together.</p>
+
+            <pre>
+              <code>
+let littleton = L.marker([39.61, -105.02]).bindPopup('This is Littleton, CO.'),
+denver = L.marker([39.74, -104.99]).bindPopup('This is Denver, CO.'),
+aurora = L.marker([39.73, -104.8]).bindPopup('This is Aurora, CO.'),
+golden = L.marker([39.77, -105.23]).bindPopup('This is Golden, CO.');
+              </code>
+            </pre>
+
+            <p>Instead of adding them one by one, you can do the following by using the <code>LayerGroup</code> class:</p>
+
+            <p><code>var cities = L.layerGroup([littleton, denver, aurora, golden]);</code></p>
+
+            <h4>Final Render</h4>
+            <pre>
+              <code>
+// An array of cities and their locations
+var cities = [
+  {
+    name: "Paris",
+    location: [48.8566, 2.3522]
+  },
+  {
+    name: "Lyon",
+    location: [45.7640, 4.8357]
+  },
+  {
+    name: "Cannes",
+    location: [43.5528, 7.0174]
+  },
+  {
+    name: "Nantes",
+    location: [47.2184, -1.5536]
+  }
+];
+
+// An array which will be used to store created cityMarkers
+var cityMarkers = [];
+
+for (var i = 0; i < cities.length; i++) {
+  // loop through the cities array, create a new marker, push it to the cityMarkers array
+  cityMarkers.push(
+    L.marker(cities[i].location).bindPopup("&lt;h1>" + cities[i].name + "&lt;/h1>")
+  );
+}
+
+// Add all the cityMarkers to a new layer group.
+// Now we can handle them as one group instead of referencing each individually
+var cityLayer = L.layerGroup(cityMarkers);
+
+// Define variables for our tile layers
+var light = L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}", {
+  attribution: "Map data &copy; &lt;a href=\"https://www.openstreetmap.org/\">OpenStreetMap&lt;/a> contributors, &lt;a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA&lt;/a>, Imagery © &lt;a href=\"https://www.mapbox.com/\">Mapbox&lt;/a>",
+  maxZoom: 18,
+  id: "mapbox.light",
+  accessToken: API_KEY
+});
+
+var dark = L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}", {
+  attribution: "Map data &copy; &lt;a href=\"https://www.openstreetmap.org/\">OpenStreetMap&lt;/a> contributors, &lt;a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA&lt;/a>, Imagery © &lt;a href=\"https://www.mapbox.com/\">Mapbox&lt;/a>",
+  maxZoom: 18,
+  id: "mapbox.dark",
+  accessToken: API_KEY
+});
+
+// Only one base layer can be shown at a time
+var baseMaps = {
+  Light: light,
+  Dark: dark
+};
+
+// Overlays that may be toggled on or off
+var overlayMaps = {
+  Cities: cityLayer
+};
+
+// Create map object and set default layers
+var myMap = L.map("map-08", {
+  center: [46.2276, 2.2137],
+  zoom: 6,
+  layers: [light, cityLayer]
+});
+
+// Pass our map layers into our layer control
+// Add the layer control to the map
+L.control.layers(baseMaps, overlayMaps).addTo(myMap);
+
+              </code>
+            </pre>
+
+            <p>Hidden Div here:</p>
+            <div id="map-08"></div>
+          </div>
+
+          <div id="09-Stu_City_Population_Layers" class="student-block">
+            <h3>09-Stu_City_Population_Layers: Your Turn</h3>
+          </div>
+
+          <div id="10-Stu_Geo-Json" class="student-block">
+            <h3>10-Stu_Geo-Json: Your Turn</h3>
+
+            <p>In this activity, we're plotting against earthquake occcurances, and this data comes from the government: <code>https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=2014-01-01&endtime=2014-01-02&maxlongitude=-69.52148437&minlongitude=-123.83789062&maxlatitude=48.74894534&minlatitude=25.16517337</code></p>
+
+            <p>Many times, geographical data is given to us and it's all about pulling from an existing dataset.</p>
+
+            <p>One of the easiest ways to deliver geographical data is via a format called <strong>GeoJSON</strong>. Instead of using the link above, you can take a look a the summarized version here: <a href="http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_hour.geojson">http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_hour.geojson</a></p>
+
+            <p><strong>GeoJSON</strong> is an open standard format for representing simple geographical features, along with their non-spatial attributes using JSON.</p>
+            <ul>
+              <li>Features are represented by coordinates and can have other properties attached to them.</li>
+              <li>The different types of features are:</li>
+              <ul>
+                <li>Point</li>
+                <li>LineString</li>
+                <li>Polygon</li>
+                <li>MultiPoint</li>
+                <li>MultiLineString</li>
+                <li>MultiPologon</li>
+              </ul>
+              <li>We can feed the features data to the Leaflet <code>geoJSON</code> method, and it will know what kind of marker it should make and where to place it.</li>
+              <li>If you take a look at the <code>features</code> node in the URL, you'll find many abbreviations that represent different things:</li>
+              <ul>
+                <li>You can refer to the documentation here for reference: <a href="https://earthquake.usgs.gov/data/comcat/data-eventterms.php">https://earthquake.usgs.gov/data/comcat/data-eventterms.php</a></li>
+                <li>You don't have to memorize everything. For now, we only want the time and location of each earthquake.</li>
+              </ul>
+            </ul>
+
+            <h4>Hint</h4>
+            <ul>
+              <li>Render the map first in a function.</li>
+              <li>Use the <code>features</code> data node <strong>as-is</strong>. There isn't a need to clean or make changes to the data itself for the markers to appear.</li>
+              <li>The cosmetic features are rendered in the <code>bindPopup</code> method.</li>
+              <li>You can read more here for its documentation: <a href="https://leafletjs.com/reference-1.4.0.html#geojson">https://leafletjs.com/reference-1.4.0.html#geojson</a></li>
+              <li>Or you can look at the examples for inspiration: <a href="https://leafletjs.com/examples/geojson/">https://leafletjs.com/examples/geojson/</a></li>
+            </ul>
+          </div>
+				</div> <!-- end #main-content -->
+
+
+				<div id="right-sb" class="col-md-4">
+					<div id="right-sb-nav" class="list-group" id="toc" role="tablist">
+					  <a class="list-group-item list-group-item-action active"  href="#objectives" role="tab">Objectives</a>
+					  <a class="list-group-item list-group-item-action"  href="#why-we-learn" role="tab">Why We Learn</a>
+					  <a class="list-group-item list-group-item-action"  href="#before-we-begin" role="tab">Before We Begin</a>
+					  <a class="list-group-item list-group-item-action"  href="#01-Ins_Basic_Map" role="tab">01-Ins_Basic_Map</a>
+					  <a class="list-group-item list-group-item-action"  href="#02-Ins_Markers" role="tab">02-Ins_Markers</a>
+					  <a class="list-group-item list-group-item-action"  href="#03-Stu_City_Markers" role="tab">03-Stu_City_Markers</a>
+					  <a class="list-group-item list-group-item-action"  href="#04-Ins_Other_Markers" role="tab">04-Ins_Other_Markers</a>
+					  <a class="list-group-item list-group-item-action"  href="#05-Stu_Other_Markers" role="tab">05-Stu_Other_Markers</a>
+					  <a class="list-group-item list-group-item-action"  href="#06-Ins_City_Population" role="tab">06-Ins_City_Population</a>
+					  <a class="list-group-item list-group-item-action"  href="#07-Stu_Country_World_Cup" role="tab">07-Stu_Country_World_Cup</a>
+					  <a class="list-group-item list-group-item-action"  href="#08-Ins_Layers" role="tab">08-Ins_Layers</a>
+					  <a class="list-group-item list-group-item-action"  href="#09-Stu_City_Population_Layers" role="tab">09-Stu_City_Population_Layers</a>
+					  <a class="list-group-item list-group-item-action"  href="#10-Stu_Geo-Json" role="tab">10-Stu_Geo-Json</a>
+					</div>
+				
+				</div>
+			</div> <!-- end .row -->
+			
+		</div> <!-- end .container-fluid -->
+
+		<footer>
+			<script type="text/javascript" src="../../js/jquery-3.3.1.min.js"></script>
+			<script type="text/javascript" src="../../js/bootstrap.min.js"></script>
+
+			<script type="text/javascript">
+
+			</script>
+
+      <script type="text/javascript" src="../../js/config.js"></script>
+
+		</footer>
+
+	</body>
+
+
+</html>
