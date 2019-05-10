@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Jonathan Moo's Github Bio</title>
+
+
+		<link rel='stylesheet' id='bootstrap-css'  href='../../css/bootstrap.min.css' type='text/css' media='all' />
+		<link rel='stylesheet' id='bootstrap-grid-css'  href='../../css/bootstrap-grid.min.css' type='text/css' media='all' />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+   integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+   crossorigin=""/>
+		<link rel='stylesheet' id='custom-css'  href='../../css/style.css' type='text/css' media='all' /> 
+		<script src="https://d3js.org/d3.v5.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.9.1/d3-tip.js"></script>
+		<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+     <!-- Make sure you put this AFTER Leaflet's CSS -->
+     <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+       integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+       crossorigin=""></script>
+	</head>
+
+	<body>
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<a class="navbar-brand" href="#">Jonathan's Github Page</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active">
+						<a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Lessons</a>
+						<div class="dropdown-menu">
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/11.2/index.html">11.2 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/11.3/index.html">11.3 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/12.1/index.html">12.1 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/12.3/index.html">12.3 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/13.1/index.html">13.1 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/13.2/index.html">13.2 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/13.3/index.html">13.3 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/14.1/index.html">14.1 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/14.2/index.html">14.2 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/14.3/index.html">14.3 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/15.1/index.html">15.1 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/15.2/index.html">15.2 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/15.3/index.html">15.3 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/16.1/index.html">16.1 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/16.2/index.html">16.2 Ref</a>
+              <a class="dropdown-item" href="../../MIACOR201901DATA3/16.3/index.html">16.3 Ref</a>
+              <a class="dropdown-item" href="../../MIACOR201901DATA3/17.1/index.html">17.1 Ref</a>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</nav>
+		<div class="container-fluid">
+			<div class="row">
+				<div id="main-content" class="col-md-8">
+					<div class="objective-block">
+						<h3 id="objectives">Objectives For Lesson 17.2</h3>
+
+						<ul>
+							<li>Data Visualization With Leaflet</li>
+              <li>Working with GeoJSON</li>
+						</ul>
+
+					</div>
+
+					<div id="why-we-learn" class="instructor-block">
+						<h3>Why We Learn?</h3>
+						<p>Geographical mapping is essential for all geo-location data. Especially when you're are working with a company which has international presence.</p>
+
+            <h4>Examples</h4>
+            <ul>
+              <li><a href="https://carto.com/blog/understand-and-predict-zika-in-brazil/">https://carto.com/blog/understand-and-predict-zika-in-brazil/</a></li>
+              <li><a href="https://insights.spotify.com/us/2016/12/07/musical-map-of-the-world-2-0/">https://insights.spotify.com/us/2016/12/07/musical-map-of-the-world-2-0/</a></li>
+            </ul>
+
+            <p>We'll be using <strong>Leaflet.js</strong>, and you should take a look at the docs to find out more: <a href="https://leafletjs.com/">https://leafletjs.com/</a></p>
+					</div>
+
+          <div id="geojson-review" class="instructor-block">
+            <h3>GeoJSON Review</h3>
+
+            <p>We are going to open up the last class and show the earthquake example to talk about it again. GeoJSON format is an <strong>open standard format</strong> where visualization libraries will have methods to ingest the data easily.</p>
+
+            <p>Our example comes from the government: <code>https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=2014-01-01&endtime=2014-01-02&maxlongitude=-69.52148437&minlongitude=-123.83789062&maxlatitude=48.74894534&minlatitude=25.16517337</code></p>
+
+            <h4>Notice:</h4>
+            <ul>
+              <li>How the <code>features</code> data point is structured:</li>
+              <ul>
+                <li>It contains 4 basic nodes: <strong>type</strong>, <strong>properties</strong>, <strong>geometry</strong> and <strong>id</strong>.</li>
+                <li>To map our previous activity, we only needed the <strong>properties</strong> because it contained the place and the time.</li>
+                <li>We didn't need to specify the <strong>geometry</strong> because Leaflet's <code>geoJSON</code> method does it for you.</li>
+              </ul>
+            </ul>
+
+            <h4>How to use the <code>features</code> data from the geoJSON format?</h4>
+
+            <h5>1. Import the data:</h5>
+
+            <pre>
+              <code>
+var queryUrl = "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=2014-01-01&endtime=" +
+  "2014-01-02&maxlongitude=-69.52148437&minlongitude=-123.83789062&maxlatitude=48.74894534&minlatitude=25.16517337";
+
+d3.json(queryUrl, function(data) {
+  // Once we get a response, send the data.features object to the createFeatures function
+  createFeatures(data.features);
+});
+              </code>
+            </pre>
+
+            <p>We're only extracting the <code>data.features</code> because we only needed the <code>place</code> and the <code>time</code> in epoch. After which, we pass it into our <code>createFeatures</code> function.</p>
+
+            <h5>2. Modify to your context according to each feature.</h5>
+
+            <p>We do that with the <code>onEachFeature</code> function given:</p>
+
+            <pre>
+              <code>
+// Define a function we want to run once for each feature in the features array
+  // Give each feature a popup describing the place and time of the earthquake
+  function onEachFeature(feature, layer) {
+    layer.bindPopup("&lt;h3>" + feature.properties.place +
+      "&lt;/h3>&lt;hr>&lt;p>" + new Date(feature.properties.time) + "&lt;/p>");
+  }
+              </code>
+            </pre>
+
+            <p>The <code>data.features</code> is an <strong>array</strong>. Just like the <code>forEach</code> function in Javascript, the data loops through the array <strong>one-by-one</strong>, and the contents are represented by two properties, <code>feature</code> and <code>layer</code>:</p>
+
+            <ul>
+              <li><code>feature</code> is the data itself, and you can access its properties using the dot notation. i.e. <code>feature.properties.place</code>.</li>
+              <li><code>layer</code> represents each row of array as a marker, and you can do <code>bindPopup</code> on them. The notes call it "layer" because ultimately it is grouped together and repsented as a single overlay.</li>
+            </ul>
+
+
+            <h5>3. Create a GeoJSON layer container using the features array on the earthquakeData.</h5>
+
+            <pre>
+              <code>
+// Create a GeoJSON layer containing the features array on the earthquakeData object
+  // Run the onEachFeature function once for each piece of data in the array
+  // earthquakeData = data.features
+  var earthquakes = L.geoJSON(earthquakeData, {
+    onEachFeature: onEachFeature
+  });
+              </code>
+            </pre>
+
+            <p><code>var earthquakes</code> becomes a GeoJSON layer, from the <code>L.geoJSON</code> method.</p>
+
+            <ul>
+              <li>The first parameter contains the <code>earthquakeData</code>, which is also the <code>data.features</code> earlier. The <code>geoJSON</code> method is able to ingest the <code>features</code> data without the need of modifications.</li>
+              <li>The second parameter contains <strong>an object</strong>, and it contains a <code>onEachFeature</code> property. <strong>Each element in the <code>data.features</code> array gets passed into the <code>onEachFeature</code> function, and creates markers according to your code above.</strong></li>
+              <li>With that, <code>earthquakes</code> become an overlay map. Render your base maps as per last activity, and overlay it with the earthquakes layer.</li>
+
+            </ul>
+
+          </div>
+
+          <div id="01-Evr_BasicNYCBoroughs" class="instructor-block">
+            <h3>01-Evr_BasicNYCBoroughs</h3>
+
+            <p>Everyone, we'll go through this activity together. There are four <code>logic.js</code> files, so uncomment the one you want to see and comment the rest. If you try to generate more than 1 map onto one container, you'll get an error.</p>
+
+            <h4>First Render</h4>
+            <pre>
+              <code>
+// Creating map object
+var map = L.map("map-01-01", {
+  center: [40.7128, -74.0059],
+  zoom: 11
+});
+
+// Adding tile layer
+L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}", {
+  maxZoom: 18,
+  id: "mapbox.streets",
+  accessToken: API_KEY
+}).addTo(map);
+
+var link = "http://data.beta.nyc//dataset/0ff93d2d-90ba-457c-9f7e-39e47bf2ac5f/resource/" +
+"35dd04fb-81b3-479b-a074-a27a37888ce7/download/d085e2f8d0b54d4590b1e7d1f35594c1pediacitiesnycneighborhoods.geojson";
+
+d3.json(link).then(function(data){
+  // Creating a GeoJSON layer with the retrieved data
+  L.geoJson(data).addTo(map);
+});
+              </code>
+            </pre>
+
+            <p>Hidden Div here:</p>
+            <div id="map-01-01"></div>
+
+            <p>In your activity, it is still using D3 version 4 (<code>d3.json(link, function(data) {</code>), and my examples will be in D3 version 5 (<code>d3.json(link).then(function(data){</code>).</p>
+
+            <p>Let's take a look at the <code>link</code> above: <code>http://data.beta.nyc//dataset/0ff93d2d-90ba-457c-9f7e-39e47bf2ac5f/resource/35dd04fb-81b3-479b-a074-a27a37888ce7/download/d085e2f8d0b54d4590b1e7d1f35594c1pediacitiesnycneighborhoods.geojson</code></p>
+
+            <p>Using geoJSON, you can draw on the map without getting eye-twisted with SVGs.</p>
+
+            <h4>Second Render</h4>
+            <pre>
+              <code>
+// Creating map object
+var map = L.map("map-01-02", {
+  center: [40.7128, -74.0059],
+  zoom: 11
+});
+
+// Adding tile layer
+L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}", {
+  maxZoom: 18,
+  id: "mapbox.streets",
+  accessToken: API_KEY
+}).addTo(map);
+
+var link = "http://data.beta.nyc//dataset/0ff93d2d-90ba-457c-9f7e-39e47bf2ac5f/resource/" +
+"35dd04fb-81b3-479b-a074-a27a37888ce7/download/d085e2f8d0b54d4590b1e7d1f35594c1pediacitiesnycneighborhoods.geojson";
+
+// Our style object
+var mapStyle = {
+  color: "white",
+  fillColor: "pink",
+  fillOpacity: 0.5,
+  weight: 1.5
+};
+
+
+d3.json(link).then(function(data){
+  // Creating a GeoJSON layer with the retrieved data
+  L.geoJson(data, {
+    // Passing in our style object
+    style: mapStyle
+  }).addTo(map);
+});
+              </code>
+            </pre>
+
+            <p>Hidden Div here:</p>
+            <div id="map-01-02"></div>
+
+            <h5>How did we get a pink graph? Only 2 properties:</h5>
+            <ul>
+              <li>Create a <code>mapStyle</code> object as shown.</li>
+              <li>Add the <code>mapStyle</code> into the <code>geoJson</code> layer.</li>
+            </ul>
+
+            <h4>Third Render</h4>
+
+            <p>For this render, we want to color code the respective areas as shown:</p>
+
+            <pre>
+              <code>
+// Creating map object
+var map = L.map("map-01-03", {
+  center: [40.7128, -74.0059],
+  zoom: 11
+});
+
+// Adding tile layer
+L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}", {
+  maxZoom: 18,
+  id: "mapbox.streets",
+  accessToken: API_KEY
+}).addTo(map);
+
+var link = "http://data.beta.nyc//dataset/0ff93d2d-90ba-457c-9f7e-39e47bf2ac5f/resource/" +
+"35dd04fb-81b3-479b-a074-a27a37888ce7/download/d085e2f8d0b54d4590b1e7d1f35594c1pediacitiesnycneighborhoods.geojson";
+
+// Function that will determine the color of a neighborhood based on the borough it belongs to
+function chooseColor(borough) {
+  switch (borough) {
+  case "Brooklyn":
+    return "yellow";
+  case "Bronx":
+    return "red";
+  case "Manhattan":
+    return "orange";
+  case "Queens":
+    return "green";
+  case "Staten Island":
+    return "purple";
+  default:
+    return "black";
+  }
+}
+
+
+d3.json(link).then(function(data){
+  // Creating a geoJSON layer with the retrieved data
+  L.geoJson(data, {
+    style: function(feature) {
+      return {
+        color: "white",
+        fillColor: chooseColor(feature.properties.borough),
+        fillOpacity: 0.5,
+        weight: 1.5
+      };
+    }
+  }).addTo(map);
+});
+              </code>
+            </pre>
+
+            <p>Hidden Div here:</p>
+            <div id="map-01-03"></div>
+
+            <h5>How do we do that?</h5>
+            <ul>
+              <li>Create a <code>chooseColor</code> function, and it will pass it a dynamic variable <code>borough</code>. Use a <code>switch</code> statement to return the colors respective to the areas.</li>
+              <li>Because <code>geoJson</code> will loop through every element in the array, you can grab the data through the <code>feature</code> and return the color according to the name of the borough.</li>
+              <li><code>layer</code> is not used here because we're not binding popups or interactions to the individual features.</li>
+            </ul>
+
+            <h4>Fourth Render</h4>
+
+            <p>For this render, we want to add interactions to the previous render:</p>
+
+            <pre>
+              <code>
+// Creating map object
+var map = L.map("map-01-04", {
+  center: [40.7128, -74.0059],
+  zoom: 11
+});
+
+// Adding tile layer
+L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}", {
+  maxZoom: 18,
+  id: "mapbox.streets",
+  accessToken: API_KEY
+}).addTo(map);
+
+var link = "http://data.beta.nyc//dataset/0ff93d2d-90ba-457c-9f7e-39e47bf2ac5f/resource/" +
+"35dd04fb-81b3-479b-a074-a27a37888ce7/download/d085e2f8d0b54d4590b1e7d1f35594c1pediacitiesnycneighborhoods.geojson";
+
+// Function that will determine the color of a neighborhood based on the borough it belongs to
+function chooseColor(borough) {
+  switch (borough) {
+  case "Brooklyn":
+    return "yellow";
+  case "Bronx":
+    return "red";
+  case "Manhattan":
+    return "orange";
+  case "Queens":
+    return "green";
+  case "Staten Island":
+    return "purple";
+  default:
+    return "black";
+  }
+}
+
+
+d3.json(link).then(function(data){
+  L.geoJson(data, {
+    // Style each feature (in this case a neighborhood)
+    style: function(feature) {
+      return {
+        color: "white",
+        // Call the chooseColor function to decide which color to color our neighborhood (color based on borough)
+        fillColor: chooseColor(feature.properties.borough),
+        fillOpacity: 0.5,
+        weight: 1.5
+      };
+    },
+    // Called on each feature
+    onEachFeature: function(feature, layer) {
+      // Set mouse events to change map styling
+      layer.on({
+        // When a user's mouse touches a map feature, the mouseover event calls this function, that feature's opacity changes to 90% so that it stands out
+        mouseover: function(event) {
+          layer = event.target;
+          layer.setStyle({
+            fillOpacity: 0.9
+          });
+        },
+        // When the cursor no longer hovers over a map feature - when the mouseout event occurs - the feature's opacity reverts back to 50%
+        mouseout: function(event) {
+          layer = event.target;
+          layer.setStyle({
+            fillOpacity: 0.5
+          });
+        },
+        // When a feature (neighborhood) is clicked, it is enlarged to fit the screen
+        click: function(event) {
+          map.fitBounds(event.target.getBounds());
+        }
+      });
+      // Giving each feature a pop-up with information pertinent to it
+      layer.bindPopup("&lt;h1>" + feature.properties.neighborhood + "&lt;/h1> &lt;hr> &lt;h2>" + feature.properties.borough + "&lt;/h2>");
+
+    }
+  }).addTo(map);
+});
+              </code>
+            </pre>
+
+            <p>Hidden Div here:</p>
+            <div id="map-01-04"></div>
+
+            <h5>How do we do that?</h5>
+            <ul>
+              <li>Interactions are always done with the <code>onEachFeature</code> property within the <code>L.geoJSON</code> method.</li>
+              <li>Now you see the <code>feature</code> and the <code>layer</code> where:</li>
+              <ul>
+                <li><code>feature</code> contains the data itself.</li>
+                <li><code>layer</code> is the overlay of the map. It can be an area, or a point.</li>
+                <ul>
+                  <li>Within the data, under <code>geometry</code>, the <code>type</code> is a "Polygon". In our previous activities, it used to be "Point".</li>
+                  <li>GeoJSON is smart enough to recognize an area for clicking from points.</li>
+                </ul>
+              </ul>
+              <li>For the interaction <code>click</code>, we have a <code>map.fitBounds</code> method and the <code>event.target.getBounds()</code>.</li>
+              <ul>
+                <li>This is native to Leaflet, where <code>getBounds</code> method return a LatLngBounds data. This is the boundaries of the image overlay itself. <a href="https://leafletjs.com/reference-1.5.0.html#imageoverlay">https://leafletjs.com/reference-1.5.0.html#imageoverlay</a></li>
+                <li>In essence, we are defining the boundaries <strong>on the overlay</strong> with <code>map.fitBounds</code>.</li>
+              </ul>
+            </ul>
+
+          </div>
+
+          <div id="02-Evr_CrimeHeatmap" class="instructor-block">
+            <h3>02-Evr_CrimeHeatmap: Introduction To Plugins: Heat Map of Crime in San Francisco</h3>
+
+            <p>A plugin is a set of code that adds additional features to an existing application. Wordpress has it, and Leaflet has it.</p>
+
+            <p>Leaflet is lightweight and does not have every feature under the sun. That's why you've been learning how to do some raw coding on how to make stuff happen. You can refer to the plugin section here: <a href="http://leafletjs.com/plugins.html">http://leafletjs.com/plugins.html</a></p>
+
+            <p>Let's start with a heatmap.</p>
+
+            <h4>First Render</h4>
+
+            You have the occurances of crimes in San Francisco with this code:
+
+            <pre>
+              <code>
+var myMap = L.map("map-02-01", {
+  center: [37.7749, -122.4194],
+  zoom: 13
+});
+
+// Adding tile layer
+L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}", {
+  maxZoom: 18,
+  id: "mapbox.streets",
+  accessToken: API_KEY
+}).addTo(myMap);
+
+var newtry = "https://data.sfgov.org/resource/cuks-n6tp.json?$limit=1000";
+
+d3.json(newtry).then(function(response){
+  console.log(response);
+
+  for (var i = 0; i < response.length; i++) {
+    var location = response[i].location;
+
+    if (location) {
+      L.marker([location.coordinates[1], location.coordinates[0]]).addTo(myMap);
+    }
+  }
+
+});
+              </code>
+            </pre>
+
+            <p>Hidden Div here:</p>
+            <div id="map-02-01"></div>
+
+            <p>So the above renders markers on every occurrance, and it can be hard to see. The dataset comes from here: <a href="https://data.sfgov.org/Public-Safety/Police-Department-Incident-Reports-Historical-2003/tmnf-yvry">https://data.sfgov.org/Public-Safety/Police-Department-Incident-Reports-Historical-2003/tmnf-yvry</a></p>
+
+            <h4>Second Render</h4>
+
+            <p>This is taken from the activity (<code>heatmap.js</code>), and changed to D3 version 5.</p>
+
+            <pre>
+              <code>
+var myMap = L.map("map-02-02", {
+  center: [37.7749, -122.4194],
+  zoom: 13
+});
+
+// Adding tile layer
+L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}", {
+  maxZoom: 18,
+  id: "mapbox.streets",
+  accessToken: API_KEY
+}).addTo(myMap);
+
+var newtry = "https://data.sfgov.org/resource/cuks-n6tp.json?$limit=1000";
+
+d3.json(newtry).then(function(response){
+  console.log(response);
+
+  var heatArray = [];
+
+  for (var i = 0; i < response.length; i++) {
+    var location = response[i].location;
+
+    if (location) {
+      heatArray.push([location.coordinates[1], location.coordinates[0]]);
+    }
+  }
+
+  var heat = L.heatLayer(heatArray, {
+    radius: 20,
+    blur: 35
+  }).addTo(myMap);
+
+});
+              </code>
+            </pre>
+
+            <p>If you try to run it, you'll meet an error, which says "L.heatLayer is not a function". This means this function is not native with Leaflet, and you'll need a <strong>plugin</strong> to extend its functionality.</p>
+
+            <p>This is the plugin code (<code>leaflet-heat.js</code>):</p>
+
+            <pre>
+              <code>
+/*
+ (c) 2014, Vladimir Agafonkin
+ simpleheat, a tiny JavaScript library for drawing heatmaps with Canvas
+ https://github.com/mourner/simpleheat
+*/
+!(function() {
+
+
+  function t(i) {
+    return this instanceof t ? (this._canvas = i = typeof i === "string" ? document.getElementById(i) : i, this._ctx = i.getContext("2d"), this._width = i.width, this._height = i.height, this._max = 1, void this.clear()) : new t(i);
+  }t.prototype = { defaultRadius: 25,
+    defaultGradient: { 0.4: "blue", 0.6: "cyan", 0.7: "lime", 0.8: "yellow", 1: "red" },
+    data: function(t, i) {
+      return this._data = t, this;
+    },
+    max: function(t) {
+      return this._max = t, this;
+    },
+    add: function(t) {
+      return this._data.push(t), this;
+    },
+    clear: function() {
+      return this._data = [], this;
+    },
+    radius: function(t, i) {
+      i = i || 15; var a = this._circle = document.createElement("canvas"),
+        s = a.getContext("2d"),
+        e = this._r = t + i; return a.width = a.height = 2 * e, s.shadowOffsetX = s.shadowOffsetY = 200, s.shadowBlur = i, s.shadowColor = "black", s.beginPath(), s.arc(e - 200, e - 200, t, 0, 2 * Math.PI, !0), s.closePath(), s.fill(), this;
+    },
+    gradient: function(t) {
+      var i = document.createElement("canvas"),
+        a = i.getContext("2d"),
+        s = a.createLinearGradient(0, 0, 0, 256); i.width = 1, i.height = 256; for (var e in t)s.addColorStop(e, t[e]); return a.fillStyle = s, a.fillRect(0, 0, 1, 256), this._grad = a.getImageData(0, 0, 1, 256).data, this;
+    },
+    draw: function(t) {
+      this._circle || this.radius(this.defaultRadius), this._grad || this.gradient(this.defaultGradient); var i = this._ctx; i.clearRect(0, 0, this._width, this._height); for (var a, s = 0, e = this._data.length; e > s; s++)a = this._data[s], i.globalAlpha = Math.max(a[2] / this._max, t || 0.05), i.drawImage(this._circle, a[0] - this._r, a[1] - this._r); var n = i.getImageData(0, 0, this._width, this._height); return this._colorize(n.data, this._grad), i.putImageData(n, 0, 0), this;
+    },
+    _colorize: function(t, i) {
+      for (var a, s = 3, e = t.length; e > s; s += 4)a = 4 * t[s], a && (t[s - 3] = i[a], t[s - 2] = i[a + 1], t[s - 1] = i[a + 2]);
+    } }, window.simpleheat = t;
+}()), /*
+ (c) 2014, Vladimir Agafonkin
+ Leaflet.heat, a tiny and fast heatmap plugin for Leaflet.
+ https://github.com/Leaflet/Leaflet.heat
+*/
+L.HeatLayer = (L.Layer ? L.Layer : L.Class).extend({ initialize: function(t, i) {
+  this._latlngs = t, L.setOptions(this, i);
+},
+  setLatLngs: function(t) {
+    return this._latlngs = t, this.redraw();
+  },
+  addLatLng: function(t) {
+    return this._latlngs.push(t), this.redraw();
+  },
+  setOptions: function(t) {
+    return L.setOptions(this, t), this._heat && this._updateOptions(), this.redraw();
+  },
+  redraw: function() {
+    return !this._heat || this._frame || this._map._animating || (this._frame = L.Util.requestAnimFrame(this._redraw, this)), this;
+  },
+  onAdd: function(t) {
+    this._map = t, this._canvas || this._initCanvas(), t._panes.overlayPane.appendChild(this._canvas), t.on("moveend", this._reset, this), t.options.zoomAnimation && L.Browser.any3d && t.on("zoomanim", this._animateZoom, this), this._reset();
+  },
+  onRemove: function(t) {
+    t.getPanes().overlayPane.removeChild(this._canvas), t.off("moveend", this._reset, this), t.options.zoomAnimation && t.off("zoomanim", this._animateZoom, this);
+  },
+  addTo: function(t) {
+    return t.addLayer(this), this;
+  },
+  _initCanvas: function() {
+    var t = this._canvas = L.DomUtil.create("canvas", "leaflet-heatmap-layer leaflet-layer"),
+      i = L.DomUtil.testProp(["transformOrigin", "WebkitTransformOrigin", "msTransformOrigin"]); t.style[i] = "50% 50%"; var a = this._map.getSize(); t.width = a.x, t.height = a.y; var s = this._map.options.zoomAnimation && L.Browser.any3d; L.DomUtil.addClass(t, "leaflet-zoom-" + (s ? "animated" : "hide")), this._heat = simpleheat(t), this._updateOptions();
+  },
+  _updateOptions: function() {
+    this._heat.radius(this.options.radius || this._heat.defaultRadius, this.options.blur), this.options.gradient && this._heat.gradient(this.options.gradient), this.options.max && this._heat.max(this.options.max);
+  },
+  _reset: function() {
+    var t = this._map.containerPointToLayerPoint([0, 0]); L.DomUtil.setPosition(this._canvas, t); var i = this._map.getSize(); this._heat._width !== i.x && (this._canvas.width = this._heat._width = i.x), this._heat._height !== i.y && (this._canvas.height = this._heat._height = i.y), this._redraw();
+  },
+  _redraw: function() {
+    var t,
+      i,
+      a,
+      s,
+      e,
+      n,
+      h,
+      o,
+      r,
+      d = [],
+      _ = this._heat._r,
+      l = this._map.getSize(),
+      m = new L.Bounds(L.point([-_, -_]), l.add([_, _])),
+      c = void 0 === this.options.max ? 1 : this.options.max,
+      u = void 0 === this.options.maxZoom ? this._map.getMaxZoom() : this.options.maxZoom,
+      f = 1 / Math.pow(2, Math.max(0, Math.min(u - this._map.getZoom(), 12))),
+      g = _ / 2,
+      p = [],
+      v = this._map._getMapPanePos(),
+      w = v.x % g,
+      y = v.y % g; for (t = 0, i = this._latlngs.length; i > t; t++) {
+        if (a = this._map.latLngToContainerPoint(this._latlngs[t]), m.contains(a)) {
+          e = Math.floor((a.x - w) / g) + 2, n = Math.floor((a.y - y) / g) + 2; var x = void 0 !== this._latlngs[t].alt ? this._latlngs[t].alt : void 0 !== this._latlngs[t][2] ? +this._latlngs[t][2] : 1; r = x * f, p[n] = p[n] || [], s = p[n][e], s ? (s[0] = (s[0] * s[2] + a.x * r) / (s[2] + r), s[1] = (s[1] * s[2] + a.y * r) / (s[2] + r), s[2] += r) : p[n][e] = [a.x, a.y, r];
+        }
+      } for (t = 0, i = p.length; i > t; t++) if (p[t]) for (h = 0, o = p[t].length; o > h; h++)s = p[t][h], s && d.push([Math.round(s[0]), Math.round(s[1]), Math.min(s[2], c)]); this._heat.data(d).draw(this.options.minOpacity), this._frame = null;
+  },
+  _animateZoom: function(t) {
+    var i = this._map.getZoomScale(t.zoom),
+      a = this._map._getCenterOffset(t.center)._multiplyBy(-i).subtract(this._map._getMapPanePos()); L.DomUtil.setTransform ? L.DomUtil.setTransform(this._canvas, a, i) : this._canvas.style[L.DomUtil.TRANSFORM] = L.DomUtil.getTranslateString(a) + " scale(" + i + ")";
+  } }), L.heatLayer = function(t, i) {
+    return new L.HeatLayer(t, i);
+  };
+
+              </code>
+            </pre>
+
+            <p>Hidden Div here:</p>
+            <div id="map-02-02"></div>
+
+            <h4>You're not required to code a plugin. You're only required to USE them.</h4>
+
+            <p>We'll open up your activity to see how it is implemented.</p>  
+
+            <p>San Francisco has an Open Data Site which you can explore its APIs: <a href="https://datasf.org/opendata/">https://datasf.org/opendata/</a></p>
+
+            <p>This is the heatmap plugin which we've been using: <a href="https://github.com/Leaflet/Leaflet.heat">https://github.com/Leaflet/Leaflet.heat</a>. Follow the instructions and you should be able to implement them accordingly.</p>          
+
+          </div>
+
+          <div id="03-Stu_MarkerClusters" class="student-block">
+            <h3>03-Stu_MarkerClusters: Your Turn</h3>
+
+            <p>For this activity we're using the <strong>NYC Open Data</strong>: <a href="https://data.cityofnewyork.us/">https://data.cityofnewyork.us/</a></p>
+
+            <p>The actual data given by the <code>README.md</code> is here: <a href="https://data.cityofnewyork.us/Social-Services/311-Service-Requests-from-2010-to-Present/erm2-nwe9/data">https://data.cityofnewyork.us/Social-Services/311-Service-Requests-from-2010-to-Present/erm2-nwe9/data</a></p>
+            <ul>
+              <li>At the URL above, look for <strong>Export</strong></li>
+              <li>You'll see the <strong>SODA API</strong> and the endpoint there.</li>
+              <li>The data is limited to 1000 results. To return 10k results, add a <code>?$limit=10000</code> at the end of the endpoint.</li>
+              <li>https://data.cityofnewyork.us/resource/fhrw-4uyv.json?$limit=10000&complaint_type=Rodent</li>
+            </ul>
+
+            <p>Build your map first. Then use the plugin.</p>
+
+            <p>Download and use the plugin required in the activity: <a href="https://github.com/Leaflet/Leaflet.markercluster">https://github.com/Leaflet/Leaflet.markercluster</a></p>
+          </div>
+
+          <div id="04-Par_MoneyChoropleth" class="student-block">
+            <h3>04-Par_MoneyChoropleth: Plotting a Choropleth</h3>
+
+            <h4>What is a Choropleth map?</h4>
+            <p>It simply means using different shades of color or symbols to represent average values of a quantity.</p>
+
+            <p>The API link is given here: <code>http://data.beta.nyc//dataset/d6ffa9a4-c598-4b18-8caf-14abde6a5755/resource/74cdcc33-512f-439c-a43e-c09588c4b391/download/60dbe69bcd3640d5bedde86d69ba7666geojsonmedianhouseholdincomecensustract.geojson</code></p>
+
+            <p>You're already given the plugin within the activity: <code>choropleth.js</code> As long as we add this within the HTML, it should work. The plugin URL is here: <a href="https://github.com/timwis/leaflet-choropleth">https://github.com/timwis/leaflet-choropleth</a></p>
+
+            <p>There are a series of "steps" within the activity. Follow that step by step and create your graph.</p>
+            <ul>
+              <li>In case you ask me about the 3 modes: <strong>quartile</strong>, <strong>equidistant</strong> and <strong>k-means</strong></li>
+              <li>These are stats terms that are affected by the <code>steps</code>, and it is distributed across the step ranges. Quartile divides the data into 4 equal groups where the median is the center of the halves. Equidistant means all the locations are proportionally correct distances, and the points are spread across to its equal distance. k-means is unsupervised clustering, where the points are allowed to congruate themselves and we find the means of the clusters to determine the mean of a certain location.</li>
+            </ul>
+
+            <p>This is a demo of how to create a legend: <a href="https://github.com/timwis/leaflet-choropleth/blob/gh-pages/examples/legend/demo.js">https://github.com/timwis/leaflet-choropleth/blob/gh-pages/examples/legend/demo.js</a></p>
+
+          </div>
+
+          <div id="Groups_Do" class="student-block">
+            <h3>Groups_Do</h3>
+
+            <p>Get into small groups, and create a map of your own from scratch. Find a dataset, use a new plugin to visualize in an interesting way.</p>
+            <p>Try to get a working map, and give a brief representation.</p>
+
+
+          </div>
+
+				</div> <!-- end #main-content -->
+
+
+				<div id="right-sb" class="col-md-4">
+					<div id="right-sb-nav" class="list-group" id="toc" role="tablist">
+					  <a class="list-group-item list-group-item-action active"  href="#objectives" role="tab">Objectives</a>
+					  <a class="list-group-item list-group-item-action"  href="#why-we-learn" role="tab">Why We Learn</a>
+					  <a class="list-group-item list-group-item-action"  href="#geojson-review" role="tab">geojson-review</a>
+					  <a class="list-group-item list-group-item-action"  href="#01-Evr_BasicNYCBoroughs" role="tab">01-Evr_BasicNYCBoroughs</a>
+					  <a class="list-group-item list-group-item-action"  href="#02-Evr_CrimeHeatmap" role="tab">02-Evr_CrimeHeatmap</a>
+					  <a class="list-group-item list-group-item-action"  href="#03-Stu_MarkerClusters" role="tab">03-Stu_MarkerClusters</a>
+            <a class="list-group-item list-group-item-action"  href="#Groups_Do" role="tab">Groups_Do</a>
+
+
+					</div>
+				
+				</div>
+			</div> <!-- end .row -->
+			
+		</div> <!-- end .container-fluid -->
+
+		<footer>
+			<script type="text/javascript" src="../../js/jquery-3.3.1.min.js"></script>
+			<script type="text/javascript" src="../../js/bootstrap.min.js"></script>
+
+			<script type="text/javascript">
+
+			</script>
+
+      <script type="text/javascript" src="js/config.js"></script>
+      <style>
+pre {
+  background-color: black;
+  color: white;
+}
+
+div[id^="map-"]{
+  height:500px;
+}
+      </style>
+
+		</footer>
+
+	</body>
+
+
+</html>
