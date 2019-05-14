@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Jonathan Moo's Github Bio</title>
+
+
+		<link rel='stylesheet' id='bootstrap-css'  href='../../css/bootstrap.min.css' type='text/css' media='all' />
+		<link rel='stylesheet' id='bootstrap-grid-css'  href='../../css/bootstrap-grid.min.css' type='text/css' media='all' />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+   integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+   crossorigin=""/>
+		<link rel='stylesheet' id='custom-css'  href='../../css/style.css' type='text/css' media='all' /> 
+		<script src="https://d3js.org/d3.v5.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.9.1/d3-tip.js"></script>
+		<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+     <!-- Make sure you put this AFTER Leaflet's CSS -->
+     <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+       integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+       crossorigin=""></script>
+	</head>
+
+	<body>
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<a class="navbar-brand" href="#">Jonathan's Github Page</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active">
+						<a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Lessons</a>
+						<div class="dropdown-menu">
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/11.2/index.html">11.2 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/11.3/index.html">11.3 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/12.1/index.html">12.1 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/12.3/index.html">12.3 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/13.1/index.html">13.1 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/13.2/index.html">13.2 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/13.3/index.html">13.3 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/14.1/index.html">14.1 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/14.2/index.html">14.2 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/14.3/index.html">14.3 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/15.1/index.html">15.1 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/15.2/index.html">15.2 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/15.3/index.html">15.3 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/16.1/index.html">16.1 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/16.2/index.html">16.2 Ref</a>
+              <a class="dropdown-item" href="../../MIACOR201901DATA3/16.3/index.html">16.3 Ref</a>
+              <a class="dropdown-item" href="../../MIACOR201901DATA3/17.1/index.html">17.1 Ref</a>
+              <a class="dropdown-item" href="../../MIACOR201901DATA3/17.2/index.html">17.2 Ref</a>
+              <a class="dropdown-item" href="../../MIACOR201901DATA3/17.3/index.html">17.3 Ref</a>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</nav>
+		<div class="container-fluid">
+			<div class="row">
+				<div id="main-content" class="col-md-8">
+					<div class="objective-block">
+						<h3 id="objectives">Objectives For Lesson 17.3</h3>
+
+						<ul>
+							<li>JobTrack</li>
+              <li>Working with GeoJSON</li>
+              <li>Project 2</li>
+						</ul>
+
+					</div>
+
+          <div id="jobtrack" class="instructor-block">
+            <h3>JobTrack</h3>
+            <p>This helps you in your career search. We have some presentation slides, and there are some instructors for you to use the platform.</p>
+
+            <ul>
+              <li>STEP 1: Sign in to JobTrack at https://jobtrack.trilogyed.com using BCS credentials</li>
+              <li>STEP 2: Install the Chrome extension from <a href="https://chrome.google.com/webstore/detail/jobtrack-for-chrome/ojhnaheochknmclpabkpialdgkkcboni">https://chrome.google.com/webstore/detail/jobtrack-for-chrome/ojhnaheochknmclpabkpialdgkkcboni</a></li>
+              <li>Step 3: Find three jobs you think you’ll be interested in:</li>
+              <ul>
+                <li>Visit Dice.com, Indeed.com, Angel.co, or go to the career website of a company you’re interested in</li>
+              </ul>
+              <li>If Chrome extension installed, open it on the job posting and enter the details</li>
+              <li>If no Chrome extension, copy the URL, switch to JobTrack and enter the URL, Company Name and Job Title</li>
+              <li>When ready to apply to jobs, return to JobTrack and use these jobs as a starting point</li>
+              <li>*Career Director will discuss these jobs on coaching call to identify what your ideal job is and how to attain it*</li>
+            </ul>
+          </div>
+
+          <div id="01-Stu_CitiBike" class="student-block">
+            <h3>01-Stu_CitiBike: Group effort</h3>
+
+            <p>So we'll be plotting a graph using Citi Bike data(<a href="https://gbfs.citibikenyc.com/gbfs/en/station_information.json">https://gbfs.citibikenyc.com/gbfs/en/station_information.json</a>). <strong>This is not GeoJSON data, so you'll have to plot here.</strong></p>
+
+            <p>There are 2 versions of this Citi Bike activity:</p>
+            <ul>
+              <li><strong>Basic</strong>: Using plain markers only. There are no plugins.</li>
+              <li><strong>Advanced</strong>: We're using a plugin: <a href="https://github.com/coryasilva/Leaflet.ExtraMarkers">https://github.com/coryasilva/Leaflet.ExtraMarkers</a></li>
+              <ul>
+                <li>In addition to the data endpoint for station information, we need a station status endpoint: <a href="https://gbfs.citibikenyc.com/gbfs/en/station_status.json">https://gbfs.citibikenyc.com/gbfs/en/station_status.json</a></li>
+                <li>Deploying this on Github Pages and using it as a portfolio could be impressive.</li>
+              </ul>
+            </ul>
+
+            <p>We have to start a HTTP server to run the code: <code>python -m http.server</code></p>
+
+          </div>
+
+          <div id="project-2" class="student-block">
+            <h3>Project 2: Group effort</h3>
+            <p>We'll go through the sides again and kick start the Project 2 proper.</p>
+          </div>
+
+
+				</div> <!-- end #main-content -->
+
+
+				<div id="right-sb" class="col-md-4">
+					<div id="right-sb-nav" class="list-group" id="toc" role="tablist">
+					  <a class="list-group-item list-group-item-action active"  href="#objectives" role="tab">Objectives</a>
+					  <a class="list-group-item list-group-item-action"  href="#jobtrack" role="tab">Job Track</a>
+					  <a class="list-group-item list-group-item-action"  href="#01-Stu_CitiBike" role="tab">01-Stu_CitiBike</a>
+					  <a class="list-group-item list-group-item-action"  href="#project-2" role="tab">Project 2</a>
+					</div>
+				
+				</div>
+			</div> <!-- end .row -->
+			
+		</div> <!-- end .container-fluid -->
+
+		<footer>
+			<script type="text/javascript" src="../../js/jquery-3.3.1.min.js"></script>
+			<script type="text/javascript" src="../../js/bootstrap.min.js"></script>
+
+			<script type="text/javascript">
+
+			</script>
+
+      <script type="text/javascript" src="../../js/config.js"></script>
+      <style>
+pre {
+  background-color: black;
+  color: white;
+}
+
+div[id^="map-"]{
+  height:500px;
+}
+      </style>
+
+		</footer>
+
+	</body>
+
+
+</html>

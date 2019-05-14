@@ -52,6 +52,7 @@
               <a class="dropdown-item" href="MIACOR201901DATA3/16.3/index.html">16.3 Ref</a>
               <a class="dropdown-item" href="MIACOR201901DATA3/17.1/index.html">17.1 Ref</a>
               <a class="dropdown-item" href="MIACOR201901DATA3/17.2/index.html">17.2 Ref</a>
+              <a class="dropdown-item" href="MIACOR201901DATA3/17.3/index.html">17.3 Ref</a>
 						</div>
 					</li>
 				</ul>
@@ -61,56 +62,568 @@
 			<div class="row">
 				<div id="main-content" class="col-md-8">
 					<div class="objective-block">
-						<h3 id="objectives">Objectives For Lesson 17.3</h3>
+						<h3 id="objectives">Objectives For Lesson 18.1</h3>
 
 						<ul>
-							<li>JobTrack</li>
-              <li>Working with GeoJSON</li>
-              <li>Project 2</li>
+							<li>R Programming</li>
+              
+				            <li>Project 2</li>
 						</ul>
 
 					</div>
 
-          <div id="jobtrack" class="instructor-block">
-            <h3>JobTrack</h3>
-            <p>This helps you in your career search. We have some presentation slides, and there are some instructors for you to use the platform.</p>
+          <div id="install-r" class="instructor-block">
+            <h3>Install RStudio</h3>
+            
+            <p>R is a new language where we need to install a new application in our machines. Among data scientists, you will hear conversations about R programming since it is popular in academia.</p>
 
-            <ul>
-              <li>STEP 1: Sign in to JobTrack at https://jobtrack.trilogyed.com using BCS credentials</li>
-              <li>STEP 2: Install the Chrome extension from <a href="https://chrome.google.com/webstore/detail/jobtrack-for-chrome/ojhnaheochknmclpabkpialdgkkcboni">https://chrome.google.com/webstore/detail/jobtrack-for-chrome/ojhnaheochknmclpabkpialdgkkcboni</a></li>
-              <li>Step 3: Find three jobs you think you’ll be interested in:</li>
-              <ul>
-                <li>Visit Dice.com, Indeed.com, Angel.co, or go to the career website of a company you’re interested in</li>
-              </ul>
-              <li>If Chrome extension installed, open it on the job posting and enter the details</li>
-              <li>If no Chrome extension, copy the URL, switch to JobTrack and enter the URL, Company Name and Job Title</li>
-              <li>When ready to apply to jobs, return to JobTrack and use these jobs as a starting point</li>
-              <li>*Career Director will discuss these jobs on coaching call to identify what your ideal job is and how to attain it*</li>
-            </ul>
+            <div class="row">
+            	<div class="col-md-6">
+            		<div class="student-block">
+	            		<h3>Mac Installation</h3>
+
+	            		<p>Go to <a href="https://cran.r-project.org/bin/macosx/">https://cran.r-project.org/bin/macosx/</a> for your installation.</p>
+	            	</div>
+            	</div>
+            	<div class="col-md-6">
+            		<div class="student-block">
+	            		<h3>PC Installation</h3>
+
+	            		<p>Go to <a href="https://cran.r-project.org/bin/windows/base/">https://cran.r-project.org/bin/windows/base/</a> for your installation.</p>
+	            	</div>
+            	</div>
+            </div>
+
+            <div class="row">
+            	<div class="col-md-12">
+	            	<p>The above only installs the programming language into your computer. We need a GUI (graphical user interface) such as the RStudio: <a href="https://www.rstudio.com/products/rstudio/download/#download">https://www.rstudio.com/products/rstudio/download/#download</a></p>
+
+	            	<p>Download and install them. After which, open the <code>prework.R</code> file with <code>File > Open File</code> at the navigation bar within RStudio.</p>
+
+	            	<img src="img/RStudio1.png" class="img-fluid"/>
+
+	            	<p>In my machine, RStudio typically runs the commands line-by-line. You can select all of them and click "Run" for them to activate at the same time.</p>
+
+	            	<p>This is a link of R shortcuts: <a href="https://support.rstudio.com/hc/en-us/articles/200711853-Keyboard-Shortcuts">https://support.rstudio.com/hc/en-us/articles/200711853-Keyboard-Shortcuts</a></p>
+            	</div>
+            </div>
           </div>
 
-          <div id="01-Stu_CitiBike" class="student-block">
-            <h3>01-Stu_CitiBike: Group effort</h3>
+          <div id="01_Ins_RBasics" class="instructor-block">
+            <h3>01_Ins_RBasics</h3>
 
-            <p>So we'll be plotting a graph using Citi Bike data(<a href="https://gbfs.citibikenyc.com/gbfs/en/station_information.json">https://gbfs.citibikenyc.com/gbfs/en/station_information.json</a>). <strong>This is not GeoJSON data, so you'll have to plot here.</strong></p>
+           	<p>Like any new programming language, I will switch between the GUI and this HTML page for reference. Let me know if I go all over the place or if you can't see the screen.</p>
 
-            <p>There are 2 versions of this Citi Bike activity:</p>
+           	<h4>Assigning Data: Variables</h4>
+
+           	<p><pre>
+           		<code>
+	# Numeric
+	a <- 3
+	b <- 3.1415
+
+	# Character
+	c <- "This is a string"
+	d <- "Yet another string"
+
+	# Boolean
+	e <- TRUE
+	f <- FALSE
+	g <- T
+	h <- F
+           		</code>
+           	</pre></p>
+
+           	<h5>Things to note:</h5>
+           	<ul>
+           		<li>R uses left-pointing arrows to assign values, while most programming languages use the equal sign.</li>
+           		<li>When you assign a value, usually we debug by printing it on the console. We can still do that, RStudio can save the environment and let you view what you have assigned in a table on a separate panel.</li>
+           		<li>Tip: the keyboard shortcut for the assignment operator is <code>Option-Hyphen</code> in Macs, and <code>Alt-Hyphen</code> in PCs.</li>
+           	</ul>
+
+           	<h4>Assigning Data: Vectors (iterable-type containers)</h4>
+
+           	<p>R's vectors are fundamentally different from Python's list and Javascript's arrays. Both lists and arrays can contain different types of data, but <strong>vectors are restricted to having the same type</strong>. In essense, if you start a vector with strings, everything must be strings. Likewise for numbers.</p>
+
+           	<p>Also, indices in R <strong>start from 1</strong>, but Python and Javascript <strong>start from 0</strong>.</p>
+
+           	<p>R itself has a <code>list</code> object. We'll cover it later, but the reason why we compare it with Python's list and arrays is because they are iterable.</p>
+
+           	<pre>
+           		<code>
+	# A vector is a basic unit of data structure in R
+	# All elements in a vector must be of the same type
+	disney_characters <- c("mickey", "minnie", "donald", "goofy")
+	presidents <- c("washington", "adams", "jefferson")
+	numbers_vector <- c(1, 3, 5, 7, 9, 11)
+
+	print(disney_characters)
+	print(presidents)
+	print(numbers_vector)
+           		</code>
+           	</pre>
+
+           	<h5>Things to note:</h5>
+           	<ul>
+           		<li><code>c</code> is a function and it means "to concatenate". We can combine strings to vectors, or we can combine vectors together.</li>
+           		<ul>
+           			<li><pre>
+           				<code>
+	### Combine vectors into a single vector
+	combined_vector <- c(disney_characters, presidents)
+	combined_vector
+
+	### A for-loop
+	for (x in combined_vector){
+	  print(x)
+	}
+
+	print(combined_vector)
+           				</code>
+           			</pre></li>
+           			<li><code>for</code> loop syntax is similar to Python.</li>
+           		</ul>
+           	</ul>
+
+           	<h4>Why Vectors?</h4>
+
+           	<p><strong>The power of vectors lies on the ability to compute math at a grand-scale.</strong> Imagine if you have a few million rows of data, and you're going to calculate through all the rows for analysis.</p>
+
+           	<p>What are your options? Use a <code>for</code> loop? If each row takes <strong>0.5s</strong> to compute, and you have <strong>1 million rows</strong>, which means you require <strong>500k seconds</strong>, which is equivalent to <strong>8333.33 minutes</strong>, which is also equivalent to <strong>138.88 hours</strong>, and this is roughly <strong>5.7 days</strong>.</p>
+
+           	<p>This was a real problem when I started my career 8-9 years ago when I had to do ETL. And that is why data scientist and engineers need to be good at coding. You can do your math on paper and excel with good grades, but if programming isn't your hands and feet to stats, you'll find yourself handicapped. <strong>Like how you can train to play tennis with your arms and legs, programming is the same.</strong></p>
+
+           	<p>Vectors help you to compute column-wide calculations in a flash. 1 million rows can be computed in less than half a second. (<strong>And that is why R insists having only the same type in a vector. Pandas is more liberal, but you'll get NaN values for things that cannot be computed.</strong>)</p>
+
+           	<pre>
+           		<code>
+	numeric_vector <- 1:length(combined_vector) // length is the method to capture the size of the vector
+	squared_vector <- numeric_vector**2
+
+	print(numeric_vector)
+	print(squared_vector)
+           		</code>
+           	</pre>
+
+           	<p>The above <code>squared_vector</code> helps to square all the elements within the <code>numeric_vector</code>.</p>
+
+           	<h4>Conditionals</h4>
+
+           	<pre>
+           		<code>
+	# An if/else statement
+	# nchar() returns the number of characters
+	for (prez in presidents){
+	  if (nchar(prez) > 5){
+	    next
+	  }
+	  else {
+	    print(prez)
+	  }
+	}
+		       	</code>
+	       </pre>
+
+	       <h5>Things to note:</h5>
+	       <ul>
+	       	<li><code>nchar()</code> returns the number of characters in a string. <code>next</code> stops the current loop iteration and starts a new iteration from the beginning.</li>
+	       	<li>The above code only looks for names with 5 characters and less.</li>
+	       </ul>
+
+	       <h4>Lists</h4>
+
+	       <p>A list in R can contain multiple data types as shown:</p>
+
+	       <pre>
+	       	<code>
+	# A list, unlike a vector, can contain various data types
+	random_list <- list("movies"=c("Star Wars", "Titanic", "Avatar"),
+	                    "states"=c("California", "Oklahoma", "Texas", "Virginia"),
+	                    "coins"=c("penny", "dime", "nickel", "quarter"),
+	                    "first_presidents"=presidents,
+	                    "nums"=c(1,2,3,4,5),
+	                    "bools"=c(T,F,T,T,T,F)
+	)
+
+	# We can use the bracket notation to access an item in a list:
+	random_list["states"]
+
+	# Or use the $ sign
+	random_list$coins
+
+	# Verify type
+	typeof(random_list)
+	       	</code>
+	       </pre>
+
+	       <p>Out of the syntax changes, the above code looks very similar to both Javascript and Python.</p>
+
+	       <h4>Functions</h4>
+
+	       <p>This is found in your student activity. You can create functions to wrap blocks of code for reusability:</p>
+
+	       <pre>
+	       	<code>
+	# Part I
+	students <- c("Abraham", "Beatrice", "Cory", "Dinah", "Eric", "Felicia")
+
+	roll_call <- function(class){
+	  print(Sys.Date())
+	  for (student in class){
+	    print(student)
+	  }  
+	}
+
+	roll_call(students)
+		
+	       	</code>
+	       </pre>
+
+	       <p>Looks amazingly similar to Javascript, except that the arrows are pointing differently in R.</p>
+
+	       <h4>Last but not least</h4>
+
+	       <p>You have different types of files for R.</p>
+
+	       <ul>
+	       	<li>R file which you have seen: name.R</li>
+	       	<li><code>Rmd</code> file, where <code>md</code> stands for markdown.</li>
+	       	<ul>
+	       		<li>Markdown is commonly used in Githubs and repos for documentation.</li>
+	       		<li>R extends functionality to use markdown language to run its code.</li>
+	       	</ul>
+	       </ul>
+
+          </div>
+
+	      <div id="02_Stu_RBasics" class="student-block">
+	        <h3>02_Stu_RBasics: Your Turn</h3>
+
+        </div>
+
+        <div id="03_Ins_Vectors" class="instructor-block">
+	        <h3>03_Ins_Vectors</h3>
+
+	        <p>Let's look at vectors indepth:</p>
+
+	        <pre>
+	        	<code>
+	# Simple vectors
+	# Months of the year
+	months <- c("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec")
+
+	# Average rainfall/precipitation in NYC during each month
+	precipitation <- c(3.9, 2.9, 4.1, 3.9, 4.5, 3.5, 4.5, 4.1, 4.0, 3.4, 3.8, 3.6)
+
+	print(months)
+	print(precipitation)
+
+	# Assign names to a vector
+	# Assign months to precipitation as names
+	names(precipitation) <- months
+
+	# Display precipitation
+	print(precipitation)
+
+	# Display names of precipitation
+	print(names(precipitation))
+	        	</code>
+	        </pre>
+
+	        <h4>Things To Note:</h4>
+	        <ul>
+	        	<li>You have the months, and you have the precipitation data individually.</li>
+	        	<li>Without running loops, using the <code>names</code> function, months and precipitation will be mapped by R for you automatically.</li>
+	        	<li>Mismatched items will be labelled as <code>NA</code></li>
+	        </ul>
+
+	        <h4>If you want to access and store a single variable into another variable:</h4>
+
+	        <pre>
+	        	<code>
+	# Access a single member of precipitation by its name
+	mar_precipitation <- precipitation["Mar"]
+	print(mar_precipitation)
+	        	</code>
+	        </pre>
+
+	        <p>It will take both the name as well as the value.</p>
+
+	        <h4>How about some stats?</h4>
+
+	        <pre>
+	        	<code>
+	# Summary of data
+	# Display summary data of precipitation
+	summary(precipitation)
+	precipitation_summary <- summary(precipitation)
+	# Access features of a summary
+	precipitation_summary["Min."]
+	precipitation_summary["Mean"]
+	        	</code>
+	        </pre>
+
+	        <p>Almost the same as <code>pandas.DataFrame.describe</code>, it shows you a basic statistical summary of the dataset. Extracting and reassigning them into another variable will allow to manipulate the data.</p>
+
+	       <h4>Pipe operators</h4>
+
+	       <p>Pipe operators work similarly to how you use terminal in your computer. I will show you an example in terminal.</p>
+
+	       <pre>
+	       	<code>
+	precipitation %>% summary()
+	       	</code>
+	       </pre>
+
+	       <h4>Things to note:</h4>
+	       <ul>
+	       	<li>The <code>%>%</code> allows you to channel the contents of the <code>precipitation</code> variable into the <code>summary()</code> function.</li>
+	       </ul>
+
+	       <h4>Double Brackets</h4>
+
+	       <p>Use double brackets to access only hte value:</p>
+
+	       <pre>
+	       	<code>
+	precipitation_summary[["Max."]]
+	       	</code>
+	       </pre>
+
+	       <h4>Standard Deviation</h4>
+
+	       <pre>
+	       	<code>
+	sd(precipitation)
+
+	# Round SD to two digits
+	stdev <- sd(precipitation)
+	round(stdev, 2)
+
+	# Standard deviation and round using the pipe operator
+	precipitation %>% sd()
+	3.141592653 %>% round(2)
+	       	</code>
+	       </pre>
+
+	       <h4>Things to Note:</h4>
+	       <ul>
+	       	<li><code>sd</code> method is how you can get the standard deviation of a dataset. You can extract it into a variable, and round it if you want.</li>
+	       </ul>
+
+	       <h4>Misc Methods (Functions)</h4>
+
+	       <p>Simply use <code>length(precipitation)</code>. It works the same as any programming language by returning an integer.</p>
+
+	       <pre>
+	       	<code>
+	length(precipitation)
+
+	# Display the sum of a vector
+	yearly_precipitation <- sum(precipitation)
+	yearly_precipitation
+
+	# The same operations, this time using pipes
+	precipitation %>% length()
+
+	yearly_precipitation2 <- precipitation %>% sum()
+	print(yearly_precipitation2)
+	       	</code>
+	       </pre>
+
+	       <p><code>sum</code> and <code>length</code> are inbuilt methods within R.</p>
+        </div>
+
+        <div id="04_Ins_Navigation" class="instructor-block">
+            <h3>04_Ins_Navigation</h3>
+
+            <p>To work with external files, we need to understand file structure navigation in R. It is similar to Unix-based environments.</p>
+
             <ul>
-              <li><strong>Basic</strong>: Using plain markers only. There are no plugins.</li>
-              <li><strong>Advanced</strong>: We're using a plugin: <a href="https://github.com/coryasilva/Leaflet.ExtraMarkers">https://github.com/coryasilva/Leaflet.ExtraMarkers</a></li>
-              <ul>
-                <li>In addition to the data endpoint for station information, we need a station status endpoint: <a href="https://gbfs.citibikenyc.com/gbfs/en/station_status.json">https://gbfs.citibikenyc.com/gbfs/en/station_status.json</a></li>
-                <li>Deploying this on Github Pages and using it as a portfolio could be impressive.</li>
-              </ul>
+            	<li>To display current director: <code>getwd()</code></li>
+            	<li>To display the contents of the current directory: <code>dir()</code></li>
+            	<li>To change the directory: <code>setwd()</code></li>
             </ul>
 
-            <p>We have to start a HTTP server to run the code: <code>python -m http.server</code></p>
+            <p>Run your code in the directory which your R files live. You are greeted with:</p>
+            <ul>
+            	<li>data.csv</li>
+            	<li>navigation.Rmd</li>
+            	<li>navigation.html</li>
+            </ul>
 
+            <p>We're using <code>Rmd</code> to run in RStudio:</p>
+
+            <pre>
+            	<code>
+	---
+	title: "Navigation"
+	output: html_document
+	---
+
+	```{r setup, include=FALSE}
+	knitr::opts_chunk$set(echo = TRUE)
+	```
+
+	### Dependency
+	```{r}
+	library(tidyverse)
+	```
+
+	###
+	```{r}
+	sample_csv <- read_csv("data.csv")
+	```
+	###
+	```{r}
+	head(sample_csv)
+	```
+
+
+            	</code>
+            </pre>
+
+            <h4>Things to Note:</h4>
+            <ul>
+            	<li>Code blocks are generated and must be encapsulated with <code>```</code>(backticks). The <code>{r}</code> tells the compiler to run R for the code block.</li>
+            	<li><code>knitr::opts_chunk</code>: This is just the settings of the notebook you're running. <code>opts_chunk</code> handle code chunks, and it is setting the echo parameter with <code>$set(echo = TRUE)</code>.</li>
+            	<li>To load library (or dependancies), we use <code>library()</code>. For our example, we are importing <code>tidyverse</code>.</li>
+            	<li>Tidyverse is a collection of R packages for data science: <a href="https://www.tidyverse.org/">https://www.tidyverse.org/</a></li>
+            	<li><code>read_csv</code> and <code>head</code> are awfully similar to pandas.</li>
+            </ul>
+
+            <h4>Additional References (but not required to learn):</h4>
+            <ul>
+            	<li>To create a directory called "data_science" one would enter <code>dir.create("data_science")</code></li>
+            	<li>To create a file: <code>file.create("my_first.R")</code></li>
+            	<li>To determine whether a file exists: <code>file.exists()</code></li>
+            	<li>Obtain additional info on a file: <code>file.info()</code></li>
+            	<li>Rename a file: <code>file.rename(file1, file2)</code></li>
+            	<li>To copy a file: <code>file.copy()</code></li>
+            </ul>
+			
+		</div>
+
+		<div id="05_Ins_Tibble" class="instructor-block">
+            <h3>05_Ins_Tibble: Tibbles?</h3>
+            
+            <p>Basically, it's a dataframe. R folks like to get fancy. We will explore running some sample data set from <code>tidyverse</code>.</p>
+
+            <h4>Are Diamonds Forever? Or Are diamonds a lady's best friend?</h4>
+
+            <p>We are given the following code:</p>
+
+            <pre>
+            	<code>
+	---
+	title: "tibbles"
+	output: html_document
+	---
+
+	```{r setup, include=FALSE}
+	knitr::opts_chunk$set(echo = TRUE)
+	```
+
+	### Load dependency and sample data set
+	```{r}
+	library(tidyverse)
+	data(diamonds, package='ggplot2')
+	```
+
+	### Select rows 1 through 7
+	```{r}
+	slice(diamonds, 1:7)
+	```
+
+	### Calculate the number of rows in the tibble
+	```{r}
+	nrow(diamonds)
+	```
+
+	### Select row 3
+	```{r}
+	slice(diamonds, 3)
+	```
+
+	### Select rows 1 and 7
+	```{r}
+	slice(diamonds, c(1,7))
+	```
+
+	### Select columns. First argument is the data set
+	```{r}
+	select(diamonds, carat, price)
+	```
+
+	### Filter data
+	```{r}
+	filter(diamonds, cut=='Ideal')
+	```
+
+	### Filter data by multiple criteria
+	```{r}
+	filter(diamonds, (cut=='Ideal' & price > 500))
+	```
+
+	### Operate over a column, temporarily add a new column
+	```{r}
+	total_volume <- mutate(diamonds, x * y * z)
+	total_volume
+	```
+	### Name the new column, save the results to another tibble
+	```{r}
+	# In R, variables can contain periods
+	total.volume2 <- mutate(diamonds, total.volume=(x*y*z))
+	total.volume2
+	```
+
+	### Display the mean of a column
+	```{r}
+	summarize(diamonds, mean(price))
+	```
+
+	### Group diamonds by cut
+	```{r}
+	cut <- group_by(diamonds, cut)
+	summarize(cut, mean(price), sum(price))
+	```
+
+	### A summary, grouped by cut, displaying average price and count.
+	```{r}
+	summarize(cut, avg=mean(price),number=n())
+	```
+
+	### Group by multiple columns
+	```{r}
+	cut2 <- group_by(diamonds, cut, color)
+	cut2_summary <- summarize(cut2, mean(price))
+	cut2_summary
+	```
+
+	### Count the number of diamonds by cut
+	```{r}
+	count(diamonds, cut)
+	```
+
+
+            	</code>
+            </pre>
+
+            <h5>Things To Note:</h5>
+            <ul>
+            	<li><code>data(diamonds, package='ggplot2')</code>: Simply means we are loading a sample dataset and using the <code>ggplot2</code> as the visualization engine.</li>
+            	<li><strong>Dot notation does not exist in R!</strong> <code>total.volume</code> doesn't mean an object or dictionary with a <code>volume</code> variable. Names in R can use dots, and it is equivalent to something like <code>total_volume</code> as a variable.</li>
+            </ul>
+
+          </div>
+
+          <div id="06_Stu_Tibble" class="student-block">
+            <h3>06_Stu_Tibble: Your Turn</h3>
           </div>
 
           <div id="project-2" class="student-block">
             <h3>Project 2: Group effort</h3>
-            <p>We'll go through the sides again and kick start the Project 2 proper.</p>
+            <p>Give a short description of your proposals in class today.</p>
           </div>
 
 
@@ -120,8 +633,14 @@
 				<div id="right-sb" class="col-md-4">
 					<div id="right-sb-nav" class="list-group" id="toc" role="tablist">
 					  <a class="list-group-item list-group-item-action active"  href="#objectives" role="tab">Objectives</a>
-					  <a class="list-group-item list-group-item-action"  href="#jobtrack" role="tab">Job Track</a>
-					  <a class="list-group-item list-group-item-action"  href="#01-Stu_CitiBike" role="tab">01-Stu_CitiBike</a>
+					  <a class="list-group-item list-group-item-action"  href="#install-r" role="tab">R Installation</a>
+					  <a class="list-group-item list-group-item-action"  href="#01_Ins_RBasics" role="tab">01_Ins_RBasics</a>
+					  <a class="list-group-item list-group-item-action"  href="#02_Stu_RBasics" role="tab">02_Stu_RBasics</a>
+					  <a class="list-group-item list-group-item-action"  href="#03_Ins_Vectors" role="tab">03_Ins_Vectors</a>
+					  <a class="list-group-item list-group-item-action"  href="#04_Ins_Navigation" role="tab">04_Ins_Navigation</a>
+					  <a class="list-group-item list-group-item-action"  href="#05_Ins_Tibble" role="tab">05_Ins_Tibble</a>
+					  <a class="list-group-item list-group-item-action"  href="#06_Stu_Tibble" role="tab">06_Stu_Tibble</a>
+
 					  <a class="list-group-item list-group-item-action"  href="#project-2" role="tab">Project 2</a>
 					</div>
 				
