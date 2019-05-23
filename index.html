@@ -49,11 +49,12 @@
 							<a class="dropdown-item" href="MIACOR201901DATA3/15.3/index.html">15.3 Ref</a>
 							<a class="dropdown-item" href="MIACOR201901DATA3/16.1/index.html">16.1 Ref</a>
 							<a class="dropdown-item" href="MIACOR201901DATA3/16.2/index.html">16.2 Ref</a>
-              <a class="dropdown-item" href="MIACOR201901DATA3/16.3/index.html">16.3 Ref</a>
-              <a class="dropdown-item" href="MIACOR201901DATA3/17.1/index.html">17.1 Ref</a>
-              <a class="dropdown-item" href="MIACOR201901DATA3/17.2/index.html">17.2 Ref</a>
-              <a class="dropdown-item" href="MIACOR201901DATA3/17.3/index.html">17.3 Ref</a>
-              <a class="dropdown-item" href="MIACOR201901DATA3/18.1/index.html">18.1 Ref</a>
+							<a class="dropdown-item" href="MIACOR201901DATA3/16.3/index.html">16.3 Ref</a>
+							<a class="dropdown-item" href="MIACOR201901DATA3/17.1/index.html">17.1 Ref</a>
+							<a class="dropdown-item" href="MIACOR201901DATA3/17.2/index.html">17.2 Ref</a>
+							<a class="dropdown-item" href="MIACOR201901DATA3/17.3/index.html">17.3 Ref</a>
+							<a class="dropdown-item" href="MIACOR201901DATA3/18.1/index.html">18.1 Ref</a>
+							<a class="dropdown-item" href="MIACOR201901DATA3/18.2/index.html">18.2 Ref</a>
 						</div>
 					</li>
 				</ul>
@@ -63,209 +64,197 @@
 			<div class="row">
 				<div id="main-content" class="col-md-8">
 					<div class="objective-block">
-						<h3 id="objectives">Objectives For Lesson 18.2</h3>
+						<h3 id="objectives">Objectives For Lesson 20.1</h3>
 
 						<ul>
-							<li>R Programming</li>
-              
-				            <li>Project 2</li>
+							<li>Tableau</li>
 						</ul>
 
 					</div>
 
-          <div id="01-Stu_UFO" class="student-block">
-            <h3>01-Stu_UFO: Warmup</h3>
-            
-            <p>We are revisiting our previous lesson with this activity. We are going to be using a lot of pipe operators.</p>
+					<div id="why-learn" class="student-block">
+						<h3>Why Learn?</h3>
 
-            <h4>Why pipe operators?</h4>
+						<p>Tableau is an enterprise visualization software. It takes most data sources and creates visualizations without the need for coding. Most business or data analyst would have some experience in this software.</p>
 
-            <p>It is fast to get quick analysis about something. For example, assuming the variable <code>ufo</code> is a tibble (dataframe):</p>
+						<h4>For some reason, it's not working in my new Macbook Pro.</h4>
+						<p>Please check to see if it is working for you.</p>
+						
+					</div>
 
-            <pre>
-            	<code>
-	ufo %>% 
-		group_by(state) %>% 
-		summarise(avg.duration = mean(`duration (seconds)`)) %>% 
-		arrange(desc(avg.duration)) 
-            	</code>
-            </pre>
+					<div id="tableau_installation" class="student-block">
+						<h3>Install Tableau</h3>
+						
+						<p>You'll have to exchange your email address for Tableau to download Tableau here: <a href="https://public.tableau.com/s/">https://public.tableau.com/s/</a></p>
 
-            <p>Pipes allow you to get the result without the hassle of assigning variables to things. You can see how descending order is done by <code>arrange(desc(avg.duration))</code>. Documentation for sorting is found here: <a href="https://dplyr.tidyverse.org/reference/arrange.html">https://dplyr.tidyverse.org/reference/arrange.html</a></p>
-          </div>
+						<p>Install the Tableau Public version because it's free. We're not going into the enterprise version, but majority of the features will be included.</p>
 
-        <div id="02-Ins_Tibbles" class="instructor-block">
-            <h3>02-Ins_Tibbles</h3>
+					</div>
 
-            <p>Since tibbles are essentially data frames, we want to create one by ourselves.</p>
+					<div id="01-Ins_LoadingData" class="instructor-block">
+						<h3>01-Ins_LoadingData</h3>
 
-            <pre>
-            	<code>
-	call.centers.tb <- 
-	  tibble(
-	    City = c(
-	      "Dhaka",
-	      "Franklin",
-	      "Dublin",
-	      "Stuttgart"
-	    ),
-	    Country = c(
-	      "Bangladesh",
-	      "United States",
-	      "Ireland",
-	      "Deutschland"
-	    ),
-	    Population = c(
-	      14400000,
-	      74794,
-	      527612,
-	      612441 
-	    ),
-	    Square.Miles = c(
-	      118.3,
-	      30.12,
-	      44.4,
-	      80.06
-	    ),
-	    Population.Density = Population/Square.Miles,
-	    Employees.Needed = Population.Density/1000
-	  )
-            	</code>
-            </pre>
+						<h4>Things to note:</h4>
+						<ul>
+							<li>Tableau can connect to data files (CSV, XLS, and JSON), servers (MySQL, MongoDB, and Google Cloud), and many types of sources.</li>
+							<li>You can do joins from different sources.</li>
+							<li>Open the Excel file (GlobalSuperstoreOrders2016.xls) in your activity.</li>
+							<ul>
+								<li><img src="img/tableau_load.gif" class="img-fluid"/></li>
+							</ul>
+							<li>Tableau <strong>does not allow its users to change the values contained within the cells of a dataset,</strong> but it is possible to create new columns based upon the values of other columns.</li>
+							<ul>
+								<li>Visualization systems shouldn't allow the anyone to change the original data that easily. It's to protect the raw dataset.</li>
+							</ul>
+							<li>Filtering data can be done on the "Add" button on the top-right of Tableau.</li>
+							<ul>
+								<li><img src="img/tableau-filter-01.png" class="img-fluid"></li>
+							</ul>
+							<li>You can filter anything you want according to the values you desire. The dates in "Order Date" is most interesting:</li>
+							<ul>
+								<li><img src="img/tableau-filter-02.png" /></li>
+							</ul>
+						</ul>
 
-            <h4>Remember!</h4>
-            <ul>
-            	<li>Dot notation doesn't exist in R. In Python (Pandas), we would've named it like <code>call_centers_df</code>.</li>
-            	<li>There is a <code>tibble</code> function to create tibbles from <em>column</em> vectors.</li>
-            	<ul>
-            		<li>You should read the code top down as a table from the example above.</li>
-            	</ul>
-            	<li>You can use <code>frame_data</code> function as well by manually passing the column names and row vectors. But <code>frame_data</code> is getting deprecated, so use <code>tibble</code>.</li>
-            </ul>
+						
 
-            <h4>Another way to declare a tibble</h4>
+					</div>
 
-            <pre>
-            	<code>
-	market.research.tb <- tribble(
-	  ~Group, ~Interest, ~Show.Interest.Types, ~Age.Range, ~Retention,
-	  "A", "Low", c("animated", "comedy", "drama"), "14-17", 0.12,
-	  "B", "High", c("action", "suspenseful", "edgy"), "18-35", 0.87,
-	  "C", "Medium", c("current events", "reality", "crime", "mystery"), "36-65", 0.37,
-	  "D", "Low", c("current events", "crime", "thriller"), "66-99", 0.01
-	)
+					<div id="02-Ins_BasicVisuals" class="instructor-block">
+						<h3>02-Ins_BasicVisuals</h3>
 
-	market.research.tb
-            	</code>
-            </pre>
+						<p>We're building basic visuals for Tableau.</p>
 
-            <h5>Things to note:</h5>
-            <ul>
-            	<li>Notice the tilde(~) beside the column names? That's how R recognizes column headers.</li>
-            	<li>Internally, R will count the number of column names, and map it to the delimited data by commas accordingly.</li>
-            	<li>Using the function <code>names</code> will extract the column headers, such as <code>names(market.research.tb)</code></li>
-            	<li>Use <code>getwd()</code> to find the path of your running code.</li>
-            	<li>Use <code>setwd()</code>, with a string path within the function to set the working directory for your R script.</li>
-            	<li>CSVs are comma-delimited data, TSVs are tab-delimited data.</li>
-            	<li>We use <code>read_tsv</code> to read TSV files into tibbles.</li>
-            </ul>
+						<h4>Things to note:</h4>
+						<ul>
+							<li>What we're doing here is similar to pivot tables in Excel:</li>
+							<ul>
+								<li><strong>Dimensions</strong> are categorical fields that data can be split up by.</li>
+								<li><strong>Measures</strong> are metrics or numbers that uses would like to analyze.</li>
+							</ul>
+							<li>To get started:</li>
+							<ul>
+								<li>Drag the <strong>Category</strong> pill from the <strong>Dimensions</strong> panel into <strong>Rows</strong>. It's on the left side panel, or on the top bar beneath <strong>Columns</strong>.</li>
+								<li>Drag <strong>Segment</strong> into <strong>Rows</strong>.</li>
+								<ul>
+									<li>These are column headers in the Excel file.</li>
+									<li>It should look like this: <img src="img/tableau-visuals-01.png" class="img-fluid" /></li>
+								</ul>
+								<li>Drag the <strong>Quantity</strong> from the <strong>Measurements</strong> panel, and you should see this:</li>
+								<ul>
+									<li><img src="img/tableau-visuals-02.png" class="img-fluid" /></li>
+									<li>Tableau automatically aggregated the <strong>Quantity</strong> into a sum.</li>
+								</ul>
+								<li>By adding <strong>Market</strong> into <strong>Columns</strong>, we can group by each geographic market for quantity.</li>
+								<ul>
+									<li><img src="img/tableau-visuals-03.png" class="img-fluid" /></li>
+								</ul>
+							</ul>
+						</ul>
 
-        </div>
+						<p>Dragging and dropping is easy. Question: If anybody can do that, what's the difference between a good business analyst and a novice business analyst?</p>
 
-        <div id="03-Stu_Tibbles_and_Tibbles" class="student-block">
-			<h3>03-Stu_Tibbles_and_Tibbles: Your Turn</h3>
-			<ul>
-				<li>To add rows: <code>add_row(cart_rental.tb, name="Thomas", current_age=15, years_left=25-current_age)</code></li>
-				<ul>
-					<li>The first parameter is the tibble itself, then the subsequent are the column names to the data.</li>
-				</ul>
-				<li>To add columns: <code>add_column(Rank=1:5)</code></li>
-				<ul>
-					<li>Columns need vectors.</li>
-				</ul>
-			</ul>
-		</div>
+						<h4>Let's try something else:</h4>
+						<ul>
+							<li>Create a new worksheet. It is found at the bottom left corner of the interface.</li>
+							<li>Drag <strong>Sales</strong> into <strong>Rows</strong>. You should get something like this:</li>
+							<ul>
+								<li><img src="img/tableau-visuals-04.png" class="img-fluid" /></li>
+								<li>This is total sum by default, because Tableau sums everything for you.</li>
+								<li>If you want something else, click on the pill and a menu will show like this:</li>
+								<ul>
+									<li><img src="img/tableau-visuals-05.png" class="img-fluid" /></li>
+								</ul>
+								<li>Drag <strong>Order Date</strong> into <strong>Columns</strong> to create a basic line chart. You should see this:</li>
+								<ul>
+									<li><img src="img/tableau-visuals-06.png" class="img-fluid" /></li>
+									<li>Tableau filters by year for you. Depending on the source data's availability, you could split the data by quarters, months, weeks, or even days by clicking on the pill and changing the attributes, or just click the plus symbol:</li>
+									<ul>
+										<li><img src="img/tableau-visuals-07.png" class="img-fluid" /></li>
+									</ul>
+								</ul>
+								<li>To compare <strong>Quarters</strong> for each year, simple move the <strong>QUARTER</strong> pill before year:</li>
+								<ul>
+									<li><img src="img/tableau-visuals-08.png" class="img-fluid" /></li>
+								</ul>
+							</ul>
+						</ul>
+						
+					</div>
 
-		<div id="04-Ins_Apply" class="instructor-block">
-			<h3>04-Ins_Apply</h3>
+					<div id="03-Stu_Exploration" class="student-block">
+						<h3>03-Stu_Exploration: Your Turn</h3>
+					</div>
 
-			<p>We are given some code here:</p>
+					<div id="04-Stu_NoShow" class="student-block">
+						<h3>04-Stu_NoShow: Your Turn</h3>
+					</div>
 
-			<pre>
-				<code>
-	toFahrenheit <- function(temperature) {
-	  fahrenheit <- temperature * 1.8 + 32
-	  return(fahrenheit)
-	}
 
-	celsius <- c(0, -2, 0, 5.2, 5.4)
+					<div id="05-Ins_EasyJoins" class="instructor-block">
+						<h3>05-Ins_EasyJoins</h3>
 
-	fahrenheit <- numeric()
-	for (i in 1:length(celsius)) {
-	  temperature_fahrenheit <- toFahrenheit(celsius[i])
-	  fahrenheit[i] <- temperature_fahrenheit
-	}
+						<p>We are doing joins again. The best part of it is that Tableau can open data from different sources and formats, and merge them into one single entity (provided the keys are the same).</p>
 
-	fahrenheit
-				</code>
-			</pre>
+						<h4>To do that:</h4>
+						<ul>
+							<li>Open up GlobalSuperStoreOrders2016.xlsx one more time within Tableau and drag the <strong>Orders</strong> sheet into the main area.</li>
+							<li>Add <strong>People</strong> into the mix.</li>
+							<ul>
+								<li><img src="img/tableau-joins-01.png" class="img-fluid" /></li>
+							</ul>
+							<li>You can now use joins between two tables. Tableau automatically maps matching columns for you. You can change the columns as you see above.</li>
+							<li>It is also possible to create joins across data sources.</li>
+							<ul>
+								<li>Add GlobalSuperStoreOrders2016.csv into the mix, and you will see the joins which you've seen before. This time, it will be <strong>Order ID</strong>.</li>
+							</ul>
+							<li>You can do custom split on a column for text. This is similar to Excel by clicking on the dropdown menu and choosing <strong>Custom Split</strong>.</li>
+							<ul>
+								<li><img src="img/tableau-split-01.png" class="img-fluid" /></li>
+							</ul>
+						</ul>
+					</div>
 
-			<h4>Things to note:</h4>
-			<ul>
-				<li><code>numeric()</code> type-casting to double: <a href="https://www.rdocumentation.org/packages/base/versions/3.6.0/topics/numeric">https://www.rdocumentation.org/packages/base/versions/3.6.0/topics/numeric</a></li>
-				<li>This is one way to do things. The activity is suggesting using another method.</li>
-			</ul>
+					<div id="06-Stu_FIFAPlayers" class="student-block">
+						<h3>06-Stu_FIFAPlayers: Your Turn</h3>
+					</div>
+					<div id="07-Stu_UltimateCandy" class="student-block">
+						<h3>07-Stu_UltimateCandy: Your Turn</h3>
 
-			<pre>
-				<code>
-	fahrenheit2 <- sapply(celsius, toFahrenheit)
-	fahrenheit2
-				</code>
-			</pre>
+						<p>There are different styling tools for you to use within Tableau for graphs:</p>
 
-			<h4>Things to note:</h4>
+						<img src="img/tableau-styletool-01.png" class="img-fluid" />
 
-			<ul>
-				<li>There is a similar function in Pandas, also called <code>apply</code>.</li>
-				<li>We use <code>apply</code> to avoid explicit uses of loops.</li>
-				<li>There are 3 in R: <code>apply</code>, <code>sapply</code> and <code>lapply</code>:</li>
-				<ul>
-					<li>apply(X, MARGIN, FUN)</li>
-					<ul>
-						<li>~X: an array or matrix</li>
-						<li>~MARGIN: perform manipulation on rows (1) or columns (2) or both (c(1,2)).</li>
-						<li>~FUN: Function to apply to. Works similarly to Javascript's callback functions.</li>
-					</ul>
-					<li>lapply(X, FUN)</li>
-					<ul>
-						<li>"l" in lapply() stands for list. It returns lists.</li>
-						<li>~lapply() does not need a margin.</li>
-						<li>~FUN: Function to apply to. Works similarly to Javascript's callback functions.</li>
-					</ul>
-					<li>sapply(X, FUN)</li>
-					<ul>
-						<li>Same as lapply but returns a vector.</li>
-					</ul>
-				</ul>
-				<li>All <code>apply</code> functions iterate and perform functions to each element in the vector or list.</li>
-			</ul>
+						<ul>
+							<li><strong>Color</strong>: Modifies the color of the elements. Self-explanatory.</li>
+							<li><strong>Size</strong>: Modifies the size of the elements. Self-explanatory.</li>
+							<li><strong>Labels</strong>: Text beside points to describe the data.</li>
+							<li><strong>Detail</strong> and <strong>Tooltip</strong>: Almost like popups where it only appears when you hover the data point.</li>
+							<li><strong>Shape</strong>: Modifies the shape of the elements. Self-explanatory.</li>
+						</ul>
 
-		</div>
+						<p>To use them, drag and drop.</p>
+					</div>
 
-		<div id="05-School_Tibble" class="student-block">
-			<h3>05-School_Tibble: Your Turn</h3>
+					<div id="08-Ins_Storytelling" class="instructor-block">
+						<h3>08-Ins_Storytelling</h3>
 
-			<h4>Things to note:</h4>
-			<ul>
-				<li><code>left_join(students, schools, by=c("school_name"))</code> <a href="https://www.rdocumentation.org/packages/dplyr/versions/0.7.8/topics/join">https://www.rdocumentation.org/packages/dplyr/versions/0.7.8/topics/join</a></li>
-			</ul>
-		</div>
+						<p>Storytelling is unique to Tableau, where we have a bunch of text-boxes on top for this view for presentation:</p>
 
-          <div id="project-2" class="student-block">
-            <h3>Project 2: Group effort</h3>
-            <p>Give a short description of your proposals in class today.</p>
-          </div>
+						<img src="img/tableau-storytelling-01.png" class="img-fluid"/>
 
+						<p>Each tab points to a new visualization within the workbook.</p>
+
+						<p>You can create your own story at the bottom left of the application here:</p>
+
+						<img src="img/tableau-newstory-01.png" class="img-fluid"/>
+
+						<p>Captions appear at the top of the application. You can add or edit. Create your worksheet first, then drag and drop from the left sidebar into the layout.</p>
+					</div>
+
+					<div id="09-Stu_DegreesPay" class="student-block">
+						<h3>09-Stu_DegreesPay: Your Turn</h3>
+					</div>
 
 				</div> <!-- end #main-content -->
 
@@ -273,12 +262,18 @@
 				<div id="right-sb" class="col-md-4">
 					<div id="right-sb-nav" class="list-group" id="toc" role="tablist">
 					  <a class="list-group-item list-group-item-action active"  href="#objectives" role="tab">Objectives</a>
-					  <a class="list-group-item list-group-item-action"  href="#01-Stu_UFO" role="tab">01-Stu_UFO</a>
-					  <a class="list-group-item list-group-item-action"  href="#02-Ins_Tibbles" role="tab">02-Ins_Tibbles</a>
-					  <a class="list-group-item list-group-item-action"  href="#02_Stu_RBasics" role="tab">03-Stu_Tibbles_and_Tibbles</a>
-					  <a class="list-group-item list-group-item-action"  href="#03_Ins_Vectors" role="tab">04-Ins_Apply</a>
-					  <a class="list-group-item list-group-item-action"  href="#05-School_Tibble" role="tab">05-School_Tibble</a>
-					  <a class="list-group-item list-group-item-action"  href="#project-2" role="tab">Project 2</a>
+					  <a class="list-group-item list-group-item-action"  href="#why-learn" role="tab">why-learn</a>
+					  <a class="list-group-item list-group-item-action"  href="#tableau_installation" role="tab">Tableau Installation</a>
+					  <a class="list-group-item list-group-item-action"  href="#01-Ins_LoadingData" role="tab">01-Ins_LoadingData</a>
+					  <a class="list-group-item list-group-item-action"  href="#02-Ins_BasicVisuals" role="tab">02-Ins_BasicVisuals</a>
+					  <a class="list-group-item list-group-item-action"  href="#03-Stu_Exploration" role="tab">03-Stu_Exploration</a>
+					  <a class="list-group-item list-group-item-action"  href="#04-Stu_NoShow" role="tab">04-Stu_NoShow</a>
+					  <a class="list-group-item list-group-item-action"  href="#05-Ins_EasyJoins" role="tab">05-Ins_EasyJoins</a>
+					  <a class="list-group-item list-group-item-action"  href="#06-Stu_FIFAPlayers" role="tab">06-Stu_FIFAPlayers</a>
+					  <a class="list-group-item list-group-item-action"  href="#07-Stu_UltimateCandy" role="tab">07-Stu_UltimateCandy</a>
+					  <a class="list-group-item list-group-item-action"  href="#08-Ins_Storytelling" role="tab">08-Ins_Storytelling</a>
+
+					  <a class="list-group-item list-group-item-action"  href="#09-Stu_DegreesPay" role="tab">09-Stu_DegreesPay</a>
 					</div>
 				
 				</div>

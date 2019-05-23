@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Jonathan Moo's Github Bio</title>
+
+
+		<link rel='stylesheet' id='bootstrap-css'  href='../../css/bootstrap.min.css' type='text/css' media='all' />
+		<link rel='stylesheet' id='bootstrap-grid-css'  href='../../css/bootstrap-grid.min.css' type='text/css' media='all' />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+   integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+   crossorigin=""/>
+		<link rel='stylesheet' id='custom-css'  href='../../css/style.css' type='text/css' media='all' /> 
+		<script src="https://d3js.org/d3.v5.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.9.1/d3-tip.js"></script>
+		<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+     <!-- Make sure you put this AFTER Leaflet's CSS -->
+     <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+       integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+       crossorigin=""></script>
+	</head>
+
+	<body>
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<a class="navbar-brand" href="#">Jonathan's Github Page</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active">
+						<a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Lessons</a>
+						<div class="dropdown-menu">
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/11.2/index.html">11.2 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/11.3/index.html">11.3 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/12.1/index.html">12.1 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/12.3/index.html">12.3 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/13.1/index.html">13.1 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/13.2/index.html">13.2 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/13.3/index.html">13.3 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/14.1/index.html">14.1 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/14.2/index.html">14.2 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/14.3/index.html">14.3 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/15.1/index.html">15.1 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/15.2/index.html">15.2 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/15.3/index.html">15.3 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/16.1/index.html">16.1 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/16.2/index.html">16.2 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/16.3/index.html">16.3 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/17.1/index.html">17.1 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/17.2/index.html">17.2 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/17.3/index.html">17.3 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/18.1/index.html">18.1 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/18.2/index.html">18.2 Ref</a>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</nav>
+		<div class="container-fluid">
+			<div class="row">
+				<div id="main-content" class="col-md-8">
+					<div class="objective-block">
+						<h3 id="objectives">Objectives For Lesson 18.2</h3>
+
+						<ul>
+							<li>R Programming</li>
+              
+				            <li>Project 2</li>
+						</ul>
+
+					</div>
+
+          <div id="01-Stu_UFO" class="student-block">
+            <h3>01-Stu_UFO: Warmup</h3>
+            
+            <p>We are revisiting our previous lesson with this activity. We are going to be using a lot of pipe operators.</p>
+
+            <h4>Why pipe operators?</h4>
+
+            <p>It is fast to get quick analysis about something. For example, assuming the variable <code>ufo</code> is a tibble (dataframe):</p>
+
+            <pre>
+            	<code>
+	ufo %>% 
+		group_by(state) %>% 
+		summarise(avg.duration = mean(`duration (seconds)`)) %>% 
+		arrange(desc(avg.duration)) 
+            	</code>
+            </pre>
+
+            <p>Pipes allow you to get the result without the hassle of assigning variables to things. You can see how descending order is done by <code>arrange(desc(avg.duration))</code>. Documentation for sorting is found here: <a href="https://dplyr.tidyverse.org/reference/arrange.html">https://dplyr.tidyverse.org/reference/arrange.html</a></p>
+          </div>
+
+        <div id="02-Ins_Tibbles" class="instructor-block">
+            <h3>02-Ins_Tibbles</h3>
+
+            <p>Since tibbles are essentially data frames, we want to create one by ourselves.</p>
+
+            <pre>
+            	<code>
+	call.centers.tb <- 
+	  tibble(
+	    City = c(
+	      "Dhaka",
+	      "Franklin",
+	      "Dublin",
+	      "Stuttgart"
+	    ),
+	    Country = c(
+	      "Bangladesh",
+	      "United States",
+	      "Ireland",
+	      "Deutschland"
+	    ),
+	    Population = c(
+	      14400000,
+	      74794,
+	      527612,
+	      612441 
+	    ),
+	    Square.Miles = c(
+	      118.3,
+	      30.12,
+	      44.4,
+	      80.06
+	    ),
+	    Population.Density = Population/Square.Miles,
+	    Employees.Needed = Population.Density/1000
+	  )
+            	</code>
+            </pre>
+
+            <h4>Remember!</h4>
+            <ul>
+            	<li>Dot notation doesn't exist in R. In Python (Pandas), we would've named it like <code>call_centers_df</code>.</li>
+            	<li>There is a <code>tibble</code> function to create tibbles from <em>column</em> vectors.</li>
+            	<ul>
+            		<li>You should read the code top down as a table from the example above.</li>
+            	</ul>
+            	<li>You can use <code>frame_data</code> function as well by manually passing the column names and row vectors. But <code>frame_data</code> is getting deprecated, so use <code>tibble</code>.</li>
+            </ul>
+
+            <h4>Another way to declare a tibble</h4>
+
+            <pre>
+            	<code>
+	market.research.tb <- tribble(
+	  ~Group, ~Interest, ~Show.Interest.Types, ~Age.Range, ~Retention,
+	  "A", "Low", c("animated", "comedy", "drama"), "14-17", 0.12,
+	  "B", "High", c("action", "suspenseful", "edgy"), "18-35", 0.87,
+	  "C", "Medium", c("current events", "reality", "crime", "mystery"), "36-65", 0.37,
+	  "D", "Low", c("current events", "crime", "thriller"), "66-99", 0.01
+	)
+
+	market.research.tb
+            	</code>
+            </pre>
+
+            <h5>Things to note:</h5>
+            <ul>
+            	<li>Notice the tilde(~) beside the column names? That's how R recognizes column headers.</li>
+            	<li>Internally, R will count the number of column names, and map it to the delimited data by commas accordingly.</li>
+            	<li>Using the function <code>names</code> will extract the column headers, such as <code>names(market.research.tb)</code></li>
+            	<li>Use <code>getwd()</code> to find the path of your running code.</li>
+            	<li>Use <code>setwd()</code>, with a string path within the function to set the working directory for your R script.</li>
+            	<li>CSVs are comma-delimited data, TSVs are tab-delimited data.</li>
+            	<li>We use <code>read_tsv</code> to read TSV files into tibbles.</li>
+            </ul>
+
+        </div>
+
+        <div id="03-Stu_Tibbles_and_Tibbles" class="student-block">
+			<h3>03-Stu_Tibbles_and_Tibbles: Your Turn</h3>
+			<ul>
+				<li>To add rows: <code>add_row(cart_rental.tb, name="Thomas", current_age=15, years_left=25-current_age)</code></li>
+				<ul>
+					<li>The first parameter is the tibble itself, then the subsequent are the column names to the data.</li>
+				</ul>
+				<li>To add columns: <code>add_column(Rank=1:5)</code></li>
+				<ul>
+					<li>Columns need vectors.</li>
+				</ul>
+			</ul>
+		</div>
+
+		<div id="04-Ins_Apply" class="instructor-block">
+			<h3>04-Ins_Apply</h3>
+
+			<p>We are given some code here:</p>
+
+			<pre>
+				<code>
+	toFahrenheit <- function(temperature) {
+	  fahrenheit <- temperature * 1.8 + 32
+	  return(fahrenheit)
+	}
+
+	celsius <- c(0, -2, 0, 5.2, 5.4)
+
+	fahrenheit <- numeric()
+	for (i in 1:length(celsius)) {
+	  temperature_fahrenheit <- toFahrenheit(celsius[i])
+	  fahrenheit[i] <- temperature_fahrenheit
+	}
+
+	fahrenheit
+				</code>
+			</pre>
+
+			<h4>Things to note:</h4>
+			<ul>
+				<li><code>numeric()</code> type-casting to double: <a href="https://www.rdocumentation.org/packages/base/versions/3.6.0/topics/numeric">https://www.rdocumentation.org/packages/base/versions/3.6.0/topics/numeric</a></li>
+				<li>This is one way to do things. The activity is suggesting using another method.</li>
+			</ul>
+
+			<pre>
+				<code>
+	fahrenheit2 <- sapply(celsius, toFahrenheit)
+	fahrenheit2
+				</code>
+			</pre>
+
+			<h4>Things to note:</h4>
+
+			<ul>
+				<li>There is a similar function in Pandas, also called <code>apply</code>.</li>
+				<li>We use <code>apply</code> to avoid explicit uses of loops.</li>
+				<li>There are 3 in R: <code>apply</code>, <code>sapply</code> and <code>lapply</code>:</li>
+				<ul>
+					<li>apply(X, MARGIN, FUN)</li>
+					<ul>
+						<li>~X: an array or matrix</li>
+						<li>~MARGIN: perform manipulation on rows (1) or columns (2) or both (c(1,2)).</li>
+						<li>~FUN: Function to apply to. Works similarly to Javascript's callback functions.</li>
+					</ul>
+					<li>lapply(X, FUN)</li>
+					<ul>
+						<li>"l" in lapply() stands for list. It returns lists.</li>
+						<li>~lapply() does not need a margin.</li>
+						<li>~FUN: Function to apply to. Works similarly to Javascript's callback functions.</li>
+					</ul>
+					<li>sapply(X, FUN)</li>
+					<ul>
+						<li>Same as lapply but returns a vector.</li>
+					</ul>
+				</ul>
+				<li>All <code>apply</code> functions iterate and perform functions to each element in the vector or list.</li>
+			</ul>
+
+		</div>
+
+		<div id="05-School_Tibble" class="student-block">
+			<h3>05-School_Tibble: Your Turn</h3>
+
+			<h4>Things to note:</h4>
+			<ul>
+				<li><code>left_join(students, schools, by=c("school_name"))</code> <a href="https://www.rdocumentation.org/packages/dplyr/versions/0.7.8/topics/join">https://www.rdocumentation.org/packages/dplyr/versions/0.7.8/topics/join</a></li>
+			</ul>
+		</div>
+
+          <div id="project-2" class="student-block">
+            <h3>Project 2: Group effort</h3>
+            <p>Give a short description of your proposals in class today.</p>
+          </div>
+
+
+				</div> <!-- end #main-content -->
+
+
+				<div id="right-sb" class="col-md-4">
+					<div id="right-sb-nav" class="list-group" id="toc" role="tablist">
+					  <a class="list-group-item list-group-item-action active"  href="#objectives" role="tab">Objectives</a>
+					  <a class="list-group-item list-group-item-action"  href="#01-Stu_UFO" role="tab">01-Stu_UFO</a>
+					  <a class="list-group-item list-group-item-action"  href="#02-Ins_Tibbles" role="tab">02-Ins_Tibbles</a>
+					  <a class="list-group-item list-group-item-action"  href="#02_Stu_RBasics" role="tab">03-Stu_Tibbles_and_Tibbles</a>
+					  <a class="list-group-item list-group-item-action"  href="#03_Ins_Vectors" role="tab">04-Ins_Apply</a>
+					  <a class="list-group-item list-group-item-action"  href="#05-School_Tibble" role="tab">05-School_Tibble</a>
+					  <a class="list-group-item list-group-item-action"  href="#project-2" role="tab">Project 2</a>
+					</div>
+				
+				</div>
+			</div> <!-- end .row -->
+			
+		</div> <!-- end .container-fluid -->
+
+		<footer>
+			<script type="text/javascript" src="../../js/jquery-3.3.1.min.js"></script>
+			<script type="text/javascript" src="../../js/bootstrap.min.js"></script>
+
+			<script type="text/javascript">
+
+			</script>
+
+      <script type="text/javascript" src="../../js/config.js"></script>
+      <style>
+pre {
+  background-color: black;
+  color: white;
+}
+
+div[id^="map-"]{
+  height:500px;
+}
+      </style>
+
+		</footer>
+
+	</body>
+
+
+</html>
