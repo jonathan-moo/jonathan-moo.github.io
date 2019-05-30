@@ -77,6 +77,10 @@
 
 						<p>Tableau is an enterprise visualization software. It takes most data sources and creates visualizations without the need for coding. Most business or data analyst would have some experience in this software.</p>
 
+						<p>In a nutshell, Tableau is very good with numbers. Financial reports and metrics may work well with Tableau. But for anything else, you'll need a custom dashboard.</p>
+
+						<p>Tableau assumes the data to be <strong>CLEAN</strong>. It is able to do filtering and stuff, but you'll have to make sure the source data is clean overall.</p>
+
 						<h4>For some reason, it's not working in my new Macbook Pro. Probably the file format was too old.</h4>
 						<p>Please check to see if it is working for you. If not, download the file here and try it: <a href="assets/GlobalSuperstoreOrders2016.xlsx">GlobalSuperstoreOrders2016.xlsx</a></p>
 						
@@ -96,6 +100,7 @@
 
 						<h4>Things to note:</h4>
 						<ul>
+							<li>Visualizations are dynamic. There isn't only one day to do things, but we teach you one way so that you can experiment by yourselves.</li>
 							<li>Tableau can connect to data files (CSV, XLS, and JSON), servers (MySQL, MongoDB, and Google Cloud), and many types of sources.</li>
 							<li>You can do joins from different sources.</li>
 							<li>Open the Excel file (GlobalSuperstoreOrders2016.xls) in your activity.</li>
@@ -184,10 +189,92 @@
 
 					<div id="03-Stu_Exploration" class="student-block">
 						<h3>03-Stu_Exploration: Your Turn</h3>
+
+						<div id="03-toggle">
+							<h4>Recreating the visualizations</h4>
+							<h5>Customers with the highest sales amount.</h5>
+							<ul>
+								<li>This data purely comes from <strong>Orders</strong>.</li>
+								<li>Drag <strong>Customer Name</strong> to <strong>Rows</strong> and <strong>Sales</strong> to <strong>Columns</strong>.</li>
+								<li>Click on the <strong>Sales</strong> pill, select <strong>Measure</strong>, then <strong>Sum</strong> aggregates the data into a sum.</li>
+								<li>To sort, click on the sort button.</li>
+								<li>If it shows up as a regular bar chart, click on the graph type to make it horizontal instead of vertical or the right. Optionally, you can click on the "Swap Rows and Columns" button beside the sort buttons.</li>
+							</ul>
+
+							<h5>Most profitable customers:</h5>
+							<ul>
+								<li>Do the above but with <strong>Profits</strong> instead.</li>
+								<li>To adjust the axis, right click at the bottom and select <strong>Edit Axis</strong>.</li>
+								<li>Adjust the range of the values to remove negatives.</li>
+							</ul>
+
+							<h5>States with the highest average profit</h5>
+							<ul>
+								<li>Do the same above, but use <strong>States</strong> instead of <strong>Customer Name</strong>.</li>
+								<li>Under the <strong>Profit</strong> pill, select <strong>Average</strong> under <strong>Measure</strong>.</li>
+								<li>Filter your results to United States by dragging the <strong>Country</strong> dimension into <strong>Filters</strong>.</li>
+							</ul>
+
+							<h5>Monthly Timeline</h5>
+							<ul>
+								<li>Drag <strong>Sales</strong> to <strong>Rows</strong>, and <strong>Order Date</strong> to <strong>Columns</strong>.</li>
+								<li>Click on the <strong>Order Date</strong> pill and select <strong>Month</strong>.</li>
+							</ul>
+
+							<h5>Profit By Region And Product Category</h5>
+							<ul>
+								<li>Drag both <strong>Category</strong> and <strong>Region</strong> to <strong>Columns</strong>.</li>
+								<ul>
+									<li>The position of the items are important.</li>
+								</ul>
+								<li>Look for the <strong>side-by-side</strong> chart under the <strong>Show Me</strong> option.</li>
+								<li>Filter your results to United States.</li>
+							</ul>
+						</div>
+
+						<button type="button" class="btn btn-primary" onclick='$("#03-toggle").toggle();'>Show/Hide Hints</button>
 					</div>
 
 					<div id="04-Stu_NoShow" class="student-block">
 						<h3>04-Stu_NoShow: Your Turn</h3>
+
+						<p>This time, you will be doing visualizations on the <code>no_shows.csv</code> file.</p>
+
+						<div id="04-toggle">
+							<h5>Line Chart which compares ages to the total number of appointments.</h5>
+							<ul>
+								<li>Drag <strong>Age</strong> in <strong>Columns</strong> and <strong>Number Of Records</strong> into <strong>Rows</strong>.</li>
+								<li>Switch <strong>Age</strong> into a dimension by clicking on the pill and selecting <strong>Dimension</strong>.</li>
+								<li>To split the results by gender, drag <strong>Gender</strong> into <strong>Rows</strong>.</li>
+								<li>To get no-show appointments, drag <strong>No-show</strong> to <strong>Columns</strong>.</li>
+							</ul>
+
+							<h5>No-shows By Neighborhood</h5>
+							<ul>
+								<li>Drag <strong>No-show</strong> and <strong>Number of Records</strong> to Columns, and <strong>Neighborhoods</strong> to <strong>Rows</strong>.</li>
+							</ul>
+
+							<h5>No-shows By Day of week</h5>
+							<ul>
+								<li>Drag <strong>Scheduled Day</strong> to <strong>Columns</strong> and <strong>Number of Records</strong> to <strong>Rows</strong>.</li>
+								<li>Select <strong>Weekday</strong> under the <strong>Scheduled Day</strong> pill.</li>
+								<li>To get a bar chart, select the <strong>Stacked Bar Chart</strong> option under <strong>Show Me</strong>.</li>
+								<li>Drag the <strong>No-show</strong> dimension under <strong>Marks</strong> on the left of the graph. The visuals will display accordingly.</li>
+							</ul>
+
+							<h5>No. of diabetics by gender and across age groups</h5>
+							<ul>
+								<li>Drag <strong>Diabetes</strong> and <strong>Age</strong> into <strong>Columns</strong> and <strong>Gender</strong> and <strong>Number of Records</strong> into <strong>Rows</strong>.</li>
+								<li>We don't want results from the people who doesn't have diabetes, so we need to filter <strong>Diabetes</strong> to 'Yes'.</li>
+							</ul>
+
+							<h5>No. of alcoholisms by gender and across age groups</h5>
+							<ul>
+								<li>Exact same steps for diabetic problems.</li>
+							</ul>
+						</div>
+
+						<button type="button" class="btn btn-primary" onclick='$("#04-toggle").toggle();'>Show/Hide Hints</button>
 					</div>
 
 
@@ -217,6 +304,49 @@
 
 					<div id="06-Stu_FIFAPlayers" class="student-block">
 						<h3>06-Stu_FIFAPlayers: Your Turn</h3>
+
+						<div id="06-toggle">
+							<h5>Before we begin:</h5>
+							<ul>
+								<li>Open up the <code>PlayerAttributeData.csv</code> in Tableau, and drag it into the main panel.</li>
+								<li>Drag <code>PlayerPersonalData.csv</code> into the main panel as well.</li>
+								<li>Make sure both of them are in <strong>inner join</strong>.</li>
+							</ul>
+
+							<h5>Comparing Potential and Overall ability</h5>
+							<ul>
+								<li>Drag <strong>Overall</strong> and <strong>Potential</strong> into <strong>Columns</strong>, and <strong>Name</strong> to <strong>Rows</strong>.</li>
+								<li>Change <strong>SUM</strong> to <strong>AVG</strong>.</li>
+								<li>Sort them accordingly.</li>
+							</ul>
+
+							<h5>Comparing Aggressive Clubs</h5>
+							<ul>
+								<li>Drag <strong>Aggression</strong> into <strong>Columns</strong>, and <strong>Club</strong> into <strong>Rows</strong>.</li>
+								<li>Filter out the <strong>NULL</strong> value within the dataset.</li>
+							</ul>
+
+							<h5>Average Acceleration by Country, and Number of Records for each Country</h5>
+							<ul>
+								<li>Drag <strong>Acceleration</strong> and <strong>Number of Records</strong> into <strong>Columns</strong>, and <strong>Nationality</strong> into <strong>Rows</strong>.</li>
+								<li>Swap the <strong>SUM</strong> to <strong>AVG</strong> for <strong>Acceleration</strong>.</li>
+							</ul>
+
+							<h5>Average Long Passing By Country, and Number Of Players By Country</h5>
+							<ul>
+								<li>Drag <strong>Nationality</strong> into <strong>Columns</strong>, and <strong>Long passing</strong> and <strong>Number Of Records</strong> into <strong>Rows</strong>.</li>
+								<li>To change the <strong>Mark Type</strong> into a line graph for <strong>Number Of Records</strong>, select the <strong>Number Of Records</strong> under <strong>Rows</strong>, and select the <strong>Mark Type</strong>.</li>
+							</ul>
+
+							<h5>Age vs Potential</h5>
+							<ul>
+								<li>Drag <strong>Age</strong> into <strong>Columns</strong>, and <strong>Potential</strong> into <strong>Rows</strong>.</li>
+								<li>Make sure that <strong>Age</strong> is a <strong>Dimension</strong>.</li>
+								<li>Select <strong>AVG</strong> for <strong>Potential</strong>.</li>
+							</ul>
+						</div>
+
+						<button type="button" class="btn btn-primary" onclick='$("#06-toggle").toggle();'>Show/Hide Hints</button>
 					</div>
 					<div id="07-Stu_UltimateCandy" class="student-block">
 						<h3>07-Stu_UltimateCandy: Your Turn</h3>
@@ -234,6 +364,32 @@
 						</ul>
 
 						<p>To use them, drag and drop.</p>
+
+						<div id="07-toggle">
+							<h5>Win Percentage of Candies, and Chocolate Vs Fruity</h5>
+							<ul>
+								<li>Drag <strong>Competitor Name</strong> into <strong>Rows</strong>, and 2 <strong>Winpercent</strong> pills into Columns.</li>
+								<li>Determine that the left chart is going to be chocolate, while the right is going to be fruity. It's up to you.</li>
+								<li>In the <strong>Data Source</strong> tab, both <strong>Chocolate</strong> and <strong>Fruity</strong> hold <code>true</code> or <code>false</code>.</li>
+								<li>Select the left chart by clicking on the corresponding <strong>Winpercent</strong> pill.</li>
+								<li>Drag <strong>Chocolate</strong> into the <strong>Marks</strong> panel, and unto the <strong>Color</strong> button. You will see a <code>True</code> and <code>False</code> tab on the right.</li>
+								<li>Do the same for <strong>Fruity</strong>.</li>
+							</ul>
+
+							<h5>Scatterplot comparing sugar % vs win % for chocolates</h5>
+							<ul>
+								<li>Drag <strong>Winpercent</strong> into <strong>Columns</strong>, and <strong>Sugarpercent</strong> into <strong>Rows</strong>.</li>
+								<li>To delineate <strong>Chocolate</strong>, drag the pill into <strong>Color</strong>.</li>
+								<li>To size the points according to price, drag <strong>Pricepercent</strong> into <strong>Size</strong>.</li>
+								<li>To add details to each data point, drag <strong>Competitorname</strong> into <strong>Detail</strong>.</li>
+							</ul>
+							<h5>Scatterplot comparing sugar % vs win % for fruity</h5>
+							<ul>
+								<li>Identical to the above.</li>
+							</ul>
+
+						</div>
+						<button type="button" class="btn btn-primary" onclick='$("#07-toggle").toggle();'>Show/Hide Hints</button>
 					</div>
 
 					<div id="08-Ins_Storytelling" class="instructor-block">
@@ -254,6 +410,51 @@
 
 					<div id="09-Stu_DegreesPay" class="student-block">
 						<h3>09-Stu_DegreesPay: Your Turn</h3>
+
+						<p>Create the visualizations first before you do your story board. You have 3 different CSVs, and they don't always corelate to each other.</p>
+
+						<div id="08-toggle">
+							<h5>Ivy League Grads vs State School Grads</h5>
+							<ul>
+								<li>Select <code>salaries-by-college-type</code> data as data source.</li>
+								<li>Drag <strong>School Type</strong> and <strong>Measure Names</strong> to <strong>Columns</strong>, and <strong>Measure Values</strong> to <strong>Rows</strong>.</li>
+								<ul>
+									<li><strong>Measure Names</strong> and <strong>Measure Values</strong> are automatically generated by Tableau: <a href="https://onlinehelp.tableau.com/current/pro/desktop/en-us/datafields_understanddatawindow_meavalues.htm">https://onlinehelp.tableau.com/current/pro/desktop/en-us/datafields_understanddatawindow_meavalues.htm</a></li>
+									<li><strong>Measure Names</strong> is a compilation of column names, while <strong>Measure Values</strong> is a compilation of data from the <strong>Measures</strong> panel.</li>
+								</ul>
+								<li>Remove unwanted columns under the <strong>Measure Values</strong> panel for a more concise report.</li>
+								<li>Change the results to <strong>AVG</strong> instead of <strong>SUM</strong>.</li>
+								<li>Color code the <strong>Measure Names</strong>.</li>
+							</ul>
+
+							<h5>California/NE vs other regions</h5>
+							<ul>
+								<li>Select <code>salaries-by-region</code> data as data source.</li>
+								<li>It's the same steps as above.</li>
+							</ul>
+
+							<h5>Higher Starting Salaries and Higher Salaries Mid-career Correlation</h5>
+							<ul>
+								<li>Select <code>degrees-that-pay-back</code> data as data source.</li>
+								<li>Drag <strong>Starting Median Salary</strong> into <strong>Columns</strong>, and <strong>Mid-Career Median Salary</strong> into <strong>Rows</strong>.</li>
+								<li>Drag <strong>Undergraduate Major</strong> to the <strong>Detail</strong> button.</li>
+								<li>Drag <strong>Percent change from Starting to Mid-Career Salary</strong> to the <strong>Size</strong> button.</li>
+							</ul>
+
+							<h5>Visualize median salaries by major, against mid-career midian, 75th percentile and 90th percentile salaries</h5>
+							<ul>
+								<li>Select <code>degrees-that-pay-back</code> data as data source.</li>
+								<li>Drag <strong>Measure Values</strong> into <strong>Columns</strong>, and <strong>Undergraduate Major</strong> into <strong>Rows</strong>.</li>
+								<li>Remove unwanted columns under the <strong>Measure Values</strong> panel for a more concise report.</li>
+								<li>Drag <strong>Measured Names</strong> into the <strong>Color</strong> button to color code it.</li>
+								<li>Drag <strong>Percent change ...</strong> into the <strong>Detail</strong> button.</li>
+								<li>Change the bar chart to circles under the drop-down menu in <strong>Marks</strong>.</li>
+							</ul>
+
+							<p>With the four sheets above, create a story under the <strong>New Story</strong> button and link the relevant sheets to the story boards.</p>
+						</div>
+
+						<button type="button" class="btn btn-primary" onclick='$("#08-toggle").toggle();'>Show/Hide Hints</button>
 					</div>
 
 				</div> <!-- end #main-content -->
@@ -298,6 +499,9 @@ pre {
 
 div[id^="map-"]{
   height:500px;
+}
+div[id$="-toggle"]{
+  display: none;
 }
       </style>
 
