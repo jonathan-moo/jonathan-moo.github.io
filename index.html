@@ -211,11 +211,141 @@
 
 					</div>
 
-					<div id="03-Stu-Groups_Sets" class="instructor-block">
+					<div id="03-Stu-Groups_Sets" class="student-block">
 						<h3>03-Stu-Groups_Sets: Your Turn</h3>
+
+						<div id="03-toggle">
+							<p>Again, there are many ways to do a certain task. We'll cover only one of the ways to get it done.</p>
+							<ul>
+								<li>Sort the dogs by weight via groups.</li>
+								<ul>
+									<li>Small Dogs < 20 pounds</li>
+									<li>Big Dogs > 60 pounds</li>
+									<li>Medium Dogs - between 20 to 60 pounds</li>
+								</ul>
+								<li>Create sets with the above conditions too.</li>
+							</ul>
+
+						</div>
+
+						<button type="button" class="btn btn-primary" onclick='$("#03-toggle").toggle();'>Show/Hide Hints</button>
 					</div>
 
+					<div id="04-Ins-Calculations" class="instructor-block">
+						<h3>04-Ins-Calculations</h3>
 
+						<p>Calculations are like macros in Excel. It allows you to put in custom statements such as <code>if</code> and <code>else</code>.</p>
+
+						<h4>Conditionals</h4>
+
+						<ul>
+							<li>Open up <code>GlobalSuperstoreOrders2016.xls</code>.</li>
+							<li>In one of the sheets, on the nav bar at the very top, look for <code>Analysis > Create Calculated Field</code>.</li>
+							<li>Put in your conditionals and it will create a field (Profit Color) for that.</li>
+							<ul>
+								<li><code>
+IF
+SUM([Profit]) > 50000
+THEN
+"Very Profitable"
+ELSEIF
+SUM([Profit]) < 0
+THEN
+"Unprofitable"
+ELSE
+"Not very profitable"
+END
+								</code></li>
+							</ul>
+							<li>Drag <strong>Sub-category</strong> into <strong>Columns</strong> and <strong>Profit</strong> into <strong>Rows</strong>.</li>
+							<li>Drag the newly created "Profit Color" field into <strong>Color</strong>, and Tableau will color code your visuals automatically according to your conditionals.</li>
+							<li>Tableau can deal with unknown quantities. Use this code instead:</li>
+							<ul>
+								<li><code>
+IIF(SUM([Profit]) > 50000, "Profit", "Loss", "Unknown")
+								</code></li>
+								<li>If quantity cannot be evaluated, let's say the data isn't clean and it isn't numeric, it will be labeled "Unknown".</li>
+							</ul>
+						</ul>
+
+						<h4>Count</h4>
+
+						<p>Counting the number of items in a column can be valuable, and Tableau offers this function.</p>
+
+						<ul>
+							<li>Drag <strong>Measured Names</strong> into <strong>Columns</strong>, and <strong>Category</strong> into <strong>Rows</strong>.</li>
+							<li>Drag <strong>Measure Values</strong> and <strong>Number Of Records</strong> into <strong>Text</strong>.</li>
+							<ul>
+								<li>As previously taught, "Number Of Records" count the number of rows in the dataset.</li>
+							</ul>
+							<li>You can also create another calculated field, and use the function <code>COUNT()</code>.</li>
+							<li>To count <strong>distinct</strong> values, use <code>COUNTD()</code>.</li>
+							<li>Drag <strong>Category</strong> into <strong>Columns</strong>, and the calculated fields into <strong>Rows</strong>. You can compare the values of count distinct versus count.</li>
+						</ul>
+
+						<h4>Difference</h4>
+
+						<p>Tableau allows you to create visualizations by differences.</p>
+
+						<p>To create a bar chart based on the changes between each day:</p>
+
+						<ul>
+							<li>Drag <strong>Order Date</strong> to <strong>Columns</strong> and change it to <strong>Day</strong>, and drag 2 <strong>Sales</strong> pills into <strong>Rows</strong>. You should get a bar chart.</li>
+							<li>Drag <strong>Category</strong> into <strong>Color</strong> to see the categories stacked against each other.</li>
+							<li>Select the right <strong>Sales</strong> pill and right-click on it. Select <code>Quick Table Calculation > Difference</code>.</li>
+							<li>Hover over one of the bars within the "Difference" chart and you'll see the difference in numbers between your current selection and the previous.</li>
+							<li>By default, Tableau compares against the previous day, but you can change it when you right-click the relevant pill and select <strong>Relative to</strong>.</li>
+						</ul>
+
+					</div>
+
+					<div id="05-Stu-Calculations" class="student-block">
+						<h3>05-Stu-Calculations: Your Turn</h3>
+
+					</div>
+
+					<div id="06-Ins-Maps" class="instructor-block">
+						<h3>06-Ins-Maps</h3>
+
+						<p>Maps are easy to create in Tableau:</p>
+
+						<ul>
+							<li><strong>Latitude</strong> goes to <strong>Rows</strong> because latitude lines run horizontally.</li>
+							<li><strong>Longitude</strong> goes to <strong>Columns</strong> because longitude lines run vertically.</li>
+							<li>Filter by country aka United States with the country pill.</li>
+							<li>Drag <strong>Profits</strong> into <strong>Color</strong>, and <strong>State</strong> into <strong>Details</strong>, and the profitability legend will appear on the right.</li>
+							<li>You can create your own calculated fields if you want:</li>
+							<ul>
+								<li><code>
+IF SUM([Profit]) > 0
+THEN 'Profitable'
+ELSE 'Unprofitable'
+END
+								</code></li>
+							</ul>
+							<li>Remember we did map layers with Plotly? It exists under <code>Map > Map Layers</code> on the navigation bar.</li>
+							<ul>
+								<li>As example, under the <strong>Data Layer</strong> on the left side bar, select <strong>Population Growth</strong>.</li>
+								<li>Switch the <strong>SUM(Profit)</strong> into size from color.</li>
+							</ul>
+						</ul>
+
+					</div>
+
+					<div id="07-Stu-Maps1" class="student-block">
+						<h3>07-Stu-Maps1: Your Turn</h3>
+
+					</div>
+
+					<div id="08-Stu-Maps2" class="student-block">
+						<h3>08-Stu-Maps2: Your Turn</h3>
+
+					</div>
+
+					<div id="09-Ins-Dashboard" class="instructor-block">
+						<h3>09-Ins-Dashboard</h3>
+
+					</div>
 
 
 				</div> <!-- end #main-content -->
@@ -229,14 +359,13 @@
 					  <a class="list-group-item list-group-item-action"  href="#01-Stu-Warmup" role="tab">01-Stu-Warmup</a>
 					  <a class="list-group-item list-group-item-action"  href="#02-Ins-Groups_Sets" role="tab">02-Ins-Groups_Sets</a>
 					  <a class="list-group-item list-group-item-action"  href="#03-Stu-Groups_Sets" role="tab">03-Stu-Groups_Sets</a>
-
-
-					  <a class="list-group-item list-group-item-action"  href="#04-Stu_NoShow" role="tab">04-Stu_NoShow</a>
-					  <a class="list-group-item list-group-item-action"  href="#05-Ins_EasyJoins" role="tab">05-Ins_EasyJoins</a>
-					  <a class="list-group-item list-group-item-action"  href="#06-Stu_FIFAPlayers" role="tab">06-Stu_FIFAPlayers</a>
-					  <a class="list-group-item list-group-item-action"  href="#07-Stu_UltimateCandy" role="tab">07-Stu_UltimateCandy</a>
-					  <a class="list-group-item list-group-item-action"  href="#08-Ins_Storytelling" role="tab">08-Ins_Storytelling</a>
-					  <a class="list-group-item list-group-item-action"  href="#09-Stu_DegreesPay" role="tab">09-Stu_DegreesPay</a>
+					  <a class="list-group-item list-group-item-action"  href="#04-Ins-Calculations" role="tab">04-Ins-Calculations</a>
+					  <a class="list-group-item list-group-item-action"  href="#05-Stu-Calculations" role="tab">05-Stu-Calculations</a>
+					  <a class="list-group-item list-group-item-action"  href="#06-Ins-Maps" role="tab">06-Ins-Maps</a>
+					  <a class="list-group-item list-group-item-action"  href="#07-Stu-Maps1" role="tab">07-Stu-Maps1</a>
+					  <a class="list-group-item list-group-item-action"  href="#08-Stu-Maps2" role="tab">08-Stu-Maps2</a>
+					  <a class="list-group-item list-group-item-action"  href="#09-Ins-Dashboard" role="tab">09-Ins-Dashboard</a>
+					  
 					</div>
 				
 				</div>
