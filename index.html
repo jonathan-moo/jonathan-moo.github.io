@@ -335,15 +335,70 @@ END
 					<div id="07-Stu-Maps1" class="student-block">
 						<h3>07-Stu-Maps1: Your Turn</h3>
 
+						<p>You're given earthquake data to try out.</p>
+
 					</div>
 
 					<div id="08-Stu-Maps2" class="student-block">
 						<h3>08-Stu-Maps2: Your Turn</h3>
 
+						<p>This is on unemployment.</p>
+
 					</div>
 
 					<div id="09-Ins-Dashboard" class="instructor-block">
 						<h3>09-Ins-Dashboard</h3>
+
+						<p>Dashboards are bird's eye view of analytics. Reports are generally based on dashboards, not story-telling.</p>
+
+						<p>To build a dashboard, we first build the visuals first in different sheets, and then we import them into the dashboard which we want by drag and drop.</p>
+
+					</div>
+
+					<div id="10-Stu-Dashboard" class="student-block">
+						<h3>10-Stu-Dashboard: Your Turn</h3>
+
+					</div>
+
+					<div id="11-Ins-LOD" class="instructor-block">
+						<h3>11-Ins-LOD: Level Of Detail Calculations</h3>
+
+						<p>We can introduce more data beneath the current level of visualization. Let's explain this phenonmenon with a map graph.</p>
+
+						<ul>
+							<li>Drag <strong>Latitude</strong> and <strong>Longitude</strong> to <strong>Rows</strong> and <strong>Columns</strong> respectively.</li>
+							<li>Filter for United States only.</li>
+							<li>Drag <strong>State</strong> into the <strong>Marks</strong> pane.</li>
+							<li>We want to create a sum of profits at the national level. However, the current level of visualization is at the state level (since we selected state), we can use a "Level Of Detail" (LOD) calculation to exclude state from the state summation. THis means, we are not summing the results for each state, but for the whole country.</li>
+							<ul>
+								<li>Create calculated field for LOD calculation with this code and label it "National Profit":</li>
+								<ul>
+									<li><code>{EXCLUDE [State] : SUM([Profit])}</code></li>
+								</ul>
+								<li>This exclude [State] from the level of detail. We can display on state on the surface and Tableau segregates the results into states automatically, but if we want to overwrite Tableau's innate calculations and aggregate all the state's data, we'll need to exclude [State].</li>
+								<li><strong>Aggregation versus Granulation</strong></li>
+								<ul>
+									<li>Aggregration means a higher, more abstract level, while Granulation means a lower, specific level. In our case, state is more granular than national level.</li>
+								</ul>
+							</ul>
+							<li>Create another calculated field called "Contribution to National Profit, State" with the following code:</li>
+							<ul>
+								<li><code>SUM([Profit]) / ATTR([National Profit]) * 100</code></li>
+								<li>This gives the percentage of profits relative to the national profit.</li>
+								<li>We created <strong>National Profit</strong> earlier with our calculated field.</li>
+							</ul>
+							<li>Drag "Contribution to National Profit, State" to <strong>Color</strong> and to <strong>Label</strong>, and <strong>National Profit</strong> to <strong>Tooltip</strong>.</li>
+							<li><strong>ATTR</strong> means attribute. An attribute <strong>MUST</strong> be consistent to all rows since this trait is part-and-parcel of the data. If it's not consistent, <strong>ATTR</strong> will return an asterisk.</li>
+							<ul>
+								<li>Does all states share <strong>National Profit</strong>? Then it's an attribute.</li>
+								<li>Does all states share the same state profit? No. so it's not an attribute.</li>
+							</ul>
+						</ul>
+
+					</div>
+
+					<div id="12-Stu-LOD" class="student-block">
+						<h3>12-Stu-LOD: Your Turn</h3>
 
 					</div>
 
@@ -365,7 +420,10 @@ END
 					  <a class="list-group-item list-group-item-action"  href="#07-Stu-Maps1" role="tab">07-Stu-Maps1</a>
 					  <a class="list-group-item list-group-item-action"  href="#08-Stu-Maps2" role="tab">08-Stu-Maps2</a>
 					  <a class="list-group-item list-group-item-action"  href="#09-Ins-Dashboard" role="tab">09-Ins-Dashboard</a>
-					  
+					  <a class="list-group-item list-group-item-action"  href="#10-Stu-Dashboard" role="tab">10-Stu-Dashboard</a>
+
+					  <a class="list-group-item list-group-item-action"  href="#11-Ins-LOD" role="tab">11-Ins-LOD</a>
+					  <a class="list-group-item list-group-item-action"  href="#12-Stu-LOD" role="tab">12-Stu-LOD</a>
 					</div>
 				
 				</div>
