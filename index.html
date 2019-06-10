@@ -56,6 +56,8 @@
 							<a class="dropdown-item" href="MIACOR201901DATA3/18.1/index.html">18.1 Ref</a>
 							<a class="dropdown-item" href="MIACOR201901DATA3/18.2/index.html">18.2 Ref</a>
 							<a class="dropdown-item" href="MIACOR201901DATA3/20.1/index.html">20.1 Ref</a>
+							<a class="dropdown-item" href="MIACOR201901DATA3/20.2/index.html">20.2 Ref</a>
+							<a class="dropdown-item" href="MIACOR201901DATA3/23.3/index.html">23.3 Ref</a>
 						</div>
 					</li>
 				</ul>
@@ -65,341 +67,78 @@
 			<div class="row">
 				<div id="main-content" class="col-md-8">
 					<div class="objective-block">
-						<h3 id="objectives">Objectives For Lesson 20.2</h3>
+						<h3 id="objectives">Objectives For Lesson 23.3</h3>
 
 						<ul>
-							<li>Tableau</li>
+							<li>Neural Networks & Deep Learning</li>
 						</ul>
 
 					</div>
 
-					<div id="why-learn" class="student-block">
-						<h3>Why Learn?</h3>
+					<div id="intro" class="instructor-block">
+						<h3>Introduction to Neural Networks</h3>
 
-						<p>Tableau is an enterprise visualization software. It takes most data sources and creates visualizations without the need for coding. Most business or data analyst would have some experience in this software.</p>
+						<p>Basically, neural nets were inspired by how our brains function:</p>
+						<ul>
+							<p>The neuron's axos is what it uses to send signals to other neurons.</p>
+							<p>Denrites receive information from the cell body.</p>
+							<p>Synapses are sensors that receive signals from other neurons.</p>
+						</ul>
 
-						<p>In a nutshell, Tableau is very good with numbers. Financial reports and metrics may work well with Tableau. But for anything else, you'll need a custom dashboard.</p>
+						<p>This is how our brains work:</p>
+						<ul>
+							<li>Brain sees an image through your eyes.</li>
+							<li>Your brain recognizes fur, pointy ears, whiskers.</li>
+							<li>Your brain then acknowledged that it is a cat (I know there are other things that identify a cat but let's keep our example simple).</li>
+						</ul>
 
-						<p>Tableau assumes the data to be <strong>CLEAN</strong>. It is able to do filtering and stuff, but you'll have to make sure the source data is clean overall.</p>
+						<p>Likewise, we mimic the overall behavior in our code to do the same thing:</p>
+						<ul>
+							<li>We scan a cat image into a computer.</li>
+							<li>The computer notices distinct vectors in on an image. Perhaps it identified fur, pointy ears, and whiskers like a humans do.</li>
+							<li>But unlike a human, computers are only good with numbers. So if it identifies fur, it means True or 1. Then pointy ears triggers another 1, and whiskers triggers another 1. If it doesn't notice anything, it means False or 0.</li>
+							<li>If all three parameters are 1, we could have a function that says if all 3 parameters are 1, it is a cat and we output as True. If not, False.</li>
+							<li>The entire system of taking inputs, and determining an output, as a single unit or entity, is called a <strong>perceptron</strong>. In-between, we have models or step-functions (activation function) to determine a result.</li>
+						</ul>
 
-						<h4>For some reason, it's not working in my new Macbook Pro. Probably the file format was too old.</h4>
-						<p>Please check to see if it is working for you. If not, download the file here and try it: <a href="assets/GlobalSuperstoreOrders2016.xlsx">GlobalSuperstoreOrders2016.xlsx</a></p>
+						<p>Of course, the example I give is simple. But if you want to classify if a skin imagery is cancerous or not, you have more than 100 million parameters to determine.</p>
+
+						<h4>Perceptron</h4>
+
+						<p>Actually, we are using perceptrons without realizing it:</p>
+						<ul>
+							<li>Logical operators</li>
+								<ul>
+									<li>AND, means all inputs must be True(1) to output True(1). Otherwise, False(0).</li>
+									<li>OR, means if any of the input is True(1), output True(1). Otherwise, False(0).</li>
+								</ul>
+						</ul>
+
+						<h4>Then, what is a neural network?</h4>
+
+						<p>Layers of neurons (perceptrons) connected together to form decisions or classification of results.</p>
 						
-					</div>
-
-					<div id="tableau_installation" class="student-block">
-						<h3>Install Tableau</h3>
-						
-						<p>You'll have to exchange your email address for Tableau to download Tableau here: <a href="https://public.tableau.com/s/">https://public.tableau.com/s/</a></p>
-
-						<p>Install the Tableau Public version because it's free. We're not going into the enterprise version, but majority of the features will be included.</p>
-
-					</div>
-
-					<div id="01-Stu-Warmup" class="student-block">
-						<h3>01-Stu-Warmup</h3>
-
-						<p>You're given a Tableau file, which contains some existing data and visualization. The objective is to create more visualizations and answer questions given within the instructions.</p>
-
-						<p><strong>There isn't any data source!</strong> This means there isn't a need to go into the "Data Sources" tab and look into the data.</p>
+						<p>The slides given by the school (slide 8) says that neurons are kind of similar to log regression. But we know that log regression gives decimals. <strong>Why use log regression rather simple True or False?</strong></p>
 
 						<div id="01-toggle">
-							<h4>ACT and # of doctorates awarded</h4>
-
-							<ul>
-								<li>Simply pair the ACT Composite 75th percentile score versus the average number of students receiving a doctorate degree.</li>
-							</ul>
-
-							<h4>% of federal grant aid given, by region</h4>
-
-							<ul>
-								<li>Simply pair the Geographic region versus the average percentage of freshmen receiving grant aid.</li>
-							</ul>
-
-							<h4>SAT scores & region</h4>
-							<ul>
-								<li>Compare geographical region against average SAT math and writing 75th percentile score.</li>
-							</ul>
-
-							<h4>Religous Affliations and Most Foreign Undergrads</h4>
-							<ul>
-								<li>Simply pair the Religious Affliation dimension against the Number of first-time grads - foreign countries.</li>
-							</ul>
-
-							<h4>States and # of foreign undergrads</h4>
-							<ul>
-								<li>Simply pair FIPS state code and Number of first-time grads - foreign countries.</li>
-							</ul>
-
-							<h4># of foreign undergrads vs highest degree offered at institution</h4>
-							<ul>
-								<li>Simply pair Highest degree offered (group) against Number of first-time grads - foreign countries.</li>
-							</ul>
-
-							<h4>Highest degree offered at institution & 4yr grad rate</h4>
-
-							<ul>
-								<li>Simply pair Highest degree offered (group) against average graduation rate.</li>
-							</ul>
-
-							<h4>SAT & Tuition</h4>
-
-							<ul>
-								<li>Simply pair SAT 75th percentile scores to the average tuition and fees for a single year.</li>
-							</ul>
+							<p>Because True or False gives us no room to correct and train our systems. It's either 100% correct or 0%. The highest value of a log is 1, and the lowest is 0 (remember your high school math?), and in-between are all decimals. If we know how close are we to True (1) or False (0) through decimals, we can correct models to achieve a better result.</p>
 						</div>
 
 						<button type="button" class="btn btn-primary" onclick='$("#01-toggle").toggle();'>Show/Hide Hints</button>
+
+						<h4>Backpropagation</h4>
+
+						<p>We feed errors rates into a system, then tweak our algorithms or parameters to improve accuracy. Intuitively, when you come to me to correct code, I always break it down and see what kind of errors took place. I fix an error at a time.</p>
+
+						<p>Similarly, this process works in deep learning. The difference is computers are mitigating errors on a larger scale.</p>
+						
 					</div>
 
-					<div id="02-Ins-Groups_Sets" class="instructor-block">
-						<h3>02-Ins-Groups_Sets</h3>
+					<div id="tensorflow-playground" class="instructor-block">
+						<h3>Tensorflow Playground</h3>
 
-						<p>We'll be grouping multiple members in a field into a group for aggregated results.</p>
-
-						<h4>Groups</h4>
-
-						<p>For example:</p>
-						<ul>
-							<li>Drag <strong>State</strong> and <strong>Postal Code</strong> into <strong>Rows</strong>.</li>
-							<li>Filter the results to United States.</li>
-							<li>Drag <strong>Profit</strong> into <strong>Text</strong> under <strong>Marks</strong>. The sum of the profits will appear according to the state and its corresponding postal code.</li>
-						</ul>
-
-						<p>Let's say you want to group two fields as a single entity. To do this, select two postal codes (hold Ctrl or Cmd), right click on them and choose <strong>Group</strong>. If you group two entities together, their profits aggregate as they combine.</p>
-
-						<p>Perhaps you want to uniquely identify the group which you've made. You can edit its alias by right-click and choose "Edit Alias".</p>
-
-						<p>By grouping, you can selectively identify segments which you want and focus on their results for your visualizations.</p>
-
-
-						<h4>Sets</h4>
-
-						<p>Sets allow us to group dimensions, and create a new column for the dataset. For example, we want to select sub-categories and place them under "Electronics".</p>
-
-						<ul>
-							<li>Drag <strong>Sub-Category</strong> into <strong>Rows</strong>, and <strong>Measure Names</strong> into <strong>Columns</strong>.</li>
-							<li>Select categories (by holding Ctrl or Cmd) which are electronics (Appliances, Copiers, Machines and Phones), and a mini menu will pop up.</li>
-							<li>In the mini menu, one of the tabs have a symbol with two circles, and if you hover over it, it will have a tooltip which indicates "Create Set". Click on it.</li>
-							<li>Name your set as "Electronics". After you're done, on the bottom left of the screen, your "Electronic" sets will appear as a dimension for you to use.</li>
-							<li>Drag that "Electronics" set into <strong>Rows</strong>, and a new column will appear.</li>
-							<ul>
-								<li><strong>IN</strong> indicates that the sub-category is within the "Electronics", while <strong>OUT</strong> indicates otherwise.</li>
-							</ul>
-						</ul>
-
-						<p>There are also other ways to create sets.</p>
-
-						<ul>
-							<li>Under "Dimensions" on the left panel, right-click "Sub-category" and hover over "Create". It will open a sub-menu and you can see "Set" from there.</li>
-							<li>Instead of selecting sub-categories, this time we'll create a set using conditionals. Select "Condition" on the tab when you create a "Set", and select the "By field" radio button.</li>
-							<li>Perhaps you want to segregate high profits from normal profits if the sum of the profits is above 50k. Do that with the conditionals and label it "High Profits".</li>
-							<li>Do the same with "Low Shipping" if the sum of the shipping cost is below 55k.</li>
-							<li>Drag both sets into <strong>Rows</strong>, and Tableau will tell you which sub categories give you high profits and low shipping.</li>
-						</ul>
-
-						<p>We can also combine sets to improve our results. This works so that we can modularize our work, and use some of our sets repeatedly for other things.</p>
-
-						<ul>
-							<li>Right click any of the sets you want to create a combined set with on the left side panel. "Create Combined Set" will pop up as an option.</li>
-							<li>Click on it, and you will be able to select two sets and combine with each other. Tableau will allow you to use joins to indicate what kind of conditions you want, but realistically, you want inner joins. Create "High Profits & Low Shipping" set.</li>
-							<li>Drag the new set into <strong>Rows</strong> and see the results.</li>
-						</ul>
-
-						<p>Your sets become a new dimension, and you can use that to augment your graphs just like any other dimensions.</p>
-
-
-					</div>
-
-					<div id="03-Stu-Groups_Sets" class="student-block">
-						<h3>03-Stu-Groups_Sets: Your Turn</h3>
-
-						<div id="03-toggle">
-							<p>Again, there are many ways to do a certain task. We'll cover only one of the ways to get it done.</p>
-							<ul>
-								<li>Sort the dogs by weight via groups.</li>
-								<ul>
-									<li>Small Dogs < 20 pounds</li>
-									<li>Big Dogs > 60 pounds</li>
-									<li>Medium Dogs - between 20 to 60 pounds</li>
-								</ul>
-								<li>Create sets with the above conditions too.</li>
-							</ul>
-
-						</div>
-
-						<button type="button" class="btn btn-primary" onclick='$("#03-toggle").toggle();'>Show/Hide Hints</button>
-					</div>
-
-					<div id="04-Ins-Calculations" class="instructor-block">
-						<h3>04-Ins-Calculations</h3>
-
-						<p>Calculations are like macros in Excel. It allows you to put in custom statements such as <code>if</code> and <code>else</code>.</p>
-
-						<h4>Conditionals</h4>
-
-						<ul>
-							<li>Open up <code>GlobalSuperstoreOrders2016.xls</code>.</li>
-							<li>In one of the sheets, on the nav bar at the very top, look for <code>Analysis > Create Calculated Field</code>.</li>
-							<li>Put in your conditionals and it will create a field (Profit Color) for that.</li>
-							<ul>
-								<li><code>
-IF
-SUM([Profit]) > 50000
-THEN
-"Very Profitable"
-ELSEIF
-SUM([Profit]) < 0
-THEN
-"Unprofitable"
-ELSE
-"Not very profitable"
-END
-								</code></li>
-							</ul>
-							<li>Drag <strong>Sub-category</strong> into <strong>Columns</strong> and <strong>Profit</strong> into <strong>Rows</strong>.</li>
-							<li>Drag the newly created "Profit Color" field into <strong>Color</strong>, and Tableau will color code your visuals automatically according to your conditionals.</li>
-							<li>Tableau can deal with unknown quantities. Use this code instead:</li>
-							<ul>
-								<li><code>
-IIF(SUM([Profit]) > 50000, "Profit", "Loss", "Unknown")
-								</code></li>
-								<li>If quantity cannot be evaluated, let's say the data isn't clean and it isn't numeric, it will be labeled "Unknown".</li>
-							</ul>
-						</ul>
-
-						<h4>Count</h4>
-
-						<p>Counting the number of items in a column can be valuable, and Tableau offers this function.</p>
-
-						<ul>
-							<li>Drag <strong>Measured Names</strong> into <strong>Columns</strong>, and <strong>Category</strong> into <strong>Rows</strong>.</li>
-							<li>Drag <strong>Measure Values</strong> and <strong>Number Of Records</strong> into <strong>Text</strong>.</li>
-							<ul>
-								<li>As previously taught, "Number Of Records" count the number of rows in the dataset.</li>
-							</ul>
-							<li>You can also create another calculated field, and use the function <code>COUNT()</code>.</li>
-							<li>To count <strong>distinct</strong> values, use <code>COUNTD()</code>.</li>
-							<li>Drag <strong>Category</strong> into <strong>Columns</strong>, and the calculated fields into <strong>Rows</strong>. You can compare the values of count distinct versus count.</li>
-						</ul>
-
-						<h4>Difference</h4>
-
-						<p>Tableau allows you to create visualizations by differences.</p>
-
-						<p>To create a bar chart based on the changes between each day:</p>
-
-						<ul>
-							<li>Drag <strong>Order Date</strong> to <strong>Columns</strong> and change it to <strong>Day</strong>, and drag 2 <strong>Sales</strong> pills into <strong>Rows</strong>. You should get a bar chart.</li>
-							<li>Drag <strong>Category</strong> into <strong>Color</strong> to see the categories stacked against each other.</li>
-							<li>Select the right <strong>Sales</strong> pill and right-click on it. Select <code>Quick Table Calculation > Difference</code>.</li>
-							<li>Hover over one of the bars within the "Difference" chart and you'll see the difference in numbers between your current selection and the previous.</li>
-							<li>By default, Tableau compares against the previous day, but you can change it when you right-click the relevant pill and select <strong>Relative to</strong>.</li>
-						</ul>
-
-					</div>
-
-					<div id="05-Stu-Calculations" class="student-block">
-						<h3>05-Stu-Calculations: Your Turn</h3>
-
-					</div>
-
-					<div id="06-Ins-Maps" class="instructor-block">
-						<h3>06-Ins-Maps</h3>
-
-						<p>Maps are easy to create in Tableau:</p>
-
-						<ul>
-							<li><strong>Latitude</strong> goes to <strong>Rows</strong> because latitude lines run horizontally.</li>
-							<li><strong>Longitude</strong> goes to <strong>Columns</strong> because longitude lines run vertically.</li>
-							<li>Filter by country aka United States with the country pill.</li>
-							<li>Drag <strong>Profits</strong> into <strong>Color</strong>, and <strong>State</strong> into <strong>Details</strong>, and the profitability legend will appear on the right.</li>
-							<li>You can create your own calculated fields if you want:</li>
-							<ul>
-								<li><code>
-IF SUM([Profit]) > 0
-THEN 'Profitable'
-ELSE 'Unprofitable'
-END
-								</code></li>
-							</ul>
-							<li>Remember we did map layers with Plotly? It exists under <code>Map > Map Layers</code> on the navigation bar.</li>
-							<ul>
-								<li>As example, under the <strong>Data Layer</strong> on the left side bar, select <strong>Population Growth</strong>.</li>
-								<li>Switch the <strong>SUM(Profit)</strong> into size from color.</li>
-							</ul>
-						</ul>
-
-					</div>
-
-					<div id="07-Stu-Maps1" class="student-block">
-						<h3>07-Stu-Maps1: Your Turn</h3>
-
-						<p>You're given earthquake data to try out.</p>
-
-					</div>
-
-					<div id="08-Stu-Maps2" class="student-block">
-						<h3>08-Stu-Maps2: Your Turn</h3>
-
-						<p>This is on unemployment.</p>
-
-					</div>
-
-					<div id="09-Ins-Dashboard" class="instructor-block">
-						<h3>09-Ins-Dashboard</h3>
-
-						<p>Dashboards are bird's eye view of analytics. Reports are generally based on dashboards, not story-telling.</p>
-
-						<p>To build a dashboard, we first build the visuals first in different sheets, and then we import them into the dashboard which we want by drag and drop.</p>
-
-					</div>
-
-					<div id="10-Stu-Dashboard" class="student-block">
-						<h3>10-Stu-Dashboard: Your Turn</h3>
-
-					</div>
-
-					<div id="11-Ins-LOD" class="instructor-block">
-						<h3>11-Ins-LOD: Level Of Detail Calculations</h3>
-
-						<p>We can introduce more data beneath the current level of visualization. Let's explain this phenonmenon with a map graph.</p>
-
-						<ul>
-							<li>Drag <strong>Latitude</strong> and <strong>Longitude</strong> to <strong>Rows</strong> and <strong>Columns</strong> respectively.</li>
-							<li>Filter for United States only.</li>
-							<li>Drag <strong>State</strong> into the <strong>Marks</strong> pane.</li>
-							<li>We want to create a sum of profits at the national level. However, the current level of visualization is at the state level (since we selected state), we can use a "Level Of Detail" (LOD) calculation to exclude state from the state summation. THis means, we are not summing the results for each state, but for the whole country.</li>
-							<ul>
-								<li>Create calculated field for LOD calculation with this code and label it "National Profit":</li>
-								<ul>
-									<li><code>{EXCLUDE [State] : SUM([Profit])}</code></li>
-								</ul>
-								<li>This exclude [State] from the level of detail. We can display on state on the surface and Tableau segregates the results into states automatically, but if we want to overwrite Tableau's innate calculations and aggregate all the state's data, we'll need to exclude [State].</li>
-								<li><strong>Aggregation versus Granulation</strong></li>
-								<ul>
-									<li>Aggregration means a higher, more abstract level, while Granulation means a lower, specific level. In our case, state is more granular than national level.</li>
-								</ul>
-							</ul>
-							<li>Create another calculated field called "Contribution to National Profit, State" with the following code:</li>
-							<ul>
-								<li><code>SUM([Profit]) / ATTR([National Profit]) * 100</code></li>
-								<li>This gives the percentage of profits relative to the national profit.</li>
-								<li>We created <strong>National Profit</strong> earlier with our calculated field.</li>
-							</ul>
-							<li>Drag "Contribution to National Profit, State" to <strong>Color</strong> and to <strong>Label</strong>, and <strong>National Profit</strong> to <strong>Tooltip</strong>.</li>
-							<li><strong>ATTR</strong> means attribute. An attribute <strong>MUST</strong> be consistent to all rows since this trait is part-and-parcel of the data. If it's not consistent, <strong>ATTR</strong> will return an asterisk.</li>
-							<ul>
-								<li>Does all states share <strong>National Profit</strong>? Then it's an attribute.</li>
-								<li>Does all states share the same state profit? No. so it's not an attribute.</li>
-							</ul>
-						</ul>
-
-					</div>
-
-					<div id="12-Stu-LOD" class="student-block">
-						<h3>12-Stu-LOD: Your Turn</h3>
-
+						<p>Tensorflow is what we use to for machine learning purposes.</p>
+						
 					</div>
 
 
@@ -409,8 +148,9 @@ END
 				<div id="right-sb" class="col-md-4">
 					<div id="right-sb-nav" class="list-group" id="toc" role="tablist">
 					  <a class="list-group-item list-group-item-action active"  href="#objectives" role="tab">Objectives</a>
-					  <a class="list-group-item list-group-item-action"  href="#why-learn" role="tab">why-learn</a>
-					  <a class="list-group-item list-group-item-action"  href="#tableau_installation" role="tab">Tableau Installation</a>
+					  <a class="list-group-item list-group-item-action"  href="#intro" role="tab">Introduction To Neural Networks</a>
+					  <a class="list-group-item list-group-item-action"  href="#tensorflow-playground" role="tab">Tensorflow Playground</a>
+
 					  <a class="list-group-item list-group-item-action"  href="#01-Stu-Warmup" role="tab">01-Stu-Warmup</a>
 					  <a class="list-group-item list-group-item-action"  href="#02-Ins-Groups_Sets" role="tab">02-Ins-Groups_Sets</a>
 					  <a class="list-group-item list-group-item-action"  href="#03-Stu-Groups_Sets" role="tab">03-Stu-Groups_Sets</a>
@@ -421,7 +161,6 @@ END
 					  <a class="list-group-item list-group-item-action"  href="#08-Stu-Maps2" role="tab">08-Stu-Maps2</a>
 					  <a class="list-group-item list-group-item-action"  href="#09-Ins-Dashboard" role="tab">09-Ins-Dashboard</a>
 					  <a class="list-group-item list-group-item-action"  href="#10-Stu-Dashboard" role="tab">10-Stu-Dashboard</a>
-
 					  <a class="list-group-item list-group-item-action"  href="#11-Ins-LOD" role="tab">11-Ins-LOD</a>
 					  <a class="list-group-item list-group-item-action"  href="#12-Stu-LOD" role="tab">12-Stu-LOD</a>
 					</div>
