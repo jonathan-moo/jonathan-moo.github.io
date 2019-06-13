@@ -99,6 +99,8 @@
 
 						<h3>Introduction to Big Data</h3>
 
+						<p>You've learned some ML and Data Science techniques. Now, your boss is asking to put your models into production. How are you doing to do it? That's where you will need an infrastructure.</p>
+
 						<p>We coin the word "Big Data" because for the first time in 2005 because we finally built a system or infrastructure that is capable of handling massive amounts of data without sampling. Big Data refers to data in a macro-scale, while the term "small data" is contextual data which is specific to a purpose or a use-case.</p>
 
 						<p>For more than 10 years, Big Data has been the buzzword. Now, folks are realizing that Big Data must translate to Small Data to be relevant to our use-case.</p>
@@ -112,9 +114,270 @@
 
 						<p>About five years ago, if you're going to do data science, you probably need to build your own infrastructure to make it happen. Nowadays, AWS and Google brought the barrier of entry low, and anyone who has a credit card can run a big data instrastructure without breaking their bank.</p>
 
+						<h3>MapReduce</h3>
+
+						<p>Google created this technique of resilent and scalable technique to do computation on a large scale. In essence:</p>
+						<ul>
+							<li>The <code>map()</code> function breaks down a large dataset into small chunks, usually according to the number of nodes within your system, and converting them into key-value pairs.</li>
+							<li><strong>The shuffling layer is hidden from you.</strong> It groups the key-pairs together.</li>
+							<li>Lastly, the <code>reduce()</code> function processes each group of output data with the algorithm which you specify.</li>
+						</ul>
+
+						<p>There is a quirk to this process. In general, the bigger the data, the better it performs, but the smaller the data, the poorer it performs too.</p>
+
+						<h3>Hadoop Distributed File System (HDFS)</h3>
+
+						<p>In general, it layers another file system across the network, and data which is stored in one node will be replicated to another nodes. (High availability, High resilence).</p>
+						<ul>
+							<li>In a nutshell, let's say you import a file from your local machine into the HDFS, and all the computers in the classroom are connected together in a Hadoop system, everything will sync together like Dropbox.</li>
+							<li>If a file is deleted by mistake and it's not an official command, or if a computer breaks down, the rest of the nodes will "recover" the system by itself since the same data exist through all the computers. Hence, it's highly resilent.</li>
+							<li>High availability since every computer will have the same file.</li>
+						</ul>
+
+						<p>A HDFS cluster has two types of nodes (servers)</p>
+
+						<ul>
+							<li>Name Node</li>
+							<ul>
+								<li>The "brains" of your cluster that manages the file system and the metadata.</li>
+								<li>Only one per cluster. The backup is only there in case the NameNode fails.</li>
+							</ul>
+						</ul>
+
+						<ul>
+							<li>Data Node</li>
+							<ul>
+								<li>Stores the data.</li>
+								<li>As many nodes as you want.</li>
+								<li>Reports to the Name Node the list of data blocks it stores.</li>
+							</ul>
+						</ul>
+
+						<h3>YARN (Yet Another Resource Negotiator)</h3>
+
+						<p>If you're interested in doing Big Data infrastructure, lookup on Apache Zookeeper too.</p>
+
+						<p>Basically, YARN manages scheduling and resource management across the nodes.</p>
+
 					</div>
 
-					
+					<div id="01-Ins_MapReduce" class="student-block">
+						<h3>Skipping 01-Ins_MapReduce</h3>
+
+						<p>It is optional, and it only tells you how does MapReduce work. There isn't code involved.</p>
+					</div>
+
+					<div id="02-Evr_Word_Count" class="instructor-block">
+						<h3>02-Evr_Word_Count</h3>
+
+						<p>Please install <code>MRJob</code> with this command: <code>pip install MRJob</code></p>
+
+						<p>We are doing a Python file, not a Jupyter notebook.</p>
+
+						<pre>
+							<code>
+	from mrjob.job import MRJob
+
+
+	class Bacon_count(MRJob):
+	    def mapper(self, _, line):
+	        for word in line.split():
+	            if word.lower() == "bacon":
+	                yield "bacon", 1
+
+	    def reducer(self, key, values):
+	        yield key, sum(values)
+
+
+	if __name__ == "__main__":
+	    Bacon_count.run()
+
+							</code>
+						</pre>
+
+						<p>Very simple code:</p>
+
+						<ul>
+							<li>Run using <code>python bacon_counter.py input.txt</code> within the folder. You'll notice you don't need to read the file manually with <code>open()</code> function.</li>
+							<li><code>mapper()</code> takes in two values: (key, value)</li>
+							<ul>
+								<li><code>self</code> is a reference from a Python Class. It's not an input parameter.</li>
+								<li>If you don't define a key, it will be <code>None</code>. You will have to specify a key in your output.</li>
+								<li><code>yield</code> works similarly to <code>return</code>, but usually <code>return</code> exits the function when it is invoked, while <code>yield</code> will continue to run in a <code>for</code> loop.</li>
+								<li><code>yield</code> returns a sequence of values, while <code>return</code> returns specified values.</li>
+							</ul>
+							<li><code>reducer()</code> receives the key (bacon) and the values (1) from the mapper. By using <code>yield</code> and summing it up, you can count the sum of the key.</li>
+						</ul>
+					</div>
+
+					<div id="03-Evr_MrJob_CSV" class="instructor-block">
+						<h3>03-Evr_MrJob_CSV</h3>
+
+						<pre>
+							<code>
+	"""
+	Find the number of hot days in Austin for 2017
+	"""
+	from mrjob.job import MRJob
+
+
+	class Hot_Days(MRJob):
+
+	    def mapper(self, key, line):
+	        (station, name, state, date, snow, tmax, tmin) = line.split(",")
+	        if tmax and int(tmax) >= 100:
+	            yield name, 1
+
+	    def reducer(self, name, hot):
+	        yield name, sum(hot)
+
+
+	if __name__ == "__main__":
+	    Hot_Days.run()
+							</code>
+						</pre>
+
+						<p>This is to demonstrate you can do more than just counting strings. By splitting each string into it's proper variables, you can do comparisons or other math on it.</p>
+
+						<p><strong>Remember,</strong> the mapper grabs row by row.</p>
+
+					</div>
+
+					<div id="04-Stu_Austin_Snow" class="student-block">
+						<h3>04-Stu_Austin_Snow: Your Turn</h3>
+
+						<p>You're given a list of locations and the dates it has snowed. The instruction doesn't give you much details on the header of the CSV file, but this is the header:</p>
+
+						<p>(station, name, state, date, snow, tmax, tmin)</p>
+
+						<p>It's kind of hard to find values in your preliminary analysis since a lot of the data is showing zeros. I only found one location with snow in line 5267, but there are certainly more than one.</p>
+					</div>
+
+					<div id="intro-spark" class="instructor-block">
+						<h3>What is Spark?</h3>
+
+						<p>MrJob relies on the local machine or Hadoop to run MapReduce, but Spark if much faster since it does in-memory calculations and can be used with or without Hadoop.</p>
+						<ul>
+							<li>Spark can be invoked by Python with PySpark, or Scala.</li>
+							<li>PySpark is similar to Pandas, but Pandas cannot handle petrabytes of data. Spark can.</li>
+							<li>Again, with Hadoop, it breaks the dataframe into sections, and combines the results together for output like MapReduce.</li>
+						</ul>
+
+						<h4>Importing Jupyter Notebooks to ZEPL</h4>
+
+						<p>ZEPL is a cloud-based service which runs notebooks that run PySpark.</p>
+
+						<p>Sign up for ZEPL (<a href="https://www.zepl.com/register">https://www.zepl.com/register</a>).</p>
+
+						<p>The school gave a bunch of links for us to Slack out to you about ZEPL. You can follow the guide given, but I'm going to post it here too:</p>
+
+						<ul>
+							<li>How to create a new workspace (folder): <a href="https://youtu.be/G5xNP-XRvjc">https://youtu.be/G5xNP-XRvjc</a></li>
+							<li>How to create a Spark resource in ZEPL: <a href="https://youtu.be/TpSAPOQDTTc">https://youtu.be/TpSAPOQDTTc</a></li>
+							<li>How to set the default spark interpreter: <a href="https://youtu.be/RXzlQM9A2jU">https://youtu.be/RXzlQM9A2jU</a></li>
+							<li>How to import .ipynb notebooks: <a href="https://youtu.be/Y5ih16yhQvY">https://youtu.be/Y5ih16yhQvY</a></li>
+							<li>How to resolve an ABORT error: <a href="https://youtu.be/pGq6b9hJ34s">https://youtu.be/pGq6b9hJ34s</a></li>
+							<li>How to fix a NameError: <a href="https://youtu.be/pvw6E5jMMZU">https://youtu.be/pvw6E5jMMZU</a></li>
+						</ul>
+
+						<p>Not all the items in the guide pertain to today's lesson.</p>
+
+						<h4>After you've signed up, we need to setup your environment in ZEPL.</h4>
+
+						<ul>
+							<li>Log in to ZEPL and create a new space that will be used to store all notebooks. Name it whatever you want.</li>
+							<ul>
+								<li><img src="img/zepl_new_space.png" class="img-fluid"/></li>
+							</ul>
+							<li>We need to setup the "Interpreter":</li>
+							<ul>
+								<li>Click "Resources" on the top right.</li>
+								<ul>
+									<li><img src="img/zepl_resource.png" class="img-fluid"/></li>
+								</ul>
+								<li>From the new screen select "Interpreter settings" on the left hand side.</li>
+								<ul>
+									<li><img src="img/interpreter_settings.png" class="img-fluid"/></li>
+								</ul>
+								<li>Click "..." next to the spark and select "settings".</li>
+								<ul>
+									<li><img src="img/spark_settings.png" class="img-fluid"/></li>
+								</ul>
+								<li>From the menu change drop down from python3 to python.</li>
+								<ul>
+									<li><img src="img/python_dropdown.png" class="img-fluid"/></li>
+								</ul>
+								<li>Click "Apply"</li>
+								<li>If spark is not the default interpreter click "..." again and select "Set as default interpreter".</li>
+								<ul>
+									<li><img src="img/set_default.png" class="img-fluid"/></li>
+								</ul>
+								<li>Click the newly created space. Add a new notebook by selecting Import on the right corner and upload spark_dataframe_basics.json. You can download it here: <a href="assets/spark_dataframe_basics.json">spark_dataframe_basics.json</a></li>
+								<ul>
+									<li><img src="img/zepl_import_file.png" class="img-fluid"/></li>
+								</ul>
+								<li>Try running it. If you encounter weird issues, shut down the notebook and re-run it again. Spark Jobs in the cloud can be unstable sometimes.</li>
+							</ul>
+						</ul>
+
+						<h4>At this point, please ensure you've done the above steps. Otherwise, it's impossible to follow the class.</h4>
+
+
+					</div>
+
+					<div id="05-Ins_Pyspark_DataFrames_Basics" class="instructor-block">
+						<h3>05-Ins_Pyspark_DataFrames_Basics</h3>
+
+						<p>Load the <code>spark_dataframe_basics.json</code> into ZEPL. The first thing you'll notice is how similar it is to Pandas.</p>
+
+						<p>Ref: <a href="http://spark.apache.org/docs/latest/api/python/index.html">http://spark.apache.org/docs/latest/api/python/index.html</a></p>
+
+						<ul>
+							<li>When you use pyspark, your data is loaded into HDFS (if it's in a Hadoop cluster, and ZEPL uses Hadoop), and then loaded into memory to distribute to other nodes. However, pandas is run on your local machine.</li>
+							<li>Each cell starts with a <code>%pyspark</code>. This is important for the notebook to know you're running PySpark.</li>
+							<li>Every Spark job starts with <code>sparkContext</code>. Without it, you can't run anything.</li>
+							<li>Our example is a CSV file, so the data structure is fixed. However, if you're loading JSON data (if you're streaming from an API source), you'll need to use <code>StructField</code> and construct a proper schema before you can load it into a DataFrame.</li>
+							<ul>
+								<li>That's because dataframes are 2D tables, but JSON data allows many layers within the data itself.</li>
+							</ul>
+						</ul>
+
+					</div>
+
+					<div id="06-Stu_Pyspark_DataFrames_Basics" class="student-block">
+						<h3>06-Stu_Pyspark_DataFrames_Basics: Your Turn</h3>
+
+						<p>You'll have to load the <code>demographic.json</code> file into ZEPL to get started.</p>
+					</div>
+
+					<div id="07-Ins_Pyspark_DataFrames_Filtering" class="instructor-block">
+						<h3>07-Ins_Pyspark_DataFrames_Filtering</h3>
+
+						<p>We're doing basic filtering, and it's simple.</p>
+
+					</div>
+
+					<div id="08-Stu_Pyspark_DataFrames_Filtering" class="student-block">
+						<h3>08-Stu_Pyspark_DataFrames_Filtering: Your turn</h3>
+
+						<p>You'll have to load the <code>demographics_filtered.json</code> file into ZEPL to get started.</p>
+					</div>
+
+					<div id="09-Ins_Pyspark_DataFrames_Dates" class="instructor-block">
+						<h3>09-Ins_Pyspark_DataFrames_Dates</h3>
+
+						<p>We are dealing with dates, and plotting the data with matplotlib.</p>
+
+						<p><strong>You can't plot with PySpark.</strong> You'll have to export it into Pandas, and then plot from there. That's because Spark is not a visualization tool.</p>
+
+					</div>
+
+					<div id="10-Stu_Pyspark_DataFrames_Dates" class="student-block">
+						<h3>10-Stu_Pyspark_DataFrames_Dates: Your turn</h3>
+
+						<p>You'll have to load the <code>bigfoot.json</code> file into ZEPL to get started.</p>
+
+					</div>
 
 				</div> <!-- end #main-content -->
 
@@ -123,20 +386,17 @@
 					<div id="right-sb-nav" class="list-group" id="toc" role="tablist">
 					  <a class="list-group-item list-group-item-action active"  href="#objectives" role="tab">Objectives</a>
 					  <a class="list-group-item list-group-item-action"  href="#intro" role="tab">Introduction To Neural Networks</a>
-					  <a class="list-group-item list-group-item-action"  href="#tensorflow-playground" role="tab">Tensorflow Playground</a>
-					  <a class="list-group-item list-group-item-action"  href="#keras-intro" role="tab">Keras Intro</a>
-					  <a class="list-group-item list-group-item-action"  href="#01-Ins_One_Hot_Encoding" role="tab">01-Ins_One_Hot_Encoding</a>
-					  <a class="list-group-item list-group-item-action"  href="#02-Evr_First_Neural_Network" role="tab">02-Evr_First_Neural_Network</a>
-					  <a class="list-group-item list-group-item-action"  href="#03-Evr_Deep_Learning" role="tab">03-Evr_Deep_Learning</a>
-					  <a class="list-group-item list-group-item-action"  href="#04-Stu_Moons" role="tab">04-Stu_Moons</a>
-					  <a class="list-group-item list-group-item-action"  href="#05-Stu_Deep_Voice" role="tab">05-Stu_Deep_Voice</a>
-					  <a class="list-group-item list-group-item-action"  href="#06-Ins_Saving_Models" role="tab">06-Ins_Saving_Models</a>
-					  <a class="list-group-item list-group-item-action"  href="#07-Stu_Smartphone" role="tab">07-Stu_Smartphone</a>
-					  <a class="list-group-item list-group-item-action"  href="#08-Ins_Kmeans" role="tab">08-Ins_Kmeans</a>
-
-					  <a class="list-group-item list-group-item-action"  href="#10-Stu-Dashboard" role="tab">10-Stu-Dashboard</a>
-					  <a class="list-group-item list-group-item-action"  href="#11-Ins-LOD" role="tab">11-Ins-LOD</a>
-					  <a class="list-group-item list-group-item-action"  href="#12-Stu-LOD" role="tab">12-Stu-LOD</a>
+					  <a class="list-group-item list-group-item-action"  href="#01-Ins_MapReduce" role="tab">01-Ins_MapReduce</a>
+					  <a class="list-group-item list-group-item-action"  href="#02-Evr_Word_Count" role="tab">02-Evr_Word_Count</a>
+					  <a class="list-group-item list-group-item-action"  href="#03-Evr_MrJob_CSV" role="tab">03-Evr_MrJob_CSV</a>
+					  <a class="list-group-item list-group-item-action"  href="#04-Stu_Austin_Snow" role="tab">04-Stu_Austin_Snow</a>
+					  <a class="list-group-item list-group-item-action"  href="#intro-spark" role="tab">Introduction to Spark</a>
+					  <a class="list-group-item list-group-item-action"  href="#05-Ins_Pyspark_DataFrames_Basics" role="tab">05-Ins_Pyspark_DataFrames_Basics</a>
+					  <a class="list-group-item list-group-item-action"  href="#06-Stu_Pyspark_DataFrames_Basics" role="tab">06-Stu_Pyspark_DataFrames_Basics</a>
+					  <a class="list-group-item list-group-item-action"  href="#07-Ins_Pyspark_DataFrames_Filtering" role="tab">07-Ins_Pyspark_DataFrames_Filtering</a>
+					  <a class="list-group-item list-group-item-action"  href="#08-Stu_Pyspark_DataFrames_Filtering" role="tab">08-Stu_Pyspark_DataFrames_Filtering</a>
+					  <a class="list-group-item list-group-item-action"  href="#09-Ins_Pyspark_DataFrames_Dates" role="tab">09-Ins_Pyspark_DataFrames_Dates</a>
+					  <a class="list-group-item list-group-item-action"  href="#10-Stu_Pyspark_DataFrames_Dates" role="tab">10-Stu_Pyspark_DataFrames_Dates</a>
 					</div>
 				
 				</div>
