@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Jonathan Moo's Github Bio</title>
+
+
+		<link rel='stylesheet' id='bootstrap-css'  href='../../css/bootstrap.min.css' type='text/css' media='all' />
+		<link rel='stylesheet' id='bootstrap-grid-css'  href='../../css/bootstrap-grid.min.css' type='text/css' media='all' />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+   integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+   crossorigin=""/>
+		<link rel='stylesheet' id='custom-css'  href='../../css/style.css' type='text/css' media='all' /> 
+		<script src="https://d3js.org/d3.v5.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.9.1/d3-tip.js"></script>
+		<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+     <!-- Make sure you put this AFTER Leaflet's CSS -->
+     <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+       integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+       crossorigin=""></script>
+	</head>
+
+	<body>
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<a class="navbar-brand" href="#">Jonathan's Github Page</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active">
+						<a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Lessons</a>
+						<div class="dropdown-menu">
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/11.2/index.html">11.2 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/11.3/index.html">11.3 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/12.1/index.html">12.1 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/12.3/index.html">12.3 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/13.1/index.html">13.1 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/13.2/index.html">13.2 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/13.3/index.html">13.3 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/14.1/index.html">14.1 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/14.2/index.html">14.2 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/14.3/index.html">14.3 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/15.1/index.html">15.1 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/15.2/index.html">15.2 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/15.3/index.html">15.3 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/16.1/index.html">16.1 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/16.2/index.html">16.2 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/16.3/index.html">16.3 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/17.1/index.html">17.1 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/17.2/index.html">17.2 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/17.3/index.html">17.3 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/18.1/index.html">18.1 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/18.2/index.html">18.2 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/20.1/index.html">20.1 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/20.2/index.html">20.2 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/21.3/index.html">21.3 Ref</a>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</nav>
+		<div class="container-fluid">
+			<div class="row">
+				<div id="main-content" class="col-md-8">
+					<div class="objective-block">
+						<h3 id="objectives">Objectives For Lesson 23.3</h3>
+
+						<ul>
+							<li>Neural Networks & Deep Learning</li>
+						</ul>
+
+					</div>
+
+					<div id="intro" class="instructor-block">
+						<h3>Introduction to Neural Networks</h3>
+
+						<p>Basically, neural nets were inspired by how our brains function:</p>
+						<ul>
+							<p>The neuron's axos is what it uses to send signals to other neurons.</p>
+							<p>Denrites receive information from the cell body.</p>
+							<p>Synapses are sensors that receive signals from other neurons.</p>
+						</ul>
+
+						<p>This is how our brains work:</p>
+						<ul>
+							<li>Brain sees an image through your eyes.</li>
+							<li>Your brain recognizes fur, pointy ears, whiskers.</li>
+							<li>Your brain then acknowledged that it is a cat (I know there are other things that identify a cat but let's keep our example simple).</li>
+						</ul>
+
+						<p>Likewise, we mimic the overall behavior in our code to do the same thing:</p>
+						<ul>
+							<li>We scan a cat image into a computer.</li>
+							<li>The computer notices distinct vectors in on an image. Perhaps it identified fur, pointy ears, and whiskers like a humans do.</li>
+							<li>But unlike a human, computers are only good with numbers. So if it identifies fur, it means True or 1. Then pointy ears triggers another 1, and whiskers triggers another 1. If it doesn't notice anything, it means False or 0.</li>
+							<li>If all three parameters are 1, we could have a function that says if all 3 parameters are 1, it is a cat and we output as True. If not, False.</li>
+							<li>The entire system of taking inputs, and determining an output, as a single unit or entity, is called a <strong>perceptron</strong>. In-between, we have models or step-functions (activation function) to determine a result.</li>
+						</ul>
+
+						<p>Of course, the example I give is simple. But if you want to classify if a skin imagery is cancerous or not, you have more than 100 million parameters to determine.</p>
+
+						<h4>Perceptron</h4>
+
+						<p>Actually, we are using perceptrons without realizing it:</p>
+						<ul>
+							<li>Logical operators</li>
+								<ul>
+									<li>AND, means all inputs must be True(1) to output True(1). Otherwise, False(0).</li>
+									<li>OR, means if any of the input is True(1), output True(1). Otherwise, False(0).</li>
+								</ul>
+						</ul>
+
+						<h4>Then, what is a neural network?</h4>
+
+						<p>Layers of neurons (perceptrons) connected together to form decisions or classification of results.</p>
+						
+						<p>The slides given by the school (slide 8) says that neurons are kind of similar to log regression. But we know that log regression gives decimals. <strong>Why use log regression rather simple True or False?</strong></p>
+
+						<div id="01-toggle">
+							<p>Because True or False gives us no room to correct and train our systems. It's either 100% correct or 0%. The highest value of a log is 1, and the lowest is 0 (remember your high school math?), and in-between are all decimals. If we know how close are we to True (1) or False (0) through decimals, we can correct models to achieve a better result.</p>
+						</div>
+
+						<button type="button" class="btn btn-primary" onclick='$("#01-toggle").toggle();'>Show/Hide Hints</button>
+
+						<div style="margin-top: 20px;">
+							<h4>Backpropagation</h4>
+
+							<p>We feed errors rates into a system, then tweak our algorithms or parameters to improve accuracy. Intuitively, when you come to me to correct code, I always break it down and see what kind of errors took place. I fix an error at a time.</p>
+
+							<p>Similarly, this process works in deep learning. The difference is computers are mitigating errors on a larger scale.</p>
+						</div>
+						
+					</div>
+
+					<div id="tensorflow-playground" class="instructor-block">
+						<h3>Tensorflow Playground</h3>
+
+						<p>Tensorflow is what we use to for machine learning purposes. It's a library developed by Google for all sorts of data science projects, especially neural networks.</p>
+
+						<p>Goggle has developed a playground for us to get acquainted with Tensorflow here: <a href="http://playground.tensorflow.org/#activation=tanh&batchSize=10&dataset=circle&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=4,2&seed=0.25352&showTestData=false&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&hideText=false">Tensorflow Playground</a></p>
+
+						<p>When you visit the playground, you can see a dashboard with lots of control and parameters. Let's break it down somewhat:</p>
+
+						<ul>
+							<li>The top bar is a generic control panel for training.</li>
+							<ul>
+								<li><strong>Play</strong> button when your formula starts training.</li>
+								<li><strong>Epoch</strong> is the time transpired that the model has been working.</li>
+								<ul>
+									<li>Time to train a model is actually a pivotal part of ML. Of course, this is a playground, and so it's supposed to be quick, but I've heard cases where training data took months.</li>
+								</ul>
+								<li><strong>Learning rate</strong> is a numerical parameter which allows the algorithm to adjust itself. Basically, it's adjusting the weight in a linear equation.</li>
+								<li><strong>Activation function</strong> is a mathematical function which is applied to incoming data to define an output. Usually, the outputs are binary, either True or False, Yes or No. It can get more complicated than this but we'll rest our case here:</li>
+								<ul>
+									<li><img src="../../img/activation_function.png" class="img-fluid"/></li>
+									<li>The above is missing <strong>ReLU</strong>, which stands for rectified linear unit.</li>
+									<ul>
+										<li><img src="../../img/relu.png" class="img-fluid"></li>
+									</ul>
+								</ul>
+								<li><strong>Regularization and Regularization rate</strong> is to prevent overfitting.</li>
+								<ul>
+									<li>L1 is called <strong>Lasso Regression</strong>.</li>
+									<li>L2 is called <strong>Ridge Regression</strong>.</li>
+								</ul>
+							</ul>
+							<li>The side bar on the left manages the data parameters.</li>
+							<ul>
+								<li>They don't tell us what kind of data this is, so we assume this data as random coordinates in a bi-dimensonal scale.</li>
+							</ul>
+							<li><strong>Features</strong> are the dimensions you want to define in your data set. Example. supposed you want to identify cats and dogs by 2 features, height and weight.</li>
+							<li><strong>Hidden Layers</strong> are the set of rules you want to define to classify the data.</li>
+							<ul>
+								<li>Imagine the blue dots are cats and the orange dots are dogs. This data is collected in both X1 and X2 as weight and height.</li>
+								<li>Notice that each neuron node is a singular line? It's binary classifcation, where one neuron determine disect the graph horizontally, while the rest disect it with slants.</li>
+								<li>The default activation function here is <strong>hyperbolic tangent</strong>. Looking at the graph above, you have three distinct values, -1, 0, and 1. The white region denotes 0, while -1 denotes orange and 1 denotes blue. Zero is the boundary where you want to separate between cats and dogs.</li>
+								<li><strong>Why 2 hidden layers?</strong> If we remove the second layer, the output would show a "triangular shaped" output. That's because we use lines to draw, and the second layer is to smoothen the edges out for a better error approximation.</li>
+							</ul>
+							<li><strong>Output</strong> is self-explantory. You want to have a visualization of how you're classifying your data.</li>
+						</ul>
+
+						<h4>What are you looking for in this playground?</h4>
+
+						<p>Comparisons between different activation functions and how fast it can train your data properly.</p>
+
+						
+					</div>
+
+					<div id="keras-intro" class="instructor-block">
+						<h3>Keras Intro</h3>
+
+						<p>Keras is an open-source neural-network library which access different ML libraries like Tensorflow, Microsoft Cognitive Toolkit, Theano and more. This is to:</p>
+						<ul>
+							<li>Simplify codebase and run different ML libraries from one location.</li>
+						</ul>
+					</div>
+
+
+					<div id="01-Ins_One_Hot_Encoding" class="instructor-block">
+						<h3>01-Ins_One_Hot_Encoding</h3>
+
+						<p>We'll use the Jupyter notebooks for our class, but have your <strong>Keras</strong> and <strong>Tensorflow</strong> libraries installed in your environment.</p>
+
+						<p>This is our training data:</p>
+						<ul>
+							<li>Sepal and petals are part of a flower. In our use-case, we are using their length and width to determine the flower class.</li>
+							<li>With our trained data, we want to categorize other flower in their class:</li>
+							<ul>
+								<li>iris-setosa</li>
+								<li>iris-versicolour</li>
+								<li>iris-virginica</li>
+							</ul>
+							<li>Neural nets can't take strings, so we categorize the classes into numeric placeholders:</li>
+							<ul>
+								<li>1: iris-setosa</li>
+								<li>2: iris-versicolour</li>
+								<li>3: iris-virginica</li>
+							</ul>
+							<li>However, converting them into numbers isn't enough. For speed and efficiency, we translate them into binary matrices using <code>keras.utils.to_categorical</code>.</li>
+						</ul>
+					</div>
+
+					<div id="02-Evr_First_Neural_Network" class="instructor-block">
+						<h3>02-Evr_First_Neural_Network</h3>
+
+						<p>So we want to create one first neural network to classify data. Before we begin, here are some important notes:</p>
+
+						<ul>
+							<li>The goal isn't to make you a mathematician or a statistician. You will see from this exercise that the mathematical heavy-lifting is done by scientists around the world, and your job is to use them in your use case.</li>
+							<li>Build prototypes to simulate your model. Otherwise, it's very difficult to validate accuracies.</li>
+						</ul>
+
+						<h4>Let's get started with some sample data:</h4>
+
+						<ul>
+							<li><code>sklearn.datasets.make_classification</code> creates sample data for you. You can read up the description here: <a href="https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_classification.html">https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_classification.html</a></li>
+							<li><code>sklearn.model_selection.train_test_split</code> helps you to split data into 25% test size and 75% training size by default: <a href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html">https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html</a></li>
+							<li>We'll create our sequential model with <code>keras.models.Sequential</code>: <a href="https://keras.io/getting-started/sequential-model-guide/">https://keras.io/getting-started/sequential-model-guide/</a></li>
+							<ul>
+								<li>Sequential means data is flowing from one layer to the next in sequence.</li>
+							</ul>
+							<li>Next, we'll add a <code>Dense</code> layer (stands for densely-connected NN layer): <a href="https://www.tensorflow.org/api_docs/python/tf/keras/layers/Dense">https://www.tensorflow.org/api_docs/python/tf/keras/layers/Dense</a></li>
+							<ul>
+								<li>In layman terms, every input is connected to every node in the hidden layer.</li>
+							</ul>
+							<li>For the actual classification, we are going to apply <strong>softmax</strong> classification, and the number of classes (or labels) within our classification.</li>
+							<ul>
+								<li>In layman terms, <strong>Softmax</strong> extends the probability for multi-class scenario just like how logistic regression does.</li>
+							</ul>
+						</ul>
+
+						<p>The above determines the model architecture in our activity. Next, we want to compile the model using a loss function and optimizer.</p>
+
+						<ul>
+							<li><strong>Optimizers</strong> are algorithms which updates weights and biases to reduce the error.</li>
+							<ul>
+								<li><strong>Adam</strong> stand for Adaptive Moment Estimation. You can read up the white paper here: <a href="https://arxiv.org/abs/1412.6980">https://arxiv.org/abs/1412.6980</a></li>
+							</ul>
+							<li><strong>Loss function</strong> are iterative processes which mitigates errors by steps.</li>
+							<ul>
+								<li>Use <strong>categorical crossentropy</strong> for categorical data and <strong>mean squared error</strong> for regression.</li>
+							</ul>
+							<li><strong>Metrics</strong> is the type of output you want from your model. It can be:</li>
+							<ul>
+								<li>Binary accuracy</li>
+								<li>Categorical accuracy</li>
+								<li>Many types of categorical accuracies, and many more.</li>
+							</ul>
+						</ul>
+
+						<p>Once we are done with compilation, we want to train the model for our data.</p>
+
+						<h4>Important:</h4>
+
+						<p>If your Jupyter notebook refuses to run while training your data, and the error logs state this problem:</p>
+
+						<pre><code>
+	OMP: Error #15: Initializing libiomp5.dylib, but found libiomp5.dylib already initialized.
+						</code></pre>
+
+						<p>This means, your local machine must include the following code:</p>
+
+						<pre>
+							<code>
+	import os
+	os.environ['KMP_DUPLICATE_LIB_OK']='True'
+							</code>
+						</pre>
+
+						<p>The above error is to protect your system because processing data is a heavy load, and your compiler is preventing your machine to load the same library twice within an environment.</p>
+
+						<h4>Training your data</h4>
+
+						<pre>
+							<code>
+	# Fit (train) the model
+	model.fit(
+	    X_train_scaled,
+	    y_train_categorical,
+	    epochs=1000,
+	    shuffle=True,
+	    verbose=2
+	)
+							</code>
+						</pre>
+
+						<p>Similar to your previous ML classes, we are fitting our model with training data. This is similar to how the tensorflow playground work.</p>
+
+						<h4>Quantifying the model</h4>
+
+						<p>Now, we want to evaluate data with test data:</p>
+
+						<pre>
+							<code>
+	# Evaluate the model using the testing data
+	model_loss, model_accuracy = model.evaluate(
+	    X_test_scaled, y_test_categorical, verbose=2)
+	print(f"Loss: {model_loss}, Accuracy: {model_accuracy}")
+							</code>
+						</pre>
+
+					</div>
+
+					<div id="03-Evr_Deep_Learning" class="instructor-block">
+						<h3>03-Evr_Deep_Learning</h3>
+
+						<p>Again, Jupyter notebooks. We want to create a circular dataset, similar to Tensorflow Playground.</p>
+
+					</div>
+
+					<div id="04-Stu_Moons" class="student-block">
+						<h3>04-Stu_Moons: Your Turn</h3>
+
+						<p>A lot of the beginning code is given, so compare with your previous activity and try it out yourself.</p>
+
+						<p>This is just a repeat of the processes we did previously.</p>
+
+					</div>
+
+					<div id="05-Stu_Deep_Voice" class="student-block">
+						<h3>05-Stu_Deep_Voice: Your Turn</h3>
+
+						<p>We are dealing with real data right now, and this time it is to label gender to voice data.</p>
+					
+						<h4>MinMaxScaler vs StandardScaler</h4>
+
+						<p>Ref: <a href="https://scikit-learn.org/stable/auto_examples/preprocessing/plot_all_scaling.html">https://scikit-learn.org/stable/auto_examples/preprocessing/plot_all_scaling.html</a></p>
+
+						<p>Basically, we are using MinMaxScaler because the scaling compress all inliers together, and because we know we are labeling gender, we can do that.</p>
+
+						<p>StandardScaler works too, and it's an old answer within this same activity.</p>
+
+					</div>
+					
+					<div id="05-Stu_Deep_Voice" class="student-block">
+						<h3>05-Stu_Deep_Voice: Your Turn</h3>
+
+					</div>
+
+					<div id="06-Ins_Saving_Models" class="instructor-block">
+						<h3>06-Ins_Saving_Models</h3>
+
+						<p>Saving models is important because it is very computationally heavy to compile loads of data again and again. Our sample size is small with our exercise, but when you're dealing with terabytes, it's not a fun process to re-do everything again.</p>
+
+					</div>
+
+					<div id="07-Stu_Smartphone" class="student-block">
+						<h3>07-Stu_Smartphone: Your Turn</h3>
+
+						<p>We are going to determine and label whether someone is standing, sitting, walking based on the accelerometer data collected from their smartphones. This is a multi-class classification problem.</p>
+
+						<p>Let's reiterate the steps for deep learning:</p>
+
+						<ul>
+							<li>Load and preprocess data, including one-hot encoding of categorical data.</li>
+							<li>Create and fit the model</li>
+							<li>Persist the model for later use</li>
+							<li>Test the model's accuracy and test its performance on a validation set.</li>
+						</ul>
+
+					</div>
+
+					<div id="08-Ins_Kmeans" class="instructor-block">
+						<h3>08-Ins_Kmeans</h3>
+
+						<p>What we did previously is still supervised learning since we know what we want to label. What if we don't know what to label?</p>
+
+						<p>So you're collecting data into a data lake, and you're wondering if you can categorize the data. K-means allow any number of clusters to group together and using mean to determine the radius of the cluster.</p>
+
+						<p>Slightly different from KNN where you should know what you want to label, K-means is unsupervised.</p>
+
+						<p>Let's create a random data set with <code>sklearn.datasets.samples_generator.make_blobs</code>.</p>
+
+						<p>Reference for KMeans method: <a href="https://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html">https://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html</a></p>
+
+					</div>
+
+
+					<div id="09-Stu_Kmeans" class="student-block">
+						<h3>09-Stu_Kmeans</h3>
+
+						<p>Most of the parameters are given to you. Visualize and cluster the data according to the parameters.</p>
+
+					</div>
+
+				</div> <!-- end #main-content -->
+
+
+				<div id="right-sb" class="col-md-4">
+					<div id="right-sb-nav" class="list-group" id="toc" role="tablist">
+					  <a class="list-group-item list-group-item-action active"  href="#objectives" role="tab">Objectives</a>
+					  <a class="list-group-item list-group-item-action"  href="#intro" role="tab">Introduction To Neural Networks</a>
+					  <a class="list-group-item list-group-item-action"  href="#tensorflow-playground" role="tab">Tensorflow Playground</a>
+					  <a class="list-group-item list-group-item-action"  href="#keras-intro" role="tab">Keras Intro</a>
+					  <a class="list-group-item list-group-item-action"  href="#01-Ins_One_Hot_Encoding" role="tab">01-Ins_One_Hot_Encoding</a>
+					  <a class="list-group-item list-group-item-action"  href="#02-Evr_First_Neural_Network" role="tab">02-Evr_First_Neural_Network</a>
+					  <a class="list-group-item list-group-item-action"  href="#03-Evr_Deep_Learning" role="tab">03-Evr_Deep_Learning</a>
+					  <a class="list-group-item list-group-item-action"  href="#04-Stu_Moons" role="tab">04-Stu_Moons</a>
+					  <a class="list-group-item list-group-item-action"  href="#05-Stu_Deep_Voice" role="tab">05-Stu_Deep_Voice</a>
+					  <a class="list-group-item list-group-item-action"  href="#06-Ins_Saving_Models" role="tab">06-Ins_Saving_Models</a>
+					  <a class="list-group-item list-group-item-action"  href="#07-Stu_Smartphone" role="tab">07-Stu_Smartphone</a>
+					  <a class="list-group-item list-group-item-action"  href="#08-Ins_Kmeans" role="tab">08-Ins_Kmeans</a>
+
+					  <a class="list-group-item list-group-item-action"  href="#10-Stu-Dashboard" role="tab">10-Stu-Dashboard</a>
+					  <a class="list-group-item list-group-item-action"  href="#11-Ins-LOD" role="tab">11-Ins-LOD</a>
+					  <a class="list-group-item list-group-item-action"  href="#12-Stu-LOD" role="tab">12-Stu-LOD</a>
+					</div>
+				
+				</div>
+			</div> <!-- end .row -->
+			
+		</div> <!-- end .container-fluid -->
+
+		<footer>
+			<script type="text/javascript" src="../../js/jquery-3.3.1.min.js"></script>
+			<script type="text/javascript" src="../../js/bootstrap.min.js"></script>
+
+			<script type="text/javascript">
+
+			</script>
+
+      <script type="text/javascript" src="../../js/config.js"></script>
+      <style>
+pre {
+  background-color: black;
+  color: white;
+}
+
+div[id^="map-"]{
+  height:500px;
+}
+div[id$="-toggle"]{
+  display: none;
+}
+      </style>
+
+		</footer>
+
+	</body>
+
+
+</html>
