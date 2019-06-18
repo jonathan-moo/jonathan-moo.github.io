@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Jonathan Moo's Github Bio</title>
+
+
+		<link rel='stylesheet' id='bootstrap-css'  href='../../css/bootstrap.min.css' type='text/css' media='all' />
+		<link rel='stylesheet' id='bootstrap-grid-css'  href='../../css/bootstrap-grid.min.css' type='text/css' media='all' />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+   integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+   crossorigin=""/>
+		<link rel='stylesheet' id='custom-css'  href='../../css/style.css' type='text/css' media='all' /> 
+		<script src="https://d3js.org/d3.v5.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.9.1/d3-tip.js"></script>
+		<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+     <!-- Make sure you put this AFTER Leaflet's CSS -->
+     <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+       integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+       crossorigin=""></script>
+	</head>
+
+	<body>
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<a class="navbar-brand" href="#">Jonathan's Github Page</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active">
+						<a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Lessons</a>
+						<div class="dropdown-menu">
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/11.2/index.html">11.2 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/11.3/index.html">11.3 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/12.1/index.html">12.1 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/12.3/index.html">12.3 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/13.1/index.html">13.1 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/13.2/index.html">13.2 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/13.3/index.html">13.3 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/14.1/index.html">14.1 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/14.2/index.html">14.2 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/14.3/index.html">14.3 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/15.1/index.html">15.1 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/15.2/index.html">15.2 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/15.3/index.html">15.3 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/16.1/index.html">16.1 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/16.2/index.html">16.2 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/16.3/index.html">16.3 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/17.1/index.html">17.1 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/17.2/index.html">17.2 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/17.3/index.html">17.3 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/18.1/index.html">18.1 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/18.2/index.html">18.2 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/20.1/index.html">20.1 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/20.2/index.html">20.2 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/21.3/index.html">21.3 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/22.1/index.html">22.1 Ref</a>
+							<a class="dropdown-item" href="../../MIACOR201901DATA3/22.2/index.html">22.2 Ref</a>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</nav>
+		<div class="container-fluid">
+			<div class="row">
+				<div id="main-content" class="col-md-8">
+					<div class="objective-block">
+						<h3 id="objectives">Objectives For Lesson 22.2</h3>
+
+						<ul>
+							<li>Big Data In The Cloud</li>
+						</ul>
+
+					</div>
+
+					<div id="intro" class="instructor-block">
+						<h3>Introduction To NLP</h3>
+
+						<p>We're learning how to build applications in the cloud with Big Data. This is a taste of how you can use Machine Learning (ML) to build a real application for yourself.</p>
+
+						<h4>What is NLP?</h4>
+
+						<p>NLP stands for Natural Language Processing. This science is what powers Alexa, Google Assistant and Siri today. We want to:</p>
+						<ul>
+							<li>Have computers understand human speech, and understand commands and intents.</li>
+							<li>Extract important insights from human speech through computers.</li>
+						</ul>
+					</div>
+
+					<div id="01-Ins_Pyspark_NLP_Tokens" class="instructor-block">
+						<h3>01-Ins_Pyspark_NLP_Tokens</h3>
+
+						<p><strong>Tokenization</strong> is the process where we split up strings into individual words called "tokens". This is especially useful for search engines, where they get an understanding of what you're trying to search for.</p>
+
+						<ul>
+							<li><code>from pyspark.ml.feature import Tokenizer</code> is a in-built parser where you can pass strings to it, and it will tokenize the sentence for you. Ref: <a href="https://spark.apache.org/docs/latest/ml-features.html#tokenizer">https://spark.apache.org/docs/latest/ml-features.html#tokenizer</a></li>
+						</ul>
+
+					</div>
+
+					<div id="02-Ins_UDF" class="instructor-block">
+						<h3>02-Ins_UDF</h3>
+
+						<p><strong>UDF</strong> stands for user-defined functions. Basically, it's using Python functions in SQL.</p>
+						<ul>
+							<li><code>from pyspark.sql.functions import col, udf</code> allows us to define functions that we can implement within sql methods for PySpark dataframes. Ref: <a href="https://spark.apache.org/docs/2.2.0/api/python/pyspark.sql.html#module-pyspark.sql.functions">https://spark.apache.org/docs/2.2.0/api/python/pyspark.sql.html#module-pyspark.sql.functions</a></li>
+							<li>It simply creates a data column when you implement your math or algorithm in your dataset.</li>
+							<li>How to do it?</li>
+							<ul>
+								<li>Create a normal Python function. Example: <code>def word_list_length(word_list):</code></li>
+								<li>Wrap it within the <code>udf</code>, and specify the <code>return</code> data type (from <code>pyspark.sql.type</code>)</li>
+								<ul>
+									<li>We need to declare a data type since we are creating a column in the dataframe ultimately.</li>
+								</ul>
+								<li>When you create a column with <code>.withColumn</code>, pass the column name and the function. Example:</li>
+								<ul>
+									<li><code>tokenized.select("Nursery Rhyme", "words").withColumn("tokens", count_tokens(col("words"))).show(truncate=False)</code></li>
+									<li>It takes the column data from <code>col("words")</code>, and pipe it through the <code>count_tokens</code> udf.</li>
+								</ul>
+							</ul>
+						</ul>
+
+					</div>
+
+					<div id="03-Stu_Pyspark_NLP_Tokens" class="student-block">
+						<h3>03-Stu_Pyspark_NLP_Tokens: Your Turn</h3>
+
+						<p>URL to use: <a href="https://s3.amazonaws.com/dataviz-curriculum/day_2/data.csv">https://s3.amazonaws.com/dataviz-curriculum/day_2/data.csv</a></p>
+
+						<p>In the solutions, there is a library called <code>from pyspark.ml.feature import RegexTokenizer</code></p>
+
+						<ul>
+							<li><strong>Regex</strong> stands for regular expressions. It allows us to search and manipulate strings in patterns, and this is an important tool for anybody who does coding.</li>
+						</ul>
+
+					</div>
+
+					<div id="04-Ins_Pyspark_NLP_Stopwords" class="instructor-block">
+						<h3>04-Ins_Pyspark_NLP_Stopwords</h3>
+
+						<p>Stop words are words for grammar and syntax. We remove them since we want words that carry meaning rather than grammar.</p>
+
+						<ul>
+							<li><code>from pyspark.ml.feature import StopWordsRemover</code> is the library we'll use for pyspark.</li>
+							<ul>
+								<li><code>remover = StopWordsRemover(inputCol="raw", outputCol="filtered")</code> is how you invoked the remover from pyspark.</li>
+								<li>There isn't a need to define what you need to remove. <code>StopWordsRemover</code> will do that for you.</li>
+							</ul>
+							<li>This is the way to manually create a dataframe:</li>
+							<ul>
+								<li><pre><code>
+	sentenceData = spark.createDataFrame([
+	    (0, ["Big", "data", "is", "super", "powerful"]),
+	    (1, ["This", "is", "going", "to", "be", "epic"])
+	], ["id", "raw"])
+								</code></pre></li>
+								<li>The <code>"id"</code> is mapped to the integer indices, while the list of tokens is mapped to <code>"raw"</code>. It becomes a dataframe with columns as mapped.</li>
+							</ul>
+						</ul>
+					</div>
+
+					<div id="05-Stu_Pyspark_NLP_Stopwords" class="student-block">
+						<h3>05-Stu_Pyspark_NLP_Stopwords: Your Turn</h3>
+
+						<p>URL to use: <a href="https://s3.amazonaws.com/dataviz-curriculum/day_2/food_reviews.csv">https://s3.amazonaws.com/dataviz-curriculum/day_2/food_reviews.csv</a></p>
+
+					</div>
+
+					<div id="06-Ins_Pyspark_NLP_HashingTF" class="instructor-block">
+						<h3>06-Ins_Pyspark_NLP_HashingTF</h3>
+
+						<p>From here, you'll really learn the basics of how NLP works. Here are some techniques we use to analyze text better.</p>
+
+						<h4>N-Grams</h4>
+						<ul>
+							<li>A group of n words appearing in sequence from a text.</li>
+							<li>Tokenizing n-words doesn't always work when you're a service like Grammarly. In that case, it is important to identify multi-word expressions or phrases.</li>
+							<li>This can also be used for sentiment analysis.</li>
+						</ul>
+
+						<h4>Stemming</h4>
+						<ul>
+							<li>Getting the root words from different forms of words, i.e. watching, watches, watched. They share the same root word, "watch".</li>
+						</ul>
+
+						<h4>Term Frequency - Inverse Document Frequency (TF-IDF)</h4>
+						<ul>
+							<li>Intended to reflect the importance of a word in a text.</li>
+							<ul>
+								<li>It can be a sentence, or pages.</li>
+							</ul>
+							<li>Term frequency simply means the number of counts of a word in a document.</li>
+							<li>Inverse document frequence means the more documents that include the term, the lower the IDF score.</li>
+							<li>TF-IDF is the product of the 2. TF drives up the score, but IDF will bring it down if the word occurs in all or many documents.</li>
+							<ul>
+								<li>If it appears too many times, it can be mistaken as a common word which is not a stop word.</li>
+								<li>This technique is used to identify stop words too.</li>
+							</ul>
+							<li>Additional references on this topic:</li>
+							<ul>
+								<li><a href="http://www.tfidf.com/">What does TF-IDF mean?</a></li>
+								<li><a href="https://www.elephate.com/blog/what-is-tf-idf/">TF-IDF Algorithm explained</a></li>
+								<li><a href="https://nlp.stanford.edu/IR-book/html/htmledition/tf-idf-weighting-1.html">TD-IDF Weighting.</a></li>
+							</ul>
+						</ul>
+
+						<h4>How about the code for TF-IDF?</h4>
+
+						<ul>
+							<li>We're introduced the following libraries in your activity: <code>from pyspark.ml.feature import HashingTF, IDF, Tokenizer</code></li>
+							<li>Hashing is the transformation of a string of characters into a shorter fixed-length value/</li>
+							<ul>
+								<li>Usually used to encrypt your passwords, but if you're doing text analysis, you'll want to keep all your characters into numerical IDs which has a fixed size.</li>
+								<li>Remember that Machine Learning and Deep Neural Networks have to use numerical IDs? That's why we hash the strings into numbers too.</li>
+							</ul>
+							<li>We are dealing only with the <strong>IDF</strong> value. The actual <strong>TF-IDF</strong> value comes later in the latter activity.</li>
+						</ul>
+
+
+					</div>
+
+					<div id="07-Stu_Pyspark_NLP_HashingTF" class="student-block">
+						<h3>07-Stu_Pyspark_NLP_HashingTF: Your Turn</h3>
+						
+					</div>
+
+						
+					<div id="08-Evr_Naive_Bayes_Reviews" class="instructor-block">
+						<h3>08-Evr_Naive_Bayes_Reviews</h3>
+
+						<p>We want to build an NLP pipeline to classify reviews from Yelp as either positive or negative. The source file is found here: <a href="https://s3.amazonaws.com/dataviz-curriculum/day_2/yelp_reviews.csv">https://s3.amazonaws.com/dataviz-curriculum/day_2/yelp_reviews.csv</a></p>
+
+						<h4>What is Naive Bayes Theorem?</h4>
+
+						<ul>
+							<li>This is a conditional probability of something occurring.</li>
+							<li>Used for classifying spam email by the occurance of words, such as "easy money!" or "make fast cash!"</li>
+						</ul>
+
+					</div>
+
+					
+
+
+				</div> <!-- end #main-content -->
+
+
+				<div id="right-sb" class="col-md-4">
+					<div id="right-sb-nav" class="list-group" id="toc" role="tablist">
+					  <a class="list-group-item list-group-item-action active"  href="#objectives" role="tab">Objectives</a>
+					  <a class="list-group-item list-group-item-action"  href="#intro" role="tab">Introduction To NLP</a>
+					  <a class="list-group-item list-group-item-action"  href="#01-Ins_Pyspark_NLP_Tokens" role="tab">01-Ins_Pyspark_NLP_Tokens</a>
+					  <a class="list-group-item list-group-item-action"  href="#02-Ins_UDF" role="tab">02-Ins_UDF</a>
+					  <a class="list-group-item list-group-item-action"  href="#03-Stu_Pyspark_NLP_Tokens" role="tab">03-Stu_Pyspark_NLP_Tokens</a>
+					  <a class="list-group-item list-group-item-action"  href="#04-Ins_Pyspark_NLP_Stopwords" role="tab">04-Ins_Pyspark_NLP_Stopwords</a>
+					  <a class="list-group-item list-group-item-action"  href="#05-Stu_Pyspark_NLP_Stopwords" role="tab">05-Stu_Pyspark_NLP_Stopwords</a>
+					  <a class="list-group-item list-group-item-action"  href="#06-Ins_Pyspark_NLP_HashingTF" role="tab">06-Ins_Pyspark_NLP_HashingTF</a>
+					  <a class="list-group-item list-group-item-action"  href="#07-Stu_Pyspark_NLP_HashingTF" role="tab">07-Stu_Pyspark_NLP_HashingTF</a>
+					  <a class="list-group-item list-group-item-action"  href="#08-Evr_Naive_Bayes_Reviews" role="tab">08-Evr_Naive_Bayes_Reviews</a>
+					</div>
+				
+				</div>
+			</div> <!-- end .row -->
+			
+		</div> <!-- end .container-fluid -->
+
+		<footer>
+			<script type="text/javascript" src="../../js/jquery-3.3.1.min.js"></script>
+			<script type="text/javascript" src="../../js/bootstrap.min.js"></script>
+
+			<script type="text/javascript">
+
+			</script>
+
+      <script type="text/javascript" src="../../js/config.js"></script>
+      <style>
+pre {
+  background-color: black;
+  color: white;
+}
+
+div[id^="map-"]{
+  height:500px;
+}
+div[id$="-toggle"]{
+  display: none;
+}
+      </style>
+
+		</footer>
+
+	</body>
+
+
+</html>
