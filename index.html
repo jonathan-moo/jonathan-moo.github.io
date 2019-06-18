@@ -128,7 +128,40 @@
 							<ul>
 								<li><strong>Note:</strong> Making assets public is a <strong>TERRIBLE</strong> practice, but we're not covering <strong>Access Control List (ACL)</strong> for time's sake.</li>
 							</ul>
+							<li>Create a <code>my_data_class_db</code> in PostgreSQL.</li>
+							<li>Run <code>schema.sql</code> by cutting and pasting the SQL queries into the pgAdmin dashboad.</li>
+							<li>Load <code>ins_etl_s3_rds.json</code> in ZEPL. We'll run through the code together.</li>
 						</ul>
+
+					</div>
+
+					<div id="04-Stu_ETL_S3_ZEPL" class="student-block">
+						<h3>04-Stu_ETL_S3_ZEPL: Your Turn</h3>
+
+					</div>
+
+					<div id="05-Evr_ZEPL_RDS" class="instructor-block">
+						<h3>05-Evr_ZEPL_RDS</h3>
+
+						<p>We are extracting data from RDS to ZEPL.</p>
+
+						<ul>
+							<li>Ref: <a href="assets/ZEPL_guide.pdf">ZEPL_guide.pdf</a></li>
+							<li>But you don't need to follow all the steps to extract data from RDS to ZEPL</li>
+							<ul>
+								<li>Make sure you can connect: <code>spark.read.jdbc(url=jdbc_url, table='&lt;yourtable>', properties=config)</code></li>
+							</ul>
+						</ul>
+
+					</div>
+
+					<div id="data-cleanup" class="instructor-block">
+						<h3>Cleaning up and wrapping up</h3>
+						
+					</div>
+
+					<div id="06-Stu_Big_Data_Review" class="student-block">
+						<h3>06-Stu_Big_Data_Review: Reviewing Big Data</h3>
 
 					</div>
 
@@ -141,15 +174,14 @@
 					  <a class="list-group-item list-group-item-action active"  href="#objectives" role="tab">Objectives</a>
 					  <a class="list-group-item list-group-item-action"  href="#intro" role="tab">Introduction To NLP</a>
 					  <a class="list-group-item list-group-item-action"  href="#01-Evr_S3" role="tab">01-Evr_S3</a>
-
 					  <a class="list-group-item list-group-item-action"  href="#02-Ins_UDF" role="tab">02-Ins_UDF</a>
+					  <a class="list-group-item list-group-item-action"  href="#03-Stu_Pyspark_NLP_Tokens" role="tab">03-Ins_ETL_S3_RDS</a>
 
-					  <a class="list-group-item list-group-item-action"  href="#03-Stu_Pyspark_NLP_Tokens" role="tab">03-Stu_Pyspark_NLP_Tokens</a>
-					  <a class="list-group-item list-group-item-action"  href="#04-Ins_Pyspark_NLP_Stopwords" role="tab">04-Ins_Pyspark_NLP_Stopwords</a>
-					  <a class="list-group-item list-group-item-action"  href="#05-Stu_Pyspark_NLP_Stopwords" role="tab">05-Stu_Pyspark_NLP_Stopwords</a>
-					  <a class="list-group-item list-group-item-action"  href="#06-Ins_Pyspark_NLP_HashingTF" role="tab">06-Ins_Pyspark_NLP_HashingTF</a>
-					  <a class="list-group-item list-group-item-action"  href="#07-Stu_Pyspark_NLP_HashingTF" role="tab">07-Stu_Pyspark_NLP_HashingTF</a>
-					  <a class="list-group-item list-group-item-action"  href="#08-Evr_Naive_Bayes_Reviews" role="tab">08-Evr_Naive_Bayes_Reviews</a>
+					  <a class="list-group-item list-group-item-action"  href="#04-Stu_ETL_S3_ZEPL" role="tab">04-Stu_ETL_S3_ZEPL</a>
+					  <a class="list-group-item list-group-item-action"  href="#05-Evr_ZEPL_RDS" role="tab">05-Evr_ZEPL_RDS</a>
+					  <a class="list-group-item list-group-item-action"  href="#data-cleanup" role="tab">Cleaning up and wrapping up</a>
+					  <a class="list-group-item list-group-item-action"  href="#06-Stu_Big_Data_Review" role="tab">06-Stu_Big_Data_Review</a>
+					  
 					</div>
 				
 				</div>
