@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Jonathan Moo's Github Bio</title>
+
+
+		<link rel='stylesheet' id='bootstrap-css'  href='../../css/bootstrap.min.css' type='text/css' media='all' />
+		<link rel='stylesheet' id='bootstrap-grid-css'  href='../../css/bootstrap-grid.min.css' type='text/css' media='all' />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+   integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+   crossorigin=""/>
+		<link rel='stylesheet' id='custom-css'  href='../../css/style.css' type='text/css' media='all' /> 
+		<script src="https://d3js.org/d3.v5.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.9.1/d3-tip.js"></script>
+		<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+     <!-- Make sure you put this AFTER Leaflet's CSS -->
+     <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+       integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+       crossorigin=""></script>
+	</head>
+
+	<body>
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<a class="navbar-brand" href="#">Jonathan's Github Page</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active">
+						<a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Lessons</a>
+						<div class="dropdown-menu">
+							<a class="dropdown-item" href="../11.2/index.html">11.2 Ref</a>
+							<a class="dropdown-item" href="../11.3/index.html">11.3 Ref</a>
+							<a class="dropdown-item" href="../12.1/index.html">12.1 Ref</a>
+							<a class="dropdown-item" href="../12.3/index.html">12.3 Ref</a>
+							<a class="dropdown-item" href="../13.1/index.html">13.1 Ref</a>
+							<a class="dropdown-item" href="../13.2/index.html">13.2 Ref</a>
+							<a class="dropdown-item" href="../13.3/index.html">13.3 Ref</a>
+							<a class="dropdown-item" href="../14.1/index.html">14.1 Ref</a>
+							<a class="dropdown-item" href="../14.2/index.html">14.2 Ref</a>
+							<a class="dropdown-item" href="../14.3/index.html">14.3 Ref</a>
+							<a class="dropdown-item" href="../15.1/index.html">15.1 Ref</a>
+							<a class="dropdown-item" href="../15.2/index.html">15.2 Ref</a>
+							<a class="dropdown-item" href="../15.3/index.html">15.3 Ref</a>
+							<a class="dropdown-item" href="../16.1/index.html">16.1 Ref</a>
+							<a class="dropdown-item" href="../16.2/index.html">16.2 Ref</a>
+							<a class="dropdown-item" href="../16.3/index.html">16.3 Ref</a>
+							<a class="dropdown-item" href="../17.1/index.html">17.1 Ref</a>
+							<a class="dropdown-item" href="../17.2/index.html">17.2 Ref</a>
+							<a class="dropdown-item" href="../17.3/index.html">17.3 Ref</a>
+							<a class="dropdown-item" href="../18.1/index.html">18.1 Ref</a>
+							<a class="dropdown-item" href="../18.2/index.html">18.2 Ref</a>
+							<a class="dropdown-item" href="../20.1/index.html">20.1 Ref</a>
+							<a class="dropdown-item" href="../20.2/index.html">20.2 Ref</a>
+							<a class="dropdown-item" href="../21.3/index.html">21.3 Ref</a>
+							<a class="dropdown-item" href="../22.1/index.html">22.1 Ref</a>
+							<a class="dropdown-item" href="../22.2/index.html">22.2 Ref</a>
+							<a class="dropdown-item" href="../22.3/index.html">22.3 Ref</a>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</nav>
+		<div class="container-fluid">
+			<div class="row">
+				<div id="main-content" class="col-md-8">
+					
+
+					<div class="objective-block">
+						<h3 id="objectives">Objectives For Lesson 22.3</h3>
+
+						<ul>
+							<li>Cloud ETL</li>
+						</ul>
+
+					</div>
+
+					<div id="intro" class="instructor-block">
+						<h3>Introduction To AWS and a taste of industry pipeline</h3>
+
+						<ul>
+							<li>The goal is a snapshot of the tools we use in AWS.</li>
+							<ul>
+								<li>Ref from school about AWS Free Tier: <a href="assets/AWS-Free-Tier.pdf">AWS-Free_Tier.pdf</a></li>
+								<li>Basically, it is possible to go over the limit during our lesson and it might incur costs, but I'll try to stick as close to the lesson plan as possible so that it doesn't happen.</li>
+								<li>We also need to install Postgresql Admin: <a href="https://www.pgadmin.org/download/">https://www.pgadmin.org/download/</a></li>
+								<ul>
+									<li>Download and install according to the operating system you're using.</li>
+									<li>Unlike <strong>MySQL</strong>, you don't need the actual server to run in your local machine. That's because we're connecting to AWS for this.</li>
+								</ul>
+								<li>These days, we use code to deploy infrastructure (Terraform). In corporations these days, it's highly unlikely you're going to deploy through a GUI, but this is still crucial to understand and learn.</li>
+							</ul>
+						</ul>
+					</div>
+
+					<div id="01-Evr_S3" class="instructor-block">
+						<h3>01-Evr_S3</h3>
+
+						<ul>
+							<li>AWS S3 is by far one of the most-used service in all industries, because it's relatively cheap and powerful to integrate.</li>
+							<li>Follow the PDF guide to get started with S3: <a href="assets/S3_guide.pdf">S3 Guide</a></li>
+						</ul>
+					</div>
+
+					<div id="02-Evr_RDS_CRUD" class="instructor-block">
+						<h3>02-Evr_RDS_CRUD</h3>
+
+						<ul>
+							<li>Postgresql is very similar to MySQL, but governed by different companies.</li>
+							<ul>
+								<li>It doesn't matter while you're learning, but Oracle has been trying to commercialize MySQL ever since they bought over MySQL.</li>
+								<li>Some syntaxes and under-the-hood interactions are different, but what you've learned before in MySQL, SQLite and other relational databases remain the same.</li>
+								<li>Follow the steps to get started with your RDS: <a href="assets/AWS_RDS_guide.pdf">AWS_RDS_guide.pdf</a></li>
+								<li>Follow the steps to connect your pgAdmin with your RDS here: <a href="assets/RDS_pgAdmin_guide.pdf">RDS_pgAdmin_guide.pdf</a></li>
+							</ul>
+						</ul>
+
+					</div>
+
+					<div id="03-Ins_ETL_S3_RDS" class="instructor-block">
+						<h3>03-Ins_ETL_S3_RDS</h3>
+
+						<p>We are performing ETL from S3 to RDS:</p>
+						<ul>
+							<li>Create a bucket and upload <code>user_data.csv</code> and <code>user_payment.csv</code>, and make sure they are made public.</li>
+							<ul>
+								<li><strong>Note:</strong> Making assets public is a <strong>TERRIBLE</strong> practice, but we're not covering <strong>Access Control List (ACL)</strong> for time's sake.</li>
+							</ul>
+							<li>Create a <code>my_data_class_db</code> in PostgreSQL.</li>
+							<li>Run <code>schema.sql</code> by cutting and pasting the SQL queries into the pgAdmin dashboad.</li>
+							<li>Load <code>ins_etl_s3_rds.json</code> in ZEPL. We'll run through the code together.</li>
+						</ul>
+
+					</div>
+
+					<div id="04-Stu_ETL_S3_ZEPL" class="student-block">
+						<h3>04-Stu_ETL_S3_ZEPL: Your Turn</h3>
+
+					</div>
+
+					<div id="05-Evr_ZEPL_RDS" class="instructor-block">
+						<h3>05-Evr_ZEPL_RDS</h3>
+
+						<p>We are extracting data from RDS to ZEPL.</p>
+
+						<ul>
+							<li>Ref: <a href="assets/ZEPL_guide.pdf">ZEPL_guide.pdf</a></li>
+							<li>But you don't need to follow all the steps to extract data from RDS to ZEPL</li>
+							<ul>
+								<li>Make sure you can connect: <code>spark.read.jdbc(url=jdbc_url, table='&lt;yourtable>', properties=config)</code></li>
+							</ul>
+						</ul>
+
+					</div>
+
+					<div id="data-cleanup" class="instructor-block">
+						<h3>Cleaning up and wrapping up</h3>
+						
+					</div>
+
+					<div id="06-Stu_Big_Data_Review" class="student-block">
+						<h3>06-Stu_Big_Data_Review: Reviewing Big Data</h3>
+
+					</div>
+
+
+				</div> <!-- end #main-content -->
+
+
+				<div id="right-sb" class="col-md-4">
+					<div id="right-sb-nav" class="list-group" id="toc" role="tablist">
+					  <a class="list-group-item list-group-item-action active"  href="#objectives" role="tab">Objectives</a>
+					  <a class="list-group-item list-group-item-action"  href="#intro" role="tab">Introduction To NLP</a>
+					  <a class="list-group-item list-group-item-action"  href="#01-Evr_S3" role="tab">01-Evr_S3</a>
+					  <a class="list-group-item list-group-item-action"  href="#02-Ins_UDF" role="tab">02-Ins_UDF</a>
+					  <a class="list-group-item list-group-item-action"  href="#03-Stu_Pyspark_NLP_Tokens" role="tab">03-Ins_ETL_S3_RDS</a>
+
+					  <a class="list-group-item list-group-item-action"  href="#04-Stu_ETL_S3_ZEPL" role="tab">04-Stu_ETL_S3_ZEPL</a>
+					  <a class="list-group-item list-group-item-action"  href="#05-Evr_ZEPL_RDS" role="tab">05-Evr_ZEPL_RDS</a>
+					  <a class="list-group-item list-group-item-action"  href="#data-cleanup" role="tab">Cleaning up and wrapping up</a>
+					  <a class="list-group-item list-group-item-action"  href="#06-Stu_Big_Data_Review" role="tab">06-Stu_Big_Data_Review</a>
+					  
+					</div>
+				
+				</div>
+			</div> <!-- end .row -->
+			
+		</div> <!-- end .container-fluid -->
+
+		<footer>
+			<script type="text/javascript" src="../../js/jquery-3.3.1.min.js"></script>
+			<script type="text/javascript" src="../../js/bootstrap.min.js"></script>
+
+			<script type="text/javascript">
+
+			</script>
+
+      <script type="text/javascript" src="../../js/config.js"></script>
+      <style>
+pre {
+  background-color: black;
+  color: white;
+}
+
+div[id^="map-"]{
+  height:500px;
+}
+div[id$="-toggle"]{
+  display: none;
+}
+      </style>
+
+		</footer>
+
+	</body>
+
+
+</html>
