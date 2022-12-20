@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Jonathan Moo's Github Bio</title>
+
+
+		<link rel='stylesheet' id='bootstrap-css'  href='css/bootstrap.min.css' type='text/css' media='all' />
+		<link rel='stylesheet' id='bootstrap-grid-css'  href='css/bootstrap-grid.min.css' type='text/css' media='all' />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+   integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+   crossorigin=""/>
+		<link rel='stylesheet' id='custom-css'  href='css/style.css' type='text/css' media='all' /> 
+		<script src="https://d3js.org/d3.v5.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.9.1/d3-tip.js"></script>
+		<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+     <!-- Make sure you put this AFTER Leaflet's CSS -->
+     <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+       integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+       crossorigin=""></script>
+	</head>
+
+	<body>
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<a class="navbar-brand" href="#">Jonathan's Github Page</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active">
+						<a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Lessons</a>
+						<div class="dropdown-menu">
+							<a class="dropdown-item" href="MIACOR201901DATA3/11.2/index.html">11.2 Ref</a>
+							<a class="dropdown-item" href="MIACOR201901DATA3/11.3/index.html">11.3 Ref</a>
+							<a class="dropdown-item" href="MIACOR201901DATA3/12.1/index.html">12.1 Ref</a>
+							<a class="dropdown-item" href="MIACOR201901DATA3/12.3/index.html">12.3 Ref</a>
+							<a class="dropdown-item" href="MIACOR201901DATA3/13.1/index.html">13.1 Ref</a>
+							<a class="dropdown-item" href="MIACOR201901DATA3/13.2/index.html">13.2 Ref</a>
+							<a class="dropdown-item" href="MIACOR201901DATA3/13.3/index.html">13.3 Ref</a>
+							<a class="dropdown-item" href="MIACOR201901DATA3/14.1/index.html">14.1 Ref</a>
+							<a class="dropdown-item" href="MIACOR201901DATA3/14.2/index.html">14.2 Ref</a>
+							<a class="dropdown-item" href="MIACOR201901DATA3/14.3/index.html">14.3 Ref</a>
+							<a class="dropdown-item" href="MIACOR201901DATA3/15.1/index.html">15.1 Ref</a>
+							<a class="dropdown-item" href="MIACOR201901DATA3/15.2/index.html">15.2 Ref</a>
+							<a class="dropdown-item" href="MIACOR201901DATA3/15.3/index.html">15.3 Ref</a>
+							<a class="dropdown-item" href="MIACOR201901DATA3/16.1/index.html">16.1 Ref</a>
+							<a class="dropdown-item" href="MIACOR201901DATA3/16.2/index.html">16.2 Ref</a>
+							<a class="dropdown-item" href="MIACOR201901DATA3/16.3/index.html">16.3 Ref</a>
+							<a class="dropdown-item" href="MIACOR201901DATA3/17.1/index.html">17.1 Ref</a>
+							<a class="dropdown-item" href="MIACOR201901DATA3/17.2/index.html">17.2 Ref</a>
+							<a class="dropdown-item" href="MIACOR201901DATA3/17.3/index.html">17.3 Ref</a>
+							<a class="dropdown-item" href="MIACOR201901DATA3/18.1/index.html">18.1 Ref</a>
+							<a class="dropdown-item" href="MIACOR201901DATA3/18.2/index.html">18.2 Ref</a>
+							<a class="dropdown-item" href="MIACOR201901DATA3/20.1/index.html">20.1 Ref</a>
+							<a class="dropdown-item" href="MIACOR201901DATA3/20.2/index.html">20.2 Ref</a>
+							<a class="dropdown-item" href="MIACOR201901DATA3/21.3/index.html">21.3 Ref</a>
+							<a class="dropdown-item" href="MIACOR201901DATA3/22.1/index.html">22.1 Ref</a>
+							<a class="dropdown-item" href="MIACOR201901DATA3/22.2/index.html">22.2 Ref</a>
+							<a class="dropdown-item" href="MIACOR201901DATA3/22.3/index.html">22.3 Ref</a>
+							<a class="dropdown-item" href="MIACOR201901DATA3/ml_refresher/index.html">22.3 Ref</a>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</nav>
+		<div class="container-fluid">
+			<div class="row">
+				<div id="main-content" class="col-md-8">
+					<div class="instructor-block">
+						<h3>Introduction</h3>
+
+						<p>Fulfiling some backlog content. Was away in Amazon Re:MARS for a work conference when my TA taught during my absence.</p>
+
+						<p>Re-visiting this subject for refresher.</p>
+
+						<p>I won't be able to teach a whole course of statistics and math on this subject, and so if we dive too deep into these mathematical formulas, I would need to put a hard stop to continue the lesson.</p>
+
+						<p>However, I have placed links and references for your further study on your own. Feel free to ask me during office hours.</p>
+					</div>
+
+					<div class="objective-block">
+						<h3 id="objectives">Objectives For Lesson 22.1</h3>
+
+						<ul>
+							<li>Introduction To Machine Learning</li>
+						</ul>
+
+					</div>
+
+					<div id="intro" class="instructor-block">
+						<h3>Introduction To Machine Learning</h3>
+
+						<p>Before we get started with machine learning, we need to understand some basic concepts and principles first.</p>
+
+						<p>Machine learning isn't mystical. In my opinion, it's real-time statistics that is made possible on today's machinery.
+							You will realize that many of the algorithms we have today are based on the foundations of statistical and mathematical discoveries in the past.
+						</p>
+
+						<p>In school, we had to learn about sampling. That's because it's not always possible to gather every piece of data necessary to predict. For example:</p>
+						<ul>
+							<li>Let's pretend you work in a company which makes condoms.</li>
+							<li>You're a QA analyst who's required to assess the reliability of a product.</li>
+							<li>To test your analysis, you can't possibly be stress-testing all the condoms in your inventory to test for reliability. You won't have anything left to sell!</li>
+						</ul>
+
+						<p>Sampling allows us to extrapolate a scenario, where probably 1 out of 10,000 products, there is one which is faulty. This is also foundational for predictive analytics.</p>
+
+						<p>However, recent development of technology is coming to the point <strong>where we are relying less on sampling, and we have the machinery to ingest tons of data for analysis</strong>. Thus, this is the beginnings of data science and machine learning.</p>
+					
+						<h3>Basic Definitions</h3>
+						<ul>
+							<li>Intelligent Algorithms</li>
+							<ul>
+								<li>Algorithms which enhances itself based on the data given to make informed decisions.</li>
+							</ul>
+							<li>Within <strong>Intelligent Algorithms,</strong> there are:</li>
+							<ul>
+								<li>Machine Learning</li>
+								<li>Predictive Analytics</li>
+								<li>Artificial Intelligence</li>
+							</ul>
+						</ul>
+
+						<h4>Artificial Intelligence</h4>
+						<p>Agents that can perceive environments and make decisions to maximize its chance for achieving its goals.</p>
+
+						<p><strong>Examples:</strong></p>
+						<ul>
+							<li>Google DeepMind for StarCraft 2</li>
+						</ul>
+
+						<h4>Predictive Analytics</h4>
+						<p>Based on patterns and recurring behavior, we extrapolate the chance of the situation happening again, and we optimize our business objectives in relation to the data given.</p>
+					
+						<p><strong>Examples:</strong></p>
+						<ul>
+							<li>Retargeting ads: If you're going to buy coffee from Amazon, it's likely that you're going to buy coffee again from Amazon. So we show you new coffee products on Amazon.</li>
+						</ul>
+
+						<h4>Machine Learning</h4>
+						<p>There are different categories of machine learning as follows:</p>
+						<ul>
+							<li>Unsupervised learning: You observe the data to interpret itself, and let that dictate your parameters to obtain accuracy.</li>
+							<ul>
+								<li>Clustering: Finding groups within a population</li>
+							</ul>
+							<li>Supervised learning: You already know the outcome you want, and so you determine the parameters for your data to boost accuracy.</li>
+							<ul>
+								<li>Classification: Grouping data into buckets with similar properties</li>
+								<li>Regression: Fitting data to determine if an event would happen again.</li>
+							</ul>
+							<li>Reinforcement learning: It's more for AI systems, but the data which you output can feed itself into the model, and it enhances your existing accuracy to accomplish a goal.</li>
+						</ul>
+
+						<p>In machine learning, we always do the <strong>model-fit-predict</strong> model. You will see that often in your student activities.</p>
+						<ul>
+							<li><strong>Model</strong>: Finding the right algorithm and set of features from the data to determine the accuracy of your outcome.</li>
+							<li><strong>Fit</strong>: Using what you have modeled, you're using data (usually historical data) to train the model in order to achieve an acceptable level of accuracy.</li>
+							<li><strong>Predict</strong>: After training the model, we input raw data from the environment into it and it will determine the outcome based on the model.</li>
+						</ul>
+
+					</div>
+
+					<div id="01-Ins_Univariate_Linear_Regression_Sklearn" class="instructor-block">
+						<h3>Linear Regression</h3>
+
+						<p>Linear regression is the basic foundational block for other machine learning algorithm such as neural networks and deep learning.</p>
+
+						<p>For example, in the activity, we have a function called <strong>make_regression</strong> from the sklearn.datasets library:</p>
+						<ul>
+							<li><strong>sk-learn</strong> stands for <strong>scikit-learn</strong>. This is the Python library we'll be using for the majority of this course.</li>
+							<li><strong>make_regression</strong> generates a random regression problem as an example:</li>
+							<ul>
+								<li>n_samples: Number of data points</li>
+								<li>n_features: Number of data properties to train or predict from.</li>
+								<li>random_state: An integer seed to replicate the example if needed.</li>
+								<li>noise: Standard deviation applied to the output</li>
+								<li>bias: computed value as the distance between the average prediction and true value.</li>
+							</ul>
+						</ul>
+
+						<p>This diagram should help in defining bias:</p>
+						<img src="img/bias_variance_illustration.png" class="img-fluid" >
+
+						<ul>
+							<li>Bullseye is the goal.</li>
+							<li><strong>Bias</strong> strays the aiming of your bow.</li>
+							<li><strong>Variance</strong> is the slight movements from your aim (your arms were tired) that results in hitting different spots around the same region.</li>
+						</ul>
+
+						<p>In the student activity, the <strong>bias</strong> value is arbituary, and it pushes the line to around 100 at y. If you put it at zero, it will be around zero at the y margin.</p>
+						
+						<p>This linear graph is to simulate a probable scenario. For example:</p>
+						<ul>
+							<li>We understand that the larger the house, the more expensive it is. (Let's ignore the other factors like traffic and environment.)</li>
+							<li>As square feet increases, we expect the home price to escalate in a <strong>linear fashion</strong>.</li>
+							<ul>
+								<li>It is unlikely that the home price relates to square feet in a <strong>sine</strong> curve. That would mean that at certain square feets, it will mean lower prices as indicated by the <strong>sine</strong> curve.</li>
+								<li>But a <strong>log</strong> curve is possible, since materials' price can sharply rise at a certain volume.</li>
+							</ul>
+						</ul>
+
+						<p>You might be planning for an apartment, and you're looking at 1000 square feet. The linear line <strong>helps you to predict the price of the home</strong> based on other home prices indicated. That's how linear regression and basic machine learning works in general.</p>
+					
+						<h3>Mathematical Formula</h3>
+
+						<p>It's going back to high school, but:</p>
+
+						<code>y = mx + b</code>
+						<ul>
+							<li><code>y</code> is the output response</li>
+							<li><code>x</code> is the input feature (we have one feature, remember? Square fit is the feature for our example.)</li>
+							<li><code>b</code> is the y-axis intercept.</li>
+							<li><code>m</code> is the gradient, or <strong>weight coefficient</strong>.</li>
+						</ul>
+					
+						<p>Get ready for high school math!</p>
+					</div>
+
+					<div id="02-Stu_LSD" class="student-block">
+						<h3>02-Stu_LSD: Your Turn</h3>
+
+						<p>In this activity, instead of using a random dataset from the <code>sklearn.make_regression</code> object, we're using a CSV file to generate plot points instead.</p>
+					</div>
+
+					<div id="03-Ins_Quantifying_Regression" class="instructor-block">
+						<h3>Quantifying Regression</h3>
+
+						<p>This just means how do we prove if our model works? How do we quantify accuracy?</p>
+
+						<p>As we use linear regression as our foundational study material, realize that what you learned here is going to be applied to other models as well.</p>
+					
+						<p>To quantify accuracy, we use common scoring metrics such as:</p>
+
+						<ul>
+							<li>R-Squared (R<sup>2</sup>)</li>
+							<li>Mean Squared Error (MSE)</li>
+						</ul>
+
+						<p>What I'm going to teach you are some of the fundamentals of R<sup>2</sup> and MSE to understand how we derived accuracy, but to find out more on the mathematical derivation, look at the links below:</p>
+						<ul>
+							<li><a href="https://www.khanacademy.org/math/ap-statistics/bivariate-data-ap/assessing-fit-least-squares-regression/v/r-squared-or-coefficient-of-determination">R<sup>2</sup> or coefficient of determination</a></li>
+							<li>MSE (I don't have a good math video tutorial at the moment, so you could suggest, and I'll put it up here.)</li>
+						</ul>
+
+						<h3>R<sup>2</sup> Concept</h3>
+						<p>We use the margin of errors to depict the accuracy of a model. Consider this graph:</p>
+
+						<img src="img/r-squared-example-0.png" class="img-fluid" />
+
+						<p>We're trying to measure the accuracy of our model by using the margin of errors. Thus:</p>
+						<ul>
+							<li>Having the same input (x<sub>1</sub>), the predicted data would feature on the line, and we have the actual results as (x<sub>1</sub>,y<sub>1</sub>).</li>
+							<li>The margin of error, <code>r</code>, would be <code>y<sub>1</sub> - y</code> since there is a difference between the 2 output values.</li>
+							<li>Squaring them eliminates negatives (high school math), and we get an area on the graph.</li>
+							<li>We can't base our accuracy on a single margin of error. Thus, since all points have their margin of errors, we add them all up to get the <strong>Squared-Error of the line (SE<sub>line</sub>).</strong></li>
+							<li>But the <code>SE<sub>line</sub></code> doesn't allow us to compare with anything. So, we calculate the <strong>total variation in <code>y</code></strong> to quantify how the margin of error against the total variance of y.</li>
+							<li>By division, <code>SE<sub>line</sub>/SE<sub>y-mean</sub></code>, we get the amount of error in relation to the total variance of y. But this describes the error percentage. How about the accuracy?</li>
+							<li>Accuracy is described by 100%, or 1 if we're dealing with decimals. Thus, <code>1 - SE<sub>line</sub>/SE<sub>y-mean</sub></code> will give us an accuracy score, and it's often described as <strong>the coefficient of determination</strong>.</li>
+						</ul>
+
+						<p>Beyond this will be out of our scope for math.</p>
+
+						<h3>MSE Concept</h3>
+						<p>Using the same concept for calculating margin of error for <code>r<sup>2</sup></code>, we simply sum the squared margin of error and divide it by the total number of points:</p>
+						<img src="img/mse-example-0.png" class="img-fluid" />
+
+						<h3>Summary</h3>
+						<ul>
+							<li><code>R<sup>2</sup></code> value should be as close to 1 for accuracy.</li>
+							<li><code>MSE</code> score should be close to 0 for accuracy.</li>
+						</ul>
+					</div>
+
+
+				</div> <!-- end #main-content -->
+
+
+				<div id="right-sb" class="col-md-4">
+					<div id="right-sb-nav" class="list-group" id="toc" role="tablist">
+					  <a class="list-group-item list-group-item-action active"  href="#objectives" role="tab">Objectives</a>
+					  <a class="list-group-item list-group-item-action"  href="#intro" role="tab">Introduction To Machine Learning</a>
+
+					  <a class="list-group-item list-group-item-action"  href="#01-Ins_Univariate_Linear_Regression_Sklearn" role="tab">Linear Regression</a>
+					  <a class="list-group-item list-group-item-action"  href="#02-Stu_LSD" role="tab">02-Stu_LSD</a>
+
+					  <a class="list-group-item list-group-item-action"  href="#03-Ins_Quantifying_Regression" role="tab">Quantifying Regression</a>
+					</div>
+				
+				</div>
+			</div> <!-- end .row -->
+			
+		</div> <!-- end .container-fluid -->
+
+		<footer>
+			<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+			<script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+			<script type="text/javascript">
+
+			</script>
+
+      <script type="text/javascript" src="js/config.js"></script>
+      <style>
+pre {
+  background-color: black;
+  color: white;
+}
+
+div[id^="map-"]{
+  height:500px;
+}
+div[id$="-toggle"]{
+  display: none;
+}
+      </style>
+
+		</footer>
+
+	</body>
+
+
+</html>
