@@ -142,9 +142,55 @@
 								<li>I have a client that wants to capture email addresses using a promotion campaign. She wants to profile her customers for targeted ads.</li>
 							</ul>
 						</ul>
+					</div> <!-- end #02 -->
 
-						
-					</div> <!-- end #01 -->
+					<div id="02-1NF" class="instructor-block">
+						<h3>First Normal Form (1NF)</h3>
+						<h5>Why do we need do we need each field to have a single value?</h5>
+						<div id="02-1nf-toggle" style="display: none;">
+							<ul>
+								<li>We can leverage SQL queries to count the number of items in a table, or to filter out distinct values.</li>
+								<ul>
+									<li>If a record contains multiple values, we cannot calculate against the records within the table accurately.</li>
+								</ul>
+							</ul>
+						</div>
+						<button type="button" class="btn btn-primary" onclick='$("#02-1nf-toggle").toggle();'>Show/Hide Tips</button>
+					</div> <!-- end #02-1NF -->
+
+					<div id="02-2NF" class="instructor-block">
+						<h3>Second Normal Form (2NF)</h3>
+						<h5>Why do we need do we need primary keys to identify the rows uniquely?</h5>
+						<div id="02-2nf-toggle" style="display: none;">
+							<ul>
+								<li>If a human-readable name is used, it will be difficult to distinguish the difference when another record with the same or similar name appears.</li>
+								<ul>
+									<li>It is never best practice to leave it to intuition to interpret a record.</li>
+									<li>To truly ensure unique records, we use Universally Unique Identifier (UUID) libraries when we generate primary keys.</li>
+								</ul>
+							</ul>
+						</div>
+						<button type="button" class="btn btn-primary" onclick='$("#02-2nf-toggle").toggle();'>Show/Hide Tips</button>
+					</div> <!-- end #02-2NF -->
+
+					<div id="02-3NF" class="instructor-block">
+						<h3>Third Normal Form (3NF)</h3>
+						<h5>Why do we need to remove transitive dependencies?</h5>
+						<div id="02-3nf-toggle" style="display: none;">
+							<ul>
+								<li>Transitive dependencies lead to redundant data</li>
+								<ul>
+									<li>Redundant data adds an overhead to storage, especially when we deal with enterprise system with petabytes of data.</li>
+									<li>Redundant data has the propensity to cause deletion, updation and insertion anomalies. Example:</li>
+									<ul>
+										<li>If store address appears in 2 different tables, and someone moved, you have to update 2 tables.</li>
+										<li>However, by eliminating transitive dependence, we should be able to update the address once, even if the data has references in multiple tables.</li>
+									</ul>
+								</ul>
+							</ul>
+						</div>
+						<button type="button" class="btn btn-primary" onclick='$("#02-3nf-toggle").toggle();'>Show/Hide Tips</button>
+					</div> <!-- end #02-2NF -->
 
 
 				</div> <!-- end #main-content -->
@@ -156,6 +202,9 @@
 
 					  <a class="list-group-item list-group-item-action"  href="#01-student-activity" role="tab">Data Manipulation with Cereals</a>
 					  <a class="list-group-item list-group-item-action"  href="#02-Data-Normalization" role="tab">Data Normalization</a>
+						<a class="list-group-item list-group-item-action"  href="#02-1NF" role="tab">First Normal Form (1NF)</a>
+						<a class="list-group-item list-group-item-action"  href="#02-2NF" role="tab">Second Normal Form (2NF)</a>
+						<a class="list-group-item list-group-item-action"  href="#02-3NF" role="tab">Third Normal Form (3NF)</a>
 
 					</div>
 				
