@@ -3,6 +3,11 @@
 	margin-top: 200px;
 }
 */
+
+button {
+	margin-bottom: 7px;
+}
+
 #profile-img {
 	width:300px;
 }
