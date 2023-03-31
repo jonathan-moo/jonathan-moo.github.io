@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Jonathan Moo's Github Bio</title>
+
+
+		<link rel='stylesheet' id='bootstrap-css'  href='../../css/bootstrap.min.css' type='text/css' media='all' />
+		<link rel='stylesheet' id='bootstrap-grid-css'  href='../../css/bootstrap-grid.min.css' type='text/css' media='all' />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+   integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+   crossorigin=""/>
+		<link rel='stylesheet' id='custom-css'  href='../../css/style.css' type='text/css' media='all' /> 
+		<script src="https://d3js.org/d3.v5.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.9.1/d3-tip.js"></script>
+		<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+     <!-- Make sure you put this AFTER Leaflet's CSS -->
+     <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+       integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+       crossorigin=""></script>
+	</head>
+
+	<body>
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<a class="navbar-brand" href="#">Jonathan's Github Page</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active">
+						<a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Lessons</a>
+						<div class="dropdown-menu">
+							<a class="dropdown-item" href="ASU-VIRT-DATA-PT-03-2023-U-LOLC/1.1/index.html">1.1 Ref</a>
+							<a class="dropdown-item" href="ASU-VIRT-DATA-PT-03-2023-U-LOLC/1.2/index.html">1.2 Ref</a>
+						</div>
+					</li-->
+				</ul>
+			</div>
+		</nav>
+		<div class="container-fluid">
+			<div class="row">
+				<div id="main-content" class="col-md-8">
+					<div class="objective-block">
+						<h3 id="objectives">Objectives For Today</h3>
+
+						<ul>
+							<li>Excel For Exploratory Data Analysis (EDA)</li>
+						</ul>
+
+					</div>
+
+					<div id="admin" class="instructor-block">
+						<h3>Some administrative items before we start</h3>
+						<h5>We are figuring out some Gitlab issues. I have sent the files into your Slack channel: </h5>
+						<a href="https://asuvirtdatapt-qny2270.slack.com/archives/C04MY7PPQM9/p1680052348305639">https://asuvirtdatapt-qny2270.slack.com/archives/C04MY7PPQM9/p1680052348305639</a>
+						<!--h5><a href="https://asu.bootcampcontent.com/asu-coding-bootcamp/ASU-VIRT-DATA-PT-03-2023-U-LOLC">Gitlab</a></h5>
+						<p>This is where all classroom content will be posted:</p>
+						<ul>
+							<li>Classroom activities</li>
+							<li>Presentation slides</li>
+						</ul-->
+
+						<h5>Zoom Recordings</h5>
+						<p>Lesson 1.1's zoom has been published! Always check it out if you need help.</p>
+					</div> <!-- .end #intro-->
+
+					<div id="01-Ins_ExcelPlayground" class="instructor-block">
+						<h3>Excel Playground</h3>
+						<p>If you have been working in an office for some time, it is very likely that you used Excel. 
+							If you’re already proficient with Excel, do give room for other students to grow in it.</p>
+						<p>This is going to be first dips on how programming works.</p>
+						<p>Excel mimics some of the programming languages in terms of features, 
+							and so you will be more and more familiar with programming when you understand these concepts.</p>
+
+						<h5>Functions</h5>
+						<p>Programming is very similar to high school math, algebra. 
+							This is a good reference to start if you want to know how function works in math or programming:
+							<a href="https://www.khanacademy.org/math/algebra/x2f8bb11595b61c86:functions/x2f8bb11595b61c86:evaluating-functions/v/what-is-a-function">What is a function?</a>
+						</p>
+
+						<iframe width="560" height="315" src="https://www.youtube.com/embed/kvGsIo1TmsM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+						
+					</div> <!-- .end #intro-->
+
+					<div id="02-Ins_NamedRanges" class="instructor-block">
+						<h3>Named Ranges</h3>
+
+					</div> <!-- #02-course-overview end -->
+
+					<div id="03-Ins_ColorCounter" class="instructor-block">
+						<h3>Color Counter</h3>
+						<p>This is where we explore conditionals. 
+							Conditionals are core in any programming languages, and it is something we consistently have to think about when we code.</p>
+
+						<h5>Logical Conditionals</h5>
+						<ul>
+							<li>AND</li>
+							<li>NOT</li>
+							<li>OR</li>
+						</ul>
+
+						<h5>Conditional Statements</h5>
+						<p>Examples:</p>
+						<ul>
+							<li><code>COUNTIF(A2:A5,"Red")</code>: Counting if there is "Red" within the named ranges.</li>
+							<li><code>IF(C2>5), "TRUE", "FALSE"</code></li>
+						</ul>
+					</div> <!-- 03-past-learnings end -->
+
+					<div id="04-Stu_GradeBook" class="student-block">
+						<h3>Grade Book</h3>
+						<p>Your turn to try an activity. We will review afterwards.</p>
+						
+					</div> <!-- 04-before-break end -->
+
+					<div id="05-Ins_CentralTendency" class="instructor-block">
+						<h3>Central Tendency</h3>
+						<h5>Why central tendency for EDA?</h5>
+						<div id="5-1-toggle" style="display:none;">
+							<p>Being able to distinguish what is the norm versus what is an outlier is fundamental in problem solving.</p>
+							<ul>
+								<li>For example, bank frauds are outlier activities. Majority of bank customers don’t commit fraud.</li>
+								<li>Banks use algorithms to identify fraud activity in a scalable and automatic function, so that they can maintain a high quality of service.</li>
+							</ul>
+						</div>
+						<button type="button" class="btn btn-primary" onclick='$("#5-1-toggle").toggle();'>Show/Hide Tips</button>
+						
+						<h5>What are the common measures of central tendency?</h5>
+						<p>Good reference if you need: <a href="https://www.khanacademy.org/math/cc-sixth-grade-math/cc-6th-data-statistics/mean-and-median/v/statistics-intro-mean-median-and-mode#:~:text=The%20mean%20(average)%20of%20a,Created%20by%20Sal%20Khan.">Statistics Intro: Mean, Median, Mode</a></p>
+						
+						<iframe width="560" height="315" src="https://www.youtube.com/embed/h8EYEJ32oQ8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+						
+						<p>This may look basic, let's remind ourselves what we are trying to get out of data: Value</p>
+						<ul>
+							<li>Mean</li>
+							<li>Median</li>
+							<li>Median</li>
+						</ul>
+						
+						<h5>Mean</h5>
+						<p>Arithmetic average of a dataset</p>
+						<p>What is the strength of mean in a dataset?</p>
+						<div id="5-2-toggle" style="display:none;">
+							<p>Simple way of getting summarized view of central tendency across the entire dataset.</p>
+						</div>
+						<button type="button" class="btn btn-primary" onclick='$("#5-2-toggle").toggle();'>Show/Hide Tips</button>
+
+						<p>What is the weakness of mean in a dataset?</p>
+						<div id="5-3-toggle" style="display:none;">
+							<p>Sometimes oversimplifies context by assuming every entity is equal.</p>
+							<p>Example:</p>
+							<ul>
+								<li>Household income is typically represented by median instead of mean. Why?</li>
+							</ul>
+						</div>
+						<button type="button" class="btn btn-primary" onclick='$("#5-3-toggle").toggle();'>Show/Hide Tips</button>
+
+						<h5>Median</h5>
+						<p>Selecting the middle element of a dataset</p>
+						<p>What is the strength of median in a dataset?</p>
+						<div id="5-4-toggle" style="display:none;">
+							<p>It is unaffected by extreme outliers, because it tends to ignore it.</p>
+						</div>
+						<button type="button" class="btn btn-primary" onclick='$("#5-4-toggle").toggle();'>Show/Hide Tips</button>
+						<p>What is the weakness of median in a dataset?</p>
+						<div id="5-5-toggle" style="display:none;">
+							<p>Outliers are ignored in the context.</p>
+							<p>Example:</p>
+							<ul>
+								<li>Minority representation of a data set is ignored because the data volume is small, and it is not represented within the central tendency report.</li>
+							</ul>
+						</div>
+						<button type="button" class="btn btn-primary" onclick='$("#5-5-toggle").toggle();'>Show/Hide Tips</button>
+
+						<h5>Mode</h5>
+						<p>Selecting the most frequently occurring value as a representation of central tendency</p>
+						<p>What is the strength of mode in a dataset?</p>
+						<div id="5-6-toggle" style="display:none;">
+							<p>Frequency is usually a good indicator towards business outcomes</p>
+						</div>
+						<button type="button" class="btn btn-primary" onclick='$("#5-6-toggle").toggle();'>Show/Hide Tips</button>
+						<p>What is the weakness of mode in a dataset?</p>
+						<div id="5-7-toggle" style="display:none;">
+							<p>Low frequency doesn’t mean less impact or consequences</p>
+							<p>Example: Crime data</p>
+							<ul>
+								<li>Severe offenses are usually low in frequency, but it can have a massive impact rather than several petty crimes.</li>
+							</ul>
+						</div>
+						<button type="button" class="btn btn-primary" onclick='$("#5-7-toggle").toggle();'>Show/Hide Tips</button>
+
+						<p>There is no perfect, one-size fit all solution in data analysis. We have to pick the correct method based on the context you’re working in.</p>
+					</div> <!-- 05-break end -->
+
+					<div id="06-Evr_MeasuringMeasures-CentralTendency" class="student-block">
+						<h3>Group Activity: Measuring The Measures</h3>
+						<p>If you are familiar with a dataset, you will know which measure of central tendency makes sense.</p>
+						<p>However, if you're unfamiliar with a dataset, you will need to explore the data with all measures of central tendency.</p>
+						<p>This is a type of summary statistics.</p>
+					</div> <!-- 06-group-great-debate end -->
+
+					<div id="07-break" class="instructor-block">
+						<h3>Break - 15 mins @ 7:50pm</h3>
+					</div> <!-- 07-break -->
+					
+					<div id="08-formatting" class="instructor-block">
+						<h3>Formatting</h3>
+						<p>When you present your work to others, especially to folks outside of your team, you have to make sure that your spreadsheet is digestible and does not contain conflicting messages.</p>
+
+						<p>Example:</p>
+						<ul>
+							<li>I saw a senior engineer represented the value <code>100</code> with green on the top of the row, and on the bottom, <code>100</code> with red, on an analytics dashboard.</li>
+							<li>Green is supposed to indicate a good result, and red is supposed to indicate a bad result. 
+								However, his report doesn’t have indicate negative values, i.e. <code>-100</code>. And it was confusing to me what does the <code>100</code> mean.</li>
+						</ul>
+
+						<p>Design is a solution, and it is not merely for aesthetic reasons.</p>
+
+						<h5>How to set conditional formatting here:</h5>
+						<img class="img-fluid" src="../../img/06-Formatting.png">
+
+						
+
+					</div> <!-- 08-formatting -->
+					
+					<div id="09-pivot-tables" class="instructor-block">
+						<h3>Pivot Tables</h3>
+					</div> <!-- 09-pivot-tables -->
+
+					<div id="10-pivot-tables" class="student-block">
+						<h3>Students Do: Top-Songs Pivot Table</h3>
+					</div> <!-- 09-pivot-tables -->
+
+					<div id="11-lookups" class="instructor-block">
+						<h3>Lookups</h3>
+
+						<p>This is a prelude to SQL queries, where you have a column or row of values, and you want to associate data across 2 or more tables.</p>
+					</div> <!-- 11-lookups -->
+
+					<div id="12-prod-lookups" class="student-block">
+						<h3>Students Do: Product Pivot</h3>
+					</div> <!-- 12-prod-lookups -->
+
+					<div id="13-questions" class="instructor-block">
+						<h3>Final Questions</h3>
+					</div> <!-- 13-questions -->
+					
+
+				</div> <!-- end #main-content -->
+
+
+				<div id="right-sb" class="col-md-4">
+					<div id="right-sb-nav" class="list-group" id="toc" role="tablist">
+					  <a class="list-group-item list-group-item-action active"  href="#objectives" role="tab">Objectives</a>
+
+					  <a class="list-group-item list-group-item-action"  href="#admin" role="tab">Admin Stuff</a>
+					  <a class="list-group-item list-group-item-action"  href="#01-Ins_ExcelPlayground" role="tab">Excel Playground</a>
+						<a class="list-group-item list-group-item-action"  href="#02-Ins_NamedRanges" role="tab">Named Ranges</a>
+						<a class="list-group-item list-group-item-action"  href="#03-Ins_ColorCounter" role="tab">Color Counter</a>
+						<a class="list-group-item list-group-item-action"  href="#04-Stu_GradeBook" role="tab">Grade Book</a>
+
+						<a class="list-group-item list-group-item-action"  href="#05-Ins_CentralTendency" role="tab">Central Tendency</a>
+						<a class="list-group-item list-group-item-action"  href="#06-Evr_MeasuringMeasures-CentralTendency" role="tab">Group Activity: Measuring The Measures</a>
+						<a class="list-group-item list-group-item-action"  href="#07-break" role="tab">Break</a>
+						<a class="list-group-item list-group-item-action"  href="#08-formatting" role="tab">Formatting</a>
+
+						<a class="list-group-item list-group-item-action"  href="#09-pivot-tables" role="tab">Pivot Tables</a>
+						<a class="list-group-item list-group-item-action"  href="#10-pivot-tables" role="tab">Students Do: Top-Songs Pivot Table</a>
+						<a class="list-group-item list-group-item-action"  href="#11-lookups" role="tab">Lookups</a>
+
+						<a class="list-group-item list-group-item-action"  href="#12-prod-lookups" role="tab">Students Do: Product Pivot</a>
+						<a class="list-group-item list-group-item-action"  href="#13-questions" role="tab">Final Questions</a>
+
+
+					</div>
+				
+				</div>
+			</div> <!-- end .row -->
+			
+		</div> <!-- end .container-fluid -->
+
+		<footer>
+			<script type="text/javascript" src="../../js/jquery-3.3.1.min.js"></script>
+			<script type="text/javascript" src="../../js/bootstrap.min.js"></script>
+
+			<script type="text/javascript">
+
+			</script>
+
+      <script type="text/javascript" src="../../js/config.js"></script>
+      <style>
+pre {
+  background-color: black;
+  color: white;
+}
+
+div[id^="map-"]{
+  height:500px;
+}
+div[id$="-toggle"]{
+  display: none;
+}
+      </style>
+
+		</footer>
+
+	</body>
+
+
+</html>

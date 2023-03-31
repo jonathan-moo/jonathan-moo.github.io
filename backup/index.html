@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Jonathan Moo's Github Bio</title>
+
+
+		<link rel='stylesheet' id='bootstrap-css'  href='css/bootstrap.min.css' type='text/css' media='all' />
+		<link rel='stylesheet' id='bootstrap-grid-css'  href='css/bootstrap-grid.min.css' type='text/css' media='all' />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+   integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+   crossorigin=""/>
+		<link rel='stylesheet' id='custom-css'  href='css/style.css' type='text/css' media='all' /> 
+		<script src="https://d3js.org/d3.v5.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.9.1/d3-tip.js"></script>
+		<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+     <!-- Make sure you put this AFTER Leaflet's CSS -->
+     <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+       integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+       crossorigin=""></script>
+	</head>
+
+	<body>
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<a class="navbar-brand" href="#">Jonathan's Github Page</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active">
+						<a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+					</li>
+					<!--li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Lessons</a>
+						<div class="dropdown-menu">
+							<a class="dropdown-item" href="MIACOR201901DATA3/11.2/index.html">11.2 Ref</a>
+						</div>
+					</li-->
+				</ul>
+			</div>
+		</nav>
+		<div class="container-fluid">
+			<div class="row">
+				<div id="main-content" class="col-md-8">
+					<!--div class="instructor-block">
+						<h3>Objectives For Today</h3>
+
+						<p>Data Cleaning Activity.</p>
+					</div-->
+
+					<div class="objective-block">
+						<h3 id="objectives">Objectives For Today</h3>
+
+						<ul>
+							<li>Introductions!</li>
+							<li>Set expectations to the bootcamp!</li>
+						</ul>
+
+					</div>
+
+					<div id="intro" class="instructor-block">
+						<h3>Snapshot Instructor Introduction</h3>
+						<p>You can read some of my introduction at my website at: <a href="https://gefyra.co/about-jonathan-moo/">https://gefyra.co/about-jonathan-moo/</a>, 
+							but I will give some short points on my career:</p>
+
+						<ul>
+							<li>Worked in Paramount Global (formerly CBS Interactive) for 11 years:</li>
+							<ul>
+								<li>Spent my first 5.5 years as a software/data engineer on analytics.</li>
+								<ul>
+									<li>Adobe Analytics</li>
+									<li>Google Analytics</li>
+									<li>Baidu</li>
+									<li>Google Adsense</li>
+									<li>Embarked in several data projects that are too numerous to number.</li>
+								</ul>
+								<li>Flew to Fort Lauderdale, Florida to continue my career in sports predictions and AI initiatives.</li>
+								<ul>
+									<li>Delivered a Microsoft Golf Forecaster for USD 1.5 million, where I'm the only engineer working with a statistician.</li>
+									<li>Delivered an Google Assistant voice app for NFL Fantasy recommendations for USD 1.75 million, where I was the lead engineer working on the voice recognition aspects of the project.</li>
+									<li>Became a data engineering manager focusing on data science in CBS Sports, where I led a team to build sports prediction products and services.</li>
+								</ul>
+							</ul>
+							<li>Felt that I spent too much time in CBS Sports after 11 years in 2022, and I made the jump to PlayStation. Currently working in PlayStation as a data engineering manager for Partners.</li>
+						</ul>
+
+						<h5>Why these short notes?</h5>
+						<p>A boot camp focuses on doing to learn. However, students did mention that they are doing the work and assignments, but they aren't understanding totally.</p>
+						<p>The objective is to give enough contextual knowledge so that students can understand, and that your learnings stick with you as you progress in your career.</p>
+					</div> <!-- .end #intro-->
+
+					<div id="01-intro-to-data" class="instructor-block">
+						<h3>Introduction To Data</h3>
+
+						<h5>Why is data analytics such a hot skill these days?</h5>
+
+						<div id="1-1-toggle" style="display: none;">
+							<p>
+								In most cases, many companies aren’t suffering from the lack of data. 
+								They suffer from the lack of ability to extract value from the data they have. 
+							</p>
+							<p>Unused data is an expense.</p>
+						</div>
+
+						<button type="button" class="btn btn-primary" onclick='$("#1-1-toggle").toggle();'>Show/Hide Tips</button>
+
+						<h5>What does the term 'data science' mean?</h5>
+						<div id="1-2-toggle" style="display: none;">
+							<p>
+								Data science is the study of data to extract meaningful insights for the outcome you’re trying to achieve towards:
+							</p>
+							<ul>
+								<li>Business</li>
+								<li>Goals & Objectives</li>
+							</ul>
+						</div>
+
+						<button type="button" class="btn btn-primary" onclick='$("#1-2-toggle").toggle();'>Show/Hide Tips</button>
+
+						<h5>“Data science involves spreadsheets and formulas.”</h5>
+						<ul>
+							<li>In my line of work, we try to use as little spreadsheets and rely on databases instead.</li>
+							<ul>
+								<li>That’s because our work presents itself as a live service rather than pure analysis.</li>
+							</ul>
+							<li>However, spreadsheets can be useful for exploratory data analysis (EDA).</li>
+							<ul>
+								<li>We really want to do an EDA to understand the data, in order to:</li>
+								<ul>
+									<li>Look for errors</li>
+									<li>Identify trends and patterns within the data that would meet our business objectives and outcomes.</li>
+								</ul>
+								<li>The outcome is to mitigate risk before building because engineering efforts are expensive.</li>
+							</ul>
+						</ul>
+
+						<h5>What is the difference between story telling and truth telling?</h5>
+						<p>Personally, I believe that all story telling should be truth telling. 
+							However, story telling is about relating descriptive statistics and data to the desired business outcome.</p>
+
+						<p>Truth telling is more objective, where you’re gathering insights towards the story in which you have to build.
+							<ul>
+								<li>Especially in unsupervised learning. 
+									Supposed you’re tasked to undercover the highest probability of a dengue fever outbreak over a city.</li>
+								<ul>
+									<li>Dengue fever is a disease that is transmitted by the Aedes mosquitoes. Very common in tropical areas.</li>
+									<li>We don’t start off by knowing when a dengue fever happens. That would make us prophets instead. 
+										Data scientists use data to validate their assumptions and observations.</li>
+									<li>However, if there’s a person who reported sick with dengue fever, we know that mosquitoes generally travel about 320-330 feet in radius. The probability of a person getting sick with the same disease is much higher if he or she is within that radius, after attributing some margin of error.</li>
+									<li>With more data coming in, we can increase our confidence over a certain spot or area of the city, and that’s where we can start to prescribe solutions to the outbreak.</li>
+								</ul>
+							</ul>
+						</p>
+					</div> <!-- .end #intro-->
+
+					<div id="02-course-overview" class="instructor-block">
+						<h3>Course Overview</h3>
+						<p>You're going to have 4 projects coming within your course:</p>
+						<ul>
+							<li>Project 1</li>
+							<ul>
+								<li>Using Git and introduction to version-control</li>
+								<ul>
+									<li>I can’t emphasize enough how important this subject is in my line of work, and within the tech world. I will explain more when we get there.</li>
+								</ul> <!-- Git end -->
+								<li>EDA</li>
+								<li>Installing PostgreSQL and pgAdmin</li>
+							</ul> <!-- Project 1 end -->
+							<li>Project 2</li>
+							<ul>
+								<li>Extract-Transform-Load (ETL) - Data Collection</li>
+								<ul>
+									<li>Before analyzing data, we have to collect the data. 
+										The quality and volume of data severely impacts your analysis and applications, and thus we’ve got to get fundamentals right here.</li>
+									<li>There are many other aspects of how to collect data, but you will be able to extrapolate your learnings to other applications as ETL is where we all started.</li>
+								</ul> <!-- ETL end -->
+							</ul><!-- Project 2 end -->
+							<li>Project 3</li>
+							<ul>
+								<li>Data Visualization</li>
+								<li>Data Ethics</li>
+								<ul>
+									<li>If you work for a multinational corporation (MNC), you will need to know enough to navigate so that your solution doesn’t end up becoming a lawsuit.</li>
+									<li>Particularly in Europe (EU), this topic is highly sensitive. If the business has EU operations, this topic is not something you can skip over.</li>
+								</ul> <!-- Data Ethics end -->
+							</ul> <!-- Project 3 end -->
+							<li>Project 4</li>
+							<ul>
+								<li>Machine Learning (ML) Integration</li>
+								<ul>
+									<li>Find a problem you want to solve, analyze and visualize.</li>
+									<li>Use ML to solve.</li>
+								</ul> <!-- ML integration end -->
+							</ul> <!-- Project 4 end -->
+						</ul><!-- Course overview -->
+
+					</div> <!-- #02-course-overview end -->
+
+					<div id="03-past-learnings" class="instructor-block">
+						<h3>Past Learnings</h3>
+						<p>Having taught in the University of Miami before, let me share some learnings that could help you out.</p>
+
+						<h5>The boot camp feels like a sprint, but your career is a marathon.</h5>
+
+						<p>This means pacing and consistency is more important than cramming it all in. Some tips to help you out:</p>
+
+						<ul>
+							<li>Don’t beat yourself up if you don’t get it the first time round.</li>
+							<ul>
+								<li>Sometimes taking a deep breathe, taking a walk or take a few days to digest could work wonders.</li>
+								<ul>
+									<li>Example: When I had to deliver a USD 1.75 million project all by myself, when there are mental blocks, I take walks around the car park (when I’m at work), or go to the toilet cubicle and pray, and get my answer.</li>
+								</ul>
+								<li>Good engineers don't always remember everything in code, but they at least know where to find their answers.</li>
+							</ul>
+							<li>Don’t discourage yourself and find reasons to fail.</li>
+							<ul>
+								<li>I have had students ask me about my age. 
+									They assumed I was much younger, and reasoned that I excelled in tech because of my age. 
+									I’m not sure why but they reasoned that tech is for young people.</li>
+								<ul>
+									<li>Turns out, I’m the same age as them.</li>
+								</ul>
+								<li>An expecting mother in my class finished her course before giving birth. 
+									She had to juggle work, family and studies.</li>
+								<li>I also had folks sharing their regrets to me after they stopped classes, when they see their classmates graduate. </li>
+							</ul>
+						</ul>
+
+						<h5>Humility is the first requirement for success in this program.</h5>
+						<p>I’m actually kind of surprised that the bootcamp emphasized this statement, which is very true.</p>
+						<p>However, I will illustrate this with an example.</p>
+
+						<h5>Coding is akin to your hands on raw ingredients.</h5>
+						<p>If you want to be a chef, you have got to be good with your hands, your taste, your sense of smell, and your attention to detail.</p>
+
+						<p>If you are looking at data-related work, all business intelligence tools have limitations. 
+							At some point, how well you can manipulate data can be affected by coding skills.</p>
+						<ul>
+							<li>Depends on the nature of your work.</li>
+							<ul>
+								<li>There are data analysts that don’t code much as their scope is more on reporting.</li>
+							</ul>
+						</ul>
+
+						<p>Cooking is a skill that everyone can pick up so long as they have a kitchen at home. However, there is a difference between cooking for a restaurant, versus cooking street food and cooking for yourself.</p>
+						<ul>
+							<li>What is the difference?</li>
+							<li>How can you start cooking for a restaurant instead of cooking for yourself?</li>
+						</ul>
+
+						<h5>Team work matters.</h5>
+						<p>Picture this scenario: Your team has a multi-million dollar service that requires it to work during NFL Sunday.</p>
+						<p>Are you going to work every Sunday to ensure that it works on Sundays? Or are you going to rely on your team mates?</p>
+						<p>If you’re an entrepreneur, and you started off by doing everything yourself. Do you want to do everything by yourself for the rest of your career? What about your other passions in life?</p>
+						<p>We are all social beings. School is where you can create these connections, and you’re encouraged to fail fast. Learn to work together in school.</p>
+					
+						<h5>Data is just like TV. It is not the box you’re looking at. It is the content behind the screen.</h5>
+						<p>Similarly, there are many types of data, and they are better suited for certain industries.</p>
+						<p>If you’re dealing with pure numbers, regression models work well.</p>
+						<ul>
+							<li>Finance sectors</li>
+							<li>Sports betting</li>
+						</ul>
+						<p>If you’re dealing with visuals, classification models work better.</p>
+						<ul>
+							<li>Labeling</li>
+							<li>Maps</li>
+						</ul>
+						<p>It isn’t realistic to excel in every part of data from the start. The shorter road to success is to pick what you are good at and run with it. Or you can pick your passion.</p>
+						<ul>
+							<li>If you are already working in a certain industry, work on projects that relate to that industry.</li>
+							<li>If you are looking for something new, pick the type of data from the start and work on such projects during the bootcamp.</li>
+						</ul>
+						<h5>Keep a record of your learnings in a repository of some sort.</h5>
+						<p>Humans forget. Thus, we invented writing.</p>
+
+						<h5>Last but not least, show instead of tell.</h5>
+						<p>One of my students created a prototype dashboard that relates to the industry she wants to work in, and pitched it to her recruiters. She got a job pretty quick.</p>
+					</div> <!-- 03-past-learnings end -->
+
+					<div id="04-before-break" class="student-block">
+						<h3>Before the Break</h3>
+						<p>We really want folks to know each other better, and this can be a prelude to project work.</p>
+						<p>If you need to confirm your software installations, use the break to do so.</p>
+					</div> <!-- 04-before-break end -->
+
+					<div id="05-break" class="student-block">
+						<h3>Break for 15 minutes starting from 8:05pm</h3>
+					</div> <!-- 05-break end -->
+
+					<div id="06-group-great-debate" class="student-block">
+						<h3>Group Activity: The Great Debate</h3>
+						<h5>Which food do Americans prefer? Italian or Mexican food?</h5>
+						<p>Not the greatest question ever because it lacks an obvious business outcome, but it’s an exaggeration to prove a point. </p>
+						<p>Many times, binary classification is very important, and I will give you some examples:</p>
+						<ul>
+							<li>Is this image family safe? Or no?</li>
+							<li>Is the sports prediction accurate after the fact, or no?</li>
+						</ul>
+
+						<h5>Analytics Paradigm</h5>
+						<p>The team and business context can shift how this paradigm is going to work for you.</p>
+
+						<p>Often, we use Agile principles and methodologies to run teams so that we produce regular and repeatable outputs, in order to move the work towards our business outcomes. It is by no means a waterfall formula.</p>
+						<ul>
+							<li>“Waterfall” means it flows from top to bottom, and it is usually inflexible.</li>
+							<li>In agile, this process is going to be iterative and flexible.</li>
+							<ul>
+								<li>We use milestones as maturity indicators for a project, and the analytics paradigm fits into our milestones.</li>
+							</ul>
+							<li>Agile is out of scope in terms of learning, but do remember to be flexible in how you use the analytics paradigm.</li>
+						</ul>
+
+						<p>In many companies, if you’re a data analyst, data engineer, or a data scientist, you will work with a scrum master who will work with you to apply this analytics paradigm with agile principles. Thus, you don’t have to be overtly concerned with agile principles.</p>
+					</div>
+
+
+					<div id="01-student-activity" class="student-block">
+						<h3>Student Activity</h3>
+						<h5>Objectives</h5>
+						<p>You'll be reading data from a CSV, and print cereals that have more than 5 grams of fiber in them.</p>
+
+						<div id="01-toggle" style="display: none;">
+							<h5>Tips</h5>
+							<ul>
+								<li>Always take a look at the contents of the CSV file first before coding.</li>
+								<ul>
+									<li>Take a quick glance at the header and the structure of the content to ensure that aren't any glaring issues.</li>
+								</ul>
+								<li>Learn to read documentation and mimic their examples: <a href="https://docs.python.org/3/library/csv.html">https://docs.python.org/3/library/csv.html</a></li>
+								<ul>
+									<li>Good engineers don't always remember everything in code, but they at least know where to find their answers.</li>
+									<li>However, during a technical interview, try to memorize some common data structures and algorithms, especially if your interview is onsite and requires whiteboarding.</li>
+								</ul>
+							</ul>
+						</div> <!-- end #01-toggle -->
+						<button type="button" class="btn btn-primary" onclick='$("#01-toggle").toggle();'>Show/Hide Tips</button>
+					</div>
+
+					<div id="02-Data-Normalization" class="instructor-block">
+						<h3>Data Normalization: Refer to Slides</h3>
+						<h5>Why do we need data normalization?</h5>
+						<ul>
+							<li>Normalization ensures that we are interpreting the data accurately, according to the business objectives indicated.</li>
+							<li>Allows to scale the solution as we store more data from different sources and systems.</li>
+						</ul>
+
+						<h5>When do we use data normalization?</h5>
+						<ul>
+							<li>Typically at the design phase of creating a new data source, when the data is still in its raw form.</li>
+							<li>There's no other solution out within your reach that could provide you with the data to meet business objectives.</li>
+							<li>Real-life examples:</li>
+							<ul>
+								<li>I have a client that wants to capture email addresses using a promotion campaign. She wants to profile her customers for targeted ads.</li>
+							</ul>
+						</ul>
+					</div> <!-- end #02 -->
+
+					<div id="02-1NF" class="instructor-block">
+						<h3>First Normal Form (1NF)</h3>
+						<h5>Why do we need do we need each field to have a single value?</h5>
+						<div id="02-1nf-toggle" style="display: none;">
+							<ul>
+								<li>We can leverage SQL queries to count the number of items in a table, or to filter out distinct values.</li>
+								<ul>
+									<li>If a record contains multiple values, we cannot calculate against the records within the table accurately.</li>
+								</ul>
+							</ul>
+						</div>
+						<button type="button" class="btn btn-primary" onclick='$("#02-1nf-toggle").toggle();'>Show/Hide Tips</button>
+					</div> <!-- end #02-1NF -->
+
+					<div id="02-2NF" class="instructor-block">
+						<h3>Second Normal Form (2NF)</h3>
+						<h5>Why do we need primary keys to identify the rows uniquely?</h5>
+						<div id="02-2nf-toggle" style="display: none;">
+							<ul>
+								<li>If a human-readable name is used, it will be difficult to distinguish the difference when another record with the same or similar name appears.</li>
+								<ul>
+									<li>It is never best practice to leave it to intuition to interpret a record.</li>
+									<li>To truly ensure unique records, we use Universally Unique Identifier (UUID) libraries when we generate primary keys.</li>
+								</ul>
+							</ul>
+						</div>
+						<button type="button" class="btn btn-primary" onclick='$("#02-2nf-toggle").toggle();'>Show/Hide Tips</button>
+					</div> <!-- end #02-2NF -->
+
+					<div id="02-3NF" class="instructor-block">
+						<h3>Third Normal Form (3NF)</h3>
+						<h5>Why do we need to remove transitive dependencies?</h5>
+						<div id="02-3nf-toggle" style="display: none;">
+							<ul>
+								<li>Transitive dependencies lead to redundant data</li>
+								<ul>
+									<li>Redundant data adds an overhead to storage, especially when we deal with enterprise system with petabytes of data.</li>
+									<li>Redundant data has the propensity to cause deletion, updation and insertion anomalies. Example:</li>
+									<ul>
+										<li>If store address appears in 2 different tables, and someone moved, you have to update 2 tables.</li>
+										<li>However, by eliminating transitive dependence, we should be able to update the address once, even if the data has references in multiple tables.</li>
+									</ul>
+								</ul>
+							</ul>
+						</div>
+						<button type="button" class="btn btn-primary" onclick='$("#02-3nf-toggle").toggle();'>Show/Hide Tips</button>
+					</div> <!-- end #02-2NF -->
+
+
+				</div> <!-- end #main-content -->
+
+
+				<div id="right-sb" class="col-md-4">
+					<div id="right-sb-nav" class="list-group" id="toc" role="tablist">
+					  <a class="list-group-item list-group-item-action active"  href="#objectives" role="tab">Objectives</a>
+
+					  <a class="list-group-item list-group-item-action"  href="#01-student-activity" role="tab">Data Manipulation with Cereals</a>
+					  <a class="list-group-item list-group-item-action"  href="#02-Data-Normalization" role="tab">Data Normalization</a>
+						<a class="list-group-item list-group-item-action"  href="#02-1NF" role="tab">First Normal Form (1NF)</a>
+						<a class="list-group-item list-group-item-action"  href="#02-2NF" role="tab">Second Normal Form (2NF)</a>
+						<a class="list-group-item list-group-item-action"  href="#02-3NF" role="tab">Third Normal Form (3NF)</a>
+
+					</div>
+				
+				</div>
+			</div> <!-- end .row -->
+			
+		</div> <!-- end .container-fluid -->
+
+		<footer>
+			<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+			<script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+			<script type="text/javascript">
+
+			</script>
+
+      <script type="text/javascript" src="js/config.js"></script>
+      <style>
+pre {
+  background-color: black;
+  color: white;
+}
+
+div[id^="map-"]{
+  height:500px;
+}
+div[id$="-toggle"]{
+  display: none;
+}
+      </style>
+
+		</footer>
+
+	</body>
+
+
+</html>
