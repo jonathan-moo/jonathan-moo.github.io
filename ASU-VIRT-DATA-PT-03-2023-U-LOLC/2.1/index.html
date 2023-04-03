@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Jonathan Moo's Github Bio</title>
+
+
+		<link rel='stylesheet' id='bootstrap-css'  href='css/bootstrap.min.css' type='text/css' media='all' />
+		<link rel='stylesheet' id='bootstrap-grid-css'  href='css/bootstrap-grid.min.css' type='text/css' media='all' />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+   integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+   crossorigin=""/>
+		<link rel='stylesheet' id='custom-css'  href='css/style.css' type='text/css' media='all' /> 
+		<script src="https://d3js.org/d3.v5.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.9.1/d3-tip.js"></script>
+		<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+     <!-- Make sure you put this AFTER Leaflet's CSS -->
+     <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+       integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+       crossorigin=""></script>
+	</head>
+
+	<body>
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<a class="navbar-brand" href="#">Jonathan's Github Page</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active">
+						<a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Lessons</a>
+						<div class="dropdown-menu">
+							<a class="dropdown-item" href="ASU-VIRT-DATA-PT-03-2023-U-LOLC/1.1/index.html">1.1 Ref</a>
+							<a class="dropdown-item" href="ASU-VIRT-DATA-PT-03-2023-U-LOLC/1.2/index.html">1.2 Ref</a>
+							<a class="dropdown-item" href="ASU-VIRT-DATA-PT-03-2023-U-LOLC/1.3/index.html">1.3 Ref</a>
+						</div>
+					</li-->
+				</ul>
+			</div>
+		</nav>
+		<div class="container-fluid">
+			<div class="row">
+				<div id="main-content" class="col-md-8">
+					<div class="objective-block">
+						<h3 id="objectives">Objectives For Today</h3>
+
+						<ul>
+							<li>Fundamental Programming with Visual Basic for Applications (VBA)</li>
+						</ul>
+
+					</div>
+
+					<div id="intro_vba" class="instructor-block">
+						<h3>Fundamentals of Programming with VBA</h3>
+						<p>Notes:</p>
+						<ul>
+							<li>The concepts and capabilities of how programming works is more important than the syntax.</li>
+							<ul>
+								<li>Many important languages have similar programming structures.</li>
+								<li>Yet every language has its own purpose, functions and weaknesses.</li>
+							</ul>
+							<li>The reason why we are starting with VBA is because you've been using Excel, and it is an easy transition towards a taste of what programming feels like.</li>
+							<ul>
+								<li>Also, using scripts on your spreadsheet can help automate some of the repetitive work you have.</li>
+							</ul>
+							<li>Later in the course, you'll deal with more advance languages such as Python and Javascript.</li>
+							<li>If you're on a Mac running Excel 365, to activate the <code>Developer</code> tab, open the Excel  menu and select <code>Preferences</code>, then open the preferences for the <code>Ribbon</code> and <code>Toolbar</code>.</li>
+							<li>There might be warnings on "Macros" on your machine. You'll have to enable them because you're writing scripts.</li>
+							<img src="img/enable_macros.png" class="img-fluid">
+							<ul>
+								<li>Macros are a set of actions that you can run as many times as you want, and they often come in the form of scripts.</li>
+							</ul>
+						</ul>
+						
+					</div> <!-- .end #intro_vba-->
+
+					<div id="01-Ins_HelloWorld" class="instructor-block">
+						<h3>Hello World! on VBA</h3>
+						<p>The slides should show you how to access the <code>Developer</code> tab to craft visual basic scripts.</p>
+
+						<ul>
+							<li>Modules are organizational units of VBA code that are usually attached to a workbook or worksheet. Right-click on a workbook or worksheet and then select <code>Insert Module</code>.</li>
+							<li>Once inside a module, we can start writing a VBA script. In our case, we've already created a script that will trigger Excel to deliver a pop-up message.</li>
+						</ul>
+
+						<img src="img/module1.png" class="img-fluid">
+
+						<img src="img/01-HelloWorld_2.png" class="img-fluid">
+
+						<h5>Give it a try in class! Otherwise, you will not be able to follow easily later.</h5>
+
+
+					</div> <!-- .end 01-Ins_HelloWorld-->
+
+					<div id="02-Stu_HelloVBA" class="student-block">
+						<h3>Students Do: Hello, VBA</h3>
+						<p>Create and execute a VBA script that generates three pop-up messages containing any text of your choice.</p>
+						<p>You can run your script via the <code>Macros</code> tab as shown:</p>
+						<img src="img/macro.png" class="img-fluid">
+
+
+					</div> <!-- #02-Stu_HelloVBA end -->
+
+					<div id="03-Ins_ButtonClicks" class="instructor-block">
+						<h3>Button Clicks</h3>
+						<p>We want to start inserting a button on a spreadsheet. This is something you will often see, even with a website.</p>
+
+						<ul>
+							<li>Create a button:</li>
+							<img src="img/03-ButtonClicks_2.png" class="img-fluid">
+							<li>The <code>Assign Macro</code> window will pop up, where you can choose to create a new macro, or select an existing routine.</li>
+							<ul>
+								<li>In layman terms, we are attributing a behavior to the button whenever somebody clicks on it.</li>
+								<li>As your scripts become more complex, it is important to organize the scope of your macros and buttons.</li>
+							</ul>
+
+						</ul>
+						
+						
+					</div> <!-- 03-Ins_ButtonClicks end -->
+
+					<div id="04-Stu_ChooseYourButton-Subroutines" class="student-block">
+						<h3>Students Do: Choose Your Button - Subroutines</h3>
+						<p>You will create two buttons that each run a different subroutine that trigger different messages when clicked.</p>
+						
+					</div> <!-- 04-Stu_ChooseYourButton-Subroutines end -->
+
+					<div id="05-Ins_CellsAndRanges" class="instructor-block">
+						<h3>Cells & Ranges</h3>
+
+						<p>Previously, we only created message boxes within Excel. That is probably not that useful in a real-world setting.</p>
+
+						<p>We would want to automate a series of actions on cells through macros.</p>
+						<ul>
+							<li>VBA provides 2 primary ways to modify the contents of a spreadsheet: <code>Cells</code> and <code>Ranges</code></li>
+							<ul>
+								<li><code>Ranges</code> are what we have been working with thus far, such as: <code>F5:F8</code> or noncontiguous: <code>R2,D2</code></li>
+								<li><code>Cells</code> provide a cordinate-based method for referencing cells in a spreadsheet: <code>(Row, Column)</code></li>
+								<li><code>.Value</code> is a method that we add to the end of our <code>Cell</code> or <code>Range</code> to change the content value within the specified cells.</li>
+								<ul>
+									<li>This can include the formatting, style, and other aspects of the cell beyond the content itself.</li>
+									<li>Javascript has the similar behaviors to this, which we will learn later in the course.</li>
+									<pre>
+	' Inserting Data Via Cells
+	Cells(2, 1).Value = "Cat"
+	Cells(2, 2).Value = "In"
+	Cells(2, 3).Value = "The"
+	Cells(2, 4).Value = "Hat"
+
+	' Inserting Data Via Ranges
+	Range("F1").Value = "I"
+	Range("F2").Value = "Am"
+	Range("F3").Value = "Sam"
+									</pre>
+									<li>Ranges allow us to insert data across multiple cells simultaneously:</li>
+									<pre>
+	' Inserting Data Across Ranges
+	Range("F5:F7").Value = 5
+									</pre>
+								</ul>
+							</ul>
+						</ul>
+						
+
+					</div> <!-- 05-Ins_CellsAndRanges end -->
+
+					<div id="06-Stu_ChessBoard-CellsAndRanges" class="student-block">
+						<h3>Students Do: Chess Board</h3>
+						<p>My first actual program that I coded in <code>C</code> was to create a hangman game.</p>
+						<p>In a similar fashion, you're adding the names of chess pieces to their starting positions on a provided chessboard.</p>
+					</div> <!-- 06-group-great-debate end -->
+
+					<div id="break" class="instructor-block">
+						<h3>Break - 15 mins @ 7:55pm</h3>
+					</div> <!-- break -->
+					
+					<div id="07-Ins_Variables" class="instructor-block">
+						<h3>Variables</h3>
+						<p>Variables are stored values that can subject to change, and they are represented by a name.</p>
+
+						<p>In algebra, they are often represented as <code>x</code> or <code>y</code>.</p> 
+						
+						<p>For example, an expression can be represented such as <code>y = mx + b</code>, where:</p>
+						<ul>
+							<li><code>m</code> is the gradient.</li>
+							<li><code>b</code> is the constant.</li>
+							<li><code>x</code> and <code>y</code> are variables (usually we call them "coordinates" as it is usually used on a map or a graph), where they are subject to change based on the part of the line which you're referencing.</li>
+						</ul>
+
+						<p>Some other references to describe a variable:</p>
+						<iframe width="560" height="315" src="https://www.youtube.com/embed/tHYis-DP0oU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+						<p>In programming, variables do not need to be numbers. It can be strings, characters, or even objects.</p>
+
+						<h5>Why variables?</h5>
+						<p>Storing values into variables allows us to scale and reuse the value over and over again because we understand the intention behind the variable rather than the actual value it represents.</p>
+
+						<p>For example: <code>daily_wage = worked_hours * hourly_payout</code></p>
+						<ul>
+							<li>The <code>hourly_payout</code> can be fixed, such as <code>30</code>.</li>
+							<li>However, if this is a temporary job, <code>worked_hours</code> is a variable, depending on how many hours you worked that day.</li>
+							<li>The above expression won't change just because you worked different hours daily, and you can use the expression to calculate the wages you receive on a daily basis. We can reuse such code in programming, and add in other elements such as taxes or inflation.</li>
+						</ul>
+
+						<p>We are going to see how we can use variables in our script: <code>variables_solutions.vbs</code></p>
+
+					</div> <!-- 07-Ins_Variables -->
+					
+					<div id="08-Stu_TotalCalculator-Variables" class="student-block">
+						<h3>Students Do: Total Calculator</h3>
+						<p>Open up <code>total_calculator.xlsm</code> for your class activity. If you want some starter code for help, open up the <code>total_calculator.vbs</code> in Visual Studio Code.</p>
+						<h5>Instructions:</h5>
+						<ul>
+							<li>Using the spreadsheet and unsolved VBS code as a starter, complete the script so that `Price`, `Tax`, `Quantity`, and `Total` are stored in variables.</li>
+							<li>Then, assign these variables the value of their associated cell in the spreadsheet.</li>
+							<li>Once complete, your code should set the `Total` value in the spreadsheet.</li>
+							<li>Create a pop-up message that states the total value: "Your total is $45.00."</li>
+						</ul>
+
+						<h5>Bonus</h5>
+						<p>Try to complete the exercise _without_ looking at the starter code.</p>
+					</div> <!-- 08-Stu_TotalCalculator-Variables -->
+
+					<div id="09-Ins_Arrays" class="instructor-block">
+						<h3>Arrays</h3>
+						<p>Arrays is a staple in many modern programming languages. In Python, they are called 'lists'.</p>
+
+						<p>It is not important to master or memorize the VBA syntax. That will come with practice and business context you're in.</p>
+
+						<p>However, since arrays is a staple data structure within many modern langauges, understand how you can use them in VBA and apply them in any other languages you work on.</p>
+
+						<h5>What are arrays?</h5>
+						<p>An array is a specific type of variable or data structure that stores multiple variables with a single name. We will open up <code>simple_arrays_solution.xslm</code> for discussion.</p>
+						<ul>
+							<li>Most programming languages (excluding R), we start counting an index from 0 instead of 1.</li>
+						</ul>
+					</div> <!-- 09-Ins_Arrays -->
+
+					<div id="10-Ins_Splitting" class="instructor-block">
+						<h3>Splitting Strings</h3>
+
+						<p>String manipulation is essential for programming and search engines, especially when you're dealing with speech-to-text work. Let's open up <code>splitting_solution.xlsm</code> for discussion.</p>
+					</div> <!-- 10-Ins_Splitting -->
+
+
+					<div id="11-Stu_SentenceBreaker-Splitting" class="student-block">
+						<h3>Students Do: Sentence Breaker</h3>
+
+						<p>This is a difficult activity. Use the starter code in <code>sentence_breaker.vbs</code> to guide you.</p>
+
+						<h5>Instructions</h5>
+						<ul>
+							<li>Retrieve the user sentence and store it in a variable.</li>
+							<li>Retrieve the user word numbers and store them in variables.</li>
+							<li>Split the user sentence into separate words.</li>
+							<li>Use the word numbers to retrieve specific words in the sentence.</li>
+						</ul>
+
+						<h5>Tips</h5>
+						<p>Always break your code into parts and check the smaller parts by running the script. This will help you to surface errors quickly without debugging the whole script.</p>
+					</div> <!-- 11-Stu_SentenceBreaker-Splitting -->
+
+					<div id="12-Ins_Conditionals" class="instructor-block">
+						<h3>Conditionals</h3>
+
+						<p>Last week, we use conditionals on a grade book within a cell. This time, we are going to implement conditions using a script.</p>
+					</div> <!-- 10-Ins_Splitting -->
+
+					<div id="13-Stu_ChooseYourStory-Conditionals" class="student-block">
+						<h3>Students Do: Choose Your Story - Conditionals</h3>
+
+						<p>In this activity, you will practice using conditionals by creating the first step of a role-playing adventure.</p>
+
+						<h5>Instructions</h5>
+						<p>Create an Excel workbook and VBA macro that provides a user with an input field and a single button. Based on the user-input number (1, 2, 3, or 4), the button will trigger different message boxes as follows:</p>
+						<ul>
+							<li>If the user enters a value of 1, display “You choose to enter the wooded forest of doom!”</li>
+							<li>If the user enters a value of 2, display “You choose to enter the fiery volcano of doom!”</li>
+							<li>If the user enters a value of 3, display “You choose to enter the terrifying jungle of doom!”</li>
+							<li>If the user enters a value of 4, display a similar custom message.</li>
+							<li>If the user enters anything else, display “You decide to stay home instead.”</li>
+						</ul>
+
+						
+					</div> <!-- 11-Stu_SentenceBreaker-Splitting -->
+
+					
+					
+
+				</div> <!-- end #main-content -->
+
+
+				<!--div id="right-sb" class="col-md-4">
+					<div id="right-sb-nav" class="list-group" id="toc" role="tablist">
+					  <a class="list-group-item list-group-item-action active"  href="#objectives" role="tab">Objectives</a>
+
+					  <a class="list-group-item list-group-item-action"  href="#intro" role="tab">Snapshot Instructor Introduction</a>
+					  <a class="list-group-item list-group-item-action"  href="#01-intro-to-data" role="tab">Introduction To Data</a>
+						<a class="list-group-item list-group-item-action"  href="#02-course-overview" role="tab">Course Overview</a>
+						<a class="list-group-item list-group-item-action"  href="#03-past-learnings" role="tab">Past Learnings</a>
+						<a class="list-group-item list-group-item-action"  href="#04-before-break" role="tab">Before the Break</a>
+
+						<a class="list-group-item list-group-item-action"  href="#05-break" role="tab">Break</a>
+						<a class="list-group-item list-group-item-action"  href="#06-group-great-debate" role="tab">Group Activity: The Great Debate</a>
+						<a class="list-group-item list-group-item-action"  href="#07-group-gentrification" role="tab">Group Activity: Predicting Gentrification</a>
+						<a class="list-group-item list-group-item-action"  href="#08-homework-discussion" role="tab">Homework Discussion</a>
+
+					</div>
+				
+				</div-->
+			</div> <!-- end .row -->
+			
+		</div> <!-- end .container-fluid -->
+
+		<footer>
+			<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+			<script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+			<script type="text/javascript">
+
+			</script>
+
+      <script type="text/javascript" src="js/config.js"></script>
+      <style>
+pre {
+  background-color: black;
+  color: white;
+}
+
+div[id^="map-"]{
+  height:500px;
+}
+div[id$="-toggle"]{
+  display: none;
+}
+      </style>
+
+		</footer>
+
+	</body>
+
+
+</html>
