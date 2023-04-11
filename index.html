@@ -89,8 +89,9 @@
 						
 					</div> <!-- .end #intro_vba-->
 
-					<div id="Students Do: Terminal" class="student-block">
-						<h3>02-Stu_TerminalTest</h3>
+					<div id="02-Stu_TerminalTest" class="student-block">
+						<h3>Students Do: Terminal</h3>
+						
 						<p>Let's open up the <code>README.md</code> file to get started.</p>
 
 					</div> <!-- .end 01-Stu_Warmup-->
@@ -99,6 +100,29 @@
 						<h3>Check Your Anaconda Installation</h3>
 						<p>We want to ensure you can run <code>conda</code> in your local machine.</p>
 
+						<h5>Creating your own virtual environment</h5>
+						<p>We use virtual environments to isolate our work from our local machine settings.</p>
+
+						<p>This is important as you develop analysis and code for companies, where your companies' system might not have the exact libraries you have in your local machine.</p>
+
+						<h5>How to create a virtual environment?</h5>
+						<p>We are going to use <code>dev</code> as the name of our new virtual environment.</p>
+						
+						<h6>First, update the conda base environment</h6>
+						<pre>
+	conda deactivate
+	conda update conda
+	conda update anaconda
+	conda update -n base -c defaults conda
+						</pre>
+						<h6>Second, create a new environment <code>dev</code> using Python3.10 with the default packages from Anaconda</h6>
+						<p><code>conda create -n dev python=3.10 anaconda -y</code></p>
+
+						<h6>Lastly, activate the environment</h6>
+						<p><code>conda activate dev</code></p>
+
+						<h6>How to deactivate or exit the environment?</h6>
+						<p><code>conda deactivate</code></p>
 					</div> <!-- #02-Ins_Formatter end -->
 
 					<div id="03-Ins_Variables" class="instructor-block">
