@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Jonathan Moo's Github Bio</title>
+
+
+		<link rel='stylesheet' id='bootstrap-css'  href='../../css/bootstrap.min.css' type='text/css' media='all' />
+		<link rel='stylesheet' id='bootstrap-grid-css'  href='../../css/bootstrap-grid.min.css' type='text/css' media='all' />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+   integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+   crossorigin=""/>
+		<link rel='stylesheet' id='custom-css'  href='../../css/style.css' type='text/css' media='all' /> 
+		<script src="https://d3js.org/d3.v5.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.9.1/d3-tip.js"></script>
+		<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+     <!-- Make sure you put this AFTER Leaflet's CSS -->
+     <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+       integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+       crossorigin=""></script>
+	</head>
+
+	<body>
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<a class="navbar-brand" href="#">Jonathan's Github Page</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active">
+						<a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Lessons</a>
+						<div class="dropdown-menu">
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/1.1/index.html">1.1 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/1.2/index.html">1.2 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/1.3/index.html">1.3 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/2.1/index.html">2.1 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/2.2/index.html">2.2 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/2.3/index.html">2.3 Ref</a>
+						</div>
+					</li-->
+				</ul>
+			</div>
+		</nav>
+		<div class="container-fluid">
+			<div class="row">
+				<div id="main-content" class="col-md-8">
+					<div class="objective-block">
+						<h3 id="objectives">Objectives For Today</h3>
+
+						<ul>
+							<li>Introduction To Python</li>
+							<ul>
+								<li>You will be reviewing all the programming concepts in the previous lessons in VBA.</li>
+							</ul>
+						</ul>
+
+					</div>
+
+					<div id="intro_terminal" class="instructor-block">
+						<h3>Intro to Terminal</h3>
+						<p>Notes:</p>
+						<ul>
+							<li>Terminal is a command-line toolkit that helps us to compile and run code, and navigate the file system within your local machine.</li>
+							<ul>
+								<li>For PC users, you will be using <code>Git-bash</code>.</li>
+								<li>For Mac users, you will be using your <code>Terminal.app</code>.</li>
+							</ul>
+							<li>These are some of the commands you will use:</li>
+							<ul>
+								<li><code>cd</code> - Change directory</li>
+								<li><code>cd ~</code> - Change to the home directory within your local machine</li>
+								<li><code>ls</code> - Lists files in the current directory</li>
+								<li><code>pwd</code> - Shows the current directory</li>
+								<li><code>mkdir {folder_name}</code> - Create a new directory with the specified folder name</li>
+								<li><code>touch {file_name}</code> - Create an empty file with the specified file name</li>
+								<li><code>rm {file_name}</code> - Remove a file</li>
+								<li><code>rm -r {folder_name}</code> - Recursively remove the folder and its contents</li>
+								<li><code>open .</code> - Opens the current folder on Mac</li>
+								<li><code>explorer .</code> - Opens the current folder on Windows</li>
+								<li><code>open {file_name}</code> - Opens a specific file on Mac</li>
+								<li><code>explorer {file_name}</code> - Opens a specific file on Windows</li>
+							</ul>
+							<li>You don't really have to memorize the commands. You can always refer to a cheatsheet.</li>
+						</ul>
+						
+					</div> <!-- .end #intro_vba-->
+
+					<div id="02-Stu_TerminalTest" class="student-block">
+						<h3>Students Do: Terminal</h3>
+						
+						<p>Let's open up the <code>README.md</code> file to get started.</p>
+
+					</div> <!-- .end 01-Stu_Warmup-->
+
+					<div id="Check_Conda" class="instructor-block">
+						<h3>Check Your Anaconda Installation</h3>
+						<p>We want to ensure you can run <code>conda</code> in your local machine.</p>
+
+						<h5>Creating your own virtual environment</h5>
+						<p>We use virtual environments to isolate our work from our local machine settings.</p>
+
+						<p>This is important as you develop analysis and code for companies, where your companies' system might not have the exact libraries you have in your local machine.</p>
+
+						<h5>How to create a virtual environment?</h5>
+						<p>We are going to use <code>dev</code> as the name of our new virtual environment.</p>
+						
+						<h6>First, update the conda base environment</h6>
+						<pre>
+	conda deactivate
+	conda update conda
+	conda update anaconda
+	conda update -n base -c defaults conda
+						</pre>
+						<h6>Second, create a new environment <code>dev</code> using Python3.10 with the default packages from Anaconda</h6>
+						<p><code>conda create -n dev python=3.10 anaconda -y</code></p>
+
+						<h6>Lastly, activate the environment</h6>
+						<p><code>conda activate dev</code></p>
+
+						<h6>How to deactivate or exit the environment?</h6>
+						<p><code>conda deactivate</code></p>
+					</div> <!-- #02-Ins_Formatter end -->
+
+					<div id="03-Ins_Variables" class="instructor-block">
+						<h3>Variables</h3>
+						<p>To follow with the examples, open up your <code>Visual Studio Code</code>, and open the folder that stores your ASU git repo.</p>
+
+						<h5>Extra Notes on f-strings:</h5>
+						<a href="https://realpython.com/python-f-strings/">https://realpython.com/python-f-strings/</a>
+					</div> <!-- 03-Ins_Variabless end -->
+
+					<div id="04-Stu_HelloVariableWorld" class="student-block">
+						<h3>Students Do: Hello, Variable World! </h3>
+						<p>Look at the <code>README.md</code> to start your activity in the <code>04-Stu_HelloVariableWorld</code> folder.</p>
+						
+					</div> <!-- 04-Stu_Checkerboard-CodingLogic end -->
+
+					<div id="05-Ins_Prompts" class="instructor-block">
+						<h3>Inputs and Prompts</h3>
+
+						<p>In the real world, we seldom use input and prompts unless you're coding a game or building an application for terminal. However, it is still useful to know how it works.</p>
+	
+					</div> <!-- 05-Ins_Prompts end -->
+
+					
+
+					<div id="06-Stu_DownToInput" class="student-block">
+						<h3>Students Do: Down to Input </h3>
+						<p>Look at the <code>README.md</code> to start your activity in the <code>Students Do: Down to Input </code> folder.</p>
+
+					</div> <!-- 06-Stu_DownToInput end -->
+
+					
+					
+					<div id="07-Ins_Conditionals" class="instructor-block">
+						<h3>Conditionals</h3>
+
+						<p>We will be reviewing the code within the <code>07-Ins_Conditionals</code> folder.
+						</p>
+
+						
+
+					</div> <!-- 07-Ins_Conditionals -->
+					
+					<div id="08-Stu_ConditionalConundrum" class="student-block">
+						<h3>Students Do: Conditional Conundrum </h3>
+						<p>Look at the <code>README.md</code> to start your activity in the <code>08-Stu_ConditionalConundrum</code> folder.</p>
+
+						
+					</div> <!-- 08-Stu_ConditionalConundrum -->
+
+					<div id="break" class="instructor-block">
+						<h3>Break - 15 mins @ 8:05pm</h3>
+					</div> <!-- break -->
+
+					<div id="09-Ins_List" class="instructor-block">
+						<h3>Lists</h3>
+
+						<p>We will be reviewing the code within the <code>09-Ins_List</code> folder.
+						</p>
+
+					</div>
+
+					<div id="10-Stu_RockPaperScissors" class="student-block">
+						<h3>Students Do: Rock, Paper, Scissors</h3>
+
+						<p>Look at the <code>README.md</code> to start your activity in the <code>10-Stu_RockPaperScissors</code> folder.</p>
+
+					</div>
+
+					<div id="11-Ins_Loops" class="instructor-block">
+						<h3>Loops</h3>
+
+						<p>We will be reviewing the code within the <code>11-Ins_Loops</code> folder.
+						</p>
+
+					</div>
+
+					<div id="12-Stu_NumberChain-Loops" class="student-block">
+						<h3>Students Do: Number Chain - Loops</h3>
+
+						<p>Look at the <code>README.md</code> to start your activity in the <code>12-Stu_NumberChain-Loops</code> folder.</p>
+
+					</div>
+					
+					
+
+				</div> <!-- end #main-content -->
+
+
+				<!--div id="right-sb" class="col-md-4">
+					<div id="right-sb-nav" class="list-group" id="toc" role="tablist">
+					  <a class="list-group-item list-group-item-action active"  href="#objectives" role="tab">Objectives</a>
+
+					  <a class="list-group-item list-group-item-action"  href="#intro" role="tab">Snapshot Instructor Introduction</a>
+					  <a class="list-group-item list-group-item-action"  href="#01-intro-to-data" role="tab">Introduction To Data</a>
+						<a class="list-group-item list-group-item-action"  href="#02-course-overview" role="tab">Course Overview</a>
+						<a class="list-group-item list-group-item-action"  href="#03-past-learnings" role="tab">Past Learnings</a>
+						<a class="list-group-item list-group-item-action"  href="#04-before-break" role="tab">Before the Break</a>
+
+						<a class="list-group-item list-group-item-action"  href="#05-break" role="tab">Break</a>
+						<a class="list-group-item list-group-item-action"  href="#06-group-great-debate" role="tab">Group Activity: The Great Debate</a>
+						<a class="list-group-item list-group-item-action"  href="#07-group-gentrification" role="tab">Group Activity: Predicting Gentrification</a>
+						<a class="list-group-item list-group-item-action"  href="#08-homework-discussion" role="tab">Homework Discussion</a>
+
+					</div>
+				
+				</div-->
+			</div> <!-- end .row -->
+			
+		</div> <!-- end .container-fluid -->
+
+		<footer>
+			<script type="text/javascript" src="../../js/jquery-3.3.1.min.js"></script>
+			<script type="text/javascript" src="../../js/bootstrap.min.js"></script>
+
+			<script type="text/javascript">
+
+			</script>
+
+      <script type="text/javascript" src="../../js/config.js"></script>
+      <style>
+pre {
+  background-color: black;
+  color: white;
+}
+
+div[id^="map-"]{
+  height:500px;
+}
+div[id$="-toggle"]{
+  display: none;
+}
+      </style>
+
+		</footer>
+
+	</body>
+
+
+</html>

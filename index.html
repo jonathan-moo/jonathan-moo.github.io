@@ -40,6 +40,7 @@
 							<a class="dropdown-item" href="ASU-VIRT-DATA-PT-03-2023-U-LOLC/2.1/index.html">2.1 Ref</a>
 							<a class="dropdown-item" href="ASU-VIRT-DATA-PT-03-2023-U-LOLC/2.2/index.html">2.2 Ref</a>
 							<a class="dropdown-item" href="ASU-VIRT-DATA-PT-03-2023-U-LOLC/2.3/index.html">2.3 Ref</a>
+							<a class="dropdown-item" href="ASU-VIRT-DATA-PT-03-2023-U-LOLC/3.1/index.html">3.1 Ref</a>
 						</div>
 					</li-->
 				</ul>
@@ -52,160 +53,114 @@
 						<h3 id="objectives">Objectives For Today</h3>
 
 						<ul>
-							<li>Introduction To Python</li>
-							<ul>
-								<li>You will be reviewing all the programming concepts in the previous lessons in VBA.</li>
-							</ul>
+							<li>Reading and Writing in Python</li>
 						</ul>
 
 					</div>
 
-					<div id="intro_terminal" class="instructor-block">
-						<h3>Intro to Terminal</h3>
-						<p>Notes:</p>
-						<ul>
-							<li>Terminal is a command-line toolkit that helps us to compile and run code, and navigate the file system within your local machine.</li>
-							<ul>
-								<li>For PC users, you will be using <code>Git-bash</code>.</li>
-								<li>For Mac users, you will be using your <code>Terminal.app</code>.</li>
-							</ul>
-							<li>These are some of the commands you will use:</li>
-							<ul>
-								<li><code>cd</code> - Change directory</li>
-								<li><code>cd ~</code> - Change to the home directory within your local machine</li>
-								<li><code>ls</code> - Lists files in the current directory</li>
-								<li><code>pwd</code> - Shows the current directory</li>
-								<li><code>mkdir {folder_name}</code> - Create a new directory with the specified folder name</li>
-								<li><code>touch {file_name}</code> - Create an empty file with the specified file name</li>
-								<li><code>rm {file_name}</code> - Remove a file</li>
-								<li><code>rm -r {folder_name}</code> - Recursively remove the folder and its contents</li>
-								<li><code>open .</code> - Opens the current folder on Mac</li>
-								<li><code>explorer .</code> - Opens the current folder on Windows</li>
-								<li><code>open {file_name}</code> - Opens a specific file on Mac</li>
-								<li><code>explorer {file_name}</code> - Opens a specific file on Windows</li>
-							</ul>
-							<li>You don't really have to memorize the commands. You can always refer to a cheatsheet.</li>
-						</ul>
+					<div id="01-Stu_QuickCheckup" class="student-block">
+						<h3>Students Do: Python Check-Up</h3>
+						<p>Let's open up the <code>README.md</code> file in the <code>01-Stu_QuickCheckup</code> folder to get started.</p>
 						
 					</div> <!-- .end #intro_vba-->
 
-					<div id="02-Stu_TerminalTest" class="student-block">
-						<h3>Students Do: Terminal</h3>
+					<div id="02-Ins_SimpleLoops" class="instructor-block">
+						<h3>Loop Recap</h3>
 						
-						<p>Let's open up the <code>README.md</code> file to get started.</p>
+						<p>Let's open up the file in the <code>02-Ins_SimpleLoops</code> to get started.</p>
 
 					</div> <!-- .end 01-Stu_Warmup-->
 
-					<div id="Check_Conda" class="instructor-block">
-						<h3>Check Your Anaconda Installation</h3>
-						<p>We want to ensure you can run <code>conda</code> in your local machine.</p>
+					<div id="03-Stu_KidInCandyStore-LoopsRecap" class="student-block">
+						<h3>Students Do: Kid in a Candy Store - Loop Recap</h3>
+						<p>Let's open up the <code>README.md</code> file in the <code>01-Stu_QuickCheckup</code> folder to get started.</p>
 
-						<h5>Creating your own virtual environment</h5>
-						<p>We use virtual environments to isolate our work from our local machine settings.</p>
-
-						<p>This is important as you develop analysis and code for companies, where your companies' system might not have the exact libraries you have in your local machine.</p>
-
-						<h5>How to create a virtual environment?</h5>
-						<p>We are going to use <code>dev</code> as the name of our new virtual environment.</p>
 						
-						<h6>First, update the conda base environment</h6>
-						<pre>
-	conda deactivate
-	conda update conda
-	conda update anaconda
-	conda update -n base -c defaults conda
-						</pre>
-						<h6>Second, create a new environment <code>dev</code> using Python3.10 with the default packages from Anaconda</h6>
-						<p><code>conda create -n dev python=3.10 anaconda -y</code></p>
+					</div> <!-- #03-Stu_KidInCandyStore-LoopsRecap end -->
 
-						<h6>Lastly, activate the environment</h6>
-						<p><code>conda activate dev</code></p>
+					<div id="04-Stu_HouseOfPies-AdvancedLoops" class="student-block">
+						<h3>Students Do: House of Pies - Advanced Loops</h3>
+						<p>Let's open up the <code>README.md</code> file in the <code>04-Stu_HouseOfPies-AdvancedLoops</code> folder to get started.</p>
+					</div> <!-- 04-Stu_HouseOfPies-AdvancedLoops end -->
 
-						<h6>How to deactivate or exit the environment?</h6>
-						<p><code>conda deactivate</code></p>
-					</div> <!-- #02-Ins_Formatter end -->
+					<div id="05-Ins_BasicRead" class="instructor-block">
+						<h3>Reading Text Files</h3>
+						<p>Reading text files is a staple in terms of data collection and cleaning.</p>
 
-					<div id="03-Ins_Variables" class="instructor-block">
-						<h3>Variables</h3>
-						<p>To follow with the examples, open up your <code>Visual Studio Code</code>, and open the folder that stores your ASU git repo.</p>
-
-						<h5>Extra Notes on f-strings:</h5>
-						<a href="https://realpython.com/python-f-strings/">https://realpython.com/python-f-strings/</a>
-					</div> <!-- 03-Ins_Variabless end -->
-
-					<div id="04-Stu_HelloVariableWorld" class="student-block">
-						<h3>Students Do: Hello, Variable World! </h3>
-						<p>Look at the <code>README.md</code> to start your activity in the <code>04-Stu_HelloVariableWorld</code> folder.</p>
+						<p>Let's open up the file in the <code>05-Ins_BasicRead</code> to get started.</p>
 						
-					</div> <!-- 04-Stu_Checkerboard-CodingLogic end -->
+					</div> <!-- 05-Ins_BasicRead end -->
 
-					<div id="05-Ins_Prompts" class="instructor-block">
-						<h3>Inputs and Prompts</h3>
+					<div id="06-Ins_Modules" class="instructor-block">
+						<h3>Introduction to Modules</h3>
 
-						<p>In the real world, we seldom use input and prompts unless you're coding a game or building an application for terminal. However, it is still useful to know how it works.</p>
+						<p>Let's open up the file in the <code>06-Ins_Modules</code> to get started.</p>
 	
-					</div> <!-- 05-Ins_Prompts end -->
+					</div> <!-- 06-Ins_Modules end -->
 
 					
 
-					<div id="06-Stu_DownToInput" class="student-block">
-						<h3>Students Do: Down to Input </h3>
-						<p>Look at the <code>README.md</code> to start your activity in the <code>Students Do: Down to Input </code> folder.</p>
+					<div id="07-Stu_ModulePlayground" class="student-block">
+						<h3>Students Do: Module Playground</h3>
+						<p>Look at the <code>README.md</code> to start your activity in the <code>07-Stu_ModulePlayground</code> folder.</p>
 
-					</div> <!-- 06-Stu_DownToInput end -->
-
-					
-					
-					<div id="07-Ins_Conditionals" class="instructor-block">
-						<h3>Conditionals</h3>
-
-						<p>We will be reviewing the code within the <code>07-Ins_Conditionals</code> folder.
-						</p>
-
-						
-
-					</div> <!-- 07-Ins_Conditionals -->
-					
-					<div id="08-Stu_ConditionalConundrum" class="student-block">
-						<h3>Students Do: Conditional Conundrum </h3>
-						<p>Look at the <code>README.md</code> to start your activity in the <code>08-Stu_ConditionalConundrum</code> folder.</p>
-
-						
-					</div> <!-- 08-Stu_ConditionalConundrum -->
+					</div> <!-- 07-Stu_ModulePlayground end -->
 
 					<div id="break" class="instructor-block">
 						<h3>Break - 15 mins @ 8:05pm</h3>
 					</div> <!-- break -->
 
-					<div id="09-Ins_List" class="instructor-block">
-						<h3>Lists</h3>
+					
+					
+					<div id="08-Ins_ReadCSV" class="instructor-block">
+						<h3>Reading in CSV Files</h3>
 
-						<p>We will be reviewing the code within the <code>09-Ins_List</code> folder.
+						<p>We will be reviewing the code within the <code>08-Ins_ReadCSV</code> folder.
 						</p>
 
-					</div>
+						
 
-					<div id="10-Stu_RockPaperScissors" class="student-block">
-						<h3>Students Do: Rock, Paper, Scissors</h3>
+					</div> <!-- 08-Ins_ReadCSV -->
+					
+					<div id="09-Stu_ReadComicBooksCSV" class="student-block">
+						<h3>Students Do: Reading Comic Book Data </h3>
+						<p>Look at the <code>README.md</code> to start your activity in the <code>09-Stu_ReadComicBooksCSV</code> folder.</p>
 
-						<p>Look at the <code>README.md</code> to start your activity in the <code>10-Stu_RockPaperScissors</code> folder.</p>
+						
+					</div> <!-- 09-Stu_ReadComicBooksCSV -->
 
-					</div>
+					
 
-					<div id="11-Ins_Loops" class="instructor-block">
-						<h3>Loops</h3>
+					<div id="10-Ins_WriteCSV" class="instructor-block">
+						<h3>Writing CSV Files</h3>
 
-						<p>We will be reviewing the code within the <code>11-Ins_Loops</code> folder.
+						<p>We will be reviewing the code within the <code>10-Ins_WriteCSV</code> folder.
 						</p>
 
-					</div>
+					</div><!-- 10-Ins_WriteCSV -->
 
-					<div id="12-Stu_NumberChain-Loops" class="student-block">
-						<h3>Students Do: Number Chain - Loops</h3>
+					<div id="11-Ins_Zip" class="instructor-block">
+						<h3>Zipping Lists</h3>
 
-						<p>Look at the <code>README.md</code> to start your activity in the <code>12-Stu_NumberChain-Loops</code> folder.</p>
+						<p>We will be reviewing the code within the <code>11-Ins_Zip</code> folder.
+						</p>
 
-					</div>
+					</div><!-- 11-Ins_Zip -->
+
+					<div id="12-Stu_CensusZip" class="student-block">
+						<h3>Students Do: U.S. Census Zip</h3>
+
+						<p>Look at the <code>README.md</code> to start your activity in the <code>12-Stu_CensusZip</code> folder.</p>
+
+					</div><!-- 12-Stu_CensusZip -->
+
+					<div id="13-Ins_Functions" class="instructor-block">
+						<h3>Introduction to Functions</h3>
+
+						<p>We will be reviewing the code within the <code>13-Ins_Functions</code> folder.
+						</p>
+
+					</div><!-- 13-Ins_Functions -->
 					
 					
 
