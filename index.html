@@ -34,13 +34,13 @@
 					<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Lessons</a>
 						<div class="dropdown-menu">
-							<a class="dropdown-item" href="ASU-VIRT-DATA-PT-03-2023-U-LOLC/1.1/index.html">1.1 Ref</a>
-							<a class="dropdown-item" href="ASU-VIRT-DATA-PT-03-2023-U-LOLC/1.2/index.html">1.2 Ref</a>
-							<a class="dropdown-item" href="ASU-VIRT-DATA-PT-03-2023-U-LOLC/1.3/index.html">1.3 Ref</a>
-							<a class="dropdown-item" href="ASU-VIRT-DATA-PT-03-2023-U-LOLC/2.1/index.html">2.1 Ref</a>
-							<a class="dropdown-item" href="ASU-VIRT-DATA-PT-03-2023-U-LOLC/2.2/index.html">2.2 Ref</a>
-							<a class="dropdown-item" href="ASU-VIRT-DATA-PT-03-2023-U-LOLC/2.3/index.html">2.3 Ref</a>
-							<a class="dropdown-item" href="ASU-VIRT-DATA-PT-03-2023-U-LOLC/3.1/index.html">3.1 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/1.1/index.html">1.1 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/1.2/index.html">1.2 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/1.3/index.html">1.3 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/2.1/index.html">2.1 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/2.2/index.html">2.2 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/2.3/index.html">2.3 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/3.1/index.html">3.1 Ref</a>
 						</div>
 					</li-->
 				</ul>
@@ -53,102 +53,126 @@
 						<h3 id="objectives">Objectives For Today</h3>
 
 						<ul>
-							<li>Deep Dive Into Python</li>
+							<li>Introduction to Pandas and Jupyter</li>
 						</ul>
 
 					</div>
 
-					<div id="01-Evr_CerealCleaner" class="student-block">
-						<h3>Cereal Cleaner</h3>
-						<p>Let's open up the <code>README.md</code> file in the <code>01-Evr_CerealCleaner</code> folder to get started.</p>
+					<div id="01-Ins_Jupyter_Intro" class="instructor-block">
+						<h3>Introduction to Jupyter Notebook</h3>
+						<p>Let's open up the <code>README.md</code> file in the <code>01-Ins_Jupyter_Intro</code> folder to get started.</p>
 						
-					</div> <!-- .end #intro_vba-->
-
-					<div id="02-Ins_Dicts" class="instructor-block">
-						<h3>Dictionaries</h3>
-						
-						<p>Let's open up the file in the <code>02-Ins_Dicts</code> to get started.</p>
-
+						<p>Jupyter notebook is a data analyst and scientist playground, not so much engineering. This is a preferred tool because:</p>
 						<ul>
-							<li>Dictionaries are associative arrays where we use names as indices.</li>
+							<li>The User-Interface (UI) is intuitive where blocks of code can be run and analyzed with ease</li>
+							<ul>
+								<li>Your variables that you declared earlier in a code block can be referenced within the Jupyter Notebook.</li>
+								<li>Each code block can have a specific objective, and you can make it very organized.</li>
+							</ul>
+							<li>We regularly perform Exploratory Data Analysis (EDA) and Data Gap Analysis (DGA), and perform rapid prototyping before building a machine learning (ML) pipeline.</li>
+							<ul>
+								<li>This is to reduce the risk of failure as building ML pipes are expensive in time and resources.</li>
+							</ul>
 						</ul>
+
+						<p>Jupyter notebooks isn't how data engineering is done because:</p>
+						<ul>
+							<li>The code cannot be tested easily, although in recent years they have enabled code testing on Jupyter notebooks.</li>
+							<li>You need a specific server to run Jupyter Notebooks where you can benefit from the UI.</li>
+							<li>There are exceptions where Jupyter Notebooks are used for engineering, especially if you're using specific tools such as Data Bricks on AWS, but generally we stick to Python due to cost.</li>
+						</ul>
+
+						<p>All in all, Jupyter Notebook runs primarily on Python, and if you can run it on Jupyter Notebooks, you can convert them into Python scripts.</p>
+
+						<h5>To activate your Jupyter Notebook</h5>
+						<ol>
+							<li>You will need to activate your conda dev environment.</li>
+							<ul>
+								<li>If you have not installed it, run: <code>conda create -n dev python=3.10 anaconda -y</code></li>
+								<li>To activate your dev environment, run: <code>conda activate dev</code></li>
+								<li>To deactivate your environment, run: <code>conda deactivate</code></li>
+								<li>If you don't have a virtual environment, you will encounter this error: <code>Jupyter command `jupyter-notebook` not found.</code></li>
+							</ul>
+							<li>Go to your ASU repo, at the <code>Activities</code> folder for the lesson 4.1 lesson in your Terminal/Git Bash.</li>
+							<li>Run: <code>jupyter notebook</code></li>
+						</ol>
+
+					</div> <!-- .end #01-Ins_Jupyter_Intro-->
+
+					<div id="02-Stu_Comics_Remix_Jupyter" class="student-block">
+						<h3>Students Do: Comic Book Remix</h3>
+						
+						<p>Let's open up the file in the <code>02-Stu_Comics_Remix_Jupyter</code> to get started.</p>
 
 					</div> <!-- .end 02-Ins_Dicts-->
 
-					<div id="03-Stu_HobbyBook-Dictionaries" class="student-block">
-						<h3>Students Do: Hobby Book: Dictionaries</h3>
-						<p>Let's open up the <code>README.md</code> file in the <code>03-Stu_HobbyBook-Dictionaries</code> folder to get started.</p>
+					<div id="03-Ins_Pandas_Intro" class="student-block">
+						<h3>Introduction to Pandas</h3>
+						<p>Let's open up the file in the <code>03-Ins_Pandas_Intro</code> folder to get started.</p>
 
+						<p><code>Pandas</code> is a Python library that we use extensively for data analysis and science. In layman terms, it stores data into tables called <code>data frames</code>, and its ease of use is why this is a staple for data analysis and science in Python.</p>
 						
-					</div> <!-- #03-Stu_HobbyBook-Dictionaries end -->
+					</div> <!-- #03-Ins_Pandas_Intro end -->
 
-					<div id="04-Evr_List_Comprehensions" class="instructor-block">
-						<h3>List Comprehensions</h3>
-						<p>Let's open up the <code>README.md</code> file in the <code>04-Evr_List_Comprehensions</code> folder to get started.</p>
+					<div id="04-Stu_DataFrameShop_Pandas" class="student-block">
+						<h3>Students Do: DataFrame Shop</h3>
+						<p>Let's open up the <code>README.md</code> file in the <code>04-Stu_DataFrameShop_Pandas</code> folder to get started.</p>
 					
-						<ul>
-							<li>List comprehensions is a short-form way to apply transformation while iterating a list.</li>
-							<li>If your list comprehension is too complicated, use a for loop instead.</li>
-							<ul>
-								<li>Code readability is more important than being fancy in the real-world.</li>
-							</ul>
-						</ul>
-					
-					</div> <!-- 04-Evr_List_Comprehensions end -->
+					</div> <!-- 04-Stu_DataFrameShop_Pandas end -->
 
-					<div id="05-Stu_List_Comprehensions" class="student-block">
-						<h3>Students Do: List Comprehensions</h3>
+					<div id="05-Ins_Data_Functions" class="instructor-block">
+						<h3>Instructor Do: DataFrame Functions</h3>
 
-						<p>Let's open up the file in the <code>05-Stu_List_Comprehensions</code> to get started.</p>
+						<p>Let's open up the file in the <code>05-Ins_Data_Functions</code> to get started.</p>
 						
-					</div> <!-- 05-Stu_List_Comprehensions end -->
+					</div> <!-- 05-Ins_Data_Functions end -->
 
-					<div id="06-Ins_Functions" class="instructor-block">
-						<h3>Functions</h3>
+					<div id="06-Stu_TrainingGrounds_DataFunctions" class="student-block">
+						<h3>Students Do: Training Grounds</h3>
 
-						<p>Let's open up the file in the <code>06-Ins_Functions</code> to get started.</p>
+						<p>Let's open up the file in the <code>06-Stu_TrainingGrounds_DataFunctions</code> to get started.</p>
 	
-					</div> <!-- 06-Ins_Functions end -->
+					</div> <!-- 06-Stu_TrainingGrounds_DataFunctions end -->
 
 					
 
-					<div id="07-Stu_Functions" class="student-block">
-						<h3>Students Do: Functions</h3>
-						<p>Look at the <code>README.md</code> to start your activity in the <code>07-Stu_Functions</code> folder.</p>
+					<div id="08-Stu_Hey_Arnold_DataFrame_Formatting" class="student-block">
+						<h3>Students Do: Hey Arnold! </h3>
+						<p>Look at the file(s) in the <code>08-Stu_Hey_Arnold_DataFrame_Formatting</code> folder.</p>
 
-					</div> <!-- 07-Stu_Functions end -->
-
-					<div id="08-Evr_GraduatingFunctions" class="instructor-block">
-						<h3>Graduating Functions</h3>
-
-						<p>Let's open up the file in the <code>08-Evr_GraduatingFunctions</code> to get started.</p>
-	
-					</div> <!-- 08-Evr_GraduatingFunctions end -->
+					</div> <!-- 08-Stu_Hey_Arnold_DataFrame_Formatting end -->
 
 					<div id="break" class="instructor-block">
 						<h3>Break - 15 mins @ 8:05pm</h3>
 					</div> <!-- break -->
 
+					<div id="09-Ins_Reading_Writing_CSV" class="instructor-block">
+						<h3>Reading and Writing CSV Files</h3>
+
+						<p>Let's open up the file in the <code>09-Ins_Reading_Writing_CSV</code> to get started.</p>
+	
+						<p>We have learned how to read and write into files, and so why are we using this library instead?</p>
+						<ul>
+							<li>Python read and write libraries are for <strong>generic purposes</strong>, while Pandas is specifically for tabular data.</li>
+							<ul>
+								<li>Thus, you will find it much easier to use than a normal read/write Python library.</li>
+								<li>You might still need the generic purposed read and write libraries for other business cases.</li>
+							</ul>
+						</ul>
+					</div> <!-- 09-Ins_Reading_Writing_CSV end -->
+
 					
+
 					
-					<div id="intro_git" class="instructor-block">
-						<h3>Intro to Git</h3>
+					<div id="10-Stu_Comic_Books_CSV" class="student-block">
+						<h3>Students Do: Comic Books Part 1</h3>
+						<p>Look at the <code>README.md</code> to start your activity in the <code>10-Stu_Comic_Books_CSV</code> folder.</p>
+					</div> <!-- 10-Stu_Comic_Books_CSV -->
 
-						<p>Ref: <a href="https://git-scm.com/book/en/v2/Getting-Started-What-is-Git%3F">https://git-scm.com/book/en/v2/Getting-Started-What-is-Git%3F</a>
-						</p>
-
-						<p>Jonathan will demonstrate a sample of how is Git being used in a real-world setting.</p>
-
-						
-
-					</div> <!-- intro_git -->
-					
-					<div id="09-Stu_AddingMoreToTheRepo" class="student-block">
-						<h3>Everyone Do: Adding Files from the Command Line</h3>
-						<p>Look at the <code>README.md</code> to start your activity in the <code>09-Stu_AddingMoreToTheRepo</code> folder.</p>
-
-						
-					</div> <!-- 09-Stu_AddingMoreToTheRepo -->
+					<div id="11-Stu_Comic_Books_Summary" class="student-block">
+						<h3>Students Do: Comic Books Part 2</h3>
+						<p>Look at the <code>README.md</code> to start your activity in the <code>10-Stu_Comic_Books_CSV</code> folder.</p>
+					</div> <!-- 11-Stu_Comic_Books_Summary -->
 
 					
 
