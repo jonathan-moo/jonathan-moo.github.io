@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Jonathan Moo's Github Bio</title>
+
+
+		<link rel='stylesheet' id='bootstrap-css'  href='../../css/bootstrap.min.css' type='text/css' media='all' />
+		<link rel='stylesheet' id='bootstrap-grid-css'  href='../../css/bootstrap-grid.min.css' type='text/css' media='all' />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+   integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+   crossorigin=""/>
+		<link rel='stylesheet' id='custom-css'  href='../../css/style.css' type='text/css' media='all' /> 
+		<script src="https://d3js.org/d3.v5.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.9.1/d3-tip.js"></script>
+		<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+     <!-- Make sure you put this AFTER Leaflet's CSS -->
+     <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+       integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+       crossorigin=""></script>
+	</head>
+
+	<body>
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<a class="navbar-brand" href="#">Jonathan's Github Page</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active">
+						<a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Lessons</a>
+						<div class="dropdown-menu">
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/1.1/index.html">1.1 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/1.2/index.html">1.2 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/1.3/index.html">1.3 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/2.1/index.html">2.1 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/2.2/index.html">2.2 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/2.3/index.html">2.3 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/3.1/index.html">3.1 Ref</a>
+						</div>
+					</li-->
+				</ul>
+			</div>
+		</nav>
+		<div class="container-fluid">
+			<div class="row">
+				<div id="main-content" class="col-md-8">
+					<div class="objective-block">
+						<h3 id="objectives">Objectives For Today</h3>
+
+						<ul>
+							<li>Introduction to Pandas and Jupyter</li>
+						</ul>
+
+					</div>
+
+					<div id="01-Ins_Jupyter_Intro" class="instructor-block">
+						<h3>Introduction to Jupyter Notebook</h3>
+						<p>Let's open up the <code>README.md</code> file in the <code>01-Ins_Jupyter_Intro</code> folder to get started.</p>
+						
+						<p>Jupyter notebook is a data analyst and scientist playground, not so much engineering. This is a preferred tool because:</p>
+						<ul>
+							<li>The User-Interface (UI) is intuitive where blocks of code can be run and analyzed with ease</li>
+							<ul>
+								<li>Your variables that you declared earlier in a code block can be referenced within the Jupyter Notebook.</li>
+								<li>Each code block can have a specific objective, and you can make it very organized.</li>
+							</ul>
+							<li>We regularly perform Exploratory Data Analysis (EDA) and Data Gap Analysis (DGA), and perform rapid prototyping before building a machine learning (ML) pipeline.</li>
+							<ul>
+								<li>This is to reduce the risk of failure as building ML pipes are expensive in time and resources.</li>
+							</ul>
+						</ul>
+
+						<p>Jupyter notebooks isn't how data engineering is done because:</p>
+						<ul>
+							<li>The code cannot be tested easily, although in recent years they have enabled code testing on Jupyter notebooks.</li>
+							<li>You need a specific server to run Jupyter Notebooks where you can benefit from the UI.</li>
+							<li>There are exceptions where Jupyter Notebooks are used for engineering, especially if you're using specific tools such as Data Bricks on AWS, but generally we stick to Python due to cost.</li>
+						</ul>
+
+						<p>All in all, Jupyter Notebook runs primarily on Python, and if you can run it on Jupyter Notebooks, you can convert them into Python scripts.</p>
+
+						<h5>To activate your Jupyter Notebook</h5>
+						<ol>
+							<li>You will need to activate your conda dev environment.</li>
+							<ul>
+								<li>If you have not installed it, run: <code>conda create -n dev python=3.10 anaconda -y</code></li>
+								<li>To activate your dev environment, run: <code>conda activate dev</code></li>
+								<li>To deactivate your environment, run: <code>conda deactivate</code></li>
+								<li>If you don't have a virtual environment, you will encounter this error: <code>Jupyter command `jupyter-notebook` not found.</code></li>
+							</ul>
+							<li>Go to your ASU repo, at the <code>Activities</code> folder for the lesson 4.1 lesson in your Terminal/Git Bash.</li>
+							<li>Run: <code>jupyter notebook</code></li>
+						</ol>
+
+					</div> <!-- .end #01-Ins_Jupyter_Intro-->
+
+					<div id="02-Stu_Comics_Remix_Jupyter" class="student-block">
+						<h3>Students Do: Comic Book Remix</h3>
+						
+						<p>Let's open up the file in the <code>02-Stu_Comics_Remix_Jupyter</code> to get started.</p>
+
+					</div> <!-- .end 02-Ins_Dicts-->
+
+					<div id="03-Ins_Pandas_Intro" class="student-block">
+						<h3>Introduction to Pandas</h3>
+						<p>Let's open up the file in the <code>03-Ins_Pandas_Intro</code> folder to get started.</p>
+
+						<p><code>Pandas</code> is a Python library that we use extensively for data analysis and science. In layman terms, it stores data into tables called <code>data frames</code>, and its ease of use is why this is a staple for data analysis and science in Python.</p>
+						
+					</div> <!-- #03-Ins_Pandas_Intro end -->
+
+					<div id="04-Stu_DataFrameShop_Pandas" class="student-block">
+						<h3>Students Do: DataFrame Shop</h3>
+						<p>Let's open up the <code>README.md</code> file in the <code>04-Stu_DataFrameShop_Pandas</code> folder to get started.</p>
+					
+					</div> <!-- 04-Stu_DataFrameShop_Pandas end -->
+
+					<div id="05-Ins_Data_Functions" class="instructor-block">
+						<h3>Instructor Do: DataFrame Functions</h3>
+
+						<p>Let's open up the file in the <code>05-Ins_Data_Functions</code> to get started.</p>
+						
+					</div> <!-- 05-Ins_Data_Functions end -->
+
+					<div id="06-Stu_TrainingGrounds_DataFunctions" class="student-block">
+						<h3>Students Do: Training Grounds</h3>
+
+						<p>Let's open up the file in the <code>06-Stu_TrainingGrounds_DataFunctions</code> to get started.</p>
+	
+					</div> <!-- 06-Stu_TrainingGrounds_DataFunctions end -->
+
+					
+
+					<div id="08-Stu_Hey_Arnold_DataFrame_Formatting" class="student-block">
+						<h3>Students Do: Hey Arnold! </h3>
+						<p>Look at the file(s) in the <code>08-Stu_Hey_Arnold_DataFrame_Formatting</code> folder.</p>
+
+					</div> <!-- 08-Stu_Hey_Arnold_DataFrame_Formatting end -->
+
+					<div id="break" class="instructor-block">
+						<h3>Break - 15 mins @ 8:05pm</h3>
+					</div> <!-- break -->
+
+					<div id="09-Ins_Reading_Writing_CSV" class="instructor-block">
+						<h3>Reading and Writing CSV Files</h3>
+
+						<p>Let's open up the file in the <code>09-Ins_Reading_Writing_CSV</code> to get started.</p>
+	
+						<p>We have learned how to read and write into files, and so why are we using this library instead?</p>
+						<ul>
+							<li>Python read and write libraries are for <strong>generic purposes</strong>, while Pandas is specifically for tabular data.</li>
+							<ul>
+								<li>Thus, you will find it much easier to use than a normal read/write Python library.</li>
+								<li>You might still need the generic purposed read and write libraries for other business cases.</li>
+							</ul>
+						</ul>
+					</div> <!-- 09-Ins_Reading_Writing_CSV end -->
+
+					
+
+					
+					<div id="10-Stu_Comic_Books_CSV" class="student-block">
+						<h3>Students Do: Comic Books Part 1</h3>
+						<p>Look at the <code>README.md</code> to start your activity in the <code>10-Stu_Comic_Books_CSV</code> folder.</p>
+					</div> <!-- 10-Stu_Comic_Books_CSV -->
+
+					<div id="11-Stu_Comic_Books_Summary" class="student-block">
+						<h3>Students Do: Comic Books Part 2</h3>
+						<p>Look at the <code>README.md</code> to start your activity in the <code>10-Stu_Comic_Books_CSV</code> folder.</p>
+					</div> <!-- 11-Stu_Comic_Books_Summary -->
+
+					
+
+				
+					
+					
+
+				</div> <!-- end #main-content -->
+
+
+				<!--div id="right-sb" class="col-md-4">
+					<div id="right-sb-nav" class="list-group" id="toc" role="tablist">
+					  <a class="list-group-item list-group-item-action active"  href="#objectives" role="tab">Objectives</a>
+
+					  <a class="list-group-item list-group-item-action"  href="#intro" role="tab">Snapshot Instructor Introduction</a>
+					  <a class="list-group-item list-group-item-action"  href="#01-intro-to-data" role="tab">Introduction To Data</a>
+						<a class="list-group-item list-group-item-action"  href="#02-course-overview" role="tab">Course Overview</a>
+						<a class="list-group-item list-group-item-action"  href="#03-past-learnings" role="tab">Past Learnings</a>
+						<a class="list-group-item list-group-item-action"  href="#04-before-break" role="tab">Before the Break</a>
+
+						<a class="list-group-item list-group-item-action"  href="#05-break" role="tab">Break</a>
+						<a class="list-group-item list-group-item-action"  href="#06-group-great-debate" role="tab">Group Activity: The Great Debate</a>
+						<a class="list-group-item list-group-item-action"  href="#07-group-gentrification" role="tab">Group Activity: Predicting Gentrification</a>
+						<a class="list-group-item list-group-item-action"  href="#08-homework-discussion" role="tab">Homework Discussion</a>
+
+					</div>
+				
+				</div-->
+			</div> <!-- end .row -->
+			
+		</div> <!-- end .container-fluid -->
+
+		<footer>
+			<script type="text/javascript" src="../../js/jquery-3.3.1.min.js"></script>
+			<script type="text/javascript" src="../../js/bootstrap.min.js"></script>
+
+			<script type="text/javascript">
+
+			</script>
+
+      <script type="text/javascript" src="../../js/config.js"></script>
+      <style>
+pre {
+  background-color: black;
+  color: white;
+}
+
+div[id^="map-"]{
+  height:500px;
+}
+div[id$="-toggle"]{
+  display: none;
+}
+      </style>
+
+		</footer>
+
+	</body>
+
+
+</html>
