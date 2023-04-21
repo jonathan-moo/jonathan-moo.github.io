@@ -1,4 +1,0 @@
-# Github SSH configuration
-Host github.com
-	User git
-	IdentityFile ~/.ssh/id_<key> # This is your private key path. Edit accordingly	
