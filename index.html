@@ -41,6 +41,11 @@
 							<a class="dropdown-item" href="ASU-VIRT-DATA-PT-03-2023-U-LOLC/2.2/index.html">2.2 Ref</a>
 							<a class="dropdown-item" href="ASU-VIRT-DATA-PT-03-2023-U-LOLC/2.3/index.html">2.3 Ref</a>
 							<a class="dropdown-item" href="ASU-VIRT-DATA-PT-03-2023-U-LOLC/3.1/index.html">3.1 Ref</a>
+							<a class="dropdown-item" href="ASU-VIRT-DATA-PT-03-2023-U-LOLC/3.2/index.html">3.2 Ref</a>
+							<a class="dropdown-item" href="ASU-VIRT-DATA-PT-03-2023-U-LOLC/3.3/index.html">3.3 Ref</a>
+							<a class="dropdown-item" href="ASU-VIRT-DATA-PT-03-2023-U-LOLC/4.1/index.html">4.1 Ref</a>
+							<a class="dropdown-item" href="ASU-VIRT-DATA-PT-03-2023-U-LOLC/4.2/index.html">4.2 Ref</a>
+							<a class="dropdown-item" href="ASU-VIRT-DATA-PT-03-2023-U-LOLC/4.3/index.html">4.3 Ref</a>
 						</div>
 					</li-->
 				</ul>
@@ -53,89 +58,120 @@
 						<h3 id="objectives">Objectives For Today</h3>
 
 						<ul>
-							<li>Merging and Data Cleaning</li>
+							<li>Introduction to Matplotlib</li>
 						</ul>
 
 					</div>
 
-					<div id="01-Ins_Merging" class="instructor-block">
-						<h3>Merging DataFrames</h3>
-						<p>Let's open up the file in the <code>01-Ins_Merging</code> folder to get started.</p>
+					<div id="01-Ins_BasicLineGraphs" class="instructor-block">
+						<h3>Introduction to Matplotlib</h3>
+						<p>Let's open up the file(s) in the <code>01-Ins_BasicLineGraphs</code> folder to get started.</p>
 
-						<p>Merging datasets is a staple activity, especially when we want to get insights across multiple datasets.</p>
+						<p>From here on, you are really using a lot of pre-built functions that simplify how we can visualize code.</p>
 
-						<p>Data modeling will be crucial because we want to ensure data integrity when we merge data, but that will part of your future coursework.</p>
+						<p>The functions obfuscate the complexity of drawing graphs, and we just need to follow the official documentation to plot data.</p>
 
-					</div> <!-- .end #01-Ins_Merging-->
+						<p>As you spent time visualizing data on Jupyter Notebook, you will find yourself referring to the documentation a lot. As times go by, it will be easier and easier.</p>
+					</div> <!-- .end #01-Ins_BasicLineGraphs-->
 
-					<div id="02-Stu_Census_Merging" class="student-block">
-						<h3>Students Do: Census Merging</h3>
+					<div id="02-Stu_NJTemp-LinePlots" class="student-block">
+						<h3>Students Do: New Jersey Weather Line Plots</h3>
 						
-						<p>Let's open up the file in the <code>02-Stu_Census_Merging</code> to get started.</p>
+						<p>Let's open up the file in the <code>02-Stu_NJTemp-LinePlots</code> to get started.</p>
 
-					</div> <!-- .end 02-Stu_Census_Merging-->
+					</div> <!-- .end 02-Stu_NJTemp-LinePlots-->
 
-					<div id="03-Ins_Binning" class="instructor-block">
-						<h3>Binning Data</h3>
-						<p>Let's open up the file in the <code>03-Ins_Binning</code> folder to get started.</p>
+					<div id="03-Ins_ConfiguringLinePlots" class="instructor-block">
+						<h3>Configuring Line Plots</h3>
+						<p>Let's open up the file in the <code>03-Ins_ConfiguringLinePlots</code> folder to get started.</p>
 
-						<h5>Jonathan's Comments</h5>
-						<p>I didn't have an instructor that taught me how to do binning, but I certainly manually created data frames and categorized them based on specific conditionals.</p>
-						<p>This should lower your barrier of entry towards categorizing data.</p>
-					</div> <!-- #03-Ins_Binning end -->
 
-					<div id="04-Stu_MovieRatings_Binning" class="student-block">
-						<h3>Students Do: Binning Movies</h3>
-						<p>Let's open up the <code>README.md</code> file in the <code>04-Stu_MovieRatings_Binning</code> folder to get started.</p>
+					</div> <!-- #03-Ins_ConfiguringLinePlots end -->
+
+					<div id="04-Stu_LegendaryTemperature" class="student-block">
+						<h3>Students Do: Legendary Temperature</h3>
+						<p>Let's open up the <code>README.md</code> file in the <code>04-Stu_LegendaryTemperature</code> folder to get started.</p>
 					
-					</div> <!-- 04-Stu_MovieRatings_Binning end -->
+					</div> <!-- 04-Stu_LegendaryTemperature end -->
 
-					<div id="05-Ins_Mapping" class="instructor-block">
-						<h3>Mapping</h3>
+					<div id="05-Ins_Aesthetics" class="instructor-block">
+						<h3>Aesthetics</h3>
 
-						<p>Let's open up the file in the <code>05-Ins_Mapping</code> to get started.</p>
+						<p>Let's open up the file in the <code>05-Ins_Aesthetics</code> to get started.</p>
 
-						<h5>Notes</h5>
+						<p>Design is a solution, and not merely aesthetical reasons. The bottomline is, can I extract actionable insights from the visualization based on the business context?</p>
+
+						<p>Different business context matters.</p>
 						<ul>
-							<li><code>${:.2f}</code> means we want to round the data to 2 floating points.</li>
-							<li>This is not the only way to round data. I typically use the <code>numpy</code> library, which we will cover in future coursework.</li>
-							<ul>
-								<li>If your work requires high precision values, such as architecture and buildings, you will use <code>numpy</code> to ensure accuracy.</li>
-							</ul>
+							<li>If your visualization is for fast response, you don't really want details that dwarf what you need to get things done.</li>
+							<li>If your visualization is for science, is it easy for you to self-service insights and draw conclusions accurately?</li>
 						</ul>
 						
 					</div> <!-- 05-Ins_Mapping end -->
 
 					
-					<div id="06-Evr_Crowdfunding_Cleaning" class="instructor-block">
-						<h3>Crowdfunding Cleaning</h3>
+					<div id="06-Stu_RollerCoaster-StylingLinePlots" class="student-block">
+						<h3>Students Do: Coaster Speed: Styling Line Plots</h3>
 
-						<p>Let's open up the file in the <code>06-Evr_Crowdfunding_Cleaning</code> to get started.</p>
+						<p>Let's open up the file in the <code>06-Stu_RollerCoaster-StylingLinePlots</code> to get started.</p>
 	
-					</div> <!-- 06-Evr_Crowdfunding_Cleaning end -->
+					</div> <!-- 06-Stu_RollerCoaster-StylingLinePlots end -->
 
 					<div id="break" class="instructor-block">
 						<h3>Break - 15 mins @ 8:05pm</h3>
 					</div> <!-- break -->
 
-					<div id="07-Ins_Intro_to_Bugfixing" class="instructor-block">
-						<h3>Introduction to Bug Fixing</h3>
-						<p>Look at the file(s) in the <code>07-Ins_Intro_to_Bugfixing</code> folder.</p>
+					<div id="07-Ins_BarCharts" class="instructor-block">
+						<h3>Bar Charts</h3>
+						<p>Look at the file(s) in the <code>07-Ins_BarCharts</code> folder.</p>
 
-						<p>Being able to debug code is key to excellence, especially when you're working in a team.
-							You will need to ensure quality and excellence with your team mates' work in order to produce good products.
-						</p>
+						<p>From here on out, we assumed that you have done some cleaning and processing of the data already. If you have not done some of the processing work prior to visualization stage, you might find your graphs looking weird.</p>
 
-					</div> <!--07-Ins_Intro_to_Bugfixing end -->
+					</div> <!--07-Ins_BarCharts end -->
 
 					
 
-					<div id="08-Evr_Bugfixing_Bonanza" class="instructor-block">
-						<h3>Bug Fixing Bonanza</h3>
+					<div id="08-Stu_PyBars" class="student-block">
+						<h3>Students Do: Cars Bar Chart</h3>
 
-						<p>Let's open up the file in the <code>08-Evr_Bugfixing_Bonanza</code> to get started.</p>
+						<p>Let's open up the file in the <code>08-Stu_PyBars</code> to get started.</p>
 	
-					</div> <!-- 08-Evr_Bugfixing_Bonanza end -->
+					</div> <!-- 08-Stu_PyBars end -->
+
+					<div id="09-Ins_PieCharts" class="instructor-block">
+						<h3>Pie Charts</h3>
+
+						<p>Let's open up the file in the <code>09-Ins_PieCharts</code> to get started.</p>
+	
+					</div> <!-- 09-Ins_PieCharts end -->
+
+					<div id="10-Stu_PyPies" class="student-block">
+						<h3>Students Do: Pies Pie Chart</h3>
+
+						<p>Let's open up the file in the <code>10-Stu_PyPies</code> to get started.</p>
+	
+					</div> <!-- 10-Stu_PyPies end -->
+
+					<div id="11-Ins_ScatterPlots" class="instructor-block">
+						<h3>Scatter Plots</h3>
+
+						<p>Let's open up the file in the <code>11-Ins_ScatterPlots</code> to get started.</p>
+	
+					</div> <!-- 11-Ins_ScatterPlots end -->
+
+					<div id="12-Stu_ScatterPy" class="instructor-block">
+						<h3>Students Do: Scatter Py</h3>
+
+						<p>Let's open up the file in the <code>12-Stu_ScatterPy</code> to get started.</p>
+	
+					</div> <!-- 12-Stu_ScatterPy end -->
+
+					<div id="13-Stu_AvgRain-BarChartsWithPandas" class="instructor-block">
+						<h3>Students Do: Average Rainfall with Pandas</h3>
+
+						<p>Let's open up the file in the <code>13-Stu_AvgRain-BarChartsWithPandas</code> to get started.</p>
+	
+					</div> <!-- 13-Stu_AvgRain-BarChartsWithPandas end -->
 
 					
 
