@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Jonathan Moo's Github Bio</title>
+
+
+		<link rel='stylesheet' id='bootstrap-css'  href='../../css/bootstrap.min.css' type='text/css' media='all' />
+		<link rel='stylesheet' id='bootstrap-grid-css'  href='../../css/bootstrap-grid.min.css' type='text/css' media='all' />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+   integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+   crossorigin=""/>
+		<link rel='stylesheet' id='custom-css'  href='css/style.css' type='text/css' media='all' /> 
+		<script src="https://d3js.org/d3.v5.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.9.1/d3-tip.js"></script>
+		<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+     <!-- Make sure you put this AFTER Leaflet's CSS -->
+     <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+       integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+       crossorigin=""></script>
+	</head>
+
+	<body>
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<a class="navbar-brand" href="#">Jonathan's Github Page</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active">
+						<a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Lessons</a>
+						<div class="dropdown-menu">
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/1.1/index.html">1.1 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/1.2/index.html">1.2 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/1.3/index.html">1.3 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/2.1/index.html">2.1 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/2.2/index.html">2.2 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/2.3/index.html">2.3 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/3.1/index.html">3.1 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/3.2/index.html">3.2 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/3.3/index.html">3.3 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/4.1/index.html">4.1 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/4.2/index.html">4.2 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/4.3/index.html">4.3 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/5.1/index.html">5.1 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/5.2/index.html">5.2 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/5.3/index.html">5.3 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/6.1/index.html">6.1 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/6.2/index.html">6.2 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/6.3/index.html">6.3 Ref</a>
+						</div>
+					</li-->
+				</ul>
+			</div>
+		</nav>
+		<div class="container-fluid">
+			<div class="row">
+				<div id="main-content" class="col-md-8">
+					<div class="objective-block">
+						<h3 id="objectives">Objectives For Today</h3>
+
+						<ul>
+							<li>APIs and Geospatial Data Visualization</li>
+							<ul>
+								<li>In this lesson today, we will be practicing more on how we can collect data from APIs.</li>
+							</ul>
+						</ul>
+
+					</div>
+
+					<div id="intro" class="instructor-block">
+						<h3>Context</h3>
+
+						<p>Today's lesson is about visualizing a real-world phenomenon: banking deserts.</p>
+
+						<h5>What is a banking desert?</h5>
+						<div id="intro-1-toggle" style="display: none;">
+							<p>
+								In predominantly lower-income or elderly neighborhoods, there is often a dearth of banks.
+							</p>
+							<p>Often, high-interest "check-cashing" and "money transfer" providers are in their place. These shifty providers benefit from the fact that banks avoid such neighborhoods, leaving residents with few safe options to obtain cash, loans, or withdrawal services.</p>
+						
+							<p>Today, we will showcase this trend with a dataset from the US Census.</p>
+						</div>
+
+						<button type="button" class="btn btn-primary" onclick='$("#intro-1-toggle").toggle();'>Show/Hide Tips</button>
+
+						<h5>Before we begin the class</h5>
+						<p>We will need to install the following Python libraries with the following commands:</p>
+						<ul>
+							<li>Activate your conda dev virtual environment: <code>conda activate dev</code></li>
+							<ul>
+								<li>Because if you don't activate your dev virtual environment, any installation will go to the default environment and it will not work for your Jupyter notebook.</li>
+								<li>This is an example of having different environments for different projects, and it is a common practice to do so.</li>
+							</ul>
+							<li>Install the following libraries using these commands:</li>
+							<pre>
+	conda install -c pyviz hvplot geoviews
+	pip install census
+	pip install citipy # not needed for the class but needed for the challenge
+							</pre>
+							<li>Ensure that these libraries are installed properly by running the following commands:</li>
+							<pre>
+	conda list hvplot
+	conda list geoviews
+							</pre>
+							<li>If you do not see anything listed when you check the <code>geoviews</code> library, try an alternative install option such as:</li>
+							<pre>
+	conda install -c conda-forge geoviews
+							</pre>
+						</ul>
+
+						<p>We also need to register our personal keys from the Geo Views API here by registering for an account: <a href="https://www.geoapify.com/">https://www.geoapify.com/</a></p>
+						<ul>
+							<li>The API keys in the activities are deprecated. We need to replace those keys with our personal keys.</li>
+							<li>After registering, create a project and test out your key.</li>
+						</ul>
+
+						<h5>Purpose of this lesson</h5>
+						<p>In reality, the previous lessons lay down the foundations of how you can extract data from different sources for analysis.</p>
+
+						<p>Remember in the first lesson I mentioned that data is like a TV box without the channels? Data itself is a medium.</p>
+
+						<p>To excel in data, we will need to dive deep into the relevant types of data in the specific industry that you want.</p>
+					</div>
+
+					<div id="01-Ins_Geoapify_Geocode" class="instructor-block">
+						<h3>Geoapify Geocode</h3>
+						<p>Let's open up the file(s) in the <code>01-Ins_Geoapify_Geocode</code> folder to get started.</p>
+
+						<p>We can also use Geoapify's playground to visualize their maps: <a href="https://apidocs.geoapify.com/playground/geocoding/">https://apidocs.geoapify.com/playground/geocoding/</a></p>
+					</div> <!-- .end #01-Ins_Geoapify_Geocode-->
+
+					<div id="02-Ins_Geoapify_Places" class="instructor-block">
+						<h3>Geoapify Places</h3>
+						
+						<p>Let's open up the file(s) in the <code>02-Ins_Geoapify_Places</code> folder to get started.</p>
+
+						<p>Geoapify has a comprehensive API here: <a href="https://apidocs.geoapify.com/docs/places/#about">https://apidocs.geoapify.com/docs/places/#about</a></p>
+						<ul>
+							<li><a href="https://apidocs.geoapify.com/docs/places/#api">API Reference</a>, where you can learn how to configure the parameters for GET requests</li>
+							<li><a href="https://apidocs.geoapify.com/docs/places/#categories">Supported categories</a>, where you can learn how places are categorized.</li>
+							<li><a href="https://apidocs.geoapify.com/docs/places/#conditions">Supported conditions</a>, where you can review the amenities for a place.</li>
+						</ul>
+					</div> <!-- .end 02-Ins_Geoapify_Places-->
+
+					<div id="03-Stu_Geoapify_Drills" class="student-block">
+						<h3>Students Do: Geoapify Drills</h3>
+						<p>Let's open up the file in the <code>03-Stu_Geoapify_Drills</code> folder to get started.</p>
+					</div> <!-- #03-Stu_Geoapify_Drills end -->
+
+					<div id="04-Ins_Nearest-Restaurants" class="instructor-block">
+						<h3>Exploring Nearest Restaurants in Madrid</h3>
+						<p>Let's open up the file(s) in the <code>04-Ins_Nearest-Restaurants</code> folder to get started.</p>
+					
+					</div> <!-- 04-Ins_Nearest-Restaurants end -->
+					
+					<div id="break" class="instructor-block">
+						<h3>Break - 15 mins @ 8:05pm</h3>
+					</div> <!-- break -->
+
+					<div id="05-Evr_Exploring_Airports" class="instructor-block">
+						<h3>Exploring Airports in Australia </h3>
+
+						<p>Let's open up the file(s) in the <code>05-Evr_Exploring_Airports</code> folder to get started.</p>
+						
+					</div> <!-- 05-Evr_Exploring_Airports end -->
+
+					<div id="06-Evr_Geoviews_Maps" class="instructor-block">
+						<h3>GeoViews Maps</h3>
+
+						<p>Let's open up the file(s) in the <code>06-Evr_Geoviews_Maps</code> folder to get started.</p>
+						
+					</div> <!-- 06-Evr_Geoviews_Maps end -->
+
+
+					<div id="07-Stu_Airport_Map" class="student-block">
+						<h3>Student Do: Australian Airports Map</h3>
+
+						<p>Let's open up the file(s) in the <code>07-Stu_Airport_Map</code> to get started.</p>
+	
+					</div> <!-- 07-Stu_Airport_Map end -->
+
+					
+					
+
+					<div id="08-Ins_Census" class="instructor-block">
+						<h3>U.S. Census Demo</h3>
+						<p>Look at the file(s) in the <code>08-Ins_Census</code> folder.</p>
+
+					</div> <!--08-Ins_Census end -->
+
+					
+
+					<div id="09-Evr_Banking_Deserts" class="student-block">
+						<h3>Banking Deserts</h3>
+
+						<p>Let's open up the file(s) in the <code>09-Evr_Banking_Deserts</code> to get started.</p>
+	
+					</div> <!-- 09-Evr_Banking_Deserts end -->
+
+					
+				
+
+					
+
+				
+					
+					
+
+				</div> <!-- end #main-content -->
+
+
+				<!--div id="right-sb" class="col-md-4">
+					<div id="right-sb-nav" class="list-group" id="toc" role="tablist">
+					  <a class="list-group-item list-group-item-action active"  href="#objectives" role="tab">Objectives</a>
+
+					  <a class="list-group-item list-group-item-action"  href="#intro" role="tab">Snapshot Instructor Introduction</a>
+					  <a class="list-group-item list-group-item-action"  href="#01-intro-to-data" role="tab">Introduction To Data</a>
+						<a class="list-group-item list-group-item-action"  href="#02-course-overview" role="tab">Course Overview</a>
+						<a class="list-group-item list-group-item-action"  href="#03-past-learnings" role="tab">Past Learnings</a>
+						<a class="list-group-item list-group-item-action"  href="#04-before-break" role="tab">Before the Break</a>
+
+						<a class="list-group-item list-group-item-action"  href="#05-break" role="tab">Break</a>
+						<a class="list-group-item list-group-item-action"  href="#06-group-great-debate" role="tab">Group Activity: The Great Debate</a>
+						<a class="list-group-item list-group-item-action"  href="#07-group-gentrification" role="tab">Group Activity: Predicting Gentrification</a>
+						<a class="list-group-item list-group-item-action"  href="#08-homework-discussion" role="tab">Homework Discussion</a>
+
+					</div>
+				
+				</div-->
+			</div> <!-- end .row -->
+			
+		</div> <!-- end .container-fluid -->
+
+		<footer>
+			<script type="text/javascript" src="../../js/jquery-3.3.1.min.js"></script>
+			<script type="text/javascript" src="../../js/bootstrap.min.js"></script>
+
+			<script type="text/javascript">
+
+			</script>
+
+      <script type="text/javascript" src="../../js/config.js"></script>
+      <style>
+pre {
+  background-color: black;
+  color: white;
+}
+
+div[id^="map-"]{
+  height:500px;
+}
+div[id$="-toggle"]{
+  display: none;
+}
+      </style>
+
+		</footer>
+
+	</body>
+
+
+</html>
