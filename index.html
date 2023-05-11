@@ -53,6 +53,7 @@
 							<a class="dropdown-item" href="ASU-VIRT-DATA-PT-03-2023-U-LOLC/6.2/index.html">6.2 Ref</a>
 							<a class="dropdown-item" href="ASU-VIRT-DATA-PT-03-2023-U-LOLC/6.3/index.html">6.3 Ref</a>
 							<a class="dropdown-item" href="ASU-VIRT-DATA-PT-03-2023-U-LOLC/7.1/index.html">7.1 Ref</a>
+							<a class="dropdown-item" href="ASU-VIRT-DATA-PT-03-2023-U-LOLC/7.2/index.html">7.2 Ref</a>
 						</div>
 					</li-->
 				</ul>
@@ -65,78 +66,197 @@
 						<h3 id="objectives">Objectives For Today</h3>
 
 						<ul>
-							<li>Pulling and Merging with Git</li>
+							<li>Hypothesis Testing and Statistical Tests</li>
 						</ul>
 
 					</div>
 
 					<div id="intro" class="instructor-block">
-						<h3>Yesterday's instruction</h3>
+						<h3>Introduction To Hypothesis Testing</h3>
 
-						<p>As we have 12 students, we will be splitting randomly to 4 students per group.</p>
+						<h5>What is hypothesis testing?</h5>
+						<p>In layman terms, it is simply to prove an assumption with data and sampling to see if it is true to a population.</p>
+						
+						<p>As a data analyst and data scientist, it is not going to suffice if you feel if your data analysis is true:</p>
 						<ul>
-							<li>Randomization will be done through Zoom.</li>
-							<li>In each group, choose one person to create your project repo, and this person is going to share the project repo with the other members of your team.</li>
+							<li>For example, there is a pass completion rate as a metric. Does having a higher pass completion rate result in more goals scored?</li>
 							<ul>
-								<li>We should only have 1 repo per project.</li>
+								<li>Intuitively, you might be inclined to suggest that a high pass completion rate results in more goals, which in term we can better predict if a team is in better shape to win or lose. However, at work, how do you prove that through data?</li>
 							</ul>
 						</ul>
 
-						<p>We are going to start by inviting everybody into their respective groups for 5 minutes to decide on the person within the group to create the repo.</p>
+						<p>That is why some understanding of hypothesis and statistics are important. For work, we need to quantify and qualify our findings rather than make educated guesses.</p>
 
-						<p>To follow the class, create a new repository that is separate from your project repo on an individual basis.</p>
+						<p>In the school notes, there are a few questions that we ask from a layman perspective:</p>
 						<ul>
-							<li>This is so that everyone will learn how to use Git for version control.</li>
+							<li>Does this new medication work?</li>
+							<li>Is the cost of living higher in this city?</li>
+							<li>Does this group score higher than another group?</li>
 						</ul>
 
-						<p>Reminder that what you learn at school is a typical git feature branching strategy setup. However, each company has their own branching strategies.</p>
+						<p>We form a hypothesis or an assumption that it works, and we seek to prove or disprove it.</p>
+
+						<h5>Khan Academy's Idea Behind Hypothesis Testing Video</h5>
+						<iframe width="560" height="315" src="https://www.youtube.com/embed/dpGmVV0-4jc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+						<h5>Example Scenario For Null Hypothesis vs Alternate Hypothesis</h5>
+						<p>Let's say you're the owner of a electric car company. Out of 10000 cars produced, you have established a level of 95% confidence for the company where your customers is satisfied with car where there are no defects.</p>
+
+						<p>However, you suspect your cars are meeting less than the 95% confidence.</p>
+
+						<p>What are the appropriate hypothesis for significance tests?</p>
 						<ul>
-							<li>Feature Branching vs Trunk-based development: <a href="https://www.stxnext.com/blog/escape-merge-hell-why-i-prefer-trunk-based-development-over-feature-branching-and-gitflow">https://www.stxnext.com/blog/escape-merge-hell-why-i-prefer-trunk-based-development-over-feature-branching-and-gitflow</a></li>
+							<li>H<sub>0</sub>: p >= 0.95</li>
+							<ul>
+								<li>Null means nothing, or there is no relationship to the claim.</li>
+								<li>Actual null hypothesis in words: The proportion of customers who are satisfied with the electric cars produced by the company, with no defects, is equal to or greater than 95%.</li>
+							</ul>
+							<li>H<sub>a</sub>: p < 0.95</li>
+							<ul>
+								<li>This is your <strong>claim</strong>, your assumption that the sample is less than 95% confidence.</li>
+								<li>Actual alternate hypothesis in words: The proportion of customers who are satisfied with the electric cars produced by the company, with no defects, is less than 95%.</li>
+							</ul>
 						</ul>
+
+						<p>What you are trying to do is to describe your null and alternate hypothesis in words, so that you know how to prove and disprove an assumption in your analysis.</p>
+					
+					
+						<h5>Additional examples of T-Test</h5>
+						<iframe width="560" height="315" src="https://www.youtube.com/embed/_3_6wjycJdk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 					</div>
 
-					<div id="01-Ins_Pull" class="instructor-block">
-						<h3>Pulling from Git remote</h3>
-						<p>Let's open up the file(s) in the <code>01-Ins_Pull</code> folder to get started.</p>
+					<div id="01-Par_Null_Hypothesis" class="student-block">
+						<h3>Groups Do: Forming a Null Hypothesis</h3>
+						<p>Let's open up the file(s) in the <code>01-Par_Null_Hypothesis</code> folder to get started.</p>
 
-						<p>Use your individual repos to try this activity out.</p>
-
-						<p>We will explore Git history here: <a href="https://github.com/DonJayamanne/gitHistoryVSCode">https://github.com/DonJayamanne/gitHistoryVSCode</a></p>
+						<p>Convert the following questions into a hypothesis and a null hypothesis:</p>
 						<ul>
-							<li>Git history shows the history of individual files, not commits.</li>
-						</ul>
-
-						<p>Refer to these notes if you are having problems in your console.: <a href="https://gefyra.co/how-to-setup-github-with-your-in-your-mac-os-terminal/">https://gefyra.co/how-to-setup-github-with-your-in-your-mac-os-terminal/</a></p>
-					</div> <!-- .end #01-Ins_Pull-->
-
-					<div id="02-Evr_Pull" class="student-block">
-						<h3>Students Do: Workflows</h3>
-						
-						<p>Let's open up the file(s) in the <code>02-Evr_Pull</code> folder to get started.</p>
-
-						
-					</div> <!-- .end 02-Evr_Pull-->
-
-					<div id="03-Evr_Merge" class="instructor-block">
-						<h3>Merging Branches</h3>
-						<p>Let's open up the file in the <code>03-Evr_Merge</code> folder to get started.</p>
-
-						<h5>Important!</h5>
-						<ul>
-							<li>If you are working on an existing/old branch, remember to merge the changes for the main branch, assuming that your main branch is where production or the latest stable version code rests.</li>
+							<li>Does dark chocolate affect arterial function in healthy individuals?</li>
 							<ul>
-								<li>You will spend a lot of time trying to fix merges because there is an error.</li>
+								<li>Assume that we are referring to 30g of dark chocolate over a one-year period.</li>
+							</ul>
+							<li>Does coffee have anti-aging properties?</li>
+							<ul>
+								<li>Assume that the average dosage for consuming coffee daily is at 400mg, the average size of a mug.</li>
 							</ul>
 						</ul>
-					</div> <!-- #03-Evr_Merge end -->
+				
+					</div> <!-- .end #01-Par_Null_Hypothesis-->
 
-					<div id="04-Evr_Pull_Requests" class="student-block">
-						<h3>Pull Requests</h3>
-						<p>Let's open up the file(s) in the <code>04-Evr_Pull_Requests</code> folder to get started.</p>
-					
-					</div> <!-- 04-Evr_Pull_Requests end -->
+					<div id="02-Ins_T-Test" class="instructor-block">
+						<h3>T-Test </h3>
+						
+						<p>Let's open up the file(s) in the <code>02-Ins_T-Test</code> folder to get started.</p>
 
+						<p>A t-test is a statistical test to compare the means of 2 groups of data.</p>
+
+						<h5>Independent (unpaired) samples / two-sample t-test</h5>
+						<p>Let's use the previous example of a electric car company. You want to know if red cars sell better than white cars.</p>
+
+						<p>We would compare the mean sales of red cars and white cars and determine if there is a statistically significant difference between them.</p>
+						<ul>
+							<li>H<sub>0</sub>: μ<sub>red</sub> = μ<sub>white</sub></li>
+							<ul>
+								<li>where μ<sub>red</sub> represents the population mean sales of red cars and μ<sub>white</sub> represents the population mean sales of white cars.</li>
+								<li>The null hypothesis would be that there is no difference in the mean sales of red cars and white cars.</li>
+							</ul>
+							<li>H<sub>a</sub>: μ<sub>red</sub> > μ<sub>white</sub></li>
+							<ul>
+								<li>The alternative hypothesis would be that the mean sales of red cars are greater than the mean sales of white cars.</li>
+							</ul>
+						</ul>
+
+						<h5>Paired Test / One-sample test</h5>
+
+						<p>You are still comparing two groups of data, but you're sampling the same population of data twice.</p>
+
+						<p>Suppose a company wants to test the effectiveness of a new training program for its employees. To do so, they randomly select 20 employees and give them the training program. Before and after the training, each employee's productivity is measured and recorded. The company wants to determine if the training program has had a significant effect on employee productivity.</p>
+
+						<p>In this case, a paired t-test would be appropriate because we have two sets of data (before and after productivity) from the same group of individuals (the 20 employees). The null hypothesis would be that there is no significant difference in productivity before and after the training program, and the alternative hypothesis would be that there is a significant difference in productivity.</p>
+
+						<ul>
+							<li>H<sub>0</sub>: μ<sub>after</sub> - μ<sub>before</sub> = 0</li>
+							<li>H<sub>a</sub>: μ<sub>after</sub> - μ<sub>before</sub> ≠ 0 (We don't know if it is going to be a positive or negative impact.)</li>
+							<ul>
+								<li>Where μ<sub>before</sub> and μ<sub>after</sub> represent the population means of productivity before and after the training program, respectively.</li>
+							</ul>
+						</ul>
+
+						<h5>Notes</h5>
+						<ul>
+							<li>You don't have to memorize the mathematical formula. Both Excel and Pandas have inbuilt functions for us to use.</li>
+						</ul>
+
+						<h5>Additional References:</h5>
+						<iframe width="560" height="315" src="https://www.youtube.com/embed/pTmLQvMM-1M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+					</div> <!-- .end 02-Ins_T-Test-->
+
+					<div id="03-Stu_Stranger_Heights_T-Test" class="student-block">
+						<h3>Students Do: T-Test</h3>
+						<p>Let's open up the file in the <code>03-Stu_Stranger_Heights_T-Test</code> folder to get started.</p>
+
+					</div> <!-- #03-Stu_Stranger_Heights_T-Test end -->
+
+					<div id="04-Ins_ANOVA" class="instructor-block">
+						<h3>ANOVA: Analysis of variance</h3>
+						<p>Let's open up the file(s) in the <code>04-Ins_ANOVA</code> folder to get started.</p>
 					
+					</div> <!-- 04-Ins_ANOVA end -->
+
+					<div id="05-Stu_ANOVA" class="student-block">
+						<h3>Students Do: ANOVA</h3>
+						<p>Let's open up the file(s) in the <code>05-Stu_ANOVA</code> folder to get started.</p>
+					
+					</div> <!-- 05-Stu_ANOVA end -->
+
+					<div id="06-Ins_Chi_Square" class="instructor-block">
+						<h3>Chi Square</h3>
+						<p>Let's open up the file(s) in the <code>06-Ins_Chi_Square</code> folder to get started.</p>
+					
+						<h5>What is it used for?</h5>
+						<p>When you collect data, is the variation in your data due to chance or is it due to one of the variables you're testing?</p>
+
+						<p>You are comparing observed values vs expected values in this test.</p>
+
+						<ul>
+							<li>H<sub>0</sub>: There is no significant difference between the observed and expected frequencies.</li>
+							<li>H<sub>a</sub>: There is a significant difference between the observed and expected frequencies.</li>
+						</ul>
+
+						<p>Supposed you're flipping a coin 100 times.</p>
+						<ul>
+							<li>In your 1st try, you got probably 65 heads vs 35 tails. That is your observation.</li>
+							<li>However, we are expecting both 50 heads vs 50 tails.</li>
+							<li>The whole point of this test is to reject or accept the null hypothesis. Is there a significant difference between the observed and expected frequencies?</li>
+						</ul>
+
+						<h5>What is degrees of freedom (df)?</h5>
+						<p>We are comparing against 2 outcomes in a test.</p>
+						<ul>
+							<li>For coin flipping, it is either heads or tails.</li>
+						</ul>
+						
+						<p>It refers to the number of values in a sample that are free to vary.</p>
+						<ul>
+							<li>They are independent of each other.</li>
+							<li>They contribute to the estimation of a population parameter.</li>
+						</ul>
+
+						<p>They are important because they affect the distribution of certain statistical tests, such as the t-test.</p>
+
+						<p>In general, as the degrees of freedom increase, the distribution of the test statistic approaches a normal distribution, which helps us to infer more accurately.</p>
+
+						<ul>
+							<li>Degrees of freedom in independent samples: df = n1 + n2 - 2</li>
+							<ul>
+								<li>where n1 and n2 are the sample sizes of the two groups being compared.</li>
+							</ul>
+							<li>Degrees of freedom in dependent (paired) samples: df = n - 1</li>
+							<ul>
+								<li>where n is the number of pairs of observations in the sample.</li>
+							</ul>
+						</ul>
+					</div> <!-- 06-Ins_Chi_Square end -->
 					
 					<div id="break" class="instructor-block">
 						<h3>Break - 15 mins @ 8:05pm</h3>
