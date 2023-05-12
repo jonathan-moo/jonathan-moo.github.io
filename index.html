@@ -120,7 +120,25 @@
 
 						<p>What you are trying to do is to describe your null and alternate hypothesis in words, so that you know how to prove and disprove an assumption in your analysis.</p>
 					
-					
+						<h5>What is the p-value?</h5>
+						<p>This is for two-tailed test:</p>
+						<img src="https://stats.idre.ucla.edu/wp-content/uploads/2016/02/pvalue1.gif" class="img-fluid">
+
+						<p>This is for one-tailed test:</p>
+						<img src="https://stats.idre.ucla.edu/wp-content/uploads/2016/02/pvalue2.gif" class="img-fluid">
+						<img src="https://stats.idre.ucla.edu/wp-content/uploads/2016/02/pvalue3.gif" class="img-fluid">
+
+						<p>The light blue area represents the 95% probability of an outcome happening, and the dark blue represents the remaining 5%.</p>
+
+						<p>The p-value (probability-value) is the indicator if an outcome would happen or not, on the 95% or the 5% probability.</p>
+
+						<p>You don't have to calculate the p-value for the probability. There is a table given already, and this is for the z-score (learned in lesson 1.2):</p>
+						<img src="https://thebiologynotes.com/wp-content/uploads/2021/01/p-value-from-z-score.jpg" class="img-fluid">
+						<br>
+						<br>
+						<h5>Additional explanation on p-value</h5>
+						<iframe width="560" height="315" src="https://www.youtube.com/embed/KS6KEWaoOOE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+						
 						<h5>Additional examples of T-Test</h5>
 						<iframe width="560" height="315" src="https://www.youtube.com/embed/_3_6wjycJdk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 					</div>
@@ -187,6 +205,10 @@
 							<li>You don't have to memorize the mathematical formula. Both Excel and Pandas have inbuilt functions for us to use.</li>
 						</ul>
 
+						<h5>p-value table for t-test:</h5>
+						<img src="https://thebiologynotes.com/wp-content/uploads/2021/01/p-value-from-the-t-score-e1610102691606.jpg" class="img-fluid">
+						
+
 						<h5>Additional References:</h5>
 						<iframe width="560" height="315" src="https://www.youtube.com/embed/pTmLQvMM-1M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 					</div> <!-- .end 02-Ins_T-Test-->
@@ -200,7 +222,14 @@
 					<div id="04-Ins_ANOVA" class="instructor-block">
 						<h3>ANOVA: Analysis of variance</h3>
 						<p>Let's open up the file(s) in the <code>04-Ins_ANOVA</code> folder to get started.</p>
+
+						<p>So far, we have been comparing and contrasting between 2 groups. ANOVA is able to test and compare the means of multiple groups.</p>
 					
+						<ul>
+							<li>H<sub>0</sub>: Assumes there is no difference betwen the tested groups.
+							<li>H<sub>a</sub>: Assumes a relationship between the tested groups.</li>
+						</ul>
+
 					</div> <!-- 04-Ins_ANOVA end -->
 
 					<div id="05-Stu_ANOVA" class="student-block">
@@ -231,12 +260,8 @@
 						</ul>
 
 						<h5>What is degrees of freedom (df)?</h5>
-						<p>We are comparing against 2 outcomes in a test.</p>
-						<ul>
-							<li>For coin flipping, it is either heads or tails.</li>
-						</ul>
-						
-						<p>It refers to the number of values in a sample that are free to vary.</p>
+
+						<p>It refers to the number of outcomes in a sample that are free to vary, minus 1.</p>
 						<ul>
 							<li>They are independent of each other.</li>
 							<li>They contribute to the estimation of a population parameter.</li>
@@ -256,6 +281,9 @@
 								<li>where n is the number of pairs of observations in the sample.</li>
 							</ul>
 						</ul>
+
+						<h5>p-value table from chi-square values</h5>
+						<img src="https://thebiologynotes.com/wp-content/uploads/2021/01/p-value-table-from-chi-square-values.png" class="img-fluid">
 					</div> <!-- 06-Ins_Chi_Square end -->
 					
 					<div id="break" class="instructor-block">
@@ -265,7 +293,7 @@
 					<div id="Project Work" class="student-block">
 						<h3>Project Work</h3>
 
-						<p>Try to get an idea of what your group needs to do by today.</p>
+						
 						
 					</div> <!-- 05-Evr_Exploring_Airports end -->
 
