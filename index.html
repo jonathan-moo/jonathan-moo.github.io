@@ -54,6 +54,7 @@
 							<a class="dropdown-item" href="ASU-VIRT-DATA-PT-03-2023-U-LOLC/6.3/index.html">6.3 Ref</a>
 							<a class="dropdown-item" href="ASU-VIRT-DATA-PT-03-2023-U-LOLC/7.1/index.html">7.1 Ref</a>
 							<a class="dropdown-item" href="ASU-VIRT-DATA-PT-03-2023-U-LOLC/7.2/index.html">7.2 Ref</a>
+							<a class="dropdown-item" href="ASU-VIRT-DATA-PT-03-2023-U-LOLC/7.3/index.html">7.3 Ref</a>
 						</div>
 					</li-->
 				</ul>
@@ -66,233 +67,40 @@
 						<h3 id="objectives">Objectives For Today</h3>
 
 						<ul>
-							<li>Hypothesis Testing and Statistical Tests</li>
+							<li>Installing Postgres SQL</li>
 						</ul>
 
 					</div>
 
 					<div id="intro" class="instructor-block">
-						<h3>Introduction To Hypothesis Testing</h3>
+						<h3>Installing Postgres SQL</h3>
 
-						<h5>What is hypothesis testing?</h5>
-						<p>In layman terms, it is simply to prove an assumption with data and sampling to see if it is true to a population.</p>
+						<p>By the end of the class, we want to complete installation of the Postgres server and be able to see it run in your local machine.</p>
+
+						<p>The instructions has been uploaded in Activity 1, under the Resources folder. Both Mac and Windows are included.</p>
+
+						<h5>Notes:</h5>
+						<ul>
+							<li>There are a lot of ways to install a SQL server. Schools teach using Graphical User Interface (GUI) installer, but on a typical basis, we install it via command line.</li>
+							<ul>
+								<li>Using <code>Homebrew (MacOS)</code> or a Linux command to install Postgres SQL.</li>
+								<li>On a typical setting, many servers within the cloud, and we don't install a GUI installer because it is unnecessary overhead in terms of security and resources.</li>
+								<li>Thus, don't be alarmed if you find that our installation patterns are different between work and school. They are the same engine, just different ways and representation.</li>
+							</ul>
+							<li>I'm more used to MySQL. But ever since Oracle bought Sun Microsystems (MySQL), many companies are pivoting away from MySQL.</li>
+							<ul>
+								<li>In your career, you will learn about different database engines if your work involves working with different systems.</li>
+							</ul>
+						</ul>
 						
-						<p>As a data analyst and data scientist, it is not going to suffice if you feel if your data analysis is true:</p>
-						<ul>
-							<li>For example, there is a pass completion rate as a metric. Does having a higher pass completion rate result in more goals scored?</li>
-							<ul>
-								<li>Intuitively, you might be inclined to suggest that a high pass completion rate results in more goals, which in term we can better predict if a team is in better shape to win or lose. However, at work, how do you prove that through data?</li>
-							</ul>
-						</ul>
-
-						<p>That is why some understanding of hypothesis and statistics are important. For work, we need to quantify and qualify our findings rather than make educated guesses.</p>
-
-						<p>In the school notes, there are a few questions that we ask from a layman perspective:</p>
-						<ul>
-							<li>Does this new medication work?</li>
-							<li>Is the cost of living higher in this city?</li>
-							<li>Does this group score higher than another group?</li>
-						</ul>
-
-						<p>We form a hypothesis or an assumption that it works, and we seek to prove or disprove it.</p>
-
-						<h5>Khan Academy's Idea Behind Hypothesis Testing Video</h5>
-						<iframe width="560" height="315" src="https://www.youtube.com/embed/dpGmVV0-4jc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-
-						<h5>Example Scenario For Null Hypothesis vs Alternate Hypothesis</h5>
-						<p>Let's say you're the owner of a electric car company. Out of 10000 cars produced, you have established a level of 95% confidence for the company where your customers is satisfied with car where there are no defects.</p>
-
-						<p>However, you suspect your cars are meeting less than the 95% confidence.</p>
-
-						<p>What are the appropriate hypothesis for significance tests?</p>
-						<ul>
-							<li>H<sub>0</sub>: p >= 0.95</li>
-							<ul>
-								<li>Null means nothing, or there is no relationship to the claim.</li>
-								<li>Actual null hypothesis in words: The proportion of customers who are satisfied with the electric cars produced by the company, with no defects, is equal to or greater than 95%.</li>
-							</ul>
-							<li>H<sub>a</sub>: p < 0.95</li>
-							<ul>
-								<li>This is your <strong>claim</strong>, your assumption that the sample is less than 95% confidence.</li>
-								<li>Actual alternate hypothesis in words: The proportion of customers who are satisfied with the electric cars produced by the company, with no defects, is less than 95%.</li>
-							</ul>
-						</ul>
-
-						<p>What you are trying to do is to describe your null and alternate hypothesis in words, so that you know how to prove and disprove an assumption in your analysis.</p>
-					
-						<h5>What is the p-value?</h5>
-						<p>This is for two-tailed test:</p>
-						<img src="https://stats.idre.ucla.edu/wp-content/uploads/2016/02/pvalue1.gif" class="img-fluid">
-
-						<p>This is for one-tailed test:</p>
-						<img src="https://stats.idre.ucla.edu/wp-content/uploads/2016/02/pvalue2.gif" class="img-fluid">
-						<img src="https://stats.idre.ucla.edu/wp-content/uploads/2016/02/pvalue3.gif" class="img-fluid">
-
-						<p>The light blue area represents the 95% probability of an outcome happening, and the dark blue represents the remaining 5%.</p>
-
-						<p>The p-value (probability-value) is the indicator if an outcome would happen or not, on the 95% or the 5% probability.</p>
-
-						<p>You don't have to calculate the p-value for the probability. There is a table given already, and this is for the z-score (learned in lesson 1.2):</p>
-						<img src="https://thebiologynotes.com/wp-content/uploads/2021/01/p-value-from-z-score.jpg" class="img-fluid">
-						<br>
-						<br>
-						<h5>Additional explanation on p-value</h5>
-						<iframe width="560" height="315" src="https://www.youtube.com/embed/KS6KEWaoOOE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-						
-						<h5>Additional examples of T-Test</h5>
-						<iframe width="560" height="315" src="https://www.youtube.com/embed/_3_6wjycJdk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 					</div>
 
-					<div id="01-Par_Null_Hypothesis" class="student-block">
-						<h3>Groups Do: Forming a Null Hypothesis</h3>
-						<p>Let's open up the file(s) in the <code>01-Par_Null_Hypothesis</code> folder to get started.</p>
-
-						<p>Convert the following questions into a hypothesis and a null hypothesis:</p>
-						<ul>
-							<li>Does dark chocolate affect arterial function in healthy individuals?</li>
-							<ul>
-								<li>Assume that we are referring to 30g of dark chocolate over a one-year period.</li>
-							</ul>
-							<li>Does coffee have anti-aging properties?</li>
-							<ul>
-								<li>Assume that the average dosage for consuming coffee daily is at 400mg, the average size of a mug.</li>
-							</ul>
-						</ul>
-				
-					</div> <!-- .end #01-Par_Null_Hypothesis-->
-
-					<div id="02-Ins_T-Test" class="instructor-block">
-						<h3>T-Test </h3>
-						
-						<p>Let's open up the file(s) in the <code>02-Ins_T-Test</code> folder to get started.</p>
-
-						<p>A t-test is a statistical test to compare the means of 2 groups of data.</p>
-
-						<h5>Independent (unpaired) samples / two-sample t-test</h5>
-						<p>Let's use the previous example of a electric car company. You want to know if red cars sell better than white cars.</p>
-
-						<p>We would compare the mean sales of red cars and white cars and determine if there is a statistically significant difference between them.</p>
-						<ul>
-							<li>H<sub>0</sub>: μ<sub>red</sub> = μ<sub>white</sub></li>
-							<ul>
-								<li>where μ<sub>red</sub> represents the population mean sales of red cars and μ<sub>white</sub> represents the population mean sales of white cars.</li>
-								<li>The null hypothesis would be that there is no difference in the mean sales of red cars and white cars.</li>
-							</ul>
-							<li>H<sub>a</sub>: μ<sub>red</sub> > μ<sub>white</sub></li>
-							<ul>
-								<li>The alternative hypothesis would be that the mean sales of red cars are greater than the mean sales of white cars.</li>
-							</ul>
-						</ul>
-
-						<h5>Paired Test / One-sample test</h5>
-
-						<p>You are still comparing two groups of data, but you're sampling the same population of data twice.</p>
-
-						<p>Suppose a company wants to test the effectiveness of a new training program for its employees. To do so, they randomly select 20 employees and give them the training program. Before and after the training, each employee's productivity is measured and recorded. The company wants to determine if the training program has had a significant effect on employee productivity.</p>
-
-						<p>In this case, a paired t-test would be appropriate because we have two sets of data (before and after productivity) from the same group of individuals (the 20 employees). The null hypothesis would be that there is no significant difference in productivity before and after the training program, and the alternative hypothesis would be that there is a significant difference in productivity.</p>
-
-						<ul>
-							<li>H<sub>0</sub>: μ<sub>after</sub> - μ<sub>before</sub> = 0</li>
-							<li>H<sub>a</sub>: μ<sub>after</sub> - μ<sub>before</sub> ≠ 0 (We don't know if it is going to be a positive or negative impact.)</li>
-							<ul>
-								<li>Where μ<sub>before</sub> and μ<sub>after</sub> represent the population means of productivity before and after the training program, respectively.</li>
-							</ul>
-						</ul>
-
-						<h5>Notes</h5>
-						<ul>
-							<li>You don't have to memorize the mathematical formula. Both Excel and Pandas have inbuilt functions for us to use.</li>
-						</ul>
-
-						<h5>p-value table for t-test:</h5>
-						<img src="https://thebiologynotes.com/wp-content/uploads/2021/01/p-value-from-the-t-score-e1610102691606.jpg" class="img-fluid">
-						
-
-						<h5>Additional References:</h5>
-						<iframe width="560" height="315" src="https://www.youtube.com/embed/pTmLQvMM-1M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-					</div> <!-- .end 02-Ins_T-Test-->
-
-					<div id="03-Stu_Stranger_Heights_T-Test" class="student-block">
-						<h3>Students Do: T-Test</h3>
-						<p>Let's open up the file in the <code>03-Stu_Stranger_Heights_T-Test</code> folder to get started.</p>
-
-					</div> <!-- #03-Stu_Stranger_Heights_T-Test end -->
-
-					<div id="04-Ins_ANOVA" class="instructor-block">
-						<h3>ANOVA: Analysis of variance</h3>
-						<p>Let's open up the file(s) in the <code>04-Ins_ANOVA</code> folder to get started.</p>
-
-						<p>So far, we have been comparing and contrasting between 2 groups. ANOVA is able to test and compare the means of multiple groups.</p>
 					
-						<ul>
-							<li>H<sub>0</sub>: Assumes there is no difference betwen the tested groups.
-							<li>H<sub>a</sub>: Assumes a relationship between the tested groups.</li>
-						</ul>
-
-					</div> <!-- 04-Ins_ANOVA end -->
-
-					<div id="05-Stu_ANOVA" class="student-block">
-						<h3>Students Do: ANOVA</h3>
-						<p>Let's open up the file(s) in the <code>05-Stu_ANOVA</code> folder to get started.</p>
-					
-					</div> <!-- 05-Stu_ANOVA end -->
-
-					<div id="06-Ins_Chi_Square" class="instructor-block">
-						<h3>Chi Square</h3>
-						<p>Let's open up the file(s) in the <code>06-Ins_Chi_Square</code> folder to get started.</p>
-					
-						<h5>What is it used for?</h5>
-						<p>When you collect data, is the variation in your data due to chance or is it due to one of the variables you're testing?</p>
-
-						<p>You are comparing observed values vs expected values in this test.</p>
-
-						<ul>
-							<li>H<sub>0</sub>: There is no significant difference between the observed and expected frequencies.</li>
-							<li>H<sub>a</sub>: There is a significant difference between the observed and expected frequencies.</li>
-						</ul>
-
-						<p>Supposed you're flipping a coin 100 times.</p>
-						<ul>
-							<li>In your 1st try, you got probably 65 heads vs 35 tails. That is your observation.</li>
-							<li>However, we are expecting both 50 heads vs 50 tails.</li>
-							<li>The whole point of this test is to reject or accept the null hypothesis. Is there a significant difference between the observed and expected frequencies?</li>
-						</ul>
-
-						<h5>What is degrees of freedom (df)?</h5>
-
-						<p>It refers to the number of outcomes in a sample that are free to vary, minus 1.</p>
-						<ul>
-							<li>They are independent of each other.</li>
-							<li>They contribute to the estimation of a population parameter.</li>
-						</ul>
-
-						<p>They are important because they affect the distribution of certain statistical tests, such as the t-test.</p>
-
-						<p>In general, as the degrees of freedom increase, the distribution of the test statistic approaches a normal distribution, which helps us to infer more accurately.</p>
-
-						<ul>
-							<li>Degrees of freedom in independent samples: df = n1 + n2 - 2</li>
-							<ul>
-								<li>where n1 and n2 are the sample sizes of the two groups being compared.</li>
-							</ul>
-							<li>Degrees of freedom in dependent (paired) samples: df = n - 1</li>
-							<ul>
-								<li>where n is the number of pairs of observations in the sample.</li>
-							</ul>
-						</ul>
-
-						<h5>p-value table from chi-square values</h5>
-						<img src="https://thebiologynotes.com/wp-content/uploads/2021/01/p-value-table-from-chi-square-values.png" class="img-fluid">
-					</div> <!-- 06-Ins_Chi_Square end -->
-					
-					<div id="break" class="instructor-block">
-						<h3>Break - 15 mins @ 8:05pm</h3>
-					</div> <!-- break -->
 
 					<div id="Project Work" class="student-block">
 						<h3>Project Work</h3>
 
+						<p>Remember that presentation is on Thurs (May 18th, 2023).</p>
 						
 						
 					</div> <!-- 05-Evr_Exploring_Airports end -->
