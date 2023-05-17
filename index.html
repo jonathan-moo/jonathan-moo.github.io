@@ -55,6 +55,7 @@
 							<a class="dropdown-item" href="ASU-VIRT-DATA-PT-03-2023-U-LOLC/7.1/index.html">7.1 Ref</a>
 							<a class="dropdown-item" href="ASU-VIRT-DATA-PT-03-2023-U-LOLC/7.2/index.html">7.2 Ref</a>
 							<a class="dropdown-item" href="ASU-VIRT-DATA-PT-03-2023-U-LOLC/7.3/index.html">7.3 Ref</a>
+							<a class="dropdown-item" href="ASU-VIRT-DATA-PT-03-2023-U-LOLC/8.1/index.html">8.1 Ref</a>
 						</div>
 					</li-->
 				</ul>
@@ -67,49 +68,332 @@
 						<h3 id="objectives">Objectives For Today</h3>
 
 						<ul>
-							<li>Installing Postgres SQL</li>
+							<li>Introduction to SQL</li>
 						</ul>
 
 					</div>
 
 					<div id="intro" class="instructor-block">
-						<h3>Installing Postgres SQL</h3>
+						<h3>Introduction to SQL</h3>
 
-						<p>By the end of the class, we want to complete installation of the Postgres server and be able to see it run in your local machine.</p>
-
-						<p>The instructions has been uploaded in Activity 1, under the Resources folder. Both Mac and Windows are included.</p>
-
-						<h5>Notes:</h5>
-						<ul>
-							<li>There are a lot of ways to install a SQL server. Schools teach using Graphical User Interface (GUI) installer, but on a typical basis, we install it via command line.</li>
-							<ul>
-								<li>Using <code>Homebrew (MacOS)</code> or a Linux command to install Postgres SQL.</li>
-								<li>On a typical setting, many servers within the cloud, and we don't install a GUI installer because it is unnecessary overhead in terms of security and resources.</li>
-								<li>Thus, don't be alarmed if you find that our installation patterns are different between work and school. They are the same engine, just different ways and representation.</li>
-							</ul>
-							<li>I'm more used to MySQL. But ever since Oracle bought Sun Microsystems (MySQL), many companies are pivoting away from MySQL.</li>
-							<ul>
-								<li>In your career, you will learn about different database engines if your work involves working with different systems.</li>
-							</ul>
-						</ul>
-						
+						<p>I often let folks know that in a data analytics course, if there is anything you need to excel in, it will be databases and SQL. That's where employers assess your capabilities and skills.</p>
+					
+						<p>SQL (often pronounced as "sequel") stands for Structured Query Language. Just like Python, it has its syntax to learn.</p>
 					</div>
 
-					
+					<div id="01-Evr_Creating_a_Database" class="instructor-block">
+						<h3>Everyone Do: Create a Database</h3>
+						<p>Let's open up the file(s) in the <code>01-Evr_Creating_a_Database</code> folder to get started.</p>
 
-					<div id="Project Work" class="student-block">
-						<h3>Project Work</h3>
+						<p>We are going to create a database together.</p>
+						<ul>
+							<li>Open pgAdmin in your local machine and ensure that you're seeing the pgAdmin dashboard.</li>
+							<li>In the pgAdmin editor, right-click the newly established server to create a new database.</li>
+							<ul>
+								<li>From the menu, select <strong>Create</strong>, and then select <strong>Database</strong>.</li>
+								<li>Enter <code>animals_db</code> as the database name. Make sure the owner is set as <strong>postgres</strong> (default setting), and then click <strong>Save</strong></li>
+							</ul>
+							<li>At this point, your new database, <code>animals_db</code>, is not connected to the server. Clicking on the database will create a connection to Postgres.</li>
+						</ul>
 
-						<p>Remember that presentation is on Thurs (May 18th, 2023).</p>
+						<p>A database is a collection of data stored within an engine. Within database, there are tables, where we have relational data for analysis.</p>
+				
+					</div> <!-- .end #01-Evr_Creating_a_Database-->
+
+					<div id="02-Ins_Creating_Tables" class="instructor-block">
+						<h3>Create a Table</h3>
 						
-						
-					</div> <!-- 05-Evr_Exploring_Airports end -->
+						<p>Let's open up the file(s) in the <code>02-Ins_Creating_Tables</code> folder to get started.</p>
 
+						<p>We will be creating a table within the database.</p>
+						<ul>
+							<li>From the left-hand menu in pgAdmin, right-click <strong>animals_db</strong> and select <strong>Query Tool</strong>.</li>
+								<ul>
+									<li>This is a code editor, where you type in commands for your database.</li>
+								</ul>
+							<li>Type the following lines of code (this is basically a table schema):</li>
+<pre>
+	<code>
+		CREATE TABLE people (
+			name VARCHAR(30) NOT NULL,
+			has_pet BOOLEAN DEFAULT false,
+			pet_type VARCHAR(10) NOT NULL,
+			pet_name VARCHAR(30),
+			pet_age INT
+		);
+	</code>
+</pre>
+							<li>Click on the play icon to run the statement.</li>
+						</ul>
+
+						<h5>Notes on creating a table:</h5>
+						<ul>
+							<li>The above is a default syntax style, but there can variants to how to create a table. This is where the documentations will show different ways of how to create a table.</li>
+							<li>Each engine may have slightly different nuances in terms of SQL style. Microsoft SQL is different from Postgres SQL, and those are different from MySQL. We'll have to refer to documentation to get over the differences.</li>
+							<li>Data stored in a database/table is persistent. This means data or schema created within the database will stay unless it is explicitly removed or overwritten.</li>
+						</ul>
+
+						<h5>Inserting data into your table</h5>
+						<p>Try inserting records into your table by using the following code here:</p>
+<pre>
+	<code>
+		INSERT INTO people (name, has_pet, pet_type, pet_name, pet_age)
+		VALUES ('Jacob', true, 'dog', 'Misty', 10),
+			('Ahmed', true, 'rock', 'Rockington', 100),
+			('Peter', true, 'cat', 'Franklin', 2),
+			('Dave', true, 'dog', 'Queso', 1);
+
+		SELECT * FROM people;
+	</code>
+</pre>
+						<ul>
+							<li>The above creates 4 records, according to the table schema that we defined earlier.</li>
+							<li>Single quotation marks must be included if the data is a string. Numbers don't need any quotation marks, avoid it. In fact, the engine will recognize your number is a string if you used them.</li>
+						</ul>
+
+						<h5>Querying data</h5>
+						<p><code>SELECT *</code> indicates that it is a wildcard. We are extracting every column we can find in a table.</p>
+						<ul>
+							<li>For optimization purposes, we seldom use a wildcard. Because if the data is massive (multiple columns or huge volume of data), it can be painful trying to extrack all the columns.</li>
+						</ul>
+
+						<p>You can extract a single column by specifying the column within your query:</p>
+<pre>
+	<code>
+		SELECT pet_name FROM people;
+	</code>
+</pre>
+
+						<p>You can even filter the data by using comparison operators to specify what you need:</p>
+<pre>
+	<code>
+		SELECT pet_type, pet_name
+		FROM people
+		WHERE pet_type = 'dog'
+		AND pet_age < 5;
+	</code>
+</pre>
+						<h5>Notes on querying for data:</h5>
+						<ul>
+							<li><code>SELECT</code> command extracts data from your table(s). It does not affect the actual data within your tables.</li>
+							<ul>
+								<li>Your filters do not affect the data tables within.</li>
+								<li>Using operators such as <code>AND</code> and <code>OR</code>, you can shape how you want to extract the data.</li>
+								<li>Comparisons are done with a single symbol, i.e. in Python ("==") vs SQL ("=").</li>
+							</ul>
+						</ul>
+					</div> <!-- .end 02-Ins_T-Test-->
+
+					<div id="03-Stu_Creating_Tables" class="student-block">
+						<h3>Students Do: Creating Tables</h3>
+						<p>Let's open up the file in the <code>03-Stu_Creating_Tables</code> folder to get started.</p>
+
+					</div> <!-- #03-Stu_Creating_Tables end -->
+
+					<div id=" 04-Ins_Values_of_Uniques" class="instructor-block">
+						<h3>The Value of Unique Values</h3>
+						<p>Let's open up the file(s) in the <code> 04-Ins_Values_of_Uniques</code> folder to get started.</p>
+
+						<p>Unique values are important for data integrity and reports. How we design unique values within a database/table is very important to ensure that your analysis is accurate.</p>
+
+						<p>To illustrate, we will insert duplicate data here:</p>
+<pre>
+	<code>
+		NSERT INTO people (name, has_pet, pet_type, pet_name, pet_age)
+		VALUES ('Ahmed', true, 'rock', 'Rockington', 100);
+
+		SELECT *
+		FROM people;
+	</code>
+</pre>
+						<p>Duplicate records cause all sorts of problems. It makes filtering difficult, and remove the record can be a painful process:</p>
+						<ul>
+							<li>Your database doesn't know which record is true, and only you know. Thus, if you try to delete inaccurately, it can have unintended consequences on other rows.</li>
+						</ul>
+
+						<h5>Deleting tables</h5>
+						<p>This is the syntax to delete tables:</p>
+<pre>
+	<code>
+		DROP TABLE people;
+	</code>
+</pre>
+
+						<h5>How to ensure if a table has unique records?</h5>
+
+						<p>This is an innate feature of relational databases. If we define a <strong>primary key</strong>, the database will ensure that your records within the table will be unique to the key you specified.</p>
+
+						<p>Let's try it with the following code:</p>
+<pre>
+	<code>
+		-- Re-create the table "people" within animals_db
+		CREATE TABLE people (
+			id SERIAL PRIMARY KEY,
+			name VARCHAR(30) NOT NULL,
+			has_pet BOOLEAN DEFAULT false,
+			pet_type VARCHAR(10) NOT NULL,
+			pet_name VARCHAR(30),
+			pet_age INT
+		);
+
+		-- Insert data into the table
+		INSERT INTO people (name, has_pet, pet_type, pet_name, pet_age)
+		VALUES ('Jacob', true, 'dog', 'Misty', 10),
+			('Ahmed', true, 'rock', 'Rockington', 100),
+			('Ahmed', true, 'rock', 'Rockington', 100),
+			('Peter', true, 'cat', 'Franklin', 2),
+			('Dave', true, 'dog', 'Queso', 1),
+			('Dave', true, 'dog', 'Pringles', 7);
+
+		-- Query all fields from the table
+		SELECT *
+		FROM people;
+	</code>
+</pre>
+						<ul>
+							<li><code>PRIMARY KEY</code> is to define the column to be a unique identifier.</li>
+							<li><code>SERIAL</code> means the database is going to create the primary key for you as you ingest</li>
+							<ul>
+								<li>It auto increments the integer as you ingest the data.</li>
+								<li>Typically, we don't use <code>SERIAL</code> in real world situation much (I can't say it is never used, but it depends on context). We would use another unique key library to ensure that the keys are truly unique.</li>
+							</ul>
+							<li>It is best practice to only filter and query through primary keys and not other columns to specify a certain record, unless you know what you're doing.</li>
+						</ul>
+
+						<h5>Updating a record</h5>
+						<p>This is the syntax for updating a record:</p>
+<pre>
+	<code>
+		UPDATE people
+		SET has_pet = true, pet_name = 'Rocket', pet_age = 8
+		WHERE id = 6;
+	</code>
+</pre>
+						<ul>
+							<li>The <code>WHERE</code> command is a filter to specify your change within your table.</li>
+						</ul>
+
+						<h5>Deleting a record</h5>
+						<p>This is the syntax for deleting a record:</p>
+<pre>
+	<code>
+		DELETE FROM people
+		WHERE id = 3;
+	</code>
+</pre>
+						<ul>
+							<li>For best practice, we always create backups of the database/tables if we are doing a bulk delete. Because there is no "Recycle Bin" concept within databases typically.</li>
+						</ul>
+					</div> <!--  04-Ins_Values_of_Uniques end -->
+
+					<div id="05-Stu_Making_IDs" class="student-block">
+						<h3>Students Do: Making and Using an ID</h3>
+						<p>Let's open up the file(s) in the <code>05-Stu_Making_IDs</code> folder to get started.</p>
 					
+					</div> <!-- 05-Stu_Making_IDs end -->
+
+					<div id="break" class="instructor-block">
+						<h3>Break - 15 mins @ 8:05pm</h3>
+					</div> <!-- break -->
+
+					<div id="06-Ins_Importing_Data" class="instructor-block">
+						<h3>Import Data</h3>
+
+						<p>Let's open up the file(s) in the <code>06-Ins_Importing_Data</code> folder to get started.</p>
+
+						<p>Importing data is something that you might do often, especially you're collecting data from another source.</p>
+
+						<p>We'll do the following to try to import data:</p>
+						<ul>
+							<li>Create a new database called: <code>Miscellaneous_DB</code></li>
+							<ul>
+								<li>SQL doesn't appreciate spaces. We typically use underscores to denote space.</li>
+							</ul>
+							<li>Create a table named: <code>fauna_vertabrate</code></li>
+							<li>Create columns from the given <code>importing_data_solution.sql</code> so that the data within the columns can be matched while import is in progress.</li>
+							<ul>
+								<li>Some tools allow you to map different columns to the table columns within your database. However, on a typical setting, you'll need equal columns in <strong>name and data type</strong> to make sure that the import is successful.</li>
+								<li>There is a difference in importing sql files versus CSV files direct. I personally prefer sql files because they tend to be more accurate.</li>
+							</ul>
+							<li>Right-click on <code>Miscellaneous_DB</code>, and click on <strong>Refresh</strong> to reflect the changes on your GUI.</li>
+							<li>Scroll to <strong>Schemas</strong> and expand the menu. Then expand the <strong>Tables</strong> menu.</li>
+							<li>Right-click on the table, and select <strong>Import/Export</strong> from the menu.</li>
+							<ul>
+								<li>There are command-line imports as well. If the data volume is small, using a GUI may suffice. However, if the data volume is huge, we use command-line because it can handle the load better.</li>
+								<li>Select the appropriate settings so that the import will proceed smoothly.</li>
+							</ul>
+							<li>Run <code>SELECT * FROM fauna_vertabrate;</code> to see if the data import is done correctly.</li>
+							<ul>
+								<li>If the data volume is huge, we might just want to list the first 5 rows just like in pandas:</li>
+<pre>
+	<code>
+		SELECT *
+		FROM fauna_vertabrate
+		LIMIT 5;
+	</code>
+</pre>
+							</ul>
+						</ul>
+
+					</div> <!-- 06-Ins_Importing_Data end -->
+					
+					<div id="07-Stu_Hide_and_Seek" class="student-block">
+						<h3>Students Do: Hide and Seek</h3>
+
+						<p>Let's open up the file(s) in the <code>07-Stu_Hide_and_Seek</code> folder to get started.</p>
+					</div> <!-- 07-Stu_Hide_and_Seek -->
+
+					<div id="08-Stu_CRUD" class="student-block">
+						<h3>Students Do: Using CRUD</h3>
+
+						<p>Let's open up the file(s) in the <code>08-Stu_CRUD</code> folder to get started.</p>
+
+						<p><strong>CRUD</strong> is an acronym that stands for:</p>
+						<ul>
+							<li>Create</li>
+							<li>Read</li>
+							<li>Update</li>
+							<li>Delete</li>
+						</ul>
+
+						<p>These are all the actions that you have done previously, and this is a technical term to let people know how to interact with a relational database.</p>
+						
+					</div> <!-- 08-Stu_CRUD end -->
+
+					<div id="09-Ins_Joins" class="instructor-block">
+						<h3>Joins</h3>
+
+						<p>Let's open up the file(s) in the <code>09-Ins_Joins</code> folder to get started.</p>
+
+						<p>Joins are particularly important when you need to reference data from two or more tables.</p>
+
+						<p>Remember how we did Pandas joins earlier by merging two dataframes into one (Lesson 4.3, activity 1)? The concept is the same in terms of left, right, inner and outer joins.</p>
+					
+						<p>We are going to create two new tables, <strong>names</strong> and <strong>commodity</strong> so that we can simulate the behavior.</p>
+						<ul>
+							<li>Copying code from <code>joins.sql</code> to create the tables, and then we import the corresponding data from <code>names.csv</code> and <code>commodity.csv</code>.</li>
+							<ul>
+								<li>Refresh your database because your GUI doesn't always reflect the changes immediately on your screen, although it should already happened in the background.</li>
+							</ul>
+						</ul>
+
+						<p>There are 5 primary types of joins that can be used in PostgresSQL:</p>
+						<ul>
+							<li>INNER JOIN returns records that have matching values in both tables.</li>
+							<li>LEFT JOIN returns all records from the left table and the matched records from the right table.</li>
+							<li>RIGHT JOIN returns all records from the right table and the matched records from the left table.</li>
+							<li>CROSS JOIN returns records that match every row of the left table with every row of the right table. This type of join has the potential to make very large tables.</li>
+							<li>FULL OUTER JOIN places null values within the columns that do not match between the two tables, after an inner join is performed.</li>
+							<li>Joins typically need exact keys/columns to match so that they can sync and return relevant data. That's why it is called a relational database.</li>
+						</ul>
+					</div> <!-- 09-Ins_Joins -->
 				
 
-					
+					<div id="10-Par_Joins" class="student-block">
+						<h3>Students Do: Joining Bird Bands</h3>
 
+						<p>Let's open up the file(s) in the <code>10-Par_Joins</code> folder to get started.</p>
+					</div> <!-- 10-Par_Joins -->
 				
 					
 					
