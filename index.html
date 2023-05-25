@@ -57,6 +57,7 @@
 							<a class="dropdown-item" href="ASU-VIRT-DATA-PT-03-2023-U-LOLC/7.3/index.html">7.3 Ref</a>
 							<a class="dropdown-item" href="ASU-VIRT-DATA-PT-03-2023-U-LOLC/8.1/index.html">8.1 Ref</a>
 							<a class="dropdown-item" href="ASU-VIRT-DATA-PT-03-2023-U-LOLC/9.1/index.html">9.1 Ref</a>
+							<a class="dropdown-item" href="ASU-VIRT-DATA-PT-03-2023-U-LOLC/9.2/index.html">9.2 Ref</a>
 						</div>
 					</li-->
 				</ul>
@@ -69,84 +70,192 @@
 						<h3 id="objectives">Objectives For Today</h3>
 
 						<ul>
-							<li>Advanced SQL Queries</li>
+							<li>Data Modeling</li>
 						</ul>
 
 					</div>
 
-					<div id="01-Evr_Import_Data" class="instructor-block">
-						<h3>Import Data</h3>
-						<p>Let's open up the file(s) in the <code>01-Evr_Import_Data</code> folder to get started.</p>
+					<div id="01-Ins_Data_Normalization" class="instructor-block">
+						<h3>Data Normalization</h3>
+						<p>Let's open up the file(s) in the <code>01-Ins_Data_Normalization</code> folder to get started.</p>
 
-						<p>There is a blend of SQL within the school's resources that is MySQL based. It advises us to use the CSV import method rather than SQL based if we meet problems.</p>
-
-						<p>This is the reason why even though we generically refer SQL for relational databases, yet in different engines such as Microsoft SQL vs Postgres, they can be totally different ways of the same thing.</p>
-
-						<p>Example:</p>
+						<p>Data normalization is the process of organizing and structuring data to reduce redundancy and dependency issues.</p>
 						<ul>
-							<li>To limit the top 5 entries during a SELECT statement, Microsoft SQL uses TOP.</li>
-							<li>MySQL and Postgres will use LIMIT.</li>
+							<li>Because if duplicate columns exist everywhere in your data model, it will be difficult to ensure consistency.</li>
+							<li>Also, data integrity is a key part of data analysis. Your business stakeholders need to trust your data and report, or else, they will not use your work.</li>
 						</ul>
 
-						<p>
-							Thus, we always recommend not to blindly copy code but to understand what it does, because semantically they refer to the same thing. 
-							However, due to different engines that you might work with, you may have to write them differently.
-							Being flexible is key.
-						</p>
+						<p>If you're involved with data collection and starting from scratch for a project, data normalization is going to be a key element in your work.</p>
 
-						<p>In general, import SQL files is generally preferred if your company uses a homogenous system for database (if every system uses Postgres).</p>
+						<h5>Outcomes of data normalization</h5>
 						<ul>
-							<li>You will incur less errors in importing because each statement is a SQL query. CSVs can have mismatched or type errors when you ingest.</li>
+							<li>Each table has a well-defined purpose.</li>
+							<li>Data is stored efficiently.</li>
 						</ul>
 
-						<p>However, there are cases where the landscape is very heterogenous, we may prefer CSVs because it is more universally accepted in interpreting the file.</p>
+						<h5>Normalization Process</h5>
+						<ul>
+							<li><strong>First Normal Form (1NF)</strong>: This form requires that each column contains only atomic values. It eliminates repeated groups and ensures that each row has a unique identifier.</li>
+							<li><strong>Second Normal Form (2NF)</strong>: This form extends the previous form. Also, it states that non-key column should be fully functionally dependent on the primary key.</li>
+							<li><strong>Third Normal Form (3NF)</strong>: This form builds upon 2NF and states that no non-key column should be transitively dependent on the primary key. It eliminates transtive dependencies.</li>
+						</ul>
 				
-					</div> <!-- .end #01-Evr_Creating_a_Database-->
+					</div> <!-- .end #01-Ins_Data_Normalization-->
 
-					<div id="02-Ins_Aggregates" class="instructor-block">
-						<h3>Aggregate Functions, Aliases, and Grouping</h3>
-						
-						<p>Let's open up the file(s) in the <code>02-Ins_Aggregates</code> folder to get started.</p>
+					<div id="02-1NF" class="instructor-block">
+						<h3>First Normal Form (1NF)</h3>
+						<h5>Why do we need do we need each field to have a single value?</h5>
+						<div id="02-1nf-toggle" style="display: none;">
+							<ul>
+								<li>We can leverage SQL queries to count the number of items in a table, or to filter out distinct values.</li>
+								<ul>
+									<li>If a record contains multiple values, we cannot calculate against the records within the table accurately.</li>
+								</ul>
+							</ul>
+						</div>
+						<button type="button" class="btn btn-primary" onclick='$("#02-1nf-toggle").toggle();'>Show/Hide Tips</button>
+					</div> <!-- end #02-1NF -->
 
-						<p>You can apply statistical and mathematical formulas when you query.</p>
+					<div id="02-2NF" class="instructor-block">
+						<h3>Second Normal Form (2NF)</h3>
+						<h5>Why do we need primary keys to identify the rows uniquely?</h5>
+						<div id="02-2nf-toggle" style="display: none;">
+							<ul>
+								<li>If a human-readable name is used, it will be difficult to distinguish the difference when another record with the same or similar name appears.</li>
+								<ul>
+									<li>It is never best practice to leave it to intuition to interpret a record.</li>
+									<li>To truly ensure unique records, we use Universally Unique Identifier (UUID) libraries when we generate primary keys.</li>
+								</ul>
+							</ul>
+						</div>
+						<button type="button" class="btn btn-primary" onclick='$("#02-2nf-toggle").toggle();'>Show/Hide Tips</button>
+					</div> <!-- end #02-2NF -->
 
-						<p>In general, they are used for quick checks to highlight issues. However, it is not good practice to over complicate the queries; we typically use Python or Jupyter Notebooks for complex work.</p>
+					<div id="02-3NF" class="instructor-block">
+						<h3>Third Normal Form (3NF)</h3>
+						<h5>Why do we need to remove transitive dependencies?</h5>
+						<div id="02-3nf-toggle" style="display: none;">
+							<ul>
+								<li>Transitive dependencies lead to redundant data</li>
+								<ul>
+									<li>Redundant data adds an overhead to storage, especially when we deal with enterprise system with petabytes of data.</li>
+									<li>Redundant data has the propensity to cause deletion, updation and insertion anomalies. Example:</li>
+									<ul>
+										<li>If store address appears in 2 different tables, and someone moved, you have to update 2 tables.</li>
+										<li>However, by eliminating transitive dependence, we should be able to update the address once, even if the data has references in multiple tables.</li>
+									</ul>
+								</ul>
+							</ul>
+						</div>
+						<button type="button" class="btn btn-primary" onclick='$("#02-3nf-toggle").toggle();'>Show/Hide Tips</button>
+
+						<h5>Example of transitive dependency</h5>
+						<table class="table table-dark">
+							<thead>
+								<tr><th>Student</th><th>Course</th><th>Instructor</th></tr>
+							</thead>
+							<tbody>
+								<tr><td>Alice</td><td>Math</td><td>Smith</td></tr>
+								<tr><td>Bob</td><td>Physics</td><td>Johnson</td></tr>
+								<tr><td>Carol</td><td>Math</td><td>Smith</td></tr>
+								<tr><td>Dave</td><td>Chemistry</td><td>Johnson</td></tr>
+								<tr><td>Eve</td><td>Physics</td><td>Smith</td></tr>
+							</tbody>
+						</table>
+
+						<p>In the above table, the primary key is a combination of the "Student" and "Course" column.</p>
+
+						<p>Suppose we want to track the department to each instructor. Let's see how it looks like if we do that:</p>
+
+						<table class="table table-dark">
+							<thead>
+								<tr><th>Student</th><th>Course</th><th>Instructor</th><th>Dept</th></tr>
+							</thead>
+							<tbody>
+								<tr><td>Alice</td><td>Math</td><td>Smith</td><td>Mathematics</td></tr>
+								<tr><td>Bob</td><td>Physics</td><td>Johnson</td><td>Physics</td></tr>
+								<tr><td>Carol</td><td>Math</td><td>Smith</td><td>Mathematics</td></tr>
+								<tr><td>Dave</td><td>Chemistry</td><td>Johnson</td><td>Chemistry</td></tr>
+								<tr><td>Eve</td><td>Physics</td><td>Smith</td><td>Physics</td></tr>
+							</tbody>
+						</table>
+
+						<p>In the above table, "Dept" depends on the "Instructor" column. However, it introduces a transitive dependency issue because "Dept" is not directly dependent on the primary key.</p>
 						<ul>
-							<li>The more complex it is, the more we prefer to version control the work to ensure quality.</li>
+							<li>You will not be able to reuse the information on the relationship between "Dept" and "Instructor", since it is tied to the "Student" and "Course" primary key.</li>
+							<li>It is also tedious and error prone to repeat "Dept" and "Instructor" in other tables that might need the same information.</li>
 						</ul>
-					</div> <!-- .end 02-Ins_Aggregates-->
 
-					<div id="03-Stu_GregariousAggregates" class="student-block">
-						<h3>Students Do: Gregarious Aggregates</h3>
-						<p>Let's open up the file in the <code>03-Stu_GregariousAggregates</code> folder to get started.</p>
+						<p>Thus, we separate the "Instructor" and "Department" from the rest of the table into a new table:</p>
 
-					</div> <!-- #03-Stu_GregariousAggregates end -->
+						<table class="table table-dark">
+							<thead><tr><th>Instructor</th><th>Department</th></tr></thead>
+							<tbody>
+								<tr><td>Smith</td><td>Mathematics</td></tr>
+								<tr><td>Johnson</td><td>Physics</td></tr>
+								<tr><td>Johnson</td><td>Chemistry</td></tr>
+							</tbody>
+						</table>
 
-					<div id="04-Ins_Order_By" class="instructor-block">
-						<h3>Order By Aggregates</h3>
-						<p>Let's open up the file in the <code>04-Ins_Order_By</code> folder to get started.</p>
-					</div> <!--  04-Ins_Order_By end -->
+						<p>This will prevent transitive dependency, and allow other tables to use the same data by using their primary keys.</p>
 
-					<div id="05-Stu_Order_By" class="student-block">
-						<h3>Students Do: Movies Ordered By</h3>
-						<p>Let's open up the file(s) in the <code>05-Stu_Order_By</code> folder to get started.</p>
+					</div> <!-- end #02-2NF -->
+
+
+					<div id="02-Evr_Data_Normalization" class="student-block">
+						<h3>Everyone Do: Pet Normalizer</h3>
+						
+						<p>Let's open up the file(s) in the <code>02-Evr_Data_Normalization</code> folder to get started.</p>
+
+					</div> <!-- .end 02-Evr_Data_Normalization-->
+
+					<div id="03-Ins_Foreign_Keys" class="instructor-block">
+						<h3>Intro to Foreign Keys</h3>
+						<p>Let's open up the file in the <code>03-Ins_Foreign_Keys</code> folder to get started.</p>
+
+						<p>A foreign key is a column or a set of columns in a table that refers to the primary key or a unique key in another table.</p>						
+						<ul>
+							<li>Basically, this is the key you use to do joins on.</li>
+						</ul>
+
+					</div> <!-- #03-Ins_Foreign_Keys end -->
+
+					<div id="04-Stu_Foreign_Keys" class="student-block">
+						<h3>Students Do: Foreign Keys</h3>
+						<p>Let's open up the file in the <code>04-Stu_Foreign_Keys</code> folder to get started.</p>
+					</div> <!--  04-Stu_Foreign_Keys end -->
+
+					<div id="05-Ins_Data_Relationships" class="instructor-block">
+						<h3>Intro to Data Relationships</h3>
+						<p>Let's open up the file(s) in the <code>05-Ins_Data_Relationships</code> folder to get started.</p>
+
+						<p>A junction table, also known as an association table, bridge table, or linking table, is used in a database when you have a many-to-many relationship between two entities.</p>
+
+						<p>A junction table is required to resolve this type of relationship because it allows you to represent and manage the associations between the two entities.</p>
 					
-					</div> <!-- 05-Stu_Order_By end -->
+					</div> <!-- 05-Ins_Data_Relationships end -->
+
+					<div id="06-Stu_Data_Relationships" class="student-block">
+						<h3>Students Do: Data Relationships</h3>
+						<p>Let's open up the file(s) in the <code>06-Stu_Data_Relationships</code> folder to get started.</p>
+					
+					</div> <!-- 06-Stu_Data_Relationships end -->
 
 					<div id="break" class="instructor-block">
 						<h3>Break - 15 mins @ 8:05pm</h3>
 					</div> <!-- break -->
 
-					<div id="06-Ins_Subqueries" class="instructor-block">
-						<h3>Introduction to Subqueries</h3>
+					<div id="07-Ins_ERD" class="instructor-block">
+						<h3>Entity Relationship Diagrams (ERD)</h3>
 
-						<p>Let's open up the file(s) in the <code>06-Ins_Subqueries</code> folder to get started.</p>
+						<p>Let's open up the file(s) in the <code>07-Ins_ERD</code> folder to get started.</p>
 
-						<p>Complex subqueries is only good for technical interviews, where interviewers want to understand your core understanding of queries.</p>
+						<p>Ref: Quick Database Diagrams (Quick DBD) - <a href="https://app.quickdatabasediagrams.com/#/">https://app.quickdatabasediagrams.com/#/</a></p>
+						<ul>
+							<li>The above website cannot be used for your corporate work, unless you pay for it. The free version will expose your ERD to the world.</li>
+						</ul>
 
-						<p>In reality, I discourage the team for over-doing sub queries for the sake of maintainability.</p>
-
-					</div> <!-- 06-Ins_Subqueries end -->
+					</div> <!-- 07-Ins_ERD end -->
 					
 					<div id="07-Stu_Subqueries" class="student-block">
 						<h3>Students Do: Subqueries</h3>
@@ -154,44 +263,45 @@
 						<p>Let's open up the file(s) in the <code>07-Stu_Subqueries</code> folder to get started.</p>
 					</div> <!-- 07-Stu_Subqueries -->
 
-					<div id="08-Ins_Create_Views" class="instructor-block">
-						<h3>Create Views</h3>
+					<div id="08-Evr_Designing_ERD" class="instructor-block">
+						<h3>Everyone Do: Designing an ERD, Part 1</h3>
 
-						<p>Let's open up the file(s) in the <code>08-Ins_Create_Views</code> folder to get started.</p>
+						<p>Let's open up the file(s) in the <code>08-Evr_Designing_ERD</code> folder to get started.</p>
 
-						<p>Views is a very important feature within relational database. We use views to protect the actual tables from modification, and we typically
-							only allow SELECT statements on views.
-						</p>
-					</div> <!-- 08-Ins_Create_Views end -->
+						<p>Designing an ERD is very important when you're starting a new project, or creating new features for a project. Tech interviews will ask some questions about data modeling.</p>
+					</div> <!-- 08-Evr_Designing_ERD end -->
 
-					<div id="09-Stu_View_Room_Queries" class="student-block">
-						<h3>Student Do: A View with a Roomful of Queries</h3>
+					<div id="09-Evr_ERD" class="instructor-block">
+						<h3>Everyone Do: Designing an ERD, Part 2 </h3>
 
-						<p>Let's open up the file(s) in the <code>09-Stu_View_Room_Queries</code> folder to get started.</p>
+						<p>Let's open up the file(s) in the <code>09-Evr_ERD</code> folder to get started.</p>
 
-					</div> <!-- 09-Stu_View_Room_Queries -->
+					</div> <!-- 09-Evr_ERD -->
 				
 
-					<div id="10-Ins_Revist_Subquery" class="instructor-block">
-						<h3>Revisit Subqueries</h3>
+					<div id="10-Ins_Unions" class="instructor-block">
+						<h3>Introduction to Unions</h3>
 
-						<p>Let's open up the file(s) in the <code>10-Ins_Revist_Subquery</code> folder to get started.</p>
+						<p>Let's open up the file(s) in the <code>10-Ins_Unions</code> folder to get started.</p>
 
-						<h5>Entity-Relationship Diagram (ERD)</h5>
-						<p>When we build a system to collect data from scratch, we need to model it so that we collect data.</p>
+						<p>The UNION operator is used in a query to combine multiple SELECT statements into a single result set.</p>
+						<ul>
+							<li>The datasets do not need to have any relationship between each other.</li>
+							<li>UNION automatically removes dups.</li>
+							<li>Very rarely used practically, especially when the data analysis requires data integrity.</li>
+						</ul>
 
-						<p>Ref: <a href="https://www.postgresqltutorial.com/postgresql-getting-started/postgresql-sample-database/">https://www.postgresqltutorial.com/postgresql-getting-started/postgresql-sample-database/</a></p>
-					
-						<p>We will learn about data modeling in the next lesson. For now, do get used to the idea that it is essential to design your data storage well so that it will not impact your analysis.</p>
-					</div> <!-- 10-Ins_Revist_Subquery -->
+						<p>If you want to include duplicate records, use UNION ALL.</p>
+						<img src="https://i0.wp.com/dwgeek.com/wp-content/uploads/2020/01/Apache-Hive-Set-Operators-UNION-and-UNION-ALL.jpg?w=377&ssl=1" class="img-fluid">
+					</div> <!-- 10-Ins_Unions -->
 				
 					
-					<div id="11-Stu_Mine_the_Subquery" class="student-block">
-						<h3>Students Do: Mine the Subquery</h3>
+					<div id="11-Evr_Unions" class="student-block">
+						<h3>Everyone Do: Unions</h3>
 
-						<p>Let's open up the file(s) in the <code>11-Stu_Mine_the_Subquery</code> folder to get started.</p>
+						<p>Let's open up the file(s) in the <code>11-Evr_Unions</code> folder to get started.</p>
 
-					</div> <!-- 11-Stu_Mine_the_Subquery -->
+					</div> <!-- 11-Evr_Unions -->
 
 				</div> <!-- end #main-content -->
 
