@@ -58,6 +58,7 @@
 							<a class="dropdown-item" href="ASU-VIRT-DATA-PT-03-2023-U-LOLC/8.1/index.html">8.1 Ref</a>
 							<a class="dropdown-item" href="ASU-VIRT-DATA-PT-03-2023-U-LOLC/9.1/index.html">9.1 Ref</a>
 							<a class="dropdown-item" href="ASU-VIRT-DATA-PT-03-2023-U-LOLC/9.2/index.html">9.2 Ref</a>
+							<a class="dropdown-item" href="ASU-VIRT-DATA-PT-03-2023-U-LOLC/9.3/index.html">9.3 Ref</a>
 						</div>
 					</li-->
 				</ul>
@@ -70,238 +71,149 @@
 						<h3 id="objectives">Objectives For Today</h3>
 
 						<ul>
-							<li>Data Modeling</li>
+							<li>Introduction to SQLAlchemy</li>
 						</ul>
 
 					</div>
 
-					<div id="01-Ins_Data_Normalization" class="instructor-block">
-						<h3>Data Normalization</h3>
-						<p>Let's open up the file(s) in the <code>01-Ins_Data_Normalization</code> folder to get started.</p>
+					<div id="intro" class="instructor-block">
+						<h3>Before we start, take a deep breathe.</h3>
 
-						<p>Data normalization is the process of organizing and structuring data to reduce redundancy and dependency issues.</p>
+						<p>We are covering aspects of object-oriented programming (OOP) with SQL statements.</p>
 						<ul>
-							<li>Because if duplicate columns exist everywhere in your data model, it will be difficult to ensure consistency.</li>
-							<li>Also, data integrity is a key part of data analysis. Your business stakeholders need to trust your data and report, or else, they will not use your work.</li>
+							<li>At work, you might not need as much OOP knowledge and skill, but this is dependent on the company you work for.</li>
+							<li>Yet, you will see that we are creating records within a database with OOP skills. Thus, it is important for you to learn and try to understand.</li>
+							<li>Week 9 is still the more important week for learning databases and data. This week (week 10), it is more about how you can leverage Python with SQL in a more intimate manner.</li>
 						</ul>
 
-						<p>If you're involved with data collection and starting from scratch for a project, data normalization is going to be a key element in your work.</p>
+						<p>Don't feel as if you have to understand all in one sitting. This takes some time and practice to get used to it.</p>
+					</div>
 
-						<h5>Outcomes of data normalization</h5>
+					<div id="01-Ins_BasicSQL_Connection" class="instructor-block">
+						<h3>Introduction to SQLAlchemy</h3>
+						<p>Let's open up the file(s) in the <code>01-Ins_BasicSQL_Connection</code> folder to get started.</p>
+
+						<p>We are getting to a point where we are diving into operational processes when using SQL.</p>
+
+						<h5>Introduction to Object Relational Mapping (ORM)?</h5>
+
+						<p>SQL is very powerful because of the CRUD process, where data can be lost or corrupted by a human error.</p>
+
+						<p>Thus, ORM provides a framework where operational processes are less error-prone, and if you follow a certain template, you should not have problems inserting, updating or deleting records.</p>
 						<ul>
-							<li>Each table has a well-defined purpose.</li>
-							<li>Data is stored efficiently.</li>
+							<li>Because it applies object-oriented programming (OOP), and has the power to obfuscate the complexity of creating/updating/deleting records.</li>
 						</ul>
 
-						<h5>Normalization Process</h5>
-						<ul>
-							<li><strong>First Normal Form (1NF)</strong>: This form requires that each column contains only atomic values. It eliminates repeated groups and ensures that each row has a unique identifier.</li>
-							<li><strong>Second Normal Form (2NF)</strong>: This form extends the previous form. Also, it states that non-key column should be fully functionally dependent on the primary key.</li>
-							<li><strong>Third Normal Form (3NF)</strong>: This form builds upon 2NF and states that no non-key column should be transitively dependent on the primary key. It eliminates transtive dependencies.</li>
-						</ul>
-				
-					</div> <!-- .end #01-Ins_Data_Normalization-->
+						<h5>Introduction to SQLite</h5>
 
-					<div id="02-1NF" class="instructor-block">
-						<h3>First Normal Form (1NF)</h3>
-						<h5>Why do we need do we need each field to have a single value?</h5>
-						<div id="02-1nf-toggle" style="display: none;">
+						<p>SQLite is a lightweight database where it doesn't need processing power to run. Rather, it writes the data into files itself.</p>
+						<ul>
+							<li>This is very useful especially when you're coding mobile apps, and you want to store a local database within the app itself.</li>
 							<ul>
-								<li>We can leverage SQL queries to count the number of items in a table, or to filter out distinct values.</li>
-								<ul>
-									<li>If a record contains multiple values, we cannot calculate against the records within the table accurately.</li>
-								</ul>
+								<li>However, as it is a file, you might want to be careful when you scale the database if you're using your work commercially, especially when you're working with apps on a small physical footprint.</li>
+								<li>Though you may not be responsible for coding an app in a mobile device, you might be responsible for the telemetry data that exist in a mobile device.</li>
 							</ul>
-						</div>
-						<button type="button" class="btn btn-primary" onclick='$("#02-1nf-toggle").toggle();'>Show/Hide Tips</button>
-					</div> <!-- end #02-1NF -->
-
-					<div id="02-2NF" class="instructor-block">
-						<h3>Second Normal Form (2NF)</h3>
-						<h5>Why do we need primary keys to identify the rows uniquely?</h5>
-						<div id="02-2nf-toggle" style="display: none;">
-							<ul>
-								<li>If a human-readable name is used, it will be difficult to distinguish the difference when another record with the same or similar name appears.</li>
-								<ul>
-									<li>It is never best practice to leave it to intuition to interpret a record.</li>
-									<li>To truly ensure unique records, we use Universally Unique Identifier (UUID) libraries when we generate primary keys.</li>
-								</ul>
-							</ul>
-						</div>
-						<button type="button" class="btn btn-primary" onclick='$("#02-2nf-toggle").toggle();'>Show/Hide Tips</button>
-					</div> <!-- end #02-2NF -->
-
-					<div id="02-3NF" class="instructor-block">
-						<h3>Third Normal Form (3NF)</h3>
-						<h5>Why do we need to remove transitive dependencies?</h5>
-						<div id="02-3nf-toggle" style="display: none;">
-							<ul>
-								<li>Transitive dependencies lead to redundant data</li>
-								<ul>
-									<li>Redundant data adds an overhead to storage, especially when we deal with enterprise system with petabytes of data.</li>
-									<li>Redundant data has the propensity to cause deletion, updation and insertion anomalies. Example:</li>
-									<ul>
-										<li>If store address appears in 2 different tables, and someone moved, you have to update 2 tables.</li>
-										<li>However, by eliminating transitive dependence, we should be able to update the address once, even if the data has references in multiple tables.</li>
-									</ul>
-								</ul>
-							</ul>
-						</div>
-						<button type="button" class="btn btn-primary" onclick='$("#02-3nf-toggle").toggle();'>Show/Hide Tips</button>
-
-						<h5>Example of transitive dependency</h5>
-						<table class="table table-dark">
-							<thead>
-								<tr><th>Student</th><th>Course</th><th>Instructor</th></tr>
-							</thead>
-							<tbody>
-								<tr><td>Alice</td><td>Math</td><td>Smith</td></tr>
-								<tr><td>Bob</td><td>Physics</td><td>Johnson</td></tr>
-								<tr><td>Carol</td><td>Math</td><td>Smith</td></tr>
-								<tr><td>Dave</td><td>Chemistry</td><td>Johnson</td></tr>
-								<tr><td>Eve</td><td>Physics</td><td>Smith</td></tr>
-							</tbody>
-						</table>
-
-						<p>In the above table, the primary key is a combination of the "Student" and "Course" column.</p>
-
-						<p>Suppose we want to track the department to each instructor. Let's see how it looks like if we do that:</p>
-
-						<table class="table table-dark">
-							<thead>
-								<tr><th>Student</th><th>Course</th><th>Instructor</th><th>Dept</th></tr>
-							</thead>
-							<tbody>
-								<tr><td>Alice</td><td>Math</td><td>Smith</td><td>Mathematics</td></tr>
-								<tr><td>Bob</td><td>Physics</td><td>Johnson</td><td>Physics</td></tr>
-								<tr><td>Carol</td><td>Math</td><td>Smith</td><td>Mathematics</td></tr>
-								<tr><td>Dave</td><td>Chemistry</td><td>Johnson</td><td>Chemistry</td></tr>
-								<tr><td>Eve</td><td>Physics</td><td>Smith</td><td>Physics</td></tr>
-							</tbody>
-						</table>
-
-						<p>In the above table, "Dept" depends on the "Instructor" column. However, it introduces a transitive dependency issue because "Dept" is not directly dependent on the primary key.</p>
-						<ul>
-							<li>You will not be able to reuse the information on the relationship between "Dept" and "Instructor", since it is tied to the "Student" and "Course" primary key.</li>
-							<li>It is also tedious and error prone to repeat "Dept" and "Instructor" in other tables that might need the same information.</li>
 						</ul>
-
-						<p>Thus, we separate the "Instructor" and "Department" from the rest of the table into a new table:</p>
-
-						<table class="table table-dark">
-							<thead><tr><th>Instructor</th><th>Department</th></tr></thead>
-							<tbody>
-								<tr><td>Smith</td><td>Mathematics</td></tr>
-								<tr><td>Johnson</td><td>Physics</td></tr>
-								<tr><td>Johnson</td><td>Chemistry</td></tr>
-							</tbody>
-						</table>
-
-						<p>This will prevent transitive dependency, and allow other tables to use the same data by using their primary keys.</p>
-
-					</div> <!-- end #02-2NF -->
-
-
-					<div id="02-Evr_Data_Normalization" class="student-block">
-						<h3>Everyone Do: Pet Normalizer</h3>
 						
-						<p>Let's open up the file(s) in the <code>02-Evr_Data_Normalization</code> folder to get started.</p>
+				
+					</div> <!-- .end #01-Ins_BasicSQL_Connection-->
 
-					</div> <!-- .end 02-Evr_Data_Normalization-->
 
-					<div id="03-Ins_Foreign_Keys" class="instructor-block">
-						<h3>Intro to Foreign Keys</h3>
-						<p>Let's open up the file in the <code>03-Ins_Foreign_Keys</code> folder to get started.</p>
+					<div id="02-Stu_IceCream_Connection" class="student-block">
+						<h3>Students Do: Ice Cream Connection</h3>
+						
+						<p>Let's open up the file(s) in the <code>02-Stu_IceCream_Connection</code> folder to get started.</p>
 
-						<p>A foreign key is a column or a set of columns in a table that refers to the primary key or a unique key in another table.</p>						
+					</div> <!-- .end 02-Stu_IceCream_Connection-->
+
+					<div id="03-Ins_Read_SQL" class="instructor-block">
+						<h3>SQLAlchemy and Pandas</h3>
+						<p>Let's open up the file in the <code>03-Ins_Read_SQL</code> folder to get started.</p>
+
+					</div> <!-- #03-Ins_Read_SQL end -->
+
+					<div id="04-Stu_Read_All_The_SQL" class="student-block">
+						<h3>Students Do: Read All the SQL</h3>
+						<p>Let's open up the file in the <code>04-Stu_Read_All_The_SQL</code> folder to get started.</p>
+					</div> <!--  04-Stu_Read_All_The_SQL end -->
+
+					<div id="05-Ins_Preview_SQL_Alchemy" class="instructor-block">
+						<h3>Preview SQLAlchemy with Classes</h3>
+						<p>Let's open up the file(s) in the <code>05-Ins_Preview_SQL_Alchemy</code> folder to get started.</p>
+
+						<p>This is the part where we obfuscate the SQL statements with OOP and Python. As the SQL statements are hidden, we should expect lesser human errors with our SQL statements.</p>
 						<ul>
-							<li>Basically, this is the key you use to do joins on.</li>
+							<li>This is especially true for application engineers who don't dive deep into the world of data.</li>
 						</ul>
 
-					</div> <!-- #03-Ins_Foreign_Keys end -->
-
-					<div id="04-Stu_Foreign_Keys" class="student-block">
-						<h3>Students Do: Foreign Keys</h3>
-						<p>Let's open up the file in the <code>04-Stu_Foreign_Keys</code> folder to get started.</p>
-					</div> <!--  04-Stu_Foreign_Keys end -->
-
-					<div id="05-Ins_Data_Relationships" class="instructor-block">
-						<h3>Intro to Data Relationships</h3>
-						<p>Let's open up the file(s) in the <code>05-Ins_Data_Relationships</code> folder to get started.</p>
-
-						<p>A junction table, also known as an association table, bridge table, or linking table, is used in a database when you have a many-to-many relationship between two entities.</p>
-
-						<p>A junction table is required to resolve this type of relationship because it allows you to represent and manage the associations between the two entities.</p>
-					
-					</div> <!-- 05-Ins_Data_Relationships end -->
-
-					<div id="06-Stu_Data_Relationships" class="student-block">
-						<h3>Students Do: Data Relationships</h3>
-						<p>Let's open up the file(s) in the <code>06-Stu_Data_Relationships</code> folder to get started.</p>
-					
-					</div> <!-- 06-Stu_Data_Relationships end -->
+						<p>However, data analysts who uses a business intelligence (BI) tool such as Tableau will often use raw SQL statements instead.</p>
+					</div> <!-- 05-Ins_Preview_SQL_Alchemy end -->
 
 					<div id="break" class="instructor-block">
 						<h3>Break - 15 mins @ 8:05pm</h3>
 					</div> <!-- break -->
 
-					<div id="07-Ins_ERD" class="instructor-block">
-						<h3>Entity Relationship Diagrams (ERD)</h3>
+					<div id="06-Ins_Classes" class="student-block">
+						<h3>A Schooling on Classes</h3>
+						<p>Let's open up the file(s) in the <code>06-Ins_Classes</code> folder to get started.</p>
 
-						<p>Let's open up the file(s) in the <code>07-Ins_ERD</code> folder to get started.</p>
+						<p>We are covering the basics of OOP, where it is the default standard of how we should design our code within a repo.</p>
 
-						<p>Ref: Quick Database Diagrams (Quick DBD) - <a href="https://app.quickdatabasediagrams.com/#/">https://app.quickdatabasediagrams.com/#/</a></p>
+						<p>The fundamental outcome of OOP is the "don't repeat yourself" (DRY) principle. In essence, if we keep repeating our code by copying and paste, we are forced to:</p>
 						<ul>
-							<li>The above website cannot be used for your corporate work, unless you pay for it. The free version will expose your ERD to the world.</li>
+							<li>Update all the different blocks of code if there are errors or changes.</li>
+							<li>Waste a lot of time and energy doing the same thing when others had done the same piece of work.</li>
+							<li>It is not good enough if your code works. Can we scale the work if others are contributing code, or with other areas of improvement?</li>
 						</ul>
-
-					</div> <!-- 07-Ins_ERD end -->
 					
-					<div id="07-Stu_Subqueries" class="student-block">
-						<h3>Students Do: Subqueries</h3>
+					</div> <!-- 06-Ins_Classes end -->
 
-						<p>Let's open up the file(s) in the <code>07-Stu_Subqueries</code> folder to get started.</p>
-					</div> <!-- 07-Stu_Subqueries -->
+					
 
-					<div id="08-Evr_Designing_ERD" class="instructor-block">
+					<div id="07-Stu_Surfer_Class" class="student-block">
+						<h3>Students Do: Surfer Class</h3>
+
+						<p>Let's open up the file(s) in the <code>07-Stu_Surfer_Class</code> folder to get started.</p>
+
+					</div> <!-- 07-Stu_Surfer_Class end -->
+					
+
+					<div id="08-Ins_Classes_With_Methods" class="instructor-block">
 						<h3>Everyone Do: Designing an ERD, Part 1</h3>
 
-						<p>Let's open up the file(s) in the <code>08-Evr_Designing_ERD</code> folder to get started.</p>
+						<p>Let's open up the file(s) in the <code>08-Ins_Classes_With_Methods</code> folder to get started.</p>
 
-						<p>Designing an ERD is very important when you're starting a new project, or creating new features for a project. Tech interviews will ask some questions about data modeling.</p>
-					</div> <!-- 08-Evr_Designing_ERD end -->
-
-					<div id="09-Evr_ERD" class="instructor-block">
-						<h3>Everyone Do: Designing an ERD, Part 2 </h3>
-
-						<p>Let's open up the file(s) in the <code>09-Evr_ERD</code> folder to get started.</p>
-
-					</div> <!-- 09-Evr_ERD -->
-				
-
-					<div id="10-Ins_Unions" class="instructor-block">
-						<h3>Introduction to Unions</h3>
-
-						<p>Let's open up the file(s) in the <code>10-Ins_Unions</code> folder to get started.</p>
-
-						<p>The UNION operator is used in a query to combine multiple SELECT statements into a single result set.</p>
+						<p>Back when I was in school, I was confused between the terms "method" and "function" because there were times they were mentioned interchangeably. They are basically the same except:</p>
 						<ul>
-							<li>The datasets do not need to have any relationship between each other.</li>
-							<li>UNION automatically removes dups.</li>
-							<li>Very rarely used practically, especially when the data analysis requires data integrity.</li>
+							<li>Function is a piece of code that exist by itself for a certain objective.</li>
+							<li>Method is a piece of code that is associated with an object.</li>
 						</ul>
 
-						<p>If you want to include duplicate records, use UNION ALL.</p>
-						<img src="https://i0.wp.com/dwgeek.com/wp-content/uploads/2020/01/Apache-Hive-Set-Operators-UNION-and-UNION-ALL.jpg?w=377&ssl=1" class="img-fluid">
-					</div> <!-- 10-Ins_Unions -->
+						<p>In both cases, they are a block of code that performs one main objective. It is not wise to compound your function with more than 1 objective as it becomes difficult to maintain, and thus we break it into smaller objects for better maintainability.</p>
+					</div> <!-- 08-Ins_Classes_With_Methods end -->
+
+					<div id="09-Stu_Surfer_Class_Extended" class="student-block">
+						<h3>Students Do: Surfer Class Extended</h3>
+
+						<p>Let's open up the file(s) in the <code>09-Stu_Surfer_Class_Extended</code> folder to get started.</p>
+
+					</div> <!-- 09-Stu_Surfer_Class_Extended -->
+				
+
+					<div id="10-Ins_SQL_Alchemy_Revisited" class="instructor-block">
+						<h3>Everyone Do: Back to the SQL</h3>
+
+						<p>Let's open up the file(s) in the <code>10-Ins_SQL_Alchemy_Revisited</code> folder to get started.</p>
+
+					</div> <!-- 10-Ins_SQL_Alchemy_Revisited -->
 				
 					
-					<div id="11-Evr_Unions" class="student-block">
-						<h3>Everyone Do: Unions</h3>
+					<div id="11-Stu_Surfer_SQ" class="student-block">
+						<h3>Students Do: Surfing SQL</h3>
 
-						<p>Let's open up the file(s) in the <code>11-Evr_Unions</code> folder to get started.</p>
+						<p>Let's open up the file(s) in the <code>11-Stu_Surfer_SQ</code> folder to get started.</p>
 
-					</div> <!-- 11-Evr_Unions -->
+					</div> <!-- 11-Stu_Surfer_SQ -->
 
 				</div> <!-- end #main-content -->
 
