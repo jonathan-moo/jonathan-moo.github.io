@@ -59,6 +59,7 @@
 							<a class="dropdown-item" href="ASU-VIRT-DATA-PT-03-2023-U-LOLC/9.1/index.html">9.1 Ref</a>
 							<a class="dropdown-item" href="ASU-VIRT-DATA-PT-03-2023-U-LOLC/9.2/index.html">9.2 Ref</a>
 							<a class="dropdown-item" href="ASU-VIRT-DATA-PT-03-2023-U-LOLC/9.3/index.html">9.3 Ref</a>
+							<a class="dropdown-item" href="ASU-VIRT-DATA-PT-03-2023-U-LOLC/10.1/index.html">10.1 Ref</a>
 						</div>
 					</li-->
 				</ul>
@@ -71,7 +72,7 @@
 						<h3 id="objectives">Objectives For Today</h3>
 
 						<ul>
-							<li>Introduction to SQLAlchemy</li>
+							<li>Advanced Usage of the SQLAlchemy ORM</li>
 						</ul>
 
 					</div>
@@ -89,131 +90,97 @@
 						<p>Don't feel as if you have to understand all in one sitting. This takes some time and practice to get used to it.</p>
 					</div>
 
-					<div id="01-Ins_BasicSQL_Connection" class="instructor-block">
+					<div id="01-Ins_Basic_Querying" class="instructor-block">
 						<h3>Introduction to SQLAlchemy</h3>
-						<p>Let's open up the file(s) in the <code>01-Ins_BasicSQL_Connection</code> folder to get started.</p>
+						<p>Let's open up the file(s) in the <code>01-Ins_Basic_Querying</code> folder to get started.</p>
 
-						<p>We are getting to a point where we are diving into operational processes when using SQL.</p>
+						<h5>What is a connection?</h5>
+						<p>This is the establishment of a network connection between a client application and a database server, and it can be physical or network-level.</p>
 
-						<h5>Introduction to Object Relational Mapping (ORM)?</h5>
+						<h5>What is a session?</h5>
+						<p>A session represents a specific instance of interaction between the client application and the database server.</p>
 
-						<p>SQL is very powerful because of the CRUD process, where data can be lost or corrupted by a human error.</p>
-
-						<p>Thus, ORM provides a framework where operational processes are less error-prone, and if you follow a certain template, you should not have problems inserting, updating or deleting records.</p>
+						<h5>How I think of these 2 differences in layman terms?</h5>
 						<ul>
-							<li>Because it applies object-oriented programming (OOP), and has the power to obfuscate the complexity of creating/updating/deleting records.</li>
-						</ul>
-
-						<h5>Introduction to SQLite</h5>
-
-						<p>SQLite is a lightweight database where it doesn't need processing power to run. Rather, it writes the data into files itself.</p>
-						<ul>
-							<li>This is very useful especially when you're coding mobile apps, and you want to store a local database within the app itself.</li>
-							<ul>
-								<li>However, as it is a file, you might want to be careful when you scale the database if you're using your work commercially, especially when you're working with apps on a small physical footprint.</li>
-								<li>Though you may not be responsible for coding an app in a mobile device, you might be responsible for the telemetry data that exist in a mobile device.</li>
-							</ul>
+							<li>A connection is liken to be a pipe, or a wire. A session is the liquid, or an electric current within it.</li>
+							<li>A single connection can have multiple sessions with it.</li>
+							<li>A session usually has limitations to it, such as time and capacity. A connection isn't as transcient, because you're either connected or you're not.</li>
 						</ul>
 						
 				
-					</div> <!-- .end #01-Ins_BasicSQL_Connection-->
+					</div> <!-- .end #01-Ins_Basic_Querying-->
 
 
-					<div id="02-Stu_IceCream_Connection" class="student-block">
-						<h3>Students Do: Ice Cream Connection</h3>
+					<div id="02-Stu_Sunny_Hours" class="student-block">
+						<h3>Students Do: Sunny Hours Search</h3>
 						
-						<p>Let's open up the file(s) in the <code>02-Stu_IceCream_Connection</code> folder to get started.</p>
+						<p>Let's open up the file(s) in the <code>02-Stu_Sunny_Hours</code> folder to get started.</p>
 
-					</div> <!-- .end 02-Stu_IceCream_Connection-->
+					</div> <!-- .end 02-Stu_Sunny_Hours-->
 
-					<div id="03-Ins_Read_SQL" class="instructor-block">
-						<h3>SQLAlchemy and Pandas</h3>
-						<p>Let's open up the file in the <code>03-Ins_Read_SQL</code> folder to get started.</p>
+					<div id="03-Ins_Basic_Updating" class="instructor-block">
+						<h3>Updating and Deleting Rows</h3>
+						<p>Let's open up the file in the <code>03-Ins_Basic_Updating</code> folder to get started.</p>
 
-					</div> <!-- #03-Ins_Read_SQL end -->
-
-					<div id="04-Stu_Read_All_The_SQL" class="student-block">
-						<h3>Students Do: Read All the SQL</h3>
-						<p>Let's open up the file in the <code>04-Stu_Read_All_The_SQL</code> folder to get started.</p>
-					</div> <!--  04-Stu_Read_All_The_SQL end -->
-
-					<div id="05-Ins_Preview_SQL_Alchemy" class="instructor-block">
-						<h3>Preview SQLAlchemy with Classes</h3>
-						<p>Let's open up the file(s) in the <code>05-Ins_Preview_SQL_Alchemy</code> folder to get started.</p>
-
-						<p>This is the part where we obfuscate the SQL statements with OOP and Python. As the SQL statements are hidden, we should expect lesser human errors with our SQL statements.</p>
+						<p>The strength of using SQLAlchemy is where you can update your Python variables, and perform changes to the databases accordingly.</p>
 						<ul>
-							<li>This is especially true for application engineers who don't dive deep into the world of data.</li>
+							<li><code>session.dirty</code> is to check if the variable within the session has experienced changes or not.</li>
+							<li>If the changes are intended, you can directly commit without adding. Adding means that the element isn't part of the database.</li>
+							<li><code>session.deleted</code> is to check if the variable within the session has a delete flag or not.</li>
+							<li>If the deletion is intended, you can commit the deletion and it will be permanent.</li>
 						</ul>
 
-						<p>However, data analysts who uses a business intelligence (BI) tool such as Tableau will often use raw SQL statements instead.</p>
-					</div> <!-- 05-Ins_Preview_SQL_Alchemy end -->
+					</div> <!-- #03-Ins_Basic_Updating end -->
+
+					<div id="04-Par_CRUD_DB" class="student-block">
+						<h3>Students Do: CRUD Database</h3>
+						<p>Let's open up the file in the <code>04-Par_CRUD_DB</code> folder to get started.</p>
+					</div> <!--  04-Par_CRUD_DB end -->
 
 					<div id="break" class="instructor-block">
 						<h3>Break - 15 mins @ 8:05pm</h3>
 					</div> <!-- break -->
 
-					<div id="06-Ins_Classes" class="student-block">
-						<h3>A Schooling on Classes</h3>
-						<p>Let's open up the file(s) in the <code>06-Ins_Classes</code> folder to get started.</p>
+					<div id="05-Ins_Reflection" class="instructor-block">
+						<h3>Reflection with SQL</h3>
+						<p>Let's open up the file(s) in the <code>05-Ins_Reflection</code> folder to get started.</p>
 
-						<p>We are covering the basics of OOP, where it is the default standard of how we should design our code within a repo.</p>
+						<p>We have been creating new databases and tables from scratch, and we define them using the declarative <code>Base</code> class.</p>
 
-						<p>The fundamental outcome of OOP is the "don't repeat yourself" (DRY) principle. In essence, if we keep repeating our code by copying and paste, we are forced to:</p>
-						<ul>
-							<li>Update all the different blocks of code if there are errors or changes.</li>
-							<li>Waste a lot of time and energy doing the same thing when others had done the same piece of work.</li>
-							<li>It is not good enough if your code works. Can we scale the work if others are contributing code, or with other areas of improvement?</li>
-						</ul>
-					
-					</div> <!-- 06-Ins_Classes end -->
+						<p>What if we are dealing with an existing data source?</p>
+
+						<p>Reflection is the process where we extract data from existing tables and databases, and it mirrors them within SQLAlchemy objects.</p>
+						
+					</div> <!-- 05-Ins_Reflection end -->
 
 					
 
-					<div id="07-Stu_Surfer_Class" class="student-block">
-						<h3>Students Do: Surfer Class</h3>
+					<div id="06-Stu_Reflecting_On_SQL" class="student-block">
+						<h3>Students Do: Demographics Reflection with SQL</h3>
+						<p>Let's open up the file(s) in the <code>06-Stu_Reflecting_On_SQL</code> folder to get started.</p>
+					
+					</div> <!-- 06-Stu_Reflecting_On_SQL end -->
 
-						<p>Let's open up the file(s) in the <code>07-Stu_Surfer_Class</code> folder to get started.</p>
-
-					</div> <!-- 07-Stu_Surfer_Class end -->
 					
 
-					<div id="08-Ins_Classes_With_Methods" class="instructor-block">
-						<h3>Everyone Do: Designing an ERD, Part 1</h3>
+					<div id="07-Ins_Inspection" class="instructor-block">
+						<h3>SQLAlchemy Inspection</h3>
 
-						<p>Let's open up the file(s) in the <code>08-Ins_Classes_With_Methods</code> folder to get started.</p>
+						<p>Let's open up the file(s) in the <code>07-Ins_Inspection</code> folder to get started.</p>
 
-						<p>Back when I was in school, I was confused between the terms "method" and "function" because there were times they were mentioned interchangeably. They are basically the same except:</p>
-						<ul>
-							<li>Function is a piece of code that exist by itself for a certain objective.</li>
-							<li>Method is a piece of code that is associated with an object.</li>
-						</ul>
+						<p>I taught the class on how to use <code>sqlite3</code> on your Git Bash/Terminal to see the schemas of tables and the database.</p>
 
-						<p>In both cases, they are a block of code that performs one main objective. It is not wise to compound your function with more than 1 objective as it becomes difficult to maintain, and thus we break it into smaller objects for better maintainability.</p>
-					</div> <!-- 08-Ins_Classes_With_Methods end -->
+						<p>The <code>inspect</code> module does the same thing, without the use of SQL statements.</p>
 
-					<div id="09-Stu_Surfer_Class_Extended" class="student-block">
-						<h3>Students Do: Surfer Class Extended</h3>
-
-						<p>Let's open up the file(s) in the <code>09-Stu_Surfer_Class_Extended</code> folder to get started.</p>
-
-					</div> <!-- 09-Stu_Surfer_Class_Extended -->
-				
-
-					<div id="10-Ins_SQL_Alchemy_Revisited" class="instructor-block">
-						<h3>Everyone Do: Back to the SQL</h3>
-
-						<p>Let's open up the file(s) in the <code>10-Ins_SQL_Alchemy_Revisited</code> folder to get started.</p>
-
-					</div> <!-- 10-Ins_SQL_Alchemy_Revisited -->
-				
+					</div> <!-- 07-Ins_Inspection end -->
 					
-					<div id="11-Stu_Surfer_SQ" class="student-block">
-						<h3>Students Do: Surfing SQL</h3>
 
-						<p>Let's open up the file(s) in the <code>11-Stu_Surfer_SQ</code> folder to get started.</p>
+					<div id="08-Stu_Salary_Exploration" class="student-block">
+						<h3>Students Do: Salary Exploration</h3>
 
-					</div> <!-- 11-Stu_Surfer_SQ -->
+						<p>Let's open up the file(s) in the <code>08-Stu_Salary_Exploration</code> folder to get started.</p>
+					</div> <!-- 08-Stu_Salary_Exploration end -->
+
 
 				</div> <!-- end #main-content -->
 
