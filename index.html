@@ -60,6 +60,7 @@
 							<a class="dropdown-item" href="ASU-VIRT-DATA-PT-03-2023-U-LOLC/9.2/index.html">9.2 Ref</a>
 							<a class="dropdown-item" href="ASU-VIRT-DATA-PT-03-2023-U-LOLC/9.3/index.html">9.3 Ref</a>
 							<a class="dropdown-item" href="ASU-VIRT-DATA-PT-03-2023-U-LOLC/10.1/index.html">10.1 Ref</a>
+							<a class="dropdown-item" href="ASU-VIRT-DATA-PT-03-2023-U-LOLC/10.2/index.html">10.2 Ref</a>
 						</div>
 					</li-->
 				</ul>
@@ -72,114 +73,109 @@
 						<h3 id="objectives">Objectives For Today</h3>
 
 						<ul>
-							<li>Advanced Usage of the SQLAlchemy ORM</li>
+							<li>Introduction to Flask & Serving Data with APIs</li>
 						</ul>
 
 					</div>
 
 					<div id="intro" class="instructor-block">
-						<h3>Before we start, take a deep breathe.</h3>
+						<h3>Introduction to Flask & Serving Data with APIs</h3>
 
-						<p>We are covering aspects of object-oriented programming (OOP) with SQL statements.</p>
+						<p>Perhaps you created new metrics for a data and you want to share them in your company.</p>
+
+						<p>This is where we create a REST API to serve data to meet our stakeholders' needs.</p>
+
+						<p>Depending on the company you work for, you might be required to serve data to others, and that's why we are building an API to serve data to clients.</p>
+
+						<p>Flask is popular since it is Python-based, but it is not a de facto standard to serve APIs. Companies could use:</p>
 						<ul>
-							<li>At work, you might not need as much OOP knowledge and skill, but this is dependent on the company you work for.</li>
-							<li>Yet, you will see that we are creating records within a database with OOP skills. Thus, it is important for you to learn and try to understand.</li>
-							<li>Week 9 is still the more important week for learning databases and data. This week (week 10), it is more about how you can leverage Python with SQL in a more intimate manner.</li>
+							<li>Django</li>
+							<li>Typescript/Nodejs using Expressjs</li>
+							<li>PHP frameworks</li>
+							<li>AWS Lambda/Gateway</li>
 						</ul>
 
-						<p>Don't feel as if you have to understand all in one sitting. This takes some time and practice to get used to it.</p>
+						<p>What you're learning is the concepts and how you can be flexible with the different environments that you might be in.</p>
 					</div>
 
-					<div id="01-Ins_Basic_Querying" class="instructor-block">
-						<h3>Introduction to SQLAlchemy</h3>
-						<p>Let's open up the file(s) in the <code>01-Ins_Basic_Querying</code> folder to get started.</p>
-
-						<h5>What is a connection?</h5>
-						<p>This is the establishment of a network connection between a client application and a database server, and it can be physical or network-level.</p>
-
-						<h5>What is a session?</h5>
-						<p>A session represents a specific instance of interaction between the client application and the database server.</p>
-
-						<h5>How I think of these 2 differences in layman terms?</h5>
-						<ul>
-							<li>A connection is liken to be a pipe, or a wire. A session is the liquid, or an electric current within it.</li>
-							<li>A single connection can have multiple sessions with it.</li>
-							<li>A session usually has limitations to it, such as time and capacity. A connection isn't as transcient, because you're either connected or you're not.</li>
-						</ul>
-						
+					<div id="01-Ins_Joins" class="instructor-block">
+						<h3>Joins</h3>
+						<p>Let's open up the file(s) in the <code>01-Ins_Joins</code> folder to get started.</p>						
 				
-					</div> <!-- .end #01-Ins_Basic_Querying-->
+					</div> <!-- .end #01-Ins_Joins-->
 
 
-					<div id="02-Stu_Sunny_Hours" class="student-block">
-						<h3>Students Do: Sunny Hours Search</h3>
+					<div id="02-Ins_Dates" class="instructor-block">
+						<h3>Dates</h3>
 						
-						<p>Let's open up the file(s) in the <code>02-Stu_Sunny_Hours</code> folder to get started.</p>
+						<p>Let's open up the file(s) in the <code>02-Ins_Dates</code> folder to get started.</p>
 
-					</div> <!-- .end 02-Stu_Sunny_Hours-->
+					</div> <!-- .end 02-Ins_Dates-->
 
-					<div id="03-Ins_Basic_Updating" class="instructor-block">
-						<h3>Updating and Deleting Rows</h3>
-						<p>Let's open up the file in the <code>03-Ins_Basic_Updating</code> folder to get started.</p>
+					<div id="03-Stu_Dow_Dates" class="student-block">
+						<h3>Students Do: Dow Dates</h3>
+						<p>Let's open up the file in the <code>03-Stu_Dow_Dates</code> folder to get started.</p>
+					</div> <!-- #03-Stu_Dow_Dates end -->
 
-						<p>The strength of using SQLAlchemy is where you can update your Python variables, and perform changes to the databases accordingly.</p>
-						<ul>
-							<li><code>session.dirty</code> is to check if the variable within the session has experienced changes or not.</li>
-							<li>If the changes are intended, you can directly commit without adding. Adding means that the element isn't part of the database.</li>
-							<li><code>session.deleted</code> is to check if the variable within the session has a delete flag or not.</li>
-							<li>If the deletion is intended, you can commit the deletion and it will be permanent.</li>
-						</ul>
+					<div id="04-Ins_First_Steps_with_Flask" class="student-block">
+						<h3>Introduction to Flask</h3>
+						<p>Let's open up the file in the <code>04-Ins_First_Steps_with_Flask</code> folder to get started.</p>
 
-					</div> <!-- #03-Ins_Basic_Updating end -->
+						<p>You will be running a local server on your machine.</p>
+					</div> <!--  04-Ins_First_Steps_with_Flask end -->
 
-					<div id="04-Par_CRUD_DB" class="student-block">
-						<h3>Students Do: CRUD Database</h3>
-						<p>Let's open up the file in the <code>04-Par_CRUD_DB</code> folder to get started.</p>
-					</div> <!--  04-Par_CRUD_DB end -->
+					<div id="05-Stu_Hello_Web" class="instructor-block">
+						<h3>Students Do: Hello, Web</h3>
+						<p>Let's open up the file(s) in the <code>05-Stu_Hello_Web</code> folder to get started.</p>
+						
+					</div> <!-- 05-Stu_Hello_Web end -->
+
+					
+
+				
+					<div id="06-Ins_Jsonify" class="instructor-block">
+						<h3>JSON APIs with jsonify</h3>
+						<p>Let's open up the file(s) in the <code>06-Ins_Jsonify</code> folder to get started.</p>
+					
+					</div> <!-- 06-Ins_Jsonify end -->
+
+					
+
+					<div id="07-Stu_Justice_League_jsonify" class="student-block">
+						<h3>Students Do: Justice League</h3>
+
+						<p>Let's open up the file(s) in the <code>07-Stu_Justice_League_jsonify</code> folder to get started.</p>
+
+					</div> <!-- 07-Stu_Justice_League_jsonify end -->
 
 					<div id="break" class="instructor-block">
 						<h3>Break - 15 mins @ 8:05pm</h3>
 					</div> <!-- break -->
-
-					<div id="05-Ins_Reflection" class="instructor-block">
-						<h3>Reflection with SQL</h3>
-						<p>Let's open up the file(s) in the <code>05-Ins_Reflection</code> folder to get started.</p>
-
-						<p>We have been creating new databases and tables from scratch, and we define them using the declarative <code>Base</code> class.</p>
-
-						<p>What if we are dealing with an existing data source?</p>
-
-						<p>Reflection is the process where we extract data from existing tables and databases, and it mirrors them within SQLAlchemy objects.</p>
-						
-					</div> <!-- 05-Ins_Reflection end -->
-
 					
 
-					<div id="06-Stu_Reflecting_On_SQL" class="student-block">
-						<h3>Students Do: Demographics Reflection with SQL</h3>
-						<p>Let's open up the file(s) in the <code>06-Stu_Reflecting_On_SQL</code> folder to get started.</p>
-					
-					</div> <!-- 06-Stu_Reflecting_On_SQL end -->
+					<div id="08-Ins_Variable_Rule" class="instructor-block">
+						<h3>Routes with Variable Paths</h3>
 
-					
+						<p>Let's open up the file(s) in the <code>08-Ins_Variable_Rule</code> folder to get started.</p>
+					</div> <!-- 08-Ins_Variable_Rule end -->
 
-					<div id="07-Ins_Inspection" class="instructor-block">
-						<h3>SQLAlchemy Inspection</h3>
+					<div id="09-Stu_Variable_Rule" class="student-block">
+						<h3>Students Do: Routes with Variable Rules</h3>
 
-						<p>Let's open up the file(s) in the <code>07-Ins_Inspection</code> folder to get started.</p>
+						<p>Let's open up the file(s) in the <code>09-Stu_Variable_Rule</code> folder to get started.</p>
+					</div> <!-- 09-Stu_Variable_Rule end -->
 
-						<p>I taught the class on how to use <code>sqlite3</code> on your Git Bash/Terminal to see the schemas of tables and the database.</p>
+					<div id="10-Ins_Flask_with_ORM" class="instructor-block">
+						<h3>Flask with ORM</h3>
 
-						<p>The <code>inspect</code> module does the same thing, without the use of SQL statements.</p>
+						<p>Let's open up the file(s) in the <code>10-Ins_Flask_with_ORM</code> folder to get started.</p>
+					</div> <!-- 10-Ins_Flask_with_ORM end -->
 
-					</div> <!-- 07-Ins_Inspection end -->
-					
+					<div id="11-Stu_Chinook_Database_Analysis" class="student-block">
+						<h3>Student Do: Chinook Database Analysis</h3>
 
-					<div id="08-Stu_Salary_Exploration" class="student-block">
-						<h3>Students Do: Salary Exploration</h3>
-
-						<p>Let's open up the file(s) in the <code>08-Stu_Salary_Exploration</code> folder to get started.</p>
-					</div> <!-- 08-Stu_Salary_Exploration end -->
+						<p>Let's open up the file(s) in the <code>11-Stu_Chinook_Database_Analysis</code> folder to get started.</p>
+					</div> <!-- 11-Stu_Chinook_Database_Analysis end -->
 
 
 				</div> <!-- end #main-content -->
