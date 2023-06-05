@@ -61,6 +61,7 @@
 							<a class="dropdown-item" href="ASU-VIRT-DATA-PT-03-2023-U-LOLC/9.3/index.html">9.3 Ref</a>
 							<a class="dropdown-item" href="ASU-VIRT-DATA-PT-03-2023-U-LOLC/10.1/index.html">10.1 Ref</a>
 							<a class="dropdown-item" href="ASU-VIRT-DATA-PT-03-2023-U-LOLC/10.2/index.html">10.2 Ref</a>
+							<a class="dropdown-item" href="ASU-VIRT-DATA-PT-03-2023-U-LOLC/10.3/index.html">10.3 Ref</a>
 						</div>
 					</li-->
 				</ul>
@@ -73,109 +74,116 @@
 						<h3 id="objectives">Objectives For Today</h3>
 
 						<ul>
-							<li>Introduction to Flask & Serving Data with APIs</li>
+							<li>Scraping HTML</li>
 						</ul>
 
 					</div>
 
 					<div id="intro" class="instructor-block">
-						<h3>Introduction to Flask & Serving Data with APIs</h3>
+						<h3>Scraping HTML</h3>
 
-						<p>Perhaps you created new metrics for a data and you want to share them in your company.</p>
+						<p>This is part of data collection, where you're harvesting public data for your analysis.</p>
 
-						<p>This is where we create a REST API to serve data to meet our stakeholders' needs.</p>
-
-						<p>Depending on the company you work for, you might be required to serve data to others, and that's why we are building an API to serve data to clients.</p>
-
-						<p>Flask is popular since it is Python-based, but it is not a de facto standard to serve APIs. Companies could use:</p>
+						<p>Fundamentally, it isn't too common to scrap data from the web except for specific use cases, because it is heavily dependent on the business context.</p>
 						<ul>
-							<li>Django</li>
-							<li>Typescript/Nodejs using Expressjs</li>
-							<li>PHP frameworks</li>
-							<li>AWS Lambda/Gateway</li>
+							<li>For example, you wouldn't typically expect a logistics or an oil-and-gas company to scrap data from the web unless there is a specific context to it.</li>
 						</ul>
 
-						<p>What you're learning is the concepts and how you can be flexible with the different environments that you might be in.</p>
+						<p>However, the techniques are good to learn, and it is very useful for entrepreneurship.</p>
+
+						<h5>Tools to scrape websites</h5>
+						<p>We are going to use the following tools to automate behavior on a browser. This is akin to have a robot move your mouse after you program a few repeated steps.</p>
+						<ul>
+							<li>Splinter: a tool that automates our web browser actions, which allows us to automatically scan and repeat interactions on websites.</li>
+							<li>ChromeDriver: A browser automation framework and ecosystem.</li>
+							<li>Beautiful Soup: A Python library that allows you to extract information out of web pages, and parse them into variables.</li>
+							<li>html5lib and lxml: Libraries that are complimentary and necessary for Beautiful Soup to work.</li>
+						</ul>
+
+						<h5>Installing The Web Automation Tools</h5>
+						<p>You'll need to install Chrome Driver here: <a href="https://splinter.readthedocs.io/en/latest/install/external.html">https://splinter.readthedocs.io/en/latest/install/external.html</a></p>
+
+<pre>
+	<code>
+		pip install "splinter[selenium4]"
+		pip install html5lib
+		pip install lxml
+	</code>
+</pre>
+
+
 					</div>
 
-					<div id="01-Ins_Joins" class="instructor-block">
-						<h3>Joins</h3>
-						<p>Let's open up the file(s) in the <code>01-Ins_Joins</code> folder to get started.</p>						
-				
-					</div> <!-- .end #01-Ins_Joins-->
-
-
-					<div id="02-Ins_Dates" class="instructor-block">
-						<h3>Dates</h3>
+					<div id="01-Ins_Hello_HTML" class="instructor-block">
+						<h3>Hello HTML</h3>
+						<p>Let's open up the file(s) in the <code>01-Ins_Hello_HTML</code> folder to get started.</p>
 						
-						<p>Let's open up the file(s) in the <code>02-Ins_Dates</code> folder to get started.</p>
+						<p>To scrape information from websites, we need to understand the basic construct of a website.</p>
 
-					</div> <!-- .end 02-Ins_Dates-->
+						<p><strong>HTML</strong> stands for HyperText Markup Langauge(HTML), where:</p>
+						<ul>
+							<li>Your browser interprets certain tags and structure of a text page, and reformats and reshapes it accordingly.</li>
+						</ul>
 
-					<div id="03-Stu_Dow_Dates" class="student-block">
-						<h3>Students Do: Dow Dates</h3>
-						<p>Let's open up the file in the <code>03-Stu_Dow_Dates</code> folder to get started.</p>
-					</div> <!-- #03-Stu_Dow_Dates end -->
+						<p><strong>CSS</strong> stands for Cascading Style Sheets (CSS), and it further enhances flavor to the aesthetics of a web page.</p>
 
-					<div id="04-Ins_First_Steps_with_Flask" class="student-block">
-						<h3>Introduction to Flask</h3>
-						<p>Let's open up the file in the <code>04-Ins_First_Steps_with_Flask</code> folder to get started.</p>
-
-						<p>You will be running a local server on your machine.</p>
-					</div> <!--  04-Ins_First_Steps_with_Flask end -->
-
-					<div id="05-Stu_Hello_Web" class="instructor-block">
-						<h3>Students Do: Hello, Web</h3>
-						<p>Let's open up the file(s) in the <code>05-Stu_Hello_Web</code> folder to get started.</p>
-						
-					</div> <!-- 05-Stu_Hello_Web end -->
-
-					
-
+						<p>The goal isn't about being a web designer, but because we are using these markup languages to extract data, it will be important to know what these things are.</p>
 				
-					<div id="06-Ins_Jsonify" class="instructor-block">
-						<h3>JSON APIs with jsonify</h3>
-						<p>Let's open up the file(s) in the <code>06-Ins_Jsonify</code> folder to get started.</p>
-					
-					</div> <!-- 06-Ins_Jsonify end -->
+					</div> <!-- .end #01-Ins_Hello_HTML-->
 
-					
 
-					<div id="07-Stu_Justice_League_jsonify" class="student-block">
-						<h3>Students Do: Justice League</h3>
+					<div id="02-Stu_first_html" class="instructor-block">
+						<h3>Students Do: My First HTML</h3>
+						
+						<p>Let's open up the file(s) in the <code>02-Stu_first_html</code> folder to get started.</p>
 
-						<p>Let's open up the file(s) in the <code>07-Stu_Justice_League_jsonify</code> folder to get started.</p>
-
-					</div> <!-- 07-Stu_Justice_League_jsonify end -->
+					</div> <!-- .end 02-Stu_first_html-->
 
 					<div id="break" class="instructor-block">
 						<h3>Break - 15 mins @ 8:05pm</h3>
 					</div> <!-- break -->
+
+					<div id="03-Ins_BeautifulSoup" class="instructor-block">
+						<h3>Introduction to Beautiful Soup</h3>
+						<p>Let's open up the file in the <code>03-Ins_BeautifulSoup</code> folder to get started.</p>
+					</div> <!-- #03-Ins_BeautifulSoup end -->
+
+					<div id="04-Stu_Soup_to_Nuts" class="student-block">
+						<h3>Students Do: From Soup to Nuts</h3>
+						<p>Let's open up the file in the <code>04-Stu_Soup_to_Nuts</code> folder to get started.</p>
+
+					</div> <!--  04-Stu_Soup_to_Nuts end -->
+
+					<div id="05-Ins_CSS_Intro" class="instructor-block">
+						<h3>Styling HTML Elements with CSS</h3>
+						<p>Let's open up the file(s) in the <code>05-Ins_CSS_Intro</code> folder to get started.</p>
+
+						<p>Styling can be important for a data analyst, especially if your product or visualization is web-based.</p>
+
+						<p>Example: <a href="https://www.highcharts.com/">Highcharts</a></p>
+						
+					</div> <!-- 05-Ins_CSS_Intro end -->
+
 					
 
-					<div id="08-Ins_Variable_Rule" class="instructor-block">
-						<h3>Routes with Variable Paths</h3>
+				
+					<div id="06-Ins_CSS" class="instructor-block">
+						<h3>Introduction to CSS Selectors</h3>
+						<p>Let's open up the file(s) in the <code>06-Ins_CSS</code> folder to get started.</p>
+					
+					</div> <!-- 06-Ins_CSS end -->
 
-						<p>Let's open up the file(s) in the <code>08-Ins_Variable_Rule</code> folder to get started.</p>
-					</div> <!-- 08-Ins_Variable_Rule end -->
+					
 
-					<div id="09-Stu_Variable_Rule" class="student-block">
-						<h3>Students Do: Routes with Variable Rules</h3>
+					<div id="07-Stu_CSS" class="student-block">
+						<h3>Students Do: CSS My List</h3>
 
-						<p>Let's open up the file(s) in the <code>09-Stu_Variable_Rule</code> folder to get started.</p>
-					</div> <!-- 09-Stu_Variable_Rule end -->
+						<p>Let's open up the file(s) in the <code>07-Stu_CSS</code> folder to get started.</p>
 
-					<div id="10-Ins_Flask_with_ORM" class="instructor-block">
-						<h3>Flask with ORM</h3>
+					</div> <!-- 07-Stu_CSS end -->
+					
 
-						<p>Let's open up the file(s) in the <code>10-Ins_Flask_with_ORM</code> folder to get started.</p>
-					</div> <!-- 10-Ins_Flask_with_ORM end -->
-
-					<div id="11-Stu_Chinook_Database_Analysis" class="student-block">
-						<h3>Student Do: Chinook Database Analysis</h3>
-
-						<p>Let's open up the file(s) in the <code>11-Stu_Chinook_Database_Analysis</code> folder to get started.</p>
-					</div> <!-- 11-Stu_Chinook_Database_Analysis end -->
+					
 
 
 				</div> <!-- end #main-content -->
