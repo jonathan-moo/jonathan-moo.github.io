@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Jonathan Moo's Github Bio</title>
+
+
+		<link rel='stylesheet' id='bootstrap-css'  href='../../css/bootstrap.min.css' type='text/css' media='all' />
+		<link rel='stylesheet' id='bootstrap-grid-css'  href='../../css/bootstrap-grid.min.css' type='text/css' media='all' />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+   integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+   crossorigin=""/>
+		<link rel='stylesheet' id='custom-css'  href='../../css/style.css' type='text/css' media='all' /> 
+		<script src="https://d3js.org/d3.v5.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.9.1/d3-tip.js"></script>
+		<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+     <!-- Make sure you put this AFTER Leaflet's CSS -->
+     <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+       integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+       crossorigin=""></script>
+	</head>
+
+	<body>
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<a class="navbar-brand" href="#">Jonathan's Github Page</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active">
+						<a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Lessons</a>
+						<div class="dropdown-menu">
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/1.1/index.html">1.1 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/1.2/index.html">1.2 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/1.3/index.html">1.3 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/2.1/index.html">2.1 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/2.2/index.html">2.2 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/2.3/index.html">2.3 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/3.1/index.html">3.1 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/3.2/index.html">3.2 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/3.3/index.html">3.3 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/4.1/index.html">4.1 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/4.2/index.html">4.2 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/4.3/index.html">4.3 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/5.1/index.html">5.1 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/5.2/index.html">5.2 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/5.3/index.html">5.3 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/6.1/index.html">6.1 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/6.2/index.html">6.2 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/6.3/index.html">6.3 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/7.1/index.html">7.1 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/7.2/index.html">7.2 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/7.3/index.html">7.3 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/8.1/index.html">8.1 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/9.1/index.html">9.1 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/9.2/index.html">9.2 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/9.3/index.html">9.3 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/10.1/index.html">10.1 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/10.2/index.html">10.2 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/10.3/index.html">10.3 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/11.1/index.html">11.1 Ref</a>
+						</div>
+					</li-->
+				</ul>
+			</div>
+		</nav>
+		<div class="container-fluid">
+			<div class="row">
+				<div id="main-content" class="col-md-8">
+					<div class="objective-block">
+						<h3 id="objectives">Objectives For Today</h3>
+
+						<ul>
+							<li>Scraping HTML</li>
+						</ul>
+
+					</div>
+
+					<div id="intro" class="instructor-block">
+						<h3>Scraping HTML</h3>
+
+						<p>This is part of data collection, where you're harvesting public data for your analysis.</p>
+
+						<p>Fundamentally, it isn't too common to scrap data from the web except for specific use cases, because it is heavily dependent on the business context.</p>
+						<ul>
+							<li>For example, you wouldn't typically expect a logistics or an oil-and-gas company to scrap data from the web unless there is a specific context to it.</li>
+						</ul>
+
+						<p>However, the techniques are good to learn, and it is very useful for entrepreneurship.</p>
+
+						<h5>Tools to scrape websites</h5>
+						<p>We are going to use the following tools to automate behavior on a browser. This is akin to have a robot move your mouse after you program a few repeated steps.</p>
+						<ul>
+							<li>Splinter: a tool that automates our web browser actions, which allows us to automatically scan and repeat interactions on websites.</li>
+							<li>ChromeDriver: A browser automation framework and ecosystem.</li>
+							<li>Beautiful Soup: A Python library that allows you to extract information out of web pages, and parse them into variables.</li>
+							<li>html5lib and lxml: Libraries that are complimentary and necessary for Beautiful Soup to work.</li>
+						</ul>
+
+						<h5>Installing The Web Automation Tools</h5>
+						<p>You'll need to install Chrome Driver here: <a href="https://splinter.readthedocs.io/en/latest/install/external.html">https://splinter.readthedocs.io/en/latest/install/external.html</a></p>
+
+<pre>
+	<code>
+		pip install "splinter[selenium4]"
+		pip install html5lib
+		pip install lxml
+	</code>
+</pre>
+
+
+					</div>
+
+					<div id="01-Ins_Hello_HTML" class="instructor-block">
+						<h3>Hello HTML</h3>
+						<p>Let's open up the file(s) in the <code>01-Ins_Hello_HTML</code> folder to get started.</p>
+						
+						<p>To scrape information from websites, we need to understand the basic construct of a website.</p>
+
+						<p><strong>HTML</strong> stands for HyperText Markup Langauge(HTML), where:</p>
+						<ul>
+							<li>Your browser interprets certain tags and structure of a text page, and reformats and reshapes it accordingly.</li>
+						</ul>
+
+						<p><strong>CSS</strong> stands for Cascading Style Sheets (CSS), and it further enhances flavor to the aesthetics of a web page.</p>
+
+						<p>The goal isn't about being a web designer, but because we are using these markup languages to extract data, it will be important to know what these things are.</p>
+				
+					</div> <!-- .end #01-Ins_Hello_HTML-->
+
+
+					<div id="02-Stu_first_html" class="instructor-block">
+						<h3>Students Do: My First HTML</h3>
+						
+						<p>Let's open up the file(s) in the <code>02-Stu_first_html</code> folder to get started.</p>
+
+					</div> <!-- .end 02-Stu_first_html-->
+
+					<div id="break" class="instructor-block">
+						<h3>Break - 15 mins @ 8:05pm</h3>
+					</div> <!-- break -->
+
+					<div id="03-Ins_BeautifulSoup" class="instructor-block">
+						<h3>Introduction to Beautiful Soup</h3>
+						<p>Let's open up the file in the <code>03-Ins_BeautifulSoup</code> folder to get started.</p>
+					</div> <!-- #03-Ins_BeautifulSoup end -->
+
+					<div id="04-Stu_Soup_to_Nuts" class="student-block">
+						<h3>Students Do: From Soup to Nuts</h3>
+						<p>Let's open up the file in the <code>04-Stu_Soup_to_Nuts</code> folder to get started.</p>
+
+					</div> <!--  04-Stu_Soup_to_Nuts end -->
+
+					<div id="05-Ins_CSS_Intro" class="instructor-block">
+						<h3>Styling HTML Elements with CSS</h3>
+						<p>Let's open up the file(s) in the <code>05-Ins_CSS_Intro</code> folder to get started.</p>
+
+						<p>Styling can be important for a data analyst, especially if your product or visualization is web-based.</p>
+
+						<p>Example: <a href="https://www.highcharts.com/">Highcharts</a></p>
+						
+					</div> <!-- 05-Ins_CSS_Intro end -->
+
+					
+
+				
+					<div id="06-Ins_CSS" class="instructor-block">
+						<h3>Introduction to CSS Selectors</h3>
+						<p>Let's open up the file(s) in the <code>06-Ins_CSS</code> folder to get started.</p>
+					
+					</div> <!-- 06-Ins_CSS end -->
+
+					
+
+					<div id="07-Stu_CSS" class="student-block">
+						<h3>Students Do: CSS My List</h3>
+
+						<p>Let's open up the file(s) in the <code>07-Stu_CSS</code> folder to get started.</p>
+
+					</div> <!-- 07-Stu_CSS end -->
+					
+
+					
+
+
+				</div> <!-- end #main-content -->
+
+
+				<!--div id="right-sb" class="col-md-4">
+					<div id="right-sb-nav" class="list-group" id="toc" role="tablist">
+					  <a class="list-group-item list-group-item-action active"  href="#objectives" role="tab">Objectives</a>
+
+					  <a class="list-group-item list-group-item-action"  href="#intro" role="tab">Snapshot Instructor Introduction</a>
+					  <a class="list-group-item list-group-item-action"  href="#01-intro-to-data" role="tab">Introduction To Data</a>
+						<a class="list-group-item list-group-item-action"  href="#02-course-overview" role="tab">Course Overview</a>
+						<a class="list-group-item list-group-item-action"  href="#03-past-learnings" role="tab">Past Learnings</a>
+						<a class="list-group-item list-group-item-action"  href="#04-before-break" role="tab">Before the Break</a>
+
+						<a class="list-group-item list-group-item-action"  href="#05-break" role="tab">Break</a>
+						<a class="list-group-item list-group-item-action"  href="#06-group-great-debate" role="tab">Group Activity: The Great Debate</a>
+						<a class="list-group-item list-group-item-action"  href="#07-group-gentrification" role="tab">Group Activity: Predicting Gentrification</a>
+						<a class="list-group-item list-group-item-action"  href="#08-homework-discussion" role="tab">Homework Discussion</a>
+
+					</div>
+				
+				</div-->
+			</div> <!-- end .row -->
+			
+		</div> <!-- end .container-fluid -->
+
+		<footer>
+			<script type="text/javascript" src="../../js/jquery-3.3.1.min.js"></script>
+			<script type="text/javascript" src="../../js/bootstrap.min.js"></script>
+
+			<script type="text/javascript">
+
+			</script>
+
+      <script type="text/javascript" src="../../js/config.js"></script>
+      <style>
+pre {
+  background-color: black;
+  color: white;
+}
+
+div[id^="map-"]{
+  height:500px;
+}
+div[id$="-toggle"]{
+  display: none;
+}
+      </style>
+
+		</footer>
+
+	</body>
+
+
+</html>

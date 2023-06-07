@@ -62,6 +62,7 @@
 							<a class="dropdown-item" href="ASU-VIRT-DATA-PT-03-2023-U-LOLC/10.1/index.html">10.1 Ref</a>
 							<a class="dropdown-item" href="ASU-VIRT-DATA-PT-03-2023-U-LOLC/10.2/index.html">10.2 Ref</a>
 							<a class="dropdown-item" href="ASU-VIRT-DATA-PT-03-2023-U-LOLC/10.3/index.html">10.3 Ref</a>
+							<a class="dropdown-item" href="ASU-VIRT-DATA-PT-03-2023-U-LOLC/11.1/index.html">11.1 Ref</a>
 						</div>
 					</li-->
 				</ul>
@@ -74,13 +75,13 @@
 						<h3 id="objectives">Objectives For Today</h3>
 
 						<ul>
-							<li>Scraping HTML</li>
+							<li>Web Scraping with CSS Selectors</li>
 						</ul>
 
 					</div>
 
 					<div id="intro" class="instructor-block">
-						<h3>Scraping HTML</h3>
+						<h3>Web Scraping with CSS Selectors</h3>
 
 						<p>This is part of data collection, where you're harvesting public data for your analysis.</p>
 
@@ -114,73 +115,66 @@
 
 					</div>
 
-					<div id="01-Ins_Hello_HTML" class="instructor-block">
+					<div id="01-Ins_CSS_Identifiers" class="instructor-block">
 						<h3>Hello HTML</h3>
-						<p>Let's open up the file(s) in the <code>01-Ins_Hello_HTML</code> folder to get started.</p>
+						<p>Let's open up the file(s) in the <code>01-Ins_CSS_Identifiers</code> folder to get started.</p>
 						
-						<p>To scrape information from websites, we need to understand the basic construct of a website.</p>
-
-						<p><strong>HTML</strong> stands for HyperText Markup Langauge(HTML), where:</p>
-						<ul>
-							<li>Your browser interprets certain tags and structure of a text page, and reformats and reshapes it accordingly.</li>
-						</ul>
-
-						<p><strong>CSS</strong> stands for Cascading Style Sheets (CSS), and it further enhances flavor to the aesthetics of a web page.</p>
-
-						<p>The goal isn't about being a web designer, but because we are using these markup languages to extract data, it will be important to know what these things are.</p>
+						<p>The goal of using CSS identifiers is to be able to easily identify the data you need and map them into a variable for manipulation and/or storage.</p>
 				
-					</div> <!-- .end #01-Ins_Hello_HTML-->
+					</div> <!-- .end #01-Ins_CSS_Identifiers-->
 
 
-					<div id="02-Stu_first_html" class="instructor-block">
-						<h3>Students Do: My First HTML</h3>
+					<div id="02-Stu_CSS_Case_Study" class="instructor-block">
+						<h3>Students Do: CSS Case Study</h3>
 						
-						<p>Let's open up the file(s) in the <code>02-Stu_first_html</code> folder to get started.</p>
+						<p>Let's open up the file(s) in the <code>02-Stu_CSS_Case_Study</code> folder to get started.</p>
 
-					</div> <!-- .end 02-Stu_first_html-->
+					</div> <!-- .end 02-Stu_CSS_Case_Study-->
+
+					<div id="03-Stu_Pandas_CSS_Scrape" class="instructor-block">
+						<h3>Students Do: Pandas Scrape</h3>
+						
+						<p>Let's open up the file(s) in the <code>03-Stu_Pandas_CSS_Scrape</code> folder to get started.</p>
+
+					</div> <!-- .end 03-Stu_Pandas_CSS_Scrape-->
 
 					<div id="break" class="instructor-block">
 						<h3>Break - 15 mins @ 8:05pm</h3>
 					</div> <!-- break -->
 
-					<div id="03-Ins_BeautifulSoup" class="instructor-block">
-						<h3>Introduction to Beautiful Soup</h3>
-						<p>Let's open up the file in the <code>03-Ins_BeautifulSoup</code> folder to get started.</p>
-					</div> <!-- #03-Ins_BeautifulSoup end -->
+					<div id="04-Ins_DevTools" class="instructor-block">
+						<h3>DevTools</h3>
+						<p>Let's open up the file in the <code>04-Ins_DevTools</code> folder to get started.</p>
 
-					<div id="04-Stu_Soup_to_Nuts" class="student-block">
-						<h3>Students Do: From Soup to Nuts</h3>
-						<p>Let's open up the file in the <code>04-Stu_Soup_to_Nuts</code> folder to get started.</p>
+						<p>DevTools is a debugging console on Chrome (or other major browser that you might be using.</p>
 
-					</div> <!--  04-Stu_Soup_to_Nuts end -->
+						<h5>Keyboard shortcuts</h5>
+						<ul>
+							<li>Mac: Option + Command ⌘ + i</li>
+							<li>Windows: Shift + CTRL + i</li>
+						</ul>
 
-					<div id="05-Ins_CSS_Intro" class="instructor-block">
+						<p>I'll walk you through what some of these things can do, and how you can extract data out of it.</p>
+
+						<p>We'll be scraping from this website: <a href="https://stackoverflow.com/questions/tagged/python?sort=MostVotes&edited=true">https://stackoverflow.com/questions/tagged/python?sort=MostVotes&edited=true</a></p>
+
+					</div> <!-- #04-Ins_DevTools end -->
+
+					<div id="05-Stu_StackOverflow" class="student-block">
+						<h3>Students Do: Stack Scrape</h3>
+						<p>Let's open up the file in the <code>05-Stu_StackOverflow</code> folder to get started.</p>
+
+					</div> <!--  05-Stu_StackOverflow end -->
+
+					<div id="06-Stu_Scraping_Mars_News" class="student-block">
 						<h3>Styling HTML Elements with CSS</h3>
-						<p>Let's open up the file(s) in the <code>05-Ins_CSS_Intro</code> folder to get started.</p>
-
-						<p>Styling can be important for a data analyst, especially if your product or visualization is web-based.</p>
-
-						<p>Example: <a href="https://www.highcharts.com/">Highcharts</a></p>
+						<p>Let's open up the file(s) in the <code>06-Stu_Scraping_Mars_News</code> folder to get started.</p>
 						
-					</div> <!-- 05-Ins_CSS_Intro end -->
+					</div> <!-- 06-Stu_Scraping_Mars_News end -->
 
 					
 
 				
-					<div id="06-Ins_CSS" class="instructor-block">
-						<h3>Introduction to CSS Selectors</h3>
-						<p>Let's open up the file(s) in the <code>06-Ins_CSS</code> folder to get started.</p>
-					
-					</div> <!-- 06-Ins_CSS end -->
-
-					
-
-					<div id="07-Stu_CSS" class="student-block">
-						<h3>Students Do: CSS My List</h3>
-
-						<p>Let's open up the file(s) in the <code>07-Stu_CSS</code> folder to get started.</p>
-
-					</div> <!-- 07-Stu_CSS end -->
 					
 
 					
