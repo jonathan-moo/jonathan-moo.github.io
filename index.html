@@ -75,88 +75,171 @@
 						<h3 id="objectives">Objectives For Today</h3>
 
 						<ul>
-							<li>Web Scraping with CSS Selectors</li>
+							<li>Introduction to NoSQL and MongoDB</li>
 						</ul>
 
+					</div>
+
+					<div class="question-block">
+						<div class="alert alert-danger" role="alert">Note To Jonathan: Please don't forget your slides!</div>
+						<h3 id="question-1">Lesson 12.1</h3>
+
+						<h4>What is a NoSQL database?</h4>
+						<p>Some misnomers:</p>
+						<ul>
+							<li>NoSQL doesn't mean the opposite of SQL.</li>
+							<li>NoSQL doesn't mean we protest against SQL.</li>
+						</ul>
+
+						<h5>Answer:</h5>
+						<p id="question-1-answer" class="answers">NoSQL stands for "Not-Only Sequel".
+							It's a non-relational database where data is stored as objects or documents, and not records or rows. Relational database has a fixed schema, but non-relational database's schema grows and shrinks dynamically.
+						</p>
+						<button type="button" class="btn btn-primary" onclick='$("#question-1-answer").toggle();'>Show/Hide Answer</button>
 					</div>
 
 					<div id="intro" class="instructor-block">
-						<h3>Web Scraping with CSS Selectors</h3>
+						<h3>Introduction to NoSQL and MongoDB</h3>
+						
+						<p>NoSQL databases are key to ingesting unstructured data. In many cases, RESTful APIs provide unstructured data, and hence we need a way to store and analyze such data.</p>
 
-						<p>This is part of data collection, where you're harvesting public data for your analysis.</p>
-
-						<p>Fundamentally, it isn't too common to scrap data from the web except for specific use cases, because it is heavily dependent on the business context.</p>
+						<h5>What does unstructured data mean?</h5>
 						<ul>
-							<li>For example, you wouldn't typically expect a logistics or an oil-and-gas company to scrap data from the web unless there is a specific context to it.</li>
+							<li>In layman terms, the columns/variables are dynamic in nature.</li>
+							<ul>
+								<li>For example, you could potentially query a collection (table in relational database) today and expect a slightly different data point tomorrow.</li>
+								<li>Because it has no restrictions outside of a primary and/or a sorting key, it is very easy to ingest such data via a NoSQL database.</li>
+								<li>However, data cleaning and processing becomes much more difficult since it is not easy to fit the data into Pandas dataframe.</li>
+							</ul>
 						</ul>
-
-						<p>However, the techniques are good to learn, and it is very useful for entrepreneurship.</p>
-
-						<h5>Tools to scrape websites</h5>
-						<p>We are going to use the following tools to automate behavior on a browser. This is akin to have a robot move your mouse after you program a few repeated steps.</p>
-						<ul>
-							<li>Splinter: a tool that automates our web browser actions, which allows us to automatically scan and repeat interactions on websites.</li>
-							<li>ChromeDriver: A browser automation framework and ecosystem.</li>
-							<li>Beautiful Soup: A Python library that allows you to extract information out of web pages, and parse them into variables.</li>
-							<li>html5lib and lxml: Libraries that are complimentary and necessary for Beautiful Soup to work.</li>
-						</ul>
-
-						<h5>Installing The Web Automation Tools</h5>
-						<p>You'll need to install Chrome Driver here: <a href="https://splinter.readthedocs.io/en/latest/install/external.html">https://splinter.readthedocs.io/en/latest/install/external.html</a></p>
-
-<pre>
-	<code>
-		pip install "splinter[selenium4]"
-		pip install html5lib
-		pip install lxml
-	</code>
-</pre>
-
-
 					</div>
 
-					<div id="01-Stu_Automated_Web_Scrape" class="student-block">
-						<h3>Students Do: Automated Web Scrape</h3>
-						<p>Let's open up the file(s) in the <code>01-Stu_Automated_Web_Scrape</code> folder to get started.</p>
+					<div id="01-Ins_MongoBasics" class="instructor-block">
+						<h3 id="basic-queries">Basic Mongo Queries</h3>
+						<p>Let's open up the file(s) in the <code>01-Ins_MongoBasics</code> folder to get started.</p>
+
+						<h5>How to run your MongoDB services within your local machine?</h5>
+						<p>In both setup, you will need 2 terminal/git-bash windows. One will act as a server, the other will be a client that interacts with that server.</p>
+						<h6>Mac</h6>
+						<ul>
+							<li>Be sure to install Mongodb through Homebrew, or it won't work.</li>
+							<li>In the first window, type: <code>brew services start mongodb-community@6.0</code></li>
+							<ul>
+								<li>Try not to interfere with anything on this window since if you close it, you will terminate the MongoDB application.</li>
+							</ul>
+							<li>In the second window, type: <code>mongosh</code>. This starts a prompt for you to interact with the MongoDB instance.</li>
+						</ul>
+
+						<h6>Windows</h6>
+						<ul>
+							<li>If you have followed all the instructions to use environment variables to run the instance, then type: <code>mongod</code></li>
+							<li>Otherwise, type: <code>"C:\Program Files\MongoDB\Server\6.0\bin\mongod.exe" --dbpath="c:\data\db"</code></li>
+							<ul>
+								<li>Try not to interfere with anything on this window since if you close it, you will terminate the MongoDB application.</li>
+							</ul>
+							<li>In the second window, type: <code>mongosh.exe</code> to start the client to interact with the server.</li>
+						</ul>
+
+						<h5>Exploring Queries</h5>
+
+						<p>Make sure you're in the Mongo shell before attempting.</p>
+						<p>To <strong>create/use a database</strong>, type: <code>use database_name</code></p>
+						<ul>
+							<li>Your shell prompt should show the database you're in.</li>
+							<li>Example, type: <code>use travel_db</code></li>
+						</ul>
+						<p>To <strong>show all databases in your system</strong>, type: <code>show dbs</code></p>
+						<ul>
+							<li>If your database you've just created has no data, it will not show its name.</li>
+						</ul>
+						<p>To <strong>show collections in the database</strong>, type: <code>show collections</code></p>
+						<ul>
+							<li>Collections are similar to tables. You can have many collections within a database.</li>
+							<li>To insert a document into a collection, type: <code>db.collectionName.insert({key:value})</code></li>
+							<li>Example, type: <code>db.destinations.insert({"continent":"Africa", "country":"Morocco", "major_cities":["Casablanca", "Fez", "Marrakech"]})</code></li>
+							<li>Go to <code>https://jsonlint.com/</code>, and copy-paste the JSON object for pretty-printing: 
+<pre><code>{
+	"continent": "Africa",
+	"country": "Morocco",
+	"major_cities": ["Casablanca", "Fez", "Marrakech"]
+}</code></pre></li>
+						</ul>
+						<p>To <strong>print out some data</strong>, type: <code>db.collectionName.find().pretty()</code> where <code>collectionName</code> is the name of your collection/table.</p>
+						<ul>
+							<li>Example, after you've created <code>travel_db</code> as your database, <code>destinations</code> as your collection, and inserted a record above, type: <code>db.destinations.find().pretty()</code></li>
+							<li>It will output in order that was stored.</li>
+							<li><code>.pretty()</code> makes the output more human-friendly. You can try without that method.</li>
+						</ul>
+
+						<p>To find specific documents based on their attributes, type: <code>db.collectionName.find({key:value})</code></p>
+						<ul>
+							<li>Example, after you've done the above steps, type: <code>db.destinations.find({"continent":"Africa"})</code></li>
+						</ul>
+						<p>Within the document, the primary key is generated by MongoDB for you: <code>_id</code></p>
+						<ul>
+							<li>You can specify primary keys when creating a document.</li>
+						</ul>
 				
-					</div> <!-- .end #01-Stu_Automated_Web_Scrape-->
+					</div> <!-- .end #01-Ins_MongoBasics-->
 
 
-					<div id="02-Ins_Scrape_Multiple_Pages" class="instructor-block">
-						<h3>Scrape Multiple Pages </h3>
+					<div id="02-Stu_MongoClass" class="instructor-block">
+						<h3>Students Do: Mongo Class</h3>
 						
-						<p>Let's open up the file(s) in the <code>02-Ins_Scrape_Multiple_Pages</code> folder to get started.</p>
+						<p>Let's open up the file(s) in the <code>02-Stu_MongoClass</code> folder to get started.</p>
 
-					</div> <!-- .end 02-Ins_Scrape_Multiple_Pages-->
+					</div> <!-- .end 02-Stu_MongoClass-->
 
-					<div id="03-Stu_Scrape_Book_Links" class="student-block">
-						<h3>Students Do: Scrape Book Links</h3>
+					<div id="03-Ins_CrudMongo" class="instructor-block">
+						<h3>Removing, Updating, and Dropping in MongoDB</h3>
 						
-						<p>Let's open up the file(s) in the <code>03-Stu_Scrape_Book_Links</code> folder to get started.</p>
+						<p>Let's open up the file(s) in the <code>03-Ins_CrudMongo</code> folder to get started.</p>
 
-					</div> <!-- .end 03-Stu_Scrape_Book_Links-->
+					</div> <!-- .end 03-Ins_CrudMongo-->
+
+					<div id="04-Stu_GardenDB" class="student-block">
+						<h3>Students Do: GardenDB</h3>
+						
+						<p>Let's open up the file(s) in the <code>04-Stu_GardenDB</code> folder to get started.</p>
+
+					</div> <!-- .end 04-Stu_GardenDB-->
 
 					<div id="break" class="instructor-block">
 						<h3>Break - 15 mins @ 8:05pm</h3>
 					</div> <!-- break -->
 
-					<div id="04-Stu_News" class="student-block">
-						<h3>Students Do: News Headers</h3>
-						<p>Let's open up the file in the <code>04-Stu_News</code> folder to get started.</p>
+					<div id="05-Ins_ImportData" class="instructor-block">
+						<h3>Importing Data, Accessing Nested Data, and Modifying Data Types</h3>
+						<p>Let's open up the file in the <code>05-Ins_ImportData</code> folder to get started.</p>
 
-					</div> <!-- #04-Stu_News end -->
+					</div> <!-- #05-Ins_ImportData end -->
 
-					<div id="05-Stu_Mars_Facts_Scrape" class="student-block">
-						<h3>Students Do: Mars Fact Scrape</h3>
-						<p>Let's open up the file in the <code>05-Stu_Mars_Facts_Scrape</code> folder to get started.</p>
-
-					</div> <!--  05-Stu_Mars_Facts_Scrape end -->
-
-					<div id="06-Ins_Scrape_Pandas_Table" class="student-block">
-						<h3>Scrape a Table with Pandas</h3>
-						<p>Let's open up the file(s) in the <code>06-Ins_Scrape_Pandas_Table</code> folder to get started.</p>
+					<div id="06-Stu_ImportUpdateExplore" class="student-block">
+						<h3>Students Do: Import, Update, and Explore</h3>
+						<p>Let's open up the file(s) in the <code>06-Stu_ImportUpdateExplore</code> folder to get started.</p>
 						
-					</div> <!-- 06-Ins_Scrape_Pandas_Table end -->
+					</div> <!-- 06-Stu_ImportUpdateExplore end -->
+
+
+					<div id="mongo-compass" class="instructor-block">
+						<h3>Mongo Compass</h3>
+						<p>Download the app for your machine at <code>https://www.mongodb.com/products/compass</code></p>
+						<ul>
+							<li>I use the <strong>Community Edition</strong>, because MongoDB can be a paid product.</li>
+							<li>You need the <strong>mongod</strong> daemon to run. This means, everytime you want to start a session, go to your terminal/bash and type: <code>mongod</code> first. Leave that window open.</li>
+							<li>The default settings should allow you to connect the MongoDB Compass to your local machine. Connect at will.</li>
+						</ul>
+
+						
+
+						
+					</div> <!-- mongo-compass end -->
+
+					<div id="compass-playground" class="student-block">
+						<h3>Student Do: Compass Playground</h3>
+
+						<p>We're exploring how we can use Mongo Compass to explore our data within the MongoDB instance.</p>
+					</div>
 
 					
 
