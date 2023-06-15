@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Jonathan Moo's Github Bio</title>
+
+
+		<link rel='stylesheet' id='bootstrap-css'  href='../../css/bootstrap.min.css' type='text/css' media='all' />
+		<link rel='stylesheet' id='bootstrap-grid-css'  href='../../css/bootstrap-grid.min.css' type='text/css' media='all' />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+   integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+   crossorigin=""/>
+		<link rel='stylesheet' id='custom-css'  href='../../css/style.css' type='text/css' media='all' /> 
+		<script src="https://d3js.org/d3.v5.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.9.1/d3-tip.js"></script>
+		<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+     <!-- Make sure you put this AFTER Leaflet's CSS -->
+     <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+       integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+       crossorigin=""></script>
+	</head>
+
+	<body>
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<a class="navbar-brand" href="#">Jonathan's Github Page</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active">
+						<a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Lessons</a>
+						<div class="dropdown-menu">
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/1.1/index.html">1.1 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/1.2/index.html">1.2 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/1.3/index.html">1.3 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/2.1/index.html">2.1 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/2.2/index.html">2.2 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/2.3/index.html">2.3 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/3.1/index.html">3.1 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/3.2/index.html">3.2 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/3.3/index.html">3.3 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/4.1/index.html">4.1 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/4.2/index.html">4.2 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/4.3/index.html">4.3 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/5.1/index.html">5.1 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/5.2/index.html">5.2 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/5.3/index.html">5.3 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/6.1/index.html">6.1 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/6.2/index.html">6.2 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/6.3/index.html">6.3 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/7.1/index.html">7.1 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/7.2/index.html">7.2 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/7.3/index.html">7.3 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/8.1/index.html">8.1 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/9.1/index.html">9.1 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/9.2/index.html">9.2 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/9.3/index.html">9.3 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/10.1/index.html">10.1 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/10.2/index.html">10.2 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/10.3/index.html">10.3 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/11.1/index.html">11.1 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/11.2/index.html">11.2 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/11.3/index.html">11.3 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/12.1/index.html">12.1 Ref</a>
+						</div>
+					</li-->
+				</ul>
+			</div>
+		</nav>
+		<div class="container-fluid">
+			<div class="row">
+				<div id="main-content" class="col-md-8">
+					<div class="objective-block">
+						<h3 id="objectives">Objectives For Today</h3>
+
+						<ul>
+							<li>Introduction to NoSQL and MongoDB</li>
+						</ul>
+
+					</div>
+
+					<div class="question-block">
+						<div class="alert alert-danger" role="alert">Note To Jonathan: Please don't forget your slides!</div>
+						<h3 id="question-1">Lesson 12.1</h3>
+
+						<h4>What is a NoSQL database?</h4>
+						<p>Some misnomers:</p>
+						<ul>
+							<li>NoSQL doesn't mean the opposite of SQL.</li>
+							<li>NoSQL doesn't mean we protest against SQL.</li>
+						</ul>
+
+						<h5>Answer:</h5>
+						<p id="question-1-answer" class="answers">NoSQL stands for "Not-Only Sequel".
+							It's a non-relational database where data is stored as objects or documents, and not records or rows. Relational database has a fixed schema, but non-relational database's schema grows and shrinks dynamically.
+						</p>
+						<button type="button" class="btn btn-primary" onclick='$("#question-1-answer").toggle();'>Show/Hide Answer</button>
+					</div>
+
+					<div id="intro" class="instructor-block">
+						<h3>Introduction to NoSQL and MongoDB</h3>
+						
+						<p>NoSQL databases are key to ingesting unstructured data. In many cases, RESTful APIs provide unstructured data, and hence we need a way to store and analyze such data.</p>
+
+						<h5>What does unstructured data mean?</h5>
+						<ul>
+							<li>In layman terms, the columns/variables are dynamic in nature.</li>
+							<ul>
+								<li>For example, you could potentially query a collection (table in relational database) today and expect a slightly different data point tomorrow.</li>
+								<li>Because it has no restrictions outside of a primary and/or a sorting key, it is very easy to ingest such data via a NoSQL database.</li>
+								<li>However, data cleaning and processing becomes much more difficult since it is not easy to fit the data into Pandas dataframe.</li>
+							</ul>
+						</ul>
+					</div>
+
+					<div id="01-Ins_MongoBasics" class="instructor-block">
+						<h3 id="basic-queries">Basic Mongo Queries</h3>
+						<p>Let's open up the file(s) in the <code>01-Ins_MongoBasics</code> folder to get started.</p>
+
+						<h5>How to run your MongoDB services within your local machine?</h5>
+						<p>In both setup, you will need 2 terminal/git-bash windows. One will act as a server, the other will be a client that interacts with that server.</p>
+						<h6>Mac</h6>
+						<ul>
+							<li>Be sure to install Mongodb through Homebrew, or it won't work.</li>
+							<li>In the first window, type: <code>brew services start mongodb-community@6.0</code></li>
+							<ul>
+								<li>Try not to interfere with anything on this window since if you close it, you will terminate the MongoDB application.</li>
+							</ul>
+							<li>In the second window, type: <code>mongosh</code>. This starts a prompt for you to interact with the MongoDB instance.</li>
+						</ul>
+
+						<h6>Windows</h6>
+						<ul>
+							<li>If you have followed all the instructions to use environment variables to run the instance, then type: <code>mongod</code></li>
+							<li>Otherwise, type: <code>"C:\Program Files\MongoDB\Server\6.0\bin\mongod.exe" --dbpath="c:\data\db"</code></li>
+							<ul>
+								<li>Try not to interfere with anything on this window since if you close it, you will terminate the MongoDB application.</li>
+							</ul>
+							<li>In the second window, type: <code>mongosh.exe</code> to start the client to interact with the server.</li>
+						</ul>
+
+						<h5>Exploring Queries</h5>
+
+						<p>Make sure you're in the Mongo shell before attempting.</p>
+						<p>To <strong>create/use a database</strong>, type: <code>use database_name</code></p>
+						<ul>
+							<li>Your shell prompt should show the database you're in.</li>
+							<li>Example, type: <code>use travel_db</code></li>
+						</ul>
+						<p>To <strong>show all databases in your system</strong>, type: <code>show dbs</code></p>
+						<ul>
+							<li>If your database you've just created has no data, it will not show its name.</li>
+						</ul>
+						<p>To <strong>show collections in the database</strong>, type: <code>show collections</code></p>
+						<ul>
+							<li>Collections are similar to tables. You can have many collections within a database.</li>
+							<li>To insert a document into a collection, type: <code>db.collectionName.insert({key:value})</code></li>
+							<li>Example, type: <code>db.destinations.insert({"continent":"Africa", "country":"Morocco", "major_cities":["Casablanca", "Fez", "Marrakech"]})</code></li>
+							<li>Go to <code>https://jsonlint.com/</code>, and copy-paste the JSON object for pretty-printing: 
+<pre><code>{
+	"continent": "Africa",
+	"country": "Morocco",
+	"major_cities": ["Casablanca", "Fez", "Marrakech"]
+}</code></pre></li>
+						</ul>
+						<p>To <strong>print out some data</strong>, type: <code>db.collectionName.find().pretty()</code> where <code>collectionName</code> is the name of your collection/table.</p>
+						<ul>
+							<li>Example, after you've created <code>travel_db</code> as your database, <code>destinations</code> as your collection, and inserted a record above, type: <code>db.destinations.find().pretty()</code></li>
+							<li>It will output in order that was stored.</li>
+							<li><code>.pretty()</code> makes the output more human-friendly. You can try without that method.</li>
+						</ul>
+
+						<p>To find specific documents based on their attributes, type: <code>db.collectionName.find({key:value})</code></p>
+						<ul>
+							<li>Example, after you've done the above steps, type: <code>db.destinations.find({"continent":"Africa"})</code></li>
+						</ul>
+						<p>Within the document, the primary key is generated by MongoDB for you: <code>_id</code></p>
+						<ul>
+							<li>You can specify primary keys when creating a document.</li>
+						</ul>
+				
+					</div> <!-- .end #01-Ins_MongoBasics-->
+
+
+					<div id="02-Stu_MongoClass" class="instructor-block">
+						<h3>Students Do: Mongo Class</h3>
+						
+						<p>Let's open up the file(s) in the <code>02-Stu_MongoClass</code> folder to get started.</p>
+
+					</div> <!-- .end 02-Stu_MongoClass-->
+
+					<div id="03-Ins_CrudMongo" class="instructor-block">
+						<h3>Removing, Updating, and Dropping in MongoDB</h3>
+						
+						<p>Let's open up the file(s) in the <code>03-Ins_CrudMongo</code> folder to get started.</p>
+
+					</div> <!-- .end 03-Ins_CrudMongo-->
+
+					<div id="04-Stu_GardenDB" class="student-block">
+						<h3>Students Do: GardenDB</h3>
+						
+						<p>Let's open up the file(s) in the <code>04-Stu_GardenDB</code> folder to get started.</p>
+
+					</div> <!-- .end 04-Stu_GardenDB-->
+
+					<div id="break" class="instructor-block">
+						<h3>Break - 15 mins @ 8:05pm</h3>
+					</div> <!-- break -->
+
+					<div id="05-Ins_ImportData" class="instructor-block">
+						<h3>Importing Data, Accessing Nested Data, and Modifying Data Types</h3>
+						<p>Let's open up the file in the <code>05-Ins_ImportData</code> folder to get started.</p>
+
+					</div> <!-- #05-Ins_ImportData end -->
+
+					<div id="06-Stu_ImportUpdateExplore" class="student-block">
+						<h3>Students Do: Import, Update, and Explore</h3>
+						<p>Let's open up the file(s) in the <code>06-Stu_ImportUpdateExplore</code> folder to get started.</p>
+						
+					</div> <!-- 06-Stu_ImportUpdateExplore end -->
+
+
+					<div id="mongo-compass" class="instructor-block">
+						<h3>Mongo Compass</h3>
+						<p>Download the app for your machine at <code>https://www.mongodb.com/products/compass</code></p>
+						<ul>
+							<li>I use the <strong>Community Edition</strong>, because MongoDB can be a paid product.</li>
+							<li>You need the <strong>mongod</strong> daemon to run. This means, everytime you want to start a session, go to your terminal/bash and type: <code>mongod</code> first. Leave that window open.</li>
+							<li>The default settings should allow you to connect the MongoDB Compass to your local machine. Connect at will.</li>
+						</ul>
+
+						
+
+						
+					</div> <!-- mongo-compass end -->
+
+					<div id="compass-playground" class="student-block">
+						<h3>Student Do: Compass Playground</h3>
+
+						<p>We're exploring how we can use Mongo Compass to explore our data within the MongoDB instance.</p>
+					</div>
+
+					
+
+				
+					
+
+					
+
+
+				</div> <!-- end #main-content -->
+
+
+				<!--div id="right-sb" class="col-md-4">
+					<div id="right-sb-nav" class="list-group" id="toc" role="tablist">
+					  <a class="list-group-item list-group-item-action active"  href="#objectives" role="tab">Objectives</a>
+
+					  <a class="list-group-item list-group-item-action"  href="#intro" role="tab">Snapshot Instructor Introduction</a>
+					  <a class="list-group-item list-group-item-action"  href="#01-intro-to-data" role="tab">Introduction To Data</a>
+						<a class="list-group-item list-group-item-action"  href="#02-course-overview" role="tab">Course Overview</a>
+						<a class="list-group-item list-group-item-action"  href="#03-past-learnings" role="tab">Past Learnings</a>
+						<a class="list-group-item list-group-item-action"  href="#04-before-break" role="tab">Before the Break</a>
+
+						<a class="list-group-item list-group-item-action"  href="#05-break" role="tab">Break</a>
+						<a class="list-group-item list-group-item-action"  href="#06-group-great-debate" role="tab">Group Activity: The Great Debate</a>
+						<a class="list-group-item list-group-item-action"  href="#07-group-gentrification" role="tab">Group Activity: Predicting Gentrification</a>
+						<a class="list-group-item list-group-item-action"  href="#08-homework-discussion" role="tab">Homework Discussion</a>
+
+					</div>
+				
+				</div-->
+			</div> <!-- end .row -->
+			
+		</div> <!-- end .container-fluid -->
+
+		<footer>
+			<script type="text/javascript" src="../../js/jquery-3.3.1.min.js"></script>
+			<script type="text/javascript" src="../../js/bootstrap.min.js"></script>
+
+			<script type="text/javascript">
+
+			</script>
+
+      <script type="text/javascript" src="../../js/config.js"></script>
+      <style>
+pre {
+  background-color: black;
+  color: white;
+}
+
+div[id^="map-"]{
+  height:500px;
+}
+div[id$="-toggle"]{
+  display: none;
+}
+      </style>
+
+		</footer>
+
+	</body>
+
+
+</html>
