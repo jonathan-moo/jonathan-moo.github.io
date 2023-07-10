@@ -69,6 +69,7 @@
 							<a class="dropdown-item" href="ASU-VIRT-DATA-PT-03-2023-U-LOLC/12.2/index.html">12.2 Ref</a>
 							<a class="dropdown-item" href="ASU-VIRT-DATA-PT-03-2023-U-LOLC/12.3/index.html">12.3 Ref</a>
 							<a class="dropdown-item" href="ASU-VIRT-DATA-PT-03-2023-U-LOLC/13.2/index.html">13.2 Ref</a>
+							<a class="dropdown-item" href="ASU-VIRT-DATA-PT-03-2023-U-LOLC/14.2/index.html">14.2 Ref</a>
 						</div>
 					</li>
 				</ul>
@@ -81,96 +82,188 @@
 						<h3 id="objectives">Objectives For Today</h3>
 
 						<ul>
-							<li>Functional Programing for Data Processing</li>
+							<li>JavaScript with D3.js</li>
 						</ul>
 
 					</div>
 
-					<div id="01-Ins_Mapping" class="instructor-block">
-						<h3>Map Method & Arrow Functions</h3>
-						<p>Let's open up the file(s) in the <code>01-Ins_Mapping</code> folder to get started.</p>
+					<div id="why-we-learn" class="instructor-block">
+						<h3>Why We Learn?</h3>
+						
+						<p><a href="https://d3js.org/">D3 means "Data-Driven Documents".</a> It's <strong>not only</strong> plotting nice graphs and make awesome visualization. The main purpose of D3 is about manipulating DOM (Document Object Model).</p>
 
-						<p>Mapping is a technique where we use a callback function to add logic and process data.</p>
+						<h5>You might ask, what is DOM?</h5>
 
-						<h5>What is a callback function?</h5>
+						<p>You've been dealing HTML for some time, and DOM is simply represented by the tags which you've been using. We call the tags within a HTML as "DOM elements".</p>
 
-						<p>A callback function is a function that is passed into another function or procedure. The main idea is to:</p>
+						<p>The power to manipulate the tags or DOM elements <strong>without reloading the page</strong> is the reason why we can put awesome visualizations on the web.</p>
+
+
+					</div>
+
+					<div id="01-Ins_Intro_to_D3" class="instructor-block">
+						<h3>D3.json</h3>
+						<p>Let's open up the file(s) in the <code>01-Ins_Intro_to_D3</code> folder to get started.</p>
+
+						<p>You're given this code:</p>
+
+						<pre>
+							<code>
+const url = "https://api.spacexdata.com/v2/launchpads";
+
+// Fetch the JSON data and console log it
+d3.json(url).then(function(data) {
+  console.log(data);
+});
+
+// Promise Pending
+const dataPromise = d3.json(url);
+console.log("Data Promise: ", dataPromise);
+							</code>
+						</pre>
+
+						<p>D3 allows you to retrieve data from API urls and parse it into variables automatically for you!</p>
+
+						<p>Then, we decide to confuse you with the <strong>Promise</strong> concept in Javascript, which is found here:</p>
+
+						<pre>
+							<code>
+// Promise Pending
+const dataPromise = d3.json(url);
+console.log("Data Promise: ", dataPromise);	
+							</code>
+						</pre>
+
+						<p>So, let me explain the idea of <strong>Promises</strong>.</p>
+
+						<p>In English, we promise something, but we are only giving the assurance that we will do it. <strong>WE HAVE NOT DELIVERED YET.</strong> <em>And thus, the make or break of many marriages. (joking).</em></p>
+
+						<p>In Javascript, there are many components within a page which calls different APIs and data. <strong>You may request data from an API, but that doesn't mean the data will deliver!</strong></p>
+
+						<p><em>Side note: this behavior is called asynchronous. Synchronous is what you're used to, when code will break if a certain portion has errors. Async code WILL NOT BREAK and continue with the errors <strong>because different portions of code are independant of each other</strong>.</em></p>
+
+						<p>So some guy named this concept as <strong>Promise</strong>, and say if the data DOES DELIVER, we receive the data within a <strong>callback function</strong>. If the data DOES NOT DELIVER, we trigger an error <strong>within the same callback function</strong>.</p>
+
+						<p>There is a <strong>Promise</strong> object within the browser. <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">It has three states:</a></p>
 						<ul>
-							<li>Re-use code via callback function to reduce unnecessary repetition.</li>
-							<li>This is liken to what we learned in algebra: <code>f(g(x))</code></li>
+							<li>Pending <em>(The start of marriages)</em></li>
+							<li>Fulfilled <em>(Disneyland kind of marriages)</em></li>
+							<li>Rejected <em>(You realized you're not in Disneyland.)</em></li>
 						</ul>
 
-						<p>However, callback functions can become very complex if we don't manage it well.</p>
+						<h4>BUT, let's not go there yet. Unless you want to stay here till midnight.</h4>
 
-						<p>In our use case for data visualizations, we are using mapping to process the data for visualizations and we shouldn't be doing anything more complex than this.</p>
+						<pre>
+							<code>
+// Promise Pending
+const dataPromise = d3.json(url);
+console.log("Data Promise: ", dataPromise);	
+							</code>
+						</pre>
 
-
+						<p>The promise here holds the response which is either one of the 3 states above, and/or the data if available.</p>
 				
-					</div> <!-- .end #01-Ins_Mapping-->
+					</div> <!-- .end #01-Ins_Intro_to_D3-->
 
 
-					<div id="02-Stu_Mapping" class="student-block">
-						<h3>Students Do: Mapping</h3>
+					<div id="02-Stu_D3_json" class="student-block">
+						<h3>Students Do: D3.json</h3>
 						
-						<p>Let's open up the file(s) in the <code>02-Stu_Mapping</code> folder to get started.</p>
+						<p>Let's open up the file(s) in the <code>02-Stu_D3_json</code> folder to get started.</p>
 
-					</div> <!-- .end 02-Stu_Mapping-->
+					</div> <!-- .end 02-Stu_D3_json-->
 
-					<div id="03_Stu_Greek_Mapping" class="student-block">
-						<h3>Students Do: Mapping with Plotly</h3>
+					<div id="03-Ins_D3_Select" class="instructor-block">
+						<h3>D3 Select & Append</h3>
 						
-						<p>Let's open up the file(s) in the <code>03_Stu_Greek_Mapping</code> folder to get started.</p>
+						<p>Let's open up the file(s) in the <code>03-Ins_D3_Select</code> folder to get started.</p>
 
 
-					</div> <!-- .end 03_Stu_Greek_Mapping-->
+					</div> <!-- .end 03-Ins_D3_Select-->
 
-					<div id="04-Ins_Filtering" class="instructor-block">
-						<h3>Filter Method</h3>
+					<div id="04-Evr_D3_Select" class="instructor-block">
+						<h3>D3 Select</h3>
 						
-						<p>Let's open up the file(s) in the <code>04-Ins_Filtering</code> folder to get started.</p>
+						<p>Let's open up the file(s) in the <code>04-Evr_D3_Select</code> folder to get started.</p>
 
-					</div> <!-- .end 04-Ins_Filtering-->
+					</div> <!-- .end 04-Evr_D3_Select-->
 
 					
 
-					<div id="05-Stu_Filtering" class="student-block">
-						<h3>Students Do: Filtering</h3>
-						<p>Let's open up the file in the <code>05-Stu_Filtering</code> folder to get started.</p>
+					<div id="05-Ins_Event_Listeners" class="student-block">
+						<h3>D3 Event Listeners</h3>
+						<p>Let's open up the file in the <code>05-Ins_Event_Listeners</code> folder to get started.</p>
 
-					</div> <!-- #05-Stu_Filtering end -->
+						<p>Event listeners not only help to add interactivity to a webpage, but it is used also for tracking human behavior on a page.</p>
+
+						<p>You can see a wide variety of event types here: <a href="https://developer.mozilla.org/en-US/docs/Web/Events">https://developer.mozilla.org/en-US/docs/Web/Events</a></p>
+
+						<p>Some of the more common event types:</p>
+						<ul>
+							<li>click</li>
+							<li>change</li>
+							<li>keydown</li>
+							<li>keyup</li>
+							<li>scroll</li>
+							<li>pointerenter</li>
+							<li>pointerleave</li>
+						</ul>
+					</div> <!-- #05-Ins_Event_Listeners end -->
 
 					
 
-					<div id="06-Stu_Popular_Roman_Gods" class="student-block">
-						<h3>Students Do: Filtering with Plotly</h3>
-						<p>Let's open up the file(s) in the <code>06-Stu_Popular_Roman_Gods</code> folder to get started.</p>
+					<div id="06-Stu_Button_Click" class="student-block">
+						<h3>Students Do: Button Clicks</h3>
+						<p>Let's open up the file(s) in the <code>06-Stu_Button_Click</code> folder to get started.</p>
 						
-					</div> <!-- 06-Stu_Popular_Roman_Gods end -->
+					</div> <!-- 06-Stu_Button_Click end -->
 
 					<div id="break" class="instructor-block">
 						<h3>Break - 15 mins @ 8:05pm</h3>
 					</div> <!-- break -->
 
-					<div id="07-Ins_Sort_and_Slice" class="instructor-block">
-						<h3>Sorting and Slicing Methods</h3>
-						<p>Let's open up the file(s) in the <code>07-Ins_Sort_and_Slice</code> folder to get started.</p>
+					<div id="07-Ins_This" class="instructor-block">
+						<h3>Introducing <code>this</code></h3>
+						<p>Let's open up the file(s) in the <code>07-Ins_This</code> folder to get started.</p>
+
+						<p>The <code>this</code> keyword is specifically used during object oriented programming. If <code>this</code> as a keyword is being reference, it is pointing to the object where it is being called.</p>
+						
+						<p>Here is some reference that can aid your study on this matter: <a href="https://pepa.holla.cz/wp-content/uploads/2016/08/You-Don-t-Know-JS-this-Object-Prototypes.pdf">https://pepa.holla.cz/wp-content/uploads/2016/08/You-Don-t-Know-JS-this-Object-Prototypes.pdf</a></p>
+					</div> <!-- 07-Ins_This end -->
+
+					<div id="08-Evr_This_Button" class="student-block">
+						<h3><code>this</code> Button Clicks</h3>
+						<p>Let's open up the file(s) in the <code>08-Evr_This_Button</code> folder to get started.</p>
 
 						
-					</div> <!-- 07-Ins_Sort_and_Slice end -->
+					</div> <!-- 08-Evr_This_Buttone end -->
 
-					<div id="08-Stu_Sort_and_Slice" class="student-block">
-						<h3>Students Do: Sorting and Slicing</h3>
-						<p>Let's open up the file(s) in the <code>08-Stu_Sort_and_Slice</code> folder to get started.</p>
+					<div id="09-Ins_Dropdown_Events" class="instructor-block">
+						<h3>Dropdown Events and Plotly</h3>
+						<p>Let's open up the file(s) in the <code>09-Ins_Dropdown_Events</code> folder to get started.</p>
+
+						<p>We are learning how to add additional interactivity on a page.</p>
+
+						<p>Example plot generates here:</p>
+						<div id="01-plot"></div>
+
+						<p>And this is our <code>select</code> dropdown:</p>
+
+							<select id="selDataset" onchange="getData(this.value)">
+							    <option value="dataset1">DataSet1</option>
+							    <option value="dataset2">DataSet2</option>
+							    <option value="dataset3">DataSet3</option>
+							  </select>
+						
+					</div> <!-- 09-Ins_Dropdown_Events end -->
+
+					<div id="10-Stu_Event_Final" class="student-block">
+						<h3>Students Do: Government Expenditure</h3>
+						<p>Let's open up the file(s) in the <code>10-Stu_Event_Final</code> folder to get started.</p>
 
 						
-					</div> <!-- 08-Stu_Sort_and_Slice end -->
-
-					<div id="09-Stu_Top_Ten_Greek_Gods" class="student-block">
-						<h3>Students Do: Sorting and Slicing with Plotly</h3>
-						<p>Let's open up the file(s) in the <code>09-Stu_Top_Ten_Greek_Gods</code> folder to get started.</p>
-
 						
-					</div> <!-- 09-Stu_Top_Ten_Greek_Gods end -->
+					</div> <!-- 10-Stu_Event_Final end -->
 
 				
 					
@@ -208,7 +301,58 @@
 			<script type="text/javascript" src="js/bootstrap.min.js"></script>
 
 			<script type="text/javascript">
+// 01
+function printData(value){
+	console.log(value);
+}
 
+function init() {
+  data = [{
+    x: [1, 2, 3, 4, 5],
+    y: [1, 2, 4, 8, 16] }];
+  var LINE = document.getElementById("01-plot");
+  console.log(LINE);
+  Plotly.plot(LINE, data);
+}
+
+function updatePlotly(newx, newy) {
+  var LINE = document.getElementById("01-plot");
+
+  // Note the extra brackets around 'newx' and 'newy'
+  Plotly.restyle(LINE, "x", [newx]);
+  Plotly.restyle(LINE, "y", [newy]);
+}
+
+function getData(dataset) {
+
+  // Initialize empty arrays to contain our axes
+  var x = [];
+  var y = [];
+
+  // Fill the x and y arrays as a function of the selected dataset
+  switch (dataset) {
+  case "dataset1":
+    x = [1, 2, 3, 4, 5];
+    y = [0.1, 0.2, 0.3, 0.4, 0.5];
+    break;
+  case "dataset2":
+    x = [10, 20, 30, 40, 50];
+    y = [1, 10, 100, 1000, 10000];
+    break;
+  case "dataset3":
+    x = [100, 200, 300, 400, 500];
+    y = [10, 100, 50, 10, 0];
+    break;
+  default:
+    x = [1, 2, 3, 4, 5];
+    y = [1, 2, 3, 4, 5];
+    break;
+  }
+
+  updatePlotly(x, y);
+}
+
+init();
 			</script>
 
       <script type="text/javascript" src="js/config.js"></script>
