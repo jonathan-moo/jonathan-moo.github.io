@@ -71,6 +71,7 @@
 							<a class="dropdown-item" href="ASU-VIRT-DATA-PT-03-2023-U-LOLC/13.2/index.html">13.2 Ref</a>
 							<a class="dropdown-item" href="ASU-VIRT-DATA-PT-03-2023-U-LOLC/14.2/index.html">14.2 Ref</a>
 							<a class="dropdown-item" href="ASU-VIRT-DATA-PT-03-2023-U-LOLC/14.3/index.html">14.3 Ref</a>
+							<a class="dropdown-item" href="ASU-VIRT-DATA-PT-03-2023-U-LOLC/15.1/index.html">15.1 Ref</a>
 						</div>
 					</li>
 				</ul>
@@ -83,7 +84,7 @@
 						<h3 id="objectives">Objectives For Today</h3>
 
 						<ul>
-							<li>Data Visualization With Leaflet</li>
+							<li>GeoJSON and Leaflet Plugins</li>
 						</ul>
 
 					</div>
@@ -100,94 +101,61 @@
             <p>We'll be using <strong>Leaflet.js</strong>, and you should take a look at the docs to find out more: <a href="https://leafletjs.com/">https://leafletjs.com/</a></p>
 					</div>
 
-					<div id="01-Ins_Basic_Map" class="instructor-block">
-						<h3>Introduce Leaflet and Create Our First Map</h3>
-						<p>Let's open up the file(s) in the <code>01-Ins_Basic_Map</code> folder to get started.</p>
+					<div id="01-Evr_BasicNYCBoroughs" class="instructor-block">
+						<h3>Map the New York City (NYC) Neighborhoods</h3>
+						<p>Let's open up the file(s) in the <code>01-Evr_BasicNYCBoroughs</code> folder to get started.</p>
 
-						<p>Leaflet quick-start guide: <a href="https://leafletjs.com/examples/quick-start/">https://leafletjs.com/examples/quick-start/</a></p>
+						<p>In this activity, we will combine our knowledge from D3.js, and apply it into our map here.</p>
 
-					</div> <!-- .end #01-Ins_Basic_Map-->
+						<p>From <code>logic.js</code> to <code>logic4.js</code>, you will see how the code evolves so that you can observe how we can shape our map step by step.</p>
+
+					</div> <!-- .end #01-Evr_BasicNYCBoroughs-->
 
 
-					<div id="02-Ins_Markers" class="instructor-block">
-						<h3>Add Markers to the Map</h3>
+					<div id="02-Evr_HydrantsHeatmap" class="instructor-block">
+						<h3>Create a Heat Map of Water Hydrants in Western Australia</h3>
 						
-						<p>Let's open up the file(s) in the <code>02-Ins_Markers</code> folder to get started.</p>
+						<p>Let's open up the file(s) in the <code>02-Evr_HydrantsHeatmap</code> folder to get started.</p>
+						<p>Available Leaflet plugins ref: <a href="https://leafletjs.com/plugins.html">https://leafletjs.com/plugins.html</a></p>
+						<p>GeoJSON link for download: <a href="https://2u-data-curriculum-team.s3.amazonaws.com/dataviz-classroom/v1.1/15-Mapping-Web/Water_Hydrant_WCORP_070_WA_GDA2020_Public.geojson">https://2u-data-curriculum-team.s3.amazonaws.com/dataviz-classroom/v1.1/15-Mapping-Web/Water_Hydrant_WCORP_070_WA_GDA2020_Public.geojson</a></p>
+						<p>GeoJSON source: <a href="https://catalogue.data.wa.gov.au/dataset/water-hydrant">https://catalogue.data.wa.gov.au/dataset/water-hydrant</a></p>
+					</div> <!-- .end 02-Evr_HydrantsHeatmap-->
 
-						<p>Leaflet marker ref: <a href="https://leafletjs.com/reference.html#marker-option">https://leafletjs.com/reference.html#marker-option</a></p>
-					</div> <!-- .end 02-Ins_Markers-->
-
-					<div id="03-Stu_City_Markers" class="student-block">
-						<h3>Students Do: Complete a Quick Labeling Exercise</h3>
+					<div id="03-Stu_MarkerClusters" class="student-block">
+						<h3> Students Do: Map Rodent Clusters</h3>
 						
-						<p>Let's open up the file(s) in the <code>03-Stu_City_Markers</code> folder to get started.</p>
+						<p>Let's open up the file(s) in the <code>03-Stu_MarkerClusters</code> folder to get started.</p>
 
 
-					</div> <!-- .end 03-Stu_City_Markers-->
-
-					<div id="04-Ins_Other_Markers" class="instructor-block">
-						<h3>Add Other Types of Markers </h3>
-						
-						<p>Let's open up the file(s) in the <code>04-Ins_Other_Markers</code> folder to get started.</p>
-
-						<p>Leaflet API ref: <a href="https://leafletjs.com/reference.html">https://leafletjs.com/reference.html</a></p>
-						<ul>
-							<li>Circle: <a href="https://leafletjs.com/reference.html#circle">https://leafletjs.com/reference.html#circle</a></li>
-							<li>Polygon: <a href="https://leafletjs.com/reference.html#polygon">https://leafletjs.com/reference.html#polygon</a></li>
-							<li>Polyline: <a href="https://leafletjs.com/reference.html#polyline">https://leafletjs.com/reference.html#polyline</a></li>
-							<li>Rectangle: <a href="https://leafletjs.com/reference.html#rectangle">https://leafletjs.com/reference.html#rectangle</a></li>
-						</ul>
-					</div> <!-- .end 04-Ins_Other_Markers-->
-
-					
-
-					<div id="05-Stu_Other_Markers" class="student-block">
-						<h3>Students Do: Add Other Types of Markers</h3>
-						<p>Let's open up the file in the <code>05-Stu_Other_Markers</code> folder to get started.</p>
-
-
-					</div> <!-- #05-Stu_Other_Markers end -->
+					</div> <!-- .end 03-Stu_MarkerClusters-->
 
 					<div id="break" class="instructor-block">
 						<h3>Break - 15 mins @ 8:05pm</h3>
 					</div> <!-- break -->
+
+					<div id="04-Par_SchoolDistrictChoropleth" class="instructor-block">
+						<h3>Students Do: Create a Choropleth Map</h3>
+						
+						<p>Let's open up the file(s) in the <code>04-Par_SchoolDistrictChoropleth</code> folder to get started.</p>
+
+
+					</div> <!-- .end 04-Ins_Other_Markers-->
+
 					
 
-					<div id="06-Ins_City_Population" class="instructor-block">
-						<h3>Visualize City Populations</h3>
-						<p>Let's open up the file(s) in the <code>06-Ins_City_Population</code> folder to get started.</p>
-						
-					</div> <!-- 06-Ins_City_Population end -->
+					<div id="05-Group_Map" class="student-block">
+						<h3>Groups Do: Create a Map of Your Own</h3>
+
+						<p>Activity is found in the powerpoint slides.</p>
+						<p>We will be doing a mini presentation at the end of class.</p>
+
+
+					</div> <!-- #05-Group_Map end -->
 
 					
+					
 
-					<div id="07-Stu_Country_GDP" class="student-block">
-						<h3>Students Do: Visualize World GDP Per Capita</h3>
-						<p>Let's open up the file(s) in the <code>07-Stu_Country_GDP</code> folder to get started.</p>
-
-					</div> <!-- 07-Stu_Country_GDP end -->
-
-					<div id="08-Ins_Layers" class="instructor-block">
-						<h3>Demonstrate Layer Groups and Layer Controls</h3>
-						<p>Let's open up the file(s) in the <code>08-Ins_Layers</code> folder to get started.</p>
-
-						<p>Layer Groups and Layers Control ref: <a href="https://leafletjs.com/examples/layers-control/">https://leafletjs.com/examples/layers-control/</a></p>
-						
-					</div> <!-- 08-Ins_Layers end -->
-
-					<div id="09-Stu_City_Population_Layers" class="student-block">
-						<h3>Students Do: Perform a Layer Activity</h3>
-						<p>Let's open up the file(s) in the <code>09-Stu_City_Population_Layers</code> folder to get started.</p>
-						
-					</div> <!-- 09-Stu_City_Population_Layers end -->
-
-					<div id="10-Stu_GeoJson" class="student-block">
-						<h3>Students Do: Perform a GeoJSON Activity</h3>
-						<p>Let's open up the file(s) in the <code>10-Stu_GeoJson</code> folder to get started.</p>
-
-						<p>Sample GeoJSON data: <a href="https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_hour.geojson">https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_hour.geojson</a></p>
-						<p>Leaflet GeoJSON ref: <a href="https://leafletjs.com/examples/geojson/">https://leafletjs.com/examples/geojson/</a></p>
-					</div> <!-- 10-Stu_GeoJson end -->
+					
 
 				
 					
@@ -225,58 +193,7 @@
 			<script type="text/javascript" src="js/bootstrap.min.js"></script>
 
 			<script type="text/javascript">
-// 01
-function printData(value){
-	console.log(value);
-}
 
-function init() {
-  data = [{
-    x: [1, 2, 3, 4, 5],
-    y: [1, 2, 4, 8, 16] }];
-  var LINE = document.getElementById("01-plot");
-  console.log(LINE);
-  Plotly.plot(LINE, data);
-}
-
-function updatePlotly(newx, newy) {
-  var LINE = document.getElementById("01-plot");
-
-  // Note the extra brackets around 'newx' and 'newy'
-  Plotly.restyle(LINE, "x", [newx]);
-  Plotly.restyle(LINE, "y", [newy]);
-}
-
-function getData(dataset) {
-
-  // Initialize empty arrays to contain our axes
-  var x = [];
-  var y = [];
-
-  // Fill the x and y arrays as a function of the selected dataset
-  switch (dataset) {
-  case "dataset1":
-    x = [1, 2, 3, 4, 5];
-    y = [0.1, 0.2, 0.3, 0.4, 0.5];
-    break;
-  case "dataset2":
-    x = [10, 20, 30, 40, 50];
-    y = [1, 10, 100, 1000, 10000];
-    break;
-  case "dataset3":
-    x = [100, 200, 300, 400, 500];
-    y = [10, 100, 50, 10, 0];
-    break;
-  default:
-    x = [1, 2, 3, 4, 5];
-    y = [1, 2, 3, 4, 5];
-    break;
-  }
-
-  updatePlotly(x, y);
-}
-
-init();
 			</script>
 
       <script type="text/javascript" src="js/config.js"></script>
