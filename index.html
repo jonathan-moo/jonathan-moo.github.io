@@ -99,6 +99,10 @@
 						<p>In layman terms, a website should only serve data from its own domain and not from other sources. That's because there are man-in-the-middle hacks where inappropriate data can be inserted to cause harm.</p>
 
 						<p>Thus, to serve data on a page from other sources or domains, we need to explicitly enable the setting and whitelist the source. Otherwise, hacking can be an issue.</p>
+
+						<p>To give an example of this behavior, open up the <code>index.html</code> file in the <code>01-Ins_Python_HTTP_Server/Solved/remote-example/index.html</code>. You will find the CORS error within the debugging tool.</p>
+
+						<p>However, if you run a proxy HTTP server through python by running, <code>python -m http.server</code> in the Gitbash/Terminal within the same folder, you will find the error doesn't occur.</p>
 					</div> <!-- .end #01-Ins_Python_HTTP_Server-->
 
 
