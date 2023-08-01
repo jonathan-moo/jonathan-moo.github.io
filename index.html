@@ -76,6 +76,7 @@
 							<a class="dropdown-item" href="ASU-VIRT-DATA-PT-03-2023-U-LOLC/15.3/index.html">15.3 Ref</a>
 							<a class="dropdown-item" href="ASU-VIRT-DATA-PT-03-2023-U-LOLC/16.1/index.html">16.1 Ref</a>
 							<a class="dropdown-item" href="ASU-VIRT-DATA-PT-03-2023-U-LOLC/16.2/index.html">16.2 Ref</a>
+							<a class="dropdown-item" href="ASU-VIRT-DATA-PT-03-2023-U-LOLC/16.3/index.html">16.3 Ref</a>
 						</div>
 					</li>
 				</ul>
@@ -88,44 +89,319 @@
 						<h3 id="objectives">Objectives For Today</h3>
 
 						<ul>
-							<li>Data Regulations</li>
+							<li>Tableau</li>
 						</ul>
 
 					</div>
 
+					<div id="why-learn" class="student-block">
+						<h3>Why Learn?</h3>
 
-					<div id="intro" class="instructor-block">
-						<h3>Data Ethics Week</h3>
-						<p>This is not the most exciting piece of knowledge you may want to know. However, all universities are duty-bound to teach data ethics.</p>
+						<p>Tableau is an enterprise visualization software. It takes most data sources and creates visualizations without the need for coding. Most business or data analyst would have some experience in this software.</p>
 
-						<p>And it is not as trivial as it seems. Data governance is a very important subject for all major corporations. 
-							We need to be able to give an account on:</p>
+						<p>In a nutshell, Tableau is very good with numbers. Financial reports and metrics may work well with Tableau. But for anything else, you'll need a custom dashboard.</p>
+
+						<p>Tableau assumes the data to be <strong>CLEAN</strong>. It is able to do filtering and stuff, but you'll have to make sure the source data is clean overall.</p>
+
+						<h5>Caveats on Tableau</h5>
+						<p>Many companies may not be able to afford Tableau, and even if they have licenses, it is not distributed freely to everyone within the organization.</p>
+
+						<p>That's why we learned how to build visualizations on Javascript as an alternative.</p>
+						
+						<p>Be aware that for Tableau public, your data is exposed publicly. It may not be wise to use Tableau Public for your work.</p>
+					</div>
+
+					<div id="tableau_installation" class="student-block">
+						<h3>Install Tableau</h3>
+						
+						<p>You'll have to exchange your email address for Tableau to download Tableau here: <a href="https://public.tableau.com/s/">https://public.tableau.com/s/</a></p>
+
+						<p>Install the Tableau Public version because it's free. We're not going into the enterprise version, but majority of the features will be included.</p>
+
+					</div>
+
+
+					<div id="01-Ins_LoadingData" class="instructor-block">
+						<h3>Loading and Exploring Data</h3>
+
+						<h4>Things to note:</h4>
 						<ul>
-							<li>What data we are collecting?</li>
-							<li>How are we using the data?</li>
+							<li>Visualizations are dynamic. There isn't only one day to do things, but we teach you one way so that you can experiment by yourselves.</li>
+							<li>Tableau can connect to data files (CSV, XLS, and JSON), servers (MySQL, MongoDB, and Google Cloud), and many types of sources.</li>
+							<li>You can do joins from different sources.</li>
+							<li>Open the Excel file in your activity.</li>
+							<ul>
+								<li><img src="img/tableau_load.gif" class="img-fluid"/></li>
+							</ul>
+							<li>Tableau <strong>does not allow its users to change the values contained within the cells of a dataset,</strong> but it is possible to create new columns based upon the values of other columns.</li>
+							<ul>
+								<li>Visualization systems shouldn't allow the anyone to change the original data that easily. It's to protect the raw dataset.</li>
+							</ul>
+							<li>Filtering data can be done on the "Add" button on the top-right of Tableau.</li>
+							<ul>
+								<li><img src="img/tableau-filter-01.png" class="img-fluid"></li>
+							</ul>
+							<li>You can filter anything you want according to the values you desire. The dates in "Order Date" is most interesting:</li>
+							<ul>
+								<li><img src="img/tableau-filter-02.png" /></li>
+							</ul>
 						</ul>
-						<p>Because a lawsuit could mean millions of dollars. Often, a outsourced auditing company may go through the data processes within the organization you're working for, and you will need to be able to account to them as needed.</p>
 
-						<p>Also, data governance jobs is a six-figure job: <a href="https://www.talent.com/salary?job=data+governance">https://www.talent.com/salary?job=data+governance</a></p>
-					</div> <!-- .end #01-Ins_Python_HTTP_Server-->
+					</div> <!-- end #01-Ins_LoadingData -->
 
+					<div id="02-Ins_BasicVisuals" class="instructor-block">
+						<h3>Building Basic Visuals</h3>
 
-					<div id="01-Stu-RegulationDeepDive" class="student-block">
-						<h3>Students Do: Regulation Deep Dive</h3>
+						<p>We're building basic visuals for Tableau.</p>
+
+						<h4>Things to note:</h4>
+						<ul>
+							<li>What we're doing here is similar to pivot tables in Excel:</li>
+							<ul>
+								<li><strong>Dimensions</strong> are categorical fields that data can be split up by.</li>
+								<li><strong>Measures</strong> are metrics or numbers that uses would like to analyze.</li>
+							</ul>
+							<li>To get started:</li>
+							<ul>
+								<li>Drag the <strong>Category</strong> pill from the <strong>Dimensions</strong> panel into <strong>Rows</strong>. It's on the left side panel, or on the top bar beneath <strong>Columns</strong>.</li>
+								<li>Drag <strong>Segment</strong> into <strong>Rows</strong>.</li>
+								<ul>
+									<li>These are column headers in the Excel file.</li>
+									<li>It should look like this: <img src="img/tableau-visuals-01.png" class="img-fluid" /></li>
+								</ul>
+								<li>Drag the <strong>Quantity</strong> from the <strong>Measurements</strong> panel, and you should see this:</li>
+								<ul>
+									<li><img src="img/tableau-visuals-02.png" class="img-fluid" /></li>
+									<li>Tableau automatically aggregated the <strong>Quantity</strong> into a sum.</li>
+								</ul>
+								<li>By adding <strong>Market</strong> into <strong>Columns</strong>, we can group by each geographic market for quantity.</li>
+								<ul>
+									<li><img src="img/tableau-visuals-03.png" class="img-fluid" /></li>
+								</ul>
+							</ul>
+						</ul>
+
+						<p>Dragging and dropping is easy. Question: If anybody can do that, what's the difference between a good business analyst and a novice business analyst?</p>
+
+						<h4>Let's try something else:</h4>
+						<ul>
+							<li>Create a new worksheet. It is found at the bottom left corner of the interface.</li>
+							<li>Drag <strong>Sales</strong> into <strong>Rows</strong>. You should get something like this:</li>
+							<ul>
+								<li><img src="img/tableau-visuals-04.png" class="img-fluid" /></li>
+								<li>This is total sum by default, because Tableau sums everything for you.</li>
+								<li>If you want something else, click on the pill and a menu will show like this:</li>
+								<ul>
+									<li><img src="img/tableau-visuals-05.png" class="img-fluid" /></li>
+								</ul>
+								<li>Drag <strong>Order Date</strong> into <strong>Columns</strong> to create a basic line chart. You should see this:</li>
+								<ul>
+									<li><img src="img/tableau-visuals-06.png" class="img-fluid" /></li>
+									<li>Tableau filters by year for you. Depending on the source data's availability, you could split the data by quarters, months, weeks, or even days by clicking on the pill and changing the attributes, or just click the plus symbol:</li>
+									<ul>
+										<li><img src="img/tableau-visuals-07.png" class="img-fluid" /></li>
+									</ul>
+								</ul>
+								<li>To compare <strong>Quarters</strong> for each year, simple move the <strong>QUARTER</strong> pill before year:</li>
+								<ul>
+									<li><img src="img/tableau-visuals-08.png" class="img-fluid" /></li>
+								</ul>
+							</ul>
+						</ul>
 						
-						<p>Let's open up the file(s) in the <code>01-Stu-RegulationDeepDive</code> folder to get started.</p>
+					</div> <!-- end #02-Ins_BasicVisuals -->
 
-						<h5>Data Regulation</h5>
-						<p>We don't have to know every regulation under the sun to be effective. Typically, we focus on the regulations that affect our industry where we are working in.</p>
+					<div id="03-Stu_Exploration" class="student-block">
+						<h3>Students Do: Explore Data</h3>
 
-						<p>I'm familiar with General Data Protection Regulation (GDPR) and Family Educational Rights and Privacy Act (FERPA), but not the rest since I don't work much in the other sectors.</p>
 						
-					</div> <!-- .end 01-Stu-RegulationDeepDive-->
+					</div> <!-- end #03-Stu_Exploration -->
 
+					<div id="04-Stu_NoShow_Visualization" class="student-block">
+						<h3>Students Do: No-Show Tableau Visualization</h3>
+
+						<p>This time, you will be doing visualizations on the <code>no_shows.csv</code> file.</p>
+
+						<div id="04-toggle">
+							<h5>Line Chart which compares ages to the total number of appointments.</h5>
+							<ul>
+								<li>Drag <strong>Age</strong> in <strong>Columns</strong> and <strong>Number Of Records</strong> into <strong>Rows</strong>.</li>
+								<li>Switch <strong>Age</strong> into a dimension by clicking on the pill and selecting <strong>Dimension</strong>.</li>
+								<li>To split the results by gender, drag <strong>Gender</strong> into <strong>Rows</strong>.</li>
+								<li>To get no-show appointments, drag <strong>No-show</strong> to <strong>Columns</strong>.</li>
+							</ul>
+
+							<h5>No-shows By Neighborhood</h5>
+							<ul>
+								<li>Drag <strong>No-show</strong> and <strong>Number of Records</strong> to Columns, and <strong>Neighborhoods</strong> to <strong>Rows</strong>.</li>
+							</ul>
+
+							<h5>No-shows By Day of week</h5>
+							<ul>
+								<li>Drag <strong>Scheduled Day</strong> to <strong>Columns</strong> and <strong>Number of Records</strong> to <strong>Rows</strong>.</li>
+								<li>Select <strong>Weekday</strong> under the <strong>Scheduled Day</strong> pill.</li>
+								<li>To get a bar chart, select the <strong>Stacked Bar Chart</strong> option under <strong>Show Me</strong>.</li>
+								<li>Drag the <strong>No-show</strong> dimension under <strong>Marks</strong> on the left of the graph. The visuals will display accordingly.</li>
+							</ul>
+
+							<h5>No. of diabetics by gender and across age groups</h5>
+							<ul>
+								<li>Drag <strong>Diabetes</strong> and <strong>Age</strong> into <strong>Columns</strong> and <strong>Gender</strong> and <strong>Number of Records</strong> into <strong>Rows</strong>.</li>
+								<li>We don't want results from the people who doesn't have diabetes, so we need to filter <strong>Diabetes</strong> to 'Yes'.</li>
+							</ul>
+
+							<h5>No. of alcoholisms by gender and across age groups</h5>
+							<ul>
+								<li>Exact same steps for diabetic problems.</li>
+							</ul>
+						</div>
+
+						<button type="button" class="btn btn-primary" onclick='$("#04-toggle").toggle();'>Show/Hide Hints</button>
+					</div> <!-- end #04-Stu_NoShow_Visualization -->
+
+
+					<div id="05-Ins_EasyJoins" class="instructor-block">
+						<h3>05-Ins_EasyJoins</h3>
+
+						<p>We are doing joins again. The best part of it is that Tableau can open data from different sources and formats, and merge them into one single entity (provided the keys are the same).</p>
+
+						<h4>To do that:</h4>
+						<ul>
+							<li>Open up the Excel file one more time within Tableau and drag the <strong>Orders</strong> sheet into the main area.</li>
+							<li>Add <strong>People</strong> into the mix.</li>
+							<ul>
+								<li><img src="img/tableau-joins-01.png" class="img-fluid" /></li>
+							</ul>
+							<li>You can now use joins between two tables. Tableau automatically maps matching columns for you. You can change the columns as you see above.</li>
+							<li>It is also possible to create joins across data sources.</li>
+							<ul>
+								<li>Add another Excel file into the mix, and you will see the joins which you've seen before. This time, it will be <strong>Order ID</strong>.</li>
+							</ul>
+							<li>You can do custom split on a column for text. This is similar to Excel by clicking on the dropdown menu and choosing <strong>Custom Split</strong>.</li>
+							<ul>
+								<li><img src="img/tableau-split-01.png" class="img-fluid" /></li>
+							</ul>
+						</ul>
+					</div> <!-- end #05-Ins_EasyJoins -->
+
+					<div id="06-MLB-All-Star-Teams" class="student-block">
+						<h3>Students Do: Major League Baseball Analysis</h3>
+
+						
+					</div> <!-- end #06-MLB-All-Star-Teams -->
 					
+					<div id="break" class="instructor-block">
+						<h3>Break - 15 mins @ 8:05pm</h3>
+					</div> <!-- break -->
 
+					<div id="07-Stu_UltimateCandy" class="student-block">
+						<h3>07-Stu_UltimateCandy: Your Turn</h3>
+
+						<p>There are different styling tools for you to use within Tableau for graphs:</p>
+
+						<img src="img/tableau-styletool-01.png" class="img-fluid" />
+
+						<ul>
+							<li><strong>Color</strong>: Modifies the color of the elements. Self-explanatory.</li>
+							<li><strong>Size</strong>: Modifies the size of the elements. Self-explanatory.</li>
+							<li><strong>Labels</strong>: Text beside points to describe the data.</li>
+							<li><strong>Detail</strong> and <strong>Tooltip</strong>: Almost like popups where it only appears when you hover the data point.</li>
+							<li><strong>Shape</strong>: Modifies the shape of the elements. Self-explanatory.</li>
+						</ul>
+
+						<p>To use them, drag and drop.</p>
+
+						<div id="07-toggle">
+							<h5>Win Percentage of Candies, and Chocolate Vs Fruity</h5>
+							<ul>
+								<li>Drag <strong>Competitor Name</strong> into <strong>Rows</strong>, and 2 <strong>Winpercent</strong> pills into Columns.</li>
+								<li>Determine that the left chart is going to be chocolate, while the right is going to be fruity. It's up to you.</li>
+								<li>In the <strong>Data Source</strong> tab, both <strong>Chocolate</strong> and <strong>Fruity</strong> hold <code>true</code> or <code>false</code>.</li>
+								<li>Select the left chart by clicking on the corresponding <strong>Winpercent</strong> pill.</li>
+								<li>Drag <strong>Chocolate</strong> into the <strong>Marks</strong> panel, and unto the <strong>Color</strong> button. You will see a <code>True</code> and <code>False</code> tab on the right.</li>
+								<li>Do the same for <strong>Fruity</strong>.</li>
+							</ul>
+
+							<h5>Scatterplot comparing sugar % vs win % for chocolates</h5>
+							<ul>
+								<li>Drag <strong>Winpercent</strong> into <strong>Columns</strong>, and <strong>Sugarpercent</strong> into <strong>Rows</strong>.</li>
+								<li>To delineate <strong>Chocolate</strong>, drag the pill into <strong>Color</strong>.</li>
+								<li>To size the points according to price, drag <strong>Pricepercent</strong> into <strong>Size</strong>.</li>
+								<li>To add details to each data point, drag <strong>Competitorname</strong> into <strong>Detail</strong>.</li>
+							</ul>
+							<h5>Scatterplot comparing sugar % vs win % for fruity</h5>
+							<ul>
+								<li>Identical to the above.</li>
+							</ul>
+
+						</div>
+						<button type="button" class="btn btn-primary" onclick='$("#07-toggle").toggle();'>Show/Hide Hints</button>
+					</div>
+
+					<div id="08-Ins_Storytelling" class="instructor-block">
+						<h3>08-Ins_Storytelling</h3>
+
+						<p>Storytelling is unique to Tableau, where we have a bunch of text-boxes on top for this view for presentation:</p>
+
+						<img src="img/tableau-storytelling-01.png" class="img-fluid"/>
+
+						<p>Each tab points to a new visualization within the workbook.</p>
+
+						<p>You can create your own story at the bottom left of the application here:</p>
+
+						<img src="img/tableau-newstory-01.png" class="img-fluid"/>
+
+						<p>Captions appear at the top of the application. You can add or edit. Create your worksheet first, then drag and drop from the left sidebar into the layout.</p>
+					</div> <!-- end #08-Ins_Storytelling -->
 					
+					<div id="09-Stu_DegreesPay" class="student-block">
+						<h3>Students Do: Degrees That Pay</h3>
 
+						<p>Create the visualizations first before you do your story board. You have 3 different CSVs, and they don't always corelate to each other.</p>
+
+						<div id="08-toggle">
+							<h5>Ivy League Grads vs State School Grads</h5>
+							<ul>
+								<li>Select <code>salaries-by-college-type</code> data as data source.</li>
+								<li>Drag <strong>School Type</strong> and <strong>Measure Names</strong> to <strong>Columns</strong>, and <strong>Measure Values</strong> to <strong>Rows</strong>.</li>
+								<ul>
+									<li><strong>Measure Names</strong> and <strong>Measure Values</strong> are automatically generated by Tableau: <a href="https://onlinehelp.tableau.com/current/pro/desktop/en-us/datafields_understanddatawindow_meavalues.htm">https://onlinehelp.tableau.com/current/pro/desktop/en-us/datafields_understanddatawindow_meavalues.htm</a></li>
+									<li><strong>Measure Names</strong> is a compilation of column names, while <strong>Measure Values</strong> is a compilation of data from the <strong>Measures</strong> panel.</li>
+								</ul>
+								<li>Remove unwanted columns under the <strong>Measure Values</strong> panel for a more concise report.</li>
+								<li>Change the results to <strong>AVG</strong> instead of <strong>SUM</strong>.</li>
+								<li>Color code the <strong>Measure Names</strong>.</li>
+							</ul>
+
+							<h5>California/NE vs other regions</h5>
+							<ul>
+								<li>Select <code>salaries-by-region</code> data as data source.</li>
+								<li>It's the same steps as above.</li>
+							</ul>
+
+							<h5>Higher Starting Salaries and Higher Salaries Mid-career Correlation</h5>
+							<ul>
+								<li>Select <code>degrees-that-pay-back</code> data as data source.</li>
+								<li>Drag <strong>Starting Median Salary</strong> into <strong>Columns</strong>, and <strong>Mid-Career Median Salary</strong> into <strong>Rows</strong>.</li>
+								<li>Drag <strong>Undergraduate Major</strong> to the <strong>Detail</strong> button.</li>
+								<li>Drag <strong>Percent change from Starting to Mid-Career Salary</strong> to the <strong>Size</strong> button.</li>
+							</ul>
+
+							<h5>Visualize median salaries by major, against mid-career midian, 75th percentile and 90th percentile salaries</h5>
+							<ul>
+								<li>Select <code>degrees-that-pay-back</code> data as data source.</li>
+								<li>Drag <strong>Measure Values</strong> into <strong>Columns</strong>, and <strong>Undergraduate Major</strong> into <strong>Rows</strong>.</li>
+								<li>Remove unwanted columns under the <strong>Measure Values</strong> panel for a more concise report.</li>
+								<li>Drag <strong>Measured Names</strong> into the <strong>Color</strong> button to color code it.</li>
+								<li>Drag <strong>Percent change ...</strong> into the <strong>Detail</strong> button.</li>
+								<li>Change the bar chart to circles under the drop-down menu in <strong>Marks</strong>.</li>
+							</ul>
+
+							<p>With the four sheets above, create a story under the <strong>New Story</strong> button and link the relevant sheets to the story boards.</p>
+						</div>
+
+						<button type="button" class="btn btn-primary" onclick='$("#08-toggle").toggle();'>Show/Hide Hints</button>
+					</div> <!-- end #09-Stu_DegreesPay -->
 					
 					
 
