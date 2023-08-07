@@ -78,6 +78,7 @@
 							<a class="dropdown-item" href="ASU-VIRT-DATA-PT-03-2023-U-LOLC/16.2/index.html">16.2 Ref</a>
 							<a class="dropdown-item" href="ASU-VIRT-DATA-PT-03-2023-U-LOLC/16.3/index.html">16.3 Ref</a>
 							<a class="dropdown-item" href="ASU-VIRT-DATA-PT-03-2023-U-LOLC/18.1/index.html">18.1 Ref</a>
+							<a class="dropdown-item" href="ASU-VIRT-DATA-PT-03-2023-U-LOLC/18.2/index.html">18.2 Ref</a>
 						</div>
 					</li>
 				</ul>
@@ -90,134 +91,160 @@
 						<h3 id="objectives">Objectives For Today</h3>
 
 						<ul>
-							<li>Deeper Into Tableau</li>
+							<li>Introduction to Machine Learning</li>
 						</ul>
 
 					</div>
 
-					<div id="why-learn" class="student-block">
-						<h3>Why Learn?</h3>
+					<div id="demo" class="instructor-block">
+						<h3>Image Recognition Demo</h3>
 
-						<p>Tableau is an enterprise visualization software. It takes most data sources and creates visualizations without the need for coding. Most business or data analyst would have some experience in this software.</p>
-
-						<p>In a nutshell, Tableau is very good with numbers. Financial reports and metrics may work well with Tableau. But for anything else, you'll need a custom dashboard.</p>
-
-						<p>Tableau assumes the data to be <strong>CLEAN</strong>. It is able to do filtering and stuff, but you'll have to make sure the source data is clean overall.</p>
-
-						<h5>Caveats on Tableau</h5>
-						<p>Many companies may not be able to afford Tableau, and even if they have licenses, it is not distributed freely to everyone within the organization.</p>
-
-						<p>That's why we learned how to build visualizations on Javascript as an alternative.</p>
+						<p>We'll be exploring the <a href="https://teachablemachine.withgoogle.com/v1/">Teachable Machine project from Google</a> to highlight how we are using machine learning to create value.</p>
 						
-						<p>Be aware that for Tableau public, your data is exposed publicly. It may not be wise to use Tableau Public for your work.</p>
-					</div>
+						<p>If you're interested in their Youtube tutorial on how to use the above demo: <a href="https://youtu.be/3BhkeY974Rg">https://youtu.be/3BhkeY974Rg</a></p>
+					</div> <!-- end #demo -->
 
-					<div id="tableau_installation" class="student-block">
-						<h3>Install Tableau</h3>
+					<div id="ml-nutshell" class="instructor-block">
+						<h3>Machine Learning (ML) in a nutshell</h3>
 						
-						<p>You'll have to exchange your email address for Tableau to download Tableau here: <a href="https://public.tableau.com/s/">https://public.tableau.com/s/</a></p>
+						<p>"What has been will be again, <br>
+								"what has been done will be done again<br>
+								"there is nothing new under the sun." Ecclesiastes 1:9 (NIV Bible)
+						</p>
 
-						<p>Install the Tableau Public version because it's free. We're not going into the enterprise version, but majority of the features will be included.</p>
-
-					</div>
-
-
-					<div id="01-Stu-Warmup" class="instructor-block">
-						<h3>Students Do: Warm-Up</h3>
-
-					</div> <!-- end #01-Stu-Warmup -->
-
-					<div id="02-Ins-Groups_Sets" class="instructor-block">
-						<h3>Groups & Sets</h3>
-
-						<p>Groups are all about categorizing entities based on the values that you want.</p>
+						<p>In a nutshell, we take repeatable happenings in a situation and <strong>predict with a good confidence that it will happen again</strong>, in order to inspire action items that drive value.</p>
 						<ul>
-							<li>In the demo, we will group both Argentina & Spain as spanish-speaking countries.</li>
-							<li>Notice that their values will be aggregated as a group under its alias.</li>
+							<li>We drive the same streets again and again in our daily commute, where the roads don't change frequently.</li>
+							<li>Weather patterns repeat itself year-on-year, where we know what to do so that we make the best out of it.</li>
 						</ul>
 
-						<p>Sets are all about categorizing entities based on a set of rules and guidelines.</p>
+						<p>These patterns present themselves as <strong>data</strong> to us, and the data can come in many shapes and forms, such as:</p>
 						<ul>
-							<li>You can add distinct values and formulas to categorize your data.</li>
+							<li>Digits and numbers</li>
+							<li>Time</li>
+							<li>Images</li>
+							<li>Voice recordings</li>
 						</ul>
-						
-					</div> <!-- end #02-Ins-Groups_Sets -->
 
-					<div id="03-Stu-Groups_Sets" class="student-block">
-						<h3>Students Do: Movie Rental Groups and Sets</h3>
-
-						
-					</div> <!-- end #03-Stu_Exploration -->
-
-					<div id="04-Ins-Calculations" class="instructor-block">
-						<h3>Calculations</h3>
-
-						<p>You can derive deeper insights with your own formulas to create metrics, or even change the presentation of your visualizations through logic.</p>
+						<h5>Types of ML</h5>
 						<ul>
-							<li>Read more on creating custom fields here: <a href="https://help.tableau.com/current/pro/desktop/en-us/calculations_calculatedfields.htm">https://help.tableau.com/current/pro/desktop/en-us/calculations_calculatedfields.htm</a></li>
-							<li>Tableau has its own syntax that is different from other programming languages, but it is roughly the same structure.</li>
+							<li>Supervised Learning</li>
+							<ul>
+								<li>We already have enough information to know the possible outcomes of a situation, and we are simply trying to improve our accuracy so that our decisions may be as impactful as possible:</li>
+								<ul>
+									<li>Sports Analytics: Sports are man-made, and the outcomes are already defined witin the game.</li>
+									<li>Credit Scoring: How often you loan and repay your debts through your credit cards is relatively predictable.</li>
+								</ul>
+								<li>Most businesses are in this category.</li>
+							</ul>
+							<li>Unsupervised Learning</li>
+							<ul>
+								<li>We don't have enough information to know what are the possible outcomes, but we are collecting and observing the data to know its possible trajectory so that we can make decisions on the data.</li>
+								<ul>
+									<li>Self-driving cars: We don't know if a car, person, or animal might happen within your path.</li>
+									<li>Recommendation systems: Each person is unique, and the outcomes vary per person.</li>
+								</ul>
+							</ul>
 						</ul>
-						
-					</div> <!-- end #04-Ins-Calculations -->
 
-					<div id="05-Stu-Calculations" class="student-block">
-						<h3>Students Do: Calculations </h3>
+					</div><!-- end #ml-nutshell -->
+
+
+					<div id="01-Ins_Clusters" class="instructor-block">
+						<h3>Clustering Explained</h3>
+
+						<p>Let's open up the file(s) in the <code>01-Ins_Clusters</code> folder to get started.</p>
+
+						<p>In ML, there is no strict answer such as <code>1 + 1 = 2</code>. Often, you need to understand the theory behind the matter, and align with what you observe and see from the data.</p>
+
+						<p>And often, we try to improve our accuracy as we iterate to get the best results.</p>
+
+						<h5>What is clustering?</h5>
+
+						<ul>
+							<li>In layman terms, it is a behavior where the data coordinates group together as you collect them.</li>
+							<li>In the school's activity, you'll see 3 clusters over a 2D axis.</li>
+							<ul>
+								<li>Imagine there is a map behind the graph, and the x and y coordinates are latitude and longitude. This can be activity such as dengue fever outbreak or Pokemon Go players gathering around.</li>
+							</ul>
+				
+						</ul>
+
+						<p>In your school notes, the code is nothing special. It is just creating clusters of coordinates randomly over a dual-axis graph.</p>
+					</div> <!-- end #01-Ins_Clusters -->
+
+					<div id="02-Ins_Kmeans" class="instructor-block">
+						<h3>The K-means Algorithm </h3>
+
+						<p>Let's open up the file(s) in the <code>02-Ins_Kmeans</code> folder to get started.</p>
+
+						<p>You might need to install these libraries to get your visualization to work:</p>
+						<ol>
+							<li>Activate your conda dev: <code>conda activate dev</code></li>
+							<li>Run: <code>conda install -c pyviz hvplot</code></li>
+							<li>Then run your Jupyter Notebook: <code>jupyter notebook</code></li>
+						</ol>
+
+						<p>Infering from this tutorial, you're probably wanting to see if there is a relationship between the personal banker rating and mobile app rating.</p>
+
+						<p>Through observation, by defining to the machine that there are 2 clusters, the system will automatically try to identify the 2 clusters that are available within the data set.</p>
+						<ul>
+							<li>This is the strength of machine learning where it will objectively try to identify the center of each cluster using the mean distance between each coordinates.</li>
+							<li>You can try to increase the number of clusters to see how it will identify the means.</li>
+						</ul>
+
+						<h5>Breaking down the code</h5>
+						<ul>
+							<li>We define the type of model we want to use. In this case, it is KMeans: <code>model = KMeans(n_clusters=2, random_state=1)</code></li>
+							<li>We then try to fit the data into the model, based on the configurations above: <code>model.fit(service_ratings_df)</code></li>
+							<li>Since this is unsupervised learning, the model will try to predict a set of labels that match the number of clusters available: <code>customer_ratings = model.predict(service_ratings_df)</code></li>
+						</ul>
+					</div> <!-- end #02-Ins_Kmeans -->
+
+					<div id="03-Stu_Segmenting_Customers" class="student-block">
+						<h3>Students Do: Segmenting Customers</h3>
 
 						
-					</div> <!-- end #05-Stu-Calculations -->
+					</div> <!-- end #03-Stu_Segmenting_Customers -->
 
 					<div id="break" class="instructor-block">
 						<h3>Break - 15 mins @ 8:05pm</h3>
 					</div> <!-- break -->
 
+					<div id="04-Evr_Elbow_Method" class="instructor-block">
+						<h3>Introduction to Clustering Optimization</h3>
 
-					<div id="06-Ins-Maps" class="instructor-block">
-						<h3>Maps</h3>
+						<p>In the previous activity, we observed the data with our eyesight and decided how many clusters there are in a data set.</p>
 
-						
-					</div> <!-- end #06-Ins-Maps -->
+						<p>However, is there a better way to determine how many clusters are there in a data set?</p>
 
-					<div id="07-Stu-Maps1" class="student-block">
-						<h3>Students Do: Maps 1 </h3>
+						<h5>The Elbow Method</h5>
 
-						
-					</div> <!-- end #07-Stu-Maps1 -->
-					
+						<p>Let's open up the file(s) in the <code>04-Evr_Elbow_Method</code> folder to get started.</p>
 
-					<div id="08-Stu-Maps2" class="student-block">
-						<h3>Students Do: Maps 2</h3>
-					</div>
+						<p>The elbow method uses inertia to define the number of clusters.</p>
 
-					<div id="09-Ins-Dashboard" class="instructor-block">
-						<h3>Dashboard</h3>
-
-						<p>We went through dashboard briefly in the previous lesson, but today we will create interactive elements on all visualizations in a single dashboard collectively.</p>
-					</div> <!-- end #09-Ins-Dashboard -->
-					
-					<div id="10-Stu-Dashboard" class="student-block">
-						<h3>Students Do: Dashboard</h3>
-
-
-					</div> <!-- end #10-Stu-Dashboard -->
-
-					<div id="11-Ins-LOD" class="instructor-block">
-						<h3>Level of Detail Calculations</h3>
-
-						<p>Level of detail (LOD) calculations are all about story telling. How much detail is enough, and whether it adds value to the ideas that you're trying to drive?</p>
-
-						<p>We have 2 concepts here: aggregation vs granulation</p>
+						<p>Inertia is calculated by measuring the distance between each data point and its centroid. You want a <strong>low number</strong> and the inflecion point where the rate of change drastically decreases.</p>
 						<ul>
-							<li>Aggregation means you want to showcase a bird's eye/panoramic view of your data.</li>
-							<li>Granulation means you want to showcase the micro view of your data.</li>
+							<li>When the rate of change drastically decreases, it signifies that adding more centroid doesn't necessary mean we have identified more clusters within the data set.</li>
 						</ul>
 
-					</div> <!-- end #11-Ins-LOD -->
+						<h5>Beyond the Elbow Method (Not part of school notes)</h5>
 
-					<div id="12-Stu-LOD" class="student-block">
-						<h3>Students Do: Level of Detail</h3>
+						<p>Machine learning is a discipline that requires a lot of study, and a lot of seeing how things work under the hood.</p>
+
+						<p>Below is a sample of other clustering optimization methods (credit to <a href="https://towardsdatascience.com/are-you-still-using-the-elbow-method-5d271b3063bd">https://towardsdatascience.com/are-you-still-using-the-elbow-method-5d271b3063bd</a>):</p>
+
+						<img src="img/cluster_optimization_example.png" class="img-fluid"/>
 
 
-					</div> <!-- end #12-Stu-LOD -->
+						
+
+
+						
+					</div> <!-- end #04-Evr_Elbow_Method -->
+
+					
 					
 					
 
