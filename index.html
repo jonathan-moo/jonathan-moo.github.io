@@ -79,6 +79,7 @@
 							<a class="dropdown-item" href="ASU-VIRT-DATA-PT-03-2023-U-LOLC/16.3/index.html">16.3 Ref</a>
 							<a class="dropdown-item" href="ASU-VIRT-DATA-PT-03-2023-U-LOLC/18.1/index.html">18.1 Ref</a>
 							<a class="dropdown-item" href="ASU-VIRT-DATA-PT-03-2023-U-LOLC/18.2/index.html">18.2 Ref</a>
+							<a class="dropdown-item" href="ASU-VIRT-DATA-PT-03-2023-U-LOLC/19.1/index.html">19.1 Ref</a>
 						</div>
 					</li>
 				</ul>
@@ -91,18 +92,10 @@
 						<h3 id="objectives">Objectives For Today</h3>
 
 						<ul>
-							<li>Introduction to Machine Learning</li>
+							<li>Machine Learning in Practice</li>
 						</ul>
 
 					</div>
-
-					<div id="demo" class="instructor-block">
-						<h3>Image Recognition Demo</h3>
-
-						<p>We'll be exploring the <a href="https://teachablemachine.withgoogle.com/v1/">Teachable Machine project from Google</a> to highlight how we are using machine learning to create value.</p>
-						
-						<p>If you're interested in their Youtube tutorial on how to use the above demo: <a href="https://youtu.be/3BhkeY974Rg">https://youtu.be/3BhkeY974Rg</a></p>
-					</div> <!-- end #demo -->
 
 					<div id="ml-nutshell" class="instructor-block">
 						<h3>Machine Learning (ML) in a nutshell</h3>
@@ -150,33 +143,18 @@
 					</div><!-- end #ml-nutshell -->
 
 
-					<div id="01-Ins_Clusters" class="instructor-block">
-						<h3>Clustering Explained</h3>
+					<div id="01-Ins_Elbow_Warm_Up" class="instructor-block">
+						<h3>Elbow Warm Up</h3>
 
-						<p>Let's open up the file(s) in the <code>01-Ins_Clusters</code> folder to get started.</p>
+						<p>Let's open up the file(s) in the <code>01-Ins_Elbow_Warm_Up</code> folder to get started.</p>
 
-						<p>In ML, there is no strict answer such as <code>1 + 1 = 2</code>. Often, you need to understand the theory behind the matter, and align with what you observe and see from the data.</p>
+						
+					</div> <!-- end #01-Ins_Elbow_Warm_Up -->
 
-						<p>And often, we try to improve our accuracy as we iterate to get the best results.</p>
+					<div id="02-Stu_Warm_Up" class="student-block">
+						<h3>Students Do: Warm Up</h3>
 
-						<h5>What is clustering?</h5>
-
-						<ul>
-							<li>In layman terms, it is a behavior where the data coordinates group together as you collect them.</li>
-							<li>In the school's activity, you'll see 3 clusters over a 2D axis.</li>
-							<ul>
-								<li>Imagine there is a map behind the graph, and the x and y coordinates are latitude and longitude. This can be activity such as dengue fever outbreak or Pokemon Go players gathering around.</li>
-							</ul>
-				
-						</ul>
-
-						<p>In your school notes, the code is nothing special. It is just creating clusters of coordinates randomly over a dual-axis graph.</p>
-					</div> <!-- end #01-Ins_Clusters -->
-
-					<div id="02-Ins_Kmeans" class="instructor-block">
-						<h3>The K-means Algorithm </h3>
-
-						<p>Let's open up the file(s) in the <code>02-Ins_Kmeans</code> folder to get started.</p>
+						<p>Let's open up the file(s) in the <code>02-Stu_Warm_Up</code> folder to get started.</p>
 
 						<p>You might need to install these libraries to get your visualization to work:</p>
 						<ol>
@@ -185,65 +163,117 @@
 							<li>Then run your Jupyter Notebook: <code>jupyter notebook</code></li>
 						</ol>
 
-						<p>Infering from this tutorial, you're probably wanting to see if there is a relationship between the personal banker rating and mobile app rating.</p>
-
-						<p>Through observation, by defining to the machine that there are 2 clusters, the system will automatically try to identify the 2 clusters that are available within the data set.</p>
-						<ul>
-							<li>This is the strength of machine learning where it will objectively try to identify the center of each cluster using the mean distance between each coordinates.</li>
-							<li>You can try to increase the number of clusters to see how it will identify the means.</li>
-						</ul>
-
-						<h5>Breaking down the code</h5>
-						<ul>
-							<li>We define the type of model we want to use. In this case, it is KMeans: <code>model = KMeans(n_clusters=2, random_state=1)</code></li>
-							<li>We then try to fit the data into the model, based on the configurations above: <code>model.fit(service_ratings_df)</code></li>
-							<li>Since this is unsupervised learning, the model will try to predict a set of labels that match the number of clusters available: <code>customer_ratings = model.predict(service_ratings_df)</code></li>
-						</ul>
+						
 					</div> <!-- end #02-Ins_Kmeans -->
 
-					<div id="03-Stu_Segmenting_Customers" class="student-block">
-						<h3>Students Do: Segmenting Customers</h3>
+					<div id="03-Ins_Scaling_Data" class="instructor-block">
+						<h3>Scaling Data</h3>
+
+						<p>Let's open up the file(s) in the <code>03-Ins_Scaling_Data</code> folder to get started.</p>
+
+						<h5>What is Principal Component Analysis (PCA)?</h5>
+
+						<p>PCA is a dimensionality reduction method used to reduce the number of input variables from a dataset for a ML model.</p>
+
+						<h5>Why would we want to reduce the number of dimensions (input variables) in a ML model?</h5>
+
+						<p>Supposed you're building a model to predict who would win between 2 basketball teams. There are hundreds of parameters that we will need to consider in a game, such as field goal attempts, pass completion and so forth.</p>
+
+						<p>We know that to win a basketball game, the team stats must contribute to the team's points. However, not all stats are weighed equal to contributing to points.</p>
+						<ul>
+							<li>Defensive rebounds will weigh less to a team's 3-points made if we want to create a model to predict who would win by points.</li>
+						</ul>
+
+						<p>To treat every parameter as equal weights is a massive mistake in ML, and we would prefer to reduce the number of dimensions (input variables) in our model to:</p>
+						<ul>
+							<li>Reduce noise from the data</li>
+							<li>Prevent overfitting</li>
+							<ul>
+								<li>Overfitting is a phenomenon where we train the model to be highly accurate with training data but it couldn't replicate the accuracy when the model is used practically.</li>
+								<li>Overfitting happens when the model we trained is too biased with our training data, and we'll need to reduce the number of input variables to allow room for the model to variate properly.</li>
+							</ul>
+						</ul>
+
+						<p>Sample reference of PCA: <a href="https://web.wpi.edu/Pubs/ETD/Available/etd-080614-144242/unrestricted/Chen,_Huanting_PCA_2014-07-31_FINAL_VERSION.pdf">https://web.wpi.edu/Pubs/ETD/Available/etd-080614-144242/unrestricted/Chen,_Huanting_PCA_2014-07-31_FINAL_VERSION.pdf</a></p>
+						
+						<p>PCA will be covered heavily in the next lesson.</p>
+
+					</div> <!-- end #03-Ins_Scaling_Data -->
+
+					<div id="04-Evr_Preprocessing" class="instructor-block">
+						<h3>Preprocessing Data</h3>
+
+						<p>Let's open up the file(s) in the <code>04-Evr_Preprocessing</code> folder to get started.</p>
 
 						
-					</div> <!-- end #03-Stu_Segmenting_Customers -->
+					</div> <!-- end #04-Evr_Preprocessing -->
 
 					<div id="break" class="instructor-block">
 						<h3>Break - 15 mins @ 8:05pm</h3>
 					</div> <!-- break -->
 
-					<div id="04-Evr_Elbow_Method" class="instructor-block">
-						<h3>Introduction to Clustering Optimization</h3>
+					<div id="05-Stu-Standardizing_Stock_Data" class="student-block">
+						<h3>Students Do: Standardizing Stock Data</h3>
 
-						<p>In the previous activity, we observed the data with our eyesight and decided how many clusters there are in a data set.</p>
+						<p>Let's open up the file(s) in the <code>05-Stu-Standardizing_Stock_Data</code> folder to get started.</p>
 
-						<p>However, is there a better way to determine how many clusters are there in a data set?</p>
+						
+					</div> <!-- end #05-Stu-Standardizing_Stock_Data -->
 
-						<h5>The Elbow Method</h5>
+					<div id="06-Ins-Complex-Data" class="instructor-block">
+						<h3>Clustering Complex Data</h3>
 
-						<p>Let's open up the file(s) in the <code>04-Evr_Elbow_Method</code> folder to get started.</p>
+						<p>Let's open up the file(s) in the <code>06-Ins-Complex-Data</code> folder to get started.</p>
 
-						<p>The elbow method uses inertia to define the number of clusters.</p>
+						<p>In ML, there are many ways to do clustering. We will look at BIRCH and Agglomerative Clustering.</p>
 
-						<p>Inertia is calculated by measuring the distance between each data point and its centroid. You want a <strong>low number</strong> and the inflecion point where the rate of change drastically decreases.</p>
+						<h5>What is hierarchical clustering?</h5>
+						<img src="https://www.statisticshowto.com/wp-content/uploads/2016/11/clustergram.png" class="img-fluid" />
 						<ul>
-							<li>When the rate of change drastically decreases, it signifies that adding more centroid doesn't necessary mean we have identified more clusters within the data set.</li>
+							<li>It doesn't need an optimal number of clusters to function, as it can always use a subset of the dendogram to define that.</li>
 						</ul>
 
-						<h5>Beyond the Elbow Method (Not part of school notes)</h5>
+						<h5>Balanced Interative Reducing and Clustering using Hierarchies (BIRCH)</h5>
 
-						<p>Machine learning is a discipline that requires a lot of study, and a lot of seeing how things work under the hood.</p>
+						<p>Ref: <a href="https://scikit-learn.org/stable/modules/generated/sklearn.cluster.Birch.html">https://scikit-learn.org/stable/modules/generated/sklearn.cluster.Birch.html</a></p>
 
-						<p>Below is a sample of other clustering optimization methods (credit to <a href="https://towardsdatascience.com/are-you-still-using-the-elbow-method-5d271b3063bd">https://towardsdatascience.com/are-you-still-using-the-elbow-method-5d271b3063bd</a>):</p>
+						<p>BIRCH is a top-down approach, where a single, all-inclusive cluster is broken down into k clusters.</p>
 
-						<img src="img/cluster_optimization_example.png" class="img-fluid"/>
+						<p>BIRCH does not have an inertia score. Here's a reference to clustering performance evaluation: <a href="https://scikit-learn.org/stable/modules/clustering.html#clustering-performance-evaluation">https://scikit-learn.org/stable/modules/clustering.html#clustering-performance-evaluation</a></p>
 
+
+						<h5>Agglomerative Clustering</h5>
+
+						<p>Ref: <a href="https://scikit-learn.org/stable/modules/generated/sklearn.cluster.AgglomerativeClustering.html#sklearn.cluster.AgglomerativeClustering">https://scikit-learn.org/stable/modules/generated/sklearn.cluster.AgglomerativeClustering.html#sklearn.cluster.AgglomerativeClustering</a></p>
+					
+						<p>Agglomerative clustering starts from the bottom up approach, as each point is considered as an individual cluster and it will merge the closest pair of clusters until K clusters are left.</p>
+						
+						<h5>Calinski-Harabasz Index (Variance Ratio Criterion)</h5>
+
+						<p>Ref: <a href="https://scikit-learn.org/stable/modules/clustering.html#calinski-harabasz-index">https://scikit-learn.org/stable/modules/clustering.html#calinski-harabasz-index</a></p>
+
+						<ul>
+							<li>A higher Calinski-Harabasz score relates to a model with better defined clusters.</li>
+							<li>The index is the ratio of the sum of between-clusters dispersion and of within-cluster dispersion for all clusters, where dispersion is defined as the sum of distance squared.</li>
+							<li>Advantages:</li>
+							<ul>
+								<li>Score is higher when clusters are dense and well separated.</li>
+								<li>Score is fast to compute.</li>
+							</ul>
+							<li>Drawbacks:</li>
+							<ul>
+								<li>Score is generally higher for convex clusters than other concepts of clusters, such as density based clusters.</li>
+							</ul>
+						</ul>
+					</div> <!-- end #06-Ins-Complex-Data -->
+					
+					<div id="07-Stu_Segmenting_Customers" class="student-block">
+						<h3>Students Do: Segmenting Customer Data</h3>
+
+						<p>Let's open up the file(s) in the <code>07-Stu_Segmenting_Customers</code> folder to get started.</p>
 
 						
-
-
-						
-					</div> <!-- end #04-Evr_Elbow_Method -->
-
+					</div> <!-- end #07-Stu_Segmenting_Customers -->
 					
 					
 					
