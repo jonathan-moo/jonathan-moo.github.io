@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Jonathan Moo's Github Bio</title>
+
+
+		<link rel='stylesheet' id='bootstrap-css'  href='../../css/bootstrap.min.css' type='text/css' media='all' />
+		<link rel='stylesheet' id='bootstrap-grid-css'  href='../../css/bootstrap-grid.min.css' type='text/css' media='all' />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+   integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+   crossorigin=""/>
+		<link rel='stylesheet' id='custom-css'  href='../../css/style.css' type='text/css' media='all' /> 
+		<script src="https://d3js.org/d3.v5.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.9.1/d3-tip.js"></script>
+		<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+     <!-- Make sure you put this AFTER Leaflet's CSS -->
+     <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+       integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+       crossorigin=""></script>
+	</head>
+
+	<body>
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<a class="navbar-brand" href="#">Jonathan's Github Page</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active">
+						<a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Lessons</a>
+						<div class="dropdown-menu">
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/1.1/index.html">1.1 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/1.2/index.html">1.2 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/1.3/index.html">1.3 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/2.1/index.html">2.1 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/2.2/index.html">2.2 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/2.3/index.html">2.3 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/3.1/index.html">3.1 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/3.2/index.html">3.2 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/3.3/index.html">3.3 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/4.1/index.html">4.1 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/4.2/index.html">4.2 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/4.3/index.html">4.3 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/5.1/index.html">5.1 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/5.2/index.html">5.2 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/5.3/index.html">5.3 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/6.1/index.html">6.1 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/6.2/index.html">6.2 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/6.3/index.html">6.3 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/7.1/index.html">7.1 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/7.2/index.html">7.2 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/7.3/index.html">7.3 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/8.1/index.html">8.1 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/9.1/index.html">9.1 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/9.2/index.html">9.2 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/9.3/index.html">9.3 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/10.1/index.html">10.1 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/10.2/index.html">10.2 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/10.3/index.html">10.3 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/11.1/index.html">11.1 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/11.2/index.html">11.2 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/11.3/index.html">11.3 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/12.1/index.html">12.1 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/12.2/index.html">12.2 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/12.3/index.html">12.3 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/13.2/index.html">13.2 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/14.2/index.html">14.2 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/14.3/index.html">14.3 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/15.1/index.html">15.1 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/15.2/index.html">15.2 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/15.3/index.html">15.3 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/16.1/index.html">16.1 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/16.2/index.html">16.2 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/16.3/index.html">16.3 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/18.1/index.html">18.1 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/18.2/index.html">18.2 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/19.1/index.html">19.1 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/19.2/index.html">19.2 Ref</a>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</nav>
+		<div class="container-fluid">
+			<div class="row">
+				<div id="main-content" class="col-md-8">
+					<div class="objective-block">
+						<h3 id="objectives">Objectives For Today</h3>
+
+						<ul>
+							<li>Machine Learning in Practice</li>
+						</ul>
+
+					</div>
+
+					<div id="ml-nutshell" class="instructor-block">
+						<h3>Machine Learning (ML) in a nutshell</h3>
+						
+						<p>"What has been will be again, <br>
+								"what has been done will be done again<br>
+								"there is nothing new under the sun." Ecclesiastes 1:9 (NIV Bible)
+						</p>
+
+						<p>In a nutshell, we take repeatable happenings in a situation and <strong>predict with a good confidence that it will happen again</strong>, in order to inspire action items that drive value.</p>
+						<ul>
+							<li>We drive the same streets again and again in our daily commute, where the roads don't change frequently.</li>
+							<li>Weather patterns repeat itself year-on-year, where we know what to do so that we make the best out of it.</li>
+						</ul>
+
+						<p>These patterns present themselves as <strong>data</strong> to us, and the data can come in many shapes and forms, such as:</p>
+						<ul>
+							<li>Digits and numbers</li>
+							<li>Time</li>
+							<li>Images</li>
+							<li>Voice recordings</li>
+						</ul>
+
+						<h5>Types of ML</h5>
+						<ul>
+							<li>Supervised Learning</li>
+							<ul>
+								<li>We already have enough information to know the possible outcomes of a situation, and we are simply trying to improve our accuracy so that our decisions may be as impactful as possible:</li>
+								<ul>
+									<li>Sports Analytics: Sports are man-made, and the outcomes are already defined witin the game.</li>
+									<li>Credit Scoring: How often you loan and repay your debts through your credit cards is relatively predictable.</li>
+								</ul>
+								<li>Most businesses are in this category.</li>
+							</ul>
+							<li>Unsupervised Learning</li>
+							<ul>
+								<li>We don't have enough information to know what are the possible outcomes, but we are collecting and observing the data to know its possible trajectory so that we can make decisions on the data.</li>
+								<ul>
+									<li>Self-driving cars: We don't know if a car, person, or animal might happen within your path.</li>
+									<li>Recommendation systems: Each person is unique, and the outcomes vary per person.</li>
+								</ul>
+							</ul>
+						</ul>
+
+					</div><!-- end #ml-nutshell -->
+
+
+					<div id="01-Ins_Elbow_Warm_Up" class="instructor-block">
+						<h3>Elbow Warm Up</h3>
+
+						<p>Let's open up the file(s) in the <code>01-Ins_Elbow_Warm_Up</code> folder to get started.</p>
+
+						
+					</div> <!-- end #01-Ins_Elbow_Warm_Up -->
+
+					<div id="02-Stu_Warm_Up" class="student-block">
+						<h3>Students Do: Warm Up</h3>
+
+						<p>Let's open up the file(s) in the <code>02-Stu_Warm_Up</code> folder to get started.</p>
+
+						<p>You might need to install these libraries to get your visualization to work:</p>
+						<ol>
+							<li>Activate your conda dev: <code>conda activate dev</code></li>
+							<li>Run: <code>conda install -c pyviz hvplot</code></li>
+							<li>Then run your Jupyter Notebook: <code>jupyter notebook</code></li>
+						</ol>
+
+						
+					</div> <!-- end #02-Ins_Kmeans -->
+
+					<div id="03-Ins_Scaling_Data" class="instructor-block">
+						<h3>Scaling Data</h3>
+
+						<p>Let's open up the file(s) in the <code>03-Ins_Scaling_Data</code> folder to get started.</p>
+
+						<h5>What is Principal Component Analysis (PCA)?</h5>
+
+						<p>PCA is a dimensionality reduction method used to reduce the number of input variables from a dataset for a ML model.</p>
+
+						<h5>Why would we want to reduce the number of dimensions (input variables) in a ML model?</h5>
+
+						<p>Supposed you're building a model to predict who would win between 2 basketball teams. There are hundreds of parameters that we will need to consider in a game, such as field goal attempts, pass completion and so forth.</p>
+
+						<p>We know that to win a basketball game, the team stats must contribute to the team's points. However, not all stats are weighed equal to contributing to points.</p>
+						<ul>
+							<li>Defensive rebounds will weigh less to a team's 3-points made if we want to create a model to predict who would win by points.</li>
+						</ul>
+
+						<p>To treat every parameter as equal weights is a massive mistake in ML, and we would prefer to reduce the number of dimensions (input variables) in our model to:</p>
+						<ul>
+							<li>Reduce noise from the data</li>
+							<li>Prevent overfitting</li>
+							<ul>
+								<li>Overfitting is a phenomenon where we train the model to be highly accurate with training data but it couldn't replicate the accuracy when the model is used practically.</li>
+								<li>Overfitting happens when the model we trained is too biased with our training data, and we'll need to reduce the number of input variables to allow room for the model to variate properly.</li>
+							</ul>
+						</ul>
+
+						<p>Sample reference of PCA: <a href="https://web.wpi.edu/Pubs/ETD/Available/etd-080614-144242/unrestricted/Chen,_Huanting_PCA_2014-07-31_FINAL_VERSION.pdf">https://web.wpi.edu/Pubs/ETD/Available/etd-080614-144242/unrestricted/Chen,_Huanting_PCA_2014-07-31_FINAL_VERSION.pdf</a></p>
+						
+						<p>PCA will be covered heavily in the next lesson.</p>
+
+					</div> <!-- end #03-Ins_Scaling_Data -->
+
+					<div id="04-Evr_Preprocessing" class="instructor-block">
+						<h3>Preprocessing Data</h3>
+
+						<p>Let's open up the file(s) in the <code>04-Evr_Preprocessing</code> folder to get started.</p>
+
+						
+					</div> <!-- end #04-Evr_Preprocessing -->
+
+					<div id="break" class="instructor-block">
+						<h3>Break - 15 mins @ 8:05pm</h3>
+					</div> <!-- break -->
+
+					<div id="05-Stu-Standardizing_Stock_Data" class="student-block">
+						<h3>Students Do: Standardizing Stock Data</h3>
+
+						<p>Let's open up the file(s) in the <code>05-Stu-Standardizing_Stock_Data</code> folder to get started.</p>
+
+						
+					</div> <!-- end #05-Stu-Standardizing_Stock_Data -->
+
+					<div id="06-Ins-Complex-Data" class="instructor-block">
+						<h3>Clustering Complex Data</h3>
+
+						<p>Let's open up the file(s) in the <code>06-Ins-Complex-Data</code> folder to get started.</p>
+
+						<p>In ML, there are many ways to do clustering. We will look at BIRCH and Agglomerative Clustering.</p>
+
+						<h5>What is hierarchical clustering?</h5>
+						<img src="https://www.statisticshowto.com/wp-content/uploads/2016/11/clustergram.png" class="img-fluid" />
+						<ul>
+							<li>It doesn't need an optimal number of clusters to function, as it can always use a subset of the dendogram to define that.</li>
+						</ul>
+
+						<h5>Balanced Interative Reducing and Clustering using Hierarchies (BIRCH)</h5>
+
+						<p>Ref: <a href="https://scikit-learn.org/stable/modules/generated/sklearn.cluster.Birch.html">https://scikit-learn.org/stable/modules/generated/sklearn.cluster.Birch.html</a></p>
+
+						<p>BIRCH is a top-down approach, where a single, all-inclusive cluster is broken down into k clusters.</p>
+
+						<p>BIRCH does not have an inertia score. Here's a reference to clustering performance evaluation: <a href="https://scikit-learn.org/stable/modules/clustering.html#clustering-performance-evaluation">https://scikit-learn.org/stable/modules/clustering.html#clustering-performance-evaluation</a></p>
+
+
+						<h5>Agglomerative Clustering</h5>
+
+						<p>Ref: <a href="https://scikit-learn.org/stable/modules/generated/sklearn.cluster.AgglomerativeClustering.html#sklearn.cluster.AgglomerativeClustering">https://scikit-learn.org/stable/modules/generated/sklearn.cluster.AgglomerativeClustering.html#sklearn.cluster.AgglomerativeClustering</a></p>
+					
+						<p>Agglomerative clustering starts from the bottom up approach, as each point is considered as an individual cluster and it will merge the closest pair of clusters until K clusters are left.</p>
+						
+						<h5>Calinski-Harabasz Index (Variance Ratio Criterion)</h5>
+
+						<p>Ref: <a href="https://scikit-learn.org/stable/modules/clustering.html#calinski-harabasz-index">https://scikit-learn.org/stable/modules/clustering.html#calinski-harabasz-index</a></p>
+
+						<ul>
+							<li>A higher Calinski-Harabasz score relates to a model with better defined clusters.</li>
+							<li>The index is the ratio of the sum of between-clusters dispersion and of within-cluster dispersion for all clusters, where dispersion is defined as the sum of distance squared.</li>
+							<li>Advantages:</li>
+							<ul>
+								<li>Score is higher when clusters are dense and well separated.</li>
+								<li>Score is fast to compute.</li>
+							</ul>
+							<li>Drawbacks:</li>
+							<ul>
+								<li>Score is generally higher for convex clusters than other concepts of clusters, such as density based clusters.</li>
+							</ul>
+						</ul>
+					</div> <!-- end #06-Ins-Complex-Data -->
+					
+					<div id="07-Stu_Segmenting_Customers" class="student-block">
+						<h3>Students Do: Segmenting Customer Data</h3>
+
+						<p>Let's open up the file(s) in the <code>07-Stu_Segmenting_Customers</code> folder to get started.</p>
+
+						
+					</div> <!-- end #07-Stu_Segmenting_Customers -->
+					
+					
+					
+
+					
+
+				
+					
+
+					
+
+
+				</div> <!-- end #main-content -->
+
+
+				<!--div id="right-sb" class="col-md-4">
+					<div id="right-sb-nav" class="list-group" id="toc" role="tablist">
+					  <a class="list-group-item list-group-item-action active"  href="#objectives" role="tab">Objectives</a>
+
+					  <a class="list-group-item list-group-item-action"  href="#intro" role="tab">Snapshot Instructor Introduction</a>
+					  <a class="list-group-item list-group-item-action"  href="#01-intro-to-data" role="tab">Introduction To Data</a>
+						<a class="list-group-item list-group-item-action"  href="#02-course-overview" role="tab">Course Overview</a>
+						<a class="list-group-item list-group-item-action"  href="#03-past-learnings" role="tab">Past Learnings</a>
+						<a class="list-group-item list-group-item-action"  href="#04-before-break" role="tab">Before the Break</a>
+
+						<a class="list-group-item list-group-item-action"  href="#05-break" role="tab">Break</a>
+						<a class="list-group-item list-group-item-action"  href="#06-group-great-debate" role="tab">Group Activity: The Great Debate</a>
+						<a class="list-group-item list-group-item-action"  href="#07-group-gentrification" role="tab">Group Activity: Predicting Gentrification</a>
+						<a class="list-group-item list-group-item-action"  href="#08-homework-discussion" role="tab">Homework Discussion</a>
+
+					</div>
+				
+				</div-->
+			</div> <!-- end .row -->
+			
+		</div> <!-- end .container-fluid -->
+
+		<footer>
+			<script type="text/javascript" src="../../js/jquery-3.3.1.min.js"></script>
+			<script type="text/javascript" src="../../js/bootstrap.min.js"></script>
+
+			<script type="text/javascript">
+
+			</script>
+
+      <script type="text/javascript" src="../../js/config.js"></script>
+      <style>
+pre {
+  background-color: black;
+  color: white;
+}
+
+div[id^="map-"]{
+  height:500px;
+}
+div[id$="-toggle"]{
+  display: none;
+}
+      </style>
+
+		</footer>
+
+	</body>
+
+
+</html>

@@ -80,6 +80,7 @@
 							<a class="dropdown-item" href="ASU-VIRT-DATA-PT-03-2023-U-LOLC/18.1/index.html">18.1 Ref</a>
 							<a class="dropdown-item" href="ASU-VIRT-DATA-PT-03-2023-U-LOLC/18.2/index.html">18.2 Ref</a>
 							<a class="dropdown-item" href="ASU-VIRT-DATA-PT-03-2023-U-LOLC/19.1/index.html">19.1 Ref</a>
+							<a class="dropdown-item" href="ASU-VIRT-DATA-PT-03-2023-U-LOLC/19.2/index.html">19.2 Ref</a>
 						</div>
 					</li>
 				</ul>
@@ -92,7 +93,7 @@
 						<h3 id="objectives">Objectives For Today</h3>
 
 						<ul>
-							<li>Machine Learning in Practice</li>
+							<li>Introduction to Principal Component Analysis (PCA)</li>
 						</ul>
 
 					</div>
@@ -143,137 +144,57 @@
 					</div><!-- end #ml-nutshell -->
 
 
-					<div id="01-Ins_Elbow_Warm_Up" class="instructor-block">
-						<h3>Elbow Warm Up</h3>
+					<div id="01-Warm_Up" class="student-block">
+						<h3>Warm Up</h3>
 
-						<p>Let's open up the file(s) in the <code>01-Ins_Elbow_Warm_Up</code> folder to get started.</p>
-
-						
-					</div> <!-- end #01-Ins_Elbow_Warm_Up -->
-
-					<div id="02-Stu_Warm_Up" class="student-block">
-						<h3>Students Do: Warm Up</h3>
-
-						<p>Let's open up the file(s) in the <code>02-Stu_Warm_Up</code> folder to get started.</p>
-
-						<p>You might need to install these libraries to get your visualization to work:</p>
-						<ol>
-							<li>Activate your conda dev: <code>conda activate dev</code></li>
-							<li>Run: <code>conda install -c pyviz hvplot</code></li>
-							<li>Then run your Jupyter Notebook: <code>jupyter notebook</code></li>
-						</ol>
+						<p>Let's open up the file(s) in the <code>01-Warm_Up</code> folder to get started.</p>
 
 						
-					</div> <!-- end #02-Ins_Kmeans -->
+					</div> <!-- end #01-Warm_Up -->
 
-					<div id="03-Ins_Scaling_Data" class="instructor-block">
-						<h3>Scaling Data</h3>
+					<div id="02-Ins_PCA" class="instructor-block">
+						<h3>Introduction to PCA</h3>
 
-						<p>Let's open up the file(s) in the <code>03-Ins_Scaling_Data</code> folder to get started.</p>
+						<p>Let's open up the file(s) in the <code>02-Ins_PCA</code> folder to get started.</p>
 
-						<h5>What is Principal Component Analysis (PCA)?</h5>
+						<p>We are going to review a Youtube link for starters: <a href="https://experiments.withgoogle.com/visualizing-high-dimensional-space">https://experiments.withgoogle.com/visualizing-high-dimensional-space</a></p>
 
-						<p>PCA is a dimensionality reduction method used to reduce the number of input variables from a dataset for a ML model.</p>
+						<p>This is the sci-kit library we'll be using in Python: <a href="https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html">https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html</a></p>
+					
+						<p>As what you have witnessed from the video, there are a lot of data points to understand the meaning of sentences and paragraphs in a text.</p>
 
-						<h5>Why would we want to reduce the number of dimensions (input variables) in a ML model?</h5>
+						<p>The purpose of PCA is to reduce the data that has little value (noise) while preserving the rest of the data that significantly impacts our ML model.</p>
+					
+						<p>Here's a video link to explain the math behind PCA:</p>
+						<iframe width="560" height="315" src="https://www.youtube.com/embed/FgakZw6K1QQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-						<p>Supposed you're building a model to predict who would win between 2 basketball teams. There are hundreds of parameters that we will need to consider in a game, such as field goal attempts, pass completion and so forth.</p>
+						<p>It is too long to cover in class, and we don't have to physically calculate the values to make it work.</p>
+					</div> <!-- end #02-Ins_PCA -->
 
-						<p>We know that to win a basketball game, the team stats must contribute to the team's points. However, not all stats are weighed equal to contributing to points.</p>
-						<ul>
-							<li>Defensive rebounds will weigh less to a team's 3-points made if we want to create a model to predict who would win by points.</li>
-						</ul>
+					<div id="03-Stu_Segmenting_with_PCA" class="student-block">
+						<h3>Students Do: Segmenting with PCA</h3>
 
-						<p>To treat every parameter as equal weights is a massive mistake in ML, and we would prefer to reduce the number of dimensions (input variables) in our model to:</p>
-						<ul>
-							<li>Reduce noise from the data</li>
-							<li>Prevent overfitting</li>
-							<ul>
-								<li>Overfitting is a phenomenon where we train the model to be highly accurate with training data but it couldn't replicate the accuracy when the model is used practically.</li>
-								<li>Overfitting happens when the model we trained is too biased with our training data, and we'll need to reduce the number of input variables to allow room for the model to variate properly.</li>
-							</ul>
-						</ul>
+						<p>Let's open up the file(s) in the <code>03-Stu_Segmenting_with_PCA</code> folder to get started.</p>
 
-						<p>Sample reference of PCA: <a href="https://web.wpi.edu/Pubs/ETD/Available/etd-080614-144242/unrestricted/Chen,_Huanting_PCA_2014-07-31_FINAL_VERSION.pdf">https://web.wpi.edu/Pubs/ETD/Available/etd-080614-144242/unrestricted/Chen,_Huanting_PCA_2014-07-31_FINAL_VERSION.pdf</a></p>
 						
-						<p>PCA will be covered heavily in the next lesson.</p>
 
 					</div> <!-- end #03-Ins_Scaling_Data -->
-
-					<div id="04-Evr_Preprocessing" class="instructor-block">
-						<h3>Preprocessing Data</h3>
-
-						<p>Let's open up the file(s) in the <code>04-Evr_Preprocessing</code> folder to get started.</p>
-
-						
-					</div> <!-- end #04-Evr_Preprocessing -->
 
 					<div id="break" class="instructor-block">
 						<h3>Break - 15 mins @ 8:05pm</h3>
 					</div> <!-- break -->
 
-					<div id="05-Stu-Standardizing_Stock_Data" class="student-block">
-						<h3>Students Do: Standardizing Stock Data</h3>
+					<div id="04-Stu-Energize_Your_Stock_Clustering" class="student-block">
+						<h3>Students Do: Energize Your Stock Clustering</h3>
 
-						<p>Let's open up the file(s) in the <code>05-Stu-Standardizing_Stock_Data</code> folder to get started.</p>
+						<p>Let's open up the file(s) in the <code>04-Stu-Energize_Your_Stock_Clustering</code> folder to get started.</p>
 
 						
-					</div> <!-- end #05-Stu-Standardizing_Stock_Data -->
+					</div> <!-- end #04-Stu-Energize_Your_Stock_Clustering -->
 
-					<div id="06-Ins-Complex-Data" class="instructor-block">
-						<h3>Clustering Complex Data</h3>
-
-						<p>Let's open up the file(s) in the <code>06-Ins-Complex-Data</code> folder to get started.</p>
-
-						<p>In ML, there are many ways to do clustering. We will look at BIRCH and Agglomerative Clustering.</p>
-
-						<h5>What is hierarchical clustering?</h5>
-						<img src="https://www.statisticshowto.com/wp-content/uploads/2016/11/clustergram.png" class="img-fluid" />
-						<ul>
-							<li>It doesn't need an optimal number of clusters to function, as it can always use a subset of the dendogram to define that.</li>
-						</ul>
-
-						<h5>Balanced Interative Reducing and Clustering using Hierarchies (BIRCH)</h5>
-
-						<p>Ref: <a href="https://scikit-learn.org/stable/modules/generated/sklearn.cluster.Birch.html">https://scikit-learn.org/stable/modules/generated/sklearn.cluster.Birch.html</a></p>
-
-						<p>BIRCH is a top-down approach, where a single, all-inclusive cluster is broken down into k clusters.</p>
-
-						<p>BIRCH does not have an inertia score. Here's a reference to clustering performance evaluation: <a href="https://scikit-learn.org/stable/modules/clustering.html#clustering-performance-evaluation">https://scikit-learn.org/stable/modules/clustering.html#clustering-performance-evaluation</a></p>
-
-
-						<h5>Agglomerative Clustering</h5>
-
-						<p>Ref: <a href="https://scikit-learn.org/stable/modules/generated/sklearn.cluster.AgglomerativeClustering.html#sklearn.cluster.AgglomerativeClustering">https://scikit-learn.org/stable/modules/generated/sklearn.cluster.AgglomerativeClustering.html#sklearn.cluster.AgglomerativeClustering</a></p>
 					
-						<p>Agglomerative clustering starts from the bottom up approach, as each point is considered as an individual cluster and it will merge the closest pair of clusters until K clusters are left.</p>
-						
-						<h5>Calinski-Harabasz Index (Variance Ratio Criterion)</h5>
 
-						<p>Ref: <a href="https://scikit-learn.org/stable/modules/clustering.html#calinski-harabasz-index">https://scikit-learn.org/stable/modules/clustering.html#calinski-harabasz-index</a></p>
-
-						<ul>
-							<li>A higher Calinski-Harabasz score relates to a model with better defined clusters.</li>
-							<li>The index is the ratio of the sum of between-clusters dispersion and of within-cluster dispersion for all clusters, where dispersion is defined as the sum of distance squared.</li>
-							<li>Advantages:</li>
-							<ul>
-								<li>Score is higher when clusters are dense and well separated.</li>
-								<li>Score is fast to compute.</li>
-							</ul>
-							<li>Drawbacks:</li>
-							<ul>
-								<li>Score is generally higher for convex clusters than other concepts of clusters, such as density based clusters.</li>
-							</ul>
-						</ul>
-					</div> <!-- end #06-Ins-Complex-Data -->
 					
-					<div id="07-Stu_Segmenting_Customers" class="student-block">
-						<h3>Students Do: Segmenting Customer Data</h3>
-
-						<p>Let's open up the file(s) in the <code>07-Stu_Segmenting_Customers</code> folder to get started.</p>
-
-						
-					</div> <!-- end #07-Stu_Segmenting_Customers -->
 					
 					
 					
