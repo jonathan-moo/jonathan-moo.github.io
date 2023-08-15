@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Jonathan Moo's Github Bio</title>
+
+
+		<link rel='stylesheet' id='bootstrap-css'  href='../../css/bootstrap.min.css' type='text/css' media='all' />
+		<link rel='stylesheet' id='bootstrap-grid-css'  href='../../css/bootstrap-grid.min.css' type='text/css' media='all' />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+   integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+   crossorigin=""/>
+		<link rel='stylesheet' id='custom-css'  href='../../css/style.css' type='text/css' media='all' /> 
+		<script src="https://d3js.org/d3.v5.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.9.1/d3-tip.js"></script>
+		<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+     <!-- Make sure you put this AFTER Leaflet's CSS -->
+     <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+       integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+       crossorigin=""></script>
+	</head>
+
+	<body>
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<a class="navbar-brand" href="#">Jonathan's Github Page</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active">
+						<a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Lessons</a>
+						<div class="dropdown-menu">
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/1.1/index.html">1.1 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/1.2/index.html">1.2 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/1.3/index.html">1.3 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/2.1/index.html">2.1 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/2.2/index.html">2.2 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/2.3/index.html">2.3 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/3.1/index.html">3.1 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/3.2/index.html">3.2 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/3.3/index.html">3.3 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/4.1/index.html">4.1 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/4.2/index.html">4.2 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/4.3/index.html">4.3 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/5.1/index.html">5.1 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/5.2/index.html">5.2 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/5.3/index.html">5.3 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/6.1/index.html">6.1 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/6.2/index.html">6.2 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/6.3/index.html">6.3 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/7.1/index.html">7.1 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/7.2/index.html">7.2 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/7.3/index.html">7.3 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/8.1/index.html">8.1 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/9.1/index.html">9.1 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/9.2/index.html">9.2 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/9.3/index.html">9.3 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/10.1/index.html">10.1 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/10.2/index.html">10.2 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/10.3/index.html">10.3 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/11.1/index.html">11.1 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/11.2/index.html">11.2 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/11.3/index.html">11.3 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/12.1/index.html">12.1 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/12.2/index.html">12.2 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/12.3/index.html">12.3 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/13.2/index.html">13.2 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/14.2/index.html">14.2 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/14.3/index.html">14.3 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/15.1/index.html">15.1 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/15.2/index.html">15.2 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/15.3/index.html">15.3 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/16.1/index.html">16.1 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/16.2/index.html">16.2 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/16.3/index.html">16.3 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/18.1/index.html">18.1 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/18.2/index.html">18.2 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/19.1/index.html">19.1 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/19.2/index.html">19.2 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/19.3/index.html">19.3 Ref</a>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</nav>
+		<div class="container-fluid">
+			<div class="row">
+				<div id="main-content" class="col-md-8">
+					<div class="objective-block">
+						<h3 id="objectives">Objectives For Today</h3>
+
+						<ul>
+							<li>Introduction to Principal Component Analysis (PCA)</li>
+						</ul>
+
+					</div>
+
+					<div id="ml-nutshell" class="instructor-block">
+						<h3>Machine Learning (ML) in a nutshell</h3>
+						
+						<p>"What has been will be again, <br>
+								"what has been done will be done again<br>
+								"there is nothing new under the sun." Ecclesiastes 1:9 (NIV Bible)
+						</p>
+
+						<p>In a nutshell, we take repeatable happenings in a situation and <strong>predict with a good confidence that it will happen again</strong>, in order to inspire action items that drive value.</p>
+						<ul>
+							<li>We drive the same streets again and again in our daily commute, where the roads don't change frequently.</li>
+							<li>Weather patterns repeat itself year-on-year, where we know what to do so that we make the best out of it.</li>
+						</ul>
+
+						<p>These patterns present themselves as <strong>data</strong> to us, and the data can come in many shapes and forms, such as:</p>
+						<ul>
+							<li>Digits and numbers</li>
+							<li>Time</li>
+							<li>Images</li>
+							<li>Voice recordings</li>
+						</ul>
+
+						<h5>Types of ML</h5>
+						<ul>
+							<li>Supervised Learning</li>
+							<ul>
+								<li>We already have enough information to know the possible outcomes of a situation, and we are simply trying to improve our accuracy so that our decisions may be as impactful as possible:</li>
+								<ul>
+									<li>Sports Analytics: Sports are man-made, and the outcomes are already defined witin the game.</li>
+									<li>Credit Scoring: How often you loan and repay your debts through your credit cards is relatively predictable.</li>
+								</ul>
+								<li>Most businesses are in this category.</li>
+							</ul>
+							<li>Unsupervised Learning</li>
+							<ul>
+								<li>We don't have enough information to know what are the possible outcomes, but we are collecting and observing the data to know its possible trajectory so that we can make decisions on the data.</li>
+								<ul>
+									<li>Self-driving cars: We don't know if a car, person, or animal might happen within your path.</li>
+									<li>Recommendation systems: Each person is unique, and the outcomes vary per person.</li>
+								</ul>
+							</ul>
+						</ul>
+
+					</div><!-- end #ml-nutshell -->
+
+
+					<div id="01-Warm_Up" class="student-block">
+						<h3>Warm Up</h3>
+
+						<p>Let's open up the file(s) in the <code>01-Warm_Up</code> folder to get started.</p>
+
+						
+					</div> <!-- end #01-Warm_Up -->
+
+					<div id="02-Ins_PCA" class="instructor-block">
+						<h3>Introduction to PCA</h3>
+
+						<p>Let's open up the file(s) in the <code>02-Ins_PCA</code> folder to get started.</p>
+
+						<p>We are going to review a Youtube link for starters: <a href="https://experiments.withgoogle.com/visualizing-high-dimensional-space">https://experiments.withgoogle.com/visualizing-high-dimensional-space</a></p>
+
+						<p>This is the sci-kit library we'll be using in Python: <a href="https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html">https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html</a></p>
+					
+						<p>As what you have witnessed from the video, there are a lot of data points to understand the meaning of sentences and paragraphs in a text.</p>
+
+						<p>The purpose of PCA is to reduce the data that has little value (noise) while preserving the rest of the data that significantly impacts our ML model.</p>
+					
+						<p>Here's a video link to explain the math behind PCA:</p>
+						<iframe width="560" height="315" src="https://www.youtube.com/embed/FgakZw6K1QQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+						<p>It is too long to cover in class, and we don't have to physically calculate the values to make it work.</p>
+					</div> <!-- end #02-Ins_PCA -->
+
+					<div id="03-Stu_Segmenting_with_PCA" class="student-block">
+						<h3>Students Do: Segmenting with PCA</h3>
+
+						<p>Let's open up the file(s) in the <code>03-Stu_Segmenting_with_PCA</code> folder to get started.</p>
+
+						
+
+					</div> <!-- end #03-Ins_Scaling_Data -->
+
+					<div id="break" class="instructor-block">
+						<h3>Break - 15 mins @ 8:05pm</h3>
+					</div> <!-- break -->
+
+					<div id="04-Stu-Energize_Your_Stock_Clustering" class="student-block">
+						<h3>Students Do: Energize Your Stock Clustering</h3>
+
+						<p>Let's open up the file(s) in the <code>04-Stu-Energize_Your_Stock_Clustering</code> folder to get started.</p>
+
+						
+					</div> <!-- end #04-Stu-Energize_Your_Stock_Clustering -->
+
+					
+
+					
+					
+					
+					
+
+					
+
+				
+					
+
+					
+
+
+				</div> <!-- end #main-content -->
+
+
+				<!--div id="right-sb" class="col-md-4">
+					<div id="right-sb-nav" class="list-group" id="toc" role="tablist">
+					  <a class="list-group-item list-group-item-action active"  href="#objectives" role="tab">Objectives</a>
+
+					  <a class="list-group-item list-group-item-action"  href="#intro" role="tab">Snapshot Instructor Introduction</a>
+					  <a class="list-group-item list-group-item-action"  href="#01-intro-to-data" role="tab">Introduction To Data</a>
+						<a class="list-group-item list-group-item-action"  href="#02-course-overview" role="tab">Course Overview</a>
+						<a class="list-group-item list-group-item-action"  href="#03-past-learnings" role="tab">Past Learnings</a>
+						<a class="list-group-item list-group-item-action"  href="#04-before-break" role="tab">Before the Break</a>
+
+						<a class="list-group-item list-group-item-action"  href="#05-break" role="tab">Break</a>
+						<a class="list-group-item list-group-item-action"  href="#06-group-great-debate" role="tab">Group Activity: The Great Debate</a>
+						<a class="list-group-item list-group-item-action"  href="#07-group-gentrification" role="tab">Group Activity: Predicting Gentrification</a>
+						<a class="list-group-item list-group-item-action"  href="#08-homework-discussion" role="tab">Homework Discussion</a>
+
+					</div>
+				
+				</div-->
+			</div> <!-- end .row -->
+			
+		</div> <!-- end .container-fluid -->
+
+		<footer>
+			<script type="text/javascript" src="../../js/jquery-3.3.1.min.js"></script>
+			<script type="text/javascript" src="../../js/bootstrap.min.js"></script>
+
+			<script type="text/javascript">
+
+			</script>
+
+      <script type="text/javascript" src="../../js/config.js"></script>
+      <style>
+pre {
+  background-color: black;
+  color: white;
+}
+
+div[id^="map-"]{
+  height:500px;
+}
+div[id$="-toggle"]{
+  display: none;
+}
+      </style>
+
+		</footer>
+
+	</body>
+
+
+</html>
