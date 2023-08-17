@@ -82,6 +82,7 @@
 							<a class="dropdown-item" href="ASU-VIRT-DATA-PT-03-2023-U-LOLC/19.1/index.html">19.1 Ref</a>
 							<a class="dropdown-item" href="ASU-VIRT-DATA-PT-03-2023-U-LOLC/19.2/index.html">19.2 Ref</a>
 							<a class="dropdown-item" href="ASU-VIRT-DATA-PT-03-2023-U-LOLC/19.3/index.html">19.3 Ref</a>
+							<a class="dropdown-item" href="ASU-VIRT-DATA-PT-03-2023-U-LOLC/20.1/index.html">20.1 Ref</a>
 						</div>
 					</li>
 				</ul>
@@ -150,194 +151,180 @@
 					</div><!-- end #ml-nutshell -->
 
 
-					<div id="01-Ins_Linear_Regression" class="instructor-block">
-						<h3>Linear Regression</h3>
+					<div id="01-Ins_SVM" class="instructor-block">
+						<h3>Introduction to Support Vector Machine (SVM)</h3>
 
-						<p>Let's open up the file(s) in the <code>01-Ins_Linear_Regression</code> folder to get started.</p>
+						<p>Let's open up the file(s) in the <code>01-Ins_SVM</code> folder to get started.</p>
 
-						<p>Linear regression is the basic foundational block for other machine learning algorithm such as neural networks and deep learning.</p>
+						<h5>Why SVMs?</h5>
 
-						<p>For example, we have a function called <strong>make_regression</strong> from the sklearn.datasets library:</p>
+						<p>Supposed we want to categorize data points into 2 labels. Let's say we want to classify between cats and dogs, and we are classifying them based on height and weight.</p>
+
+						<p>In linear classification, we use a line to distinguish 2 entities. As a general rule of thumb, dogs are bigger and heavier than cats.</p>
+
+						<p>However, what about outliers? How do deal with mini poodles that can be extremely small? They would be labeled as cats if we use a hard line to model.</p>
+
+						<p>Thus, the use of SVMs is to address outliers so that we minimize the impact of outliers that could misalign our model.</p>
+
+						<img src="img/SVM_margin.png" class="img-fluid">
+
+						<p>In the example above, the yellow area presents a soft margin where we allow misclassifications to happen. We can allow misclassifications because we expect the misclassifications to be an exception rather than the norm.</p>
 						<ul>
-							<li><strong>sk-learn</strong> stands for <strong>scikit-learn</strong>. This is the Python library we'll be using for the majority of this course.</li>
-							<li><strong>make_regression</strong> generates a random regression problem as an example:</li>
+							<li>The line in between the dashed lines is called the maximum margin classifier. In linear classification, we use this line to make a distinction between our 2 labels.</li>
+							<li>A soft margin classifier is also known as a support vector classifier.</li>
+							<li>Support vector classifier is derived where the observations on the edge and within the soft margin are called support vectors.</li>
 							<ul>
-								<li>n_samples: Number of data points</li>
-								<li>n_features: Number of data properties to train or predict from.</li>
-								<li>random_state: An integer seed to replicate the example if needed.</li>
-								<li>noise: Standard deviation applied to the output</li>
-								<li>bias: computed value as the distance between the average prediction and true value.</li>
+								<li>The data points on the dashed lines are called support vectors, because these data points serve as the boundaries of where we define the soft margin.</li>
+							</ul>
+							<li>If we have 2 dimensions, the support vector would be a line, as seen in your activities. If it is 3D, it will be a plane rather than a line. When you are predicting 4 or more dimensions, the support vector classifier is a <strong>hyperplane</strong>.</li>
+							<ul>
+								<li>But for simplicity sake, we call the support vector classifier as a hyperplane irregardless of the number of dimensions.</li>
 							</ul>
 						</ul>
-
-						<p>This diagram should help in defining bias:</p>
-						<img src="img/bias_variance_illustration.png" class="img-fluid" >
-
-						<ul>
-							<li>Bullseye is the goal.</li>
-							<li><strong>Bias</strong> strays the aiming of your bow.</li>
-							<li><strong>Variance</strong> is the slight movements from your aim (your arms were tired) that results in hitting different spots around the same region.</li>
-						</ul>
 						
-						<p>This linear graph is to simulate a probable scenario. For example:</p>
-						<ul>
-							<li>We understand that the larger the house, the more expensive it is. (Let's ignore the other factors like traffic and environment.)</li>
-							<li>As square feet increases, we expect the home price to escalate in a <strong>linear fashion</strong>.</li>
-							<ul>
-								<li>It is unlikely that the home price relates to square feet in a <strong>sine</strong> curve. That would mean that at certain square feets, it will mean lower prices as indicated by the <strong>sine</strong> curve.</li>
-								<li>But a <strong>log</strong> curve is possible, since materials' price can sharply rise at a certain volume.</li>
-							</ul>
-						</ul>
 
-						<p>You might be planning for an apartment, and you're looking at 1000 square feet. The linear line <strong>helps you to predict the price of the home</strong> based on other home prices indicated. That's how linear regression and basic machine learning works in general.</p>
-					
-						<h3>Mathematical Formula</h3>
 
-						<p>It's going back to high school, but:</p>
 
-						<code>y = mx + b</code>
-						<ul>
-							<li><code>y</code> is the output response</li>
-							<li><code>x</code> is the input feature (we have one feature, remember? Square fit is the feature for our example.)</li>
-							<li><code>b</code> is the y-axis intercept.</li>
-							<li><code>m</code> is the gradient, or <strong>weight coefficient</strong>.</li>
-						</ul>
-
-						<h5>Quantifying Regression</h5>
-
-						<p>This just means how do we prove if our model works? How do we quantify accuracy?</p>
-
-						<p>As we use linear regression as our foundational study material, realize that what you learned here is going to be applied to other models as well.</p>
-					
-						<p>To quantify accuracy, we use common scoring metrics such as:</p>
-
-						<ul>
-							<li>R-Squared (R<sup>2</sup>)</li>
-							<li>Mean Squared Error (MSE)</li>
-						</ul>
-
-						<p>What I'm going to teach you are some of the fundamentals of R<sup>2</sup> and MSE to understand how we derived accuracy, but to find out more on the mathematical derivation, look at the links below:</p>
-						<ul>
-							<li><a href="https://www.khanacademy.org/math/ap-statistics/bivariate-data-ap/assessing-fit-least-squares-regression/v/r-squared-or-coefficient-of-determination">R<sup>2</sup> or coefficient of determination</a></li>
-							<li>MSE (I don't have a good math video tutorial at the moment, so you could suggest, and I'll put it up here.)</li>
-						</ul>
-
-						<h3>R<sup>2</sup> Concept</h3>
-						<p>We use the margin of errors to depict the accuracy of a model. Consider this graph:</p>
-
-						<img src="img/r-squared-example-0.png" class="img-fluid" />
-
-						<p>We're trying to measure the accuracy of our model by using the margin of errors. Thus:</p>
-						<ul>
-							<li>Having the same input (x<sub>1</sub>), the predicted data would feature on the line, and we have the actual results as (x<sub>1</sub>,y<sub>1</sub>).</li>
-							<li>The margin of error, <code>r</code>, would be <code>y<sub>1</sub> - y</code> since there is a difference between the 2 output values.</li>
-							<li>Squaring them eliminates negatives (high school math), and we get an area on the graph.</li>
-							<li>We can't base our accuracy on a single margin of error. Thus, since all points have their margin of errors, we add them all up to get the <strong>Squared-Error of the line (SE<sub>line</sub>).</strong></li>
-							<li>But the <code>SE<sub>line</sub></code> doesn't allow us to compare with anything. So, we calculate the <strong>total variation in <code>y</code></strong> to quantify how the margin of error against the total variance of y.</li>
-							<li>By division, <code>SE<sub>line</sub>/SE<sub>y-mean</sub></code>, we get the amount of error in relation to the total variance of y. But this describes the error percentage. How about the accuracy?</li>
-							<li>Accuracy is described by 100%, or 1 if we're dealing with decimals. Thus, <code>1 - SE<sub>line</sub>/SE<sub>y-mean</sub></code> will give us an accuracy score, and it's often described as <strong>the coefficient of determination</strong>.</li>
-						</ul>
-
-						<p>Beyond this will be out of our scope for math.</p>
-
-						<h3>MSE Concept</h3>
-						<p>Using the same concept for calculating margin of error for <code>r<sup>2</sup></code>, we simply sum the squared margin of error and divide it by the total number of points:</p>
-						<img src="img/mse-example-0.png" class="img-fluid" />
-
-						<h3>Summary</h3>
-						<ul>
-							<li><code>R<sup>2</sup></code> value should be as close to 1 for accuracy.</li>
-							<li><code>MSE</code> score should be close to 0 for accuracy.</li>
-						</ul>
+						<h5>Additional Instructions</h5>
+						<iframe width="560" height="315" src="https://www.youtube.com/embed/efR1C6CvhmE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 						
-					</div> <!-- end #01-Ins_Linear_Regression -->
+					</div> <!-- end #01-Ins_SVM -->
 
-					<div id="02-Stu_Predicting_Sales" class="student-block">
-						<h3>Students Do: Predict Sales with Linear Regression</h3>
+					<div id="02-Stu_Predicting_Occupancy" class="student-block">
+						<h3>Students Do: Predict Occupancy of Office Space</h3>
 
-						<p>Let's open up the file(s) in the <code>02-Stu_Predicting_Sales</code> folder to get started.</p>
+						<p>Let's open up the file(s) in the <code>02-Stu_Predicting_Occupancy</code> folder to get started.</p>
 
-					</div> <!-- end #02-Stu_Predicting_Sales -->
+						<p>You will not be able to plot the graph since the dataset has more than 3 dimensions.</p>
 
+					</div> <!-- end #02-Stu_Predicting_Occupancy -->
+
+					
+
+					<div id="03-Ins_Decision_Trees" class="instructor-block">
+						<h3>Introduction to Decision Trees</h3>
+
+						<p>Let's open up the file(s) in the <code>03-Ins_Decision_Trees</code> folder to get started.</p>
+
+						<p>In layman terms, decision trees is a massive if-else algorithm that compares across all your input features to classify the data.</p>
+
+						<p>For example, we have a table such as this:</p>
+
+						<table class="table">
+							<thead>
+								<tr>
+									<th>Weight (kg)</th>
+									<th>Height (cm)</th>
+									<th>Classification</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>4.4</td>
+									<td>46</td>
+									<td>cat</td>
+								</tr>
+								<tr>
+									<td>20</td>
+									<td>68</td>
+									<td>dog</td>
+								</tr>
+							</tbody>
+						</table>
+
+						<p>So a decision tree could look like:</p>
+						<ul>
+							<li>If the animal is < 4.4kg and < 46 cm, it is a cat.</li>
+							<li>If the animal is > 20kg and > 68 cm, it is a dog.</li>
+						</ul>
+
+						<p>The model will build a tree and its nodes with full of if-else statements by themselves, and based on the trained data set, attempt to capture pattern and predict accordingly with the features of an unknown animal.</p>
+
+						<p>Decision trees need to be pruned, which is to weigh the features and reduce the number of features needed. </p>
+						<ul>
+							<li>Because decision trees are very susceptible to overfitting, where your tests might yield good results, but your real-world experience with the model yields poor results.</li>
+						</ul>
+
+						<h5>Additional References</h5>
+						<iframe width="560" height="315" src="https://www.youtube.com/embed/_L39rN6gz7Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+						
+					</div> <!-- end #03-Ins_Decision_Trees -->
+
+					<div id="04-Stu_Predicting_Fraud" class="student-block">
+						<h3>Students Do: Predicting Fraudulent Loan Applications</h3>
+
+						<p>Let's open up the file(s) in the <code>04-Stu_Predicting_Fraud</code> folder to get started.</p>
+
+						
+					</div> <!-- end #04-Stu_Predicting_Fraud -->
+
+					
 					<div id="break" class="instructor-block">
 						<h3>Break - 15 mins @ 8:05pm</h3>
 					</div> <!-- break -->
-
-					<div id="03-Ins_Logistic_Regression" class="instructor-block">
-						<h3>Make Predictions with Logistic Regression</h3>
-
-						<p>Let's open up the file(s) in the <code>03-Ins_Logistic_Regression</code> folder to get started.</p>
-
-						<p>Logistic regression is about predicting binary outcomes and the probability of it.</p>
-
-						<h5>Train-Validate-Test</h5>
-
-						<p>In ML, if we have a dataset, we would split the data into the following portions:</p>
-						<ul>
-							<li>Training Data</li>
-							<ul>
-								<li>This is the set of data that we will prepare our model on, by understanding the trends and features needed to meet our outcome.</li>
-							</ul>
-							<li>Validation Data</li>
-							<ul>
-								<li>We will do a preliminary prediction on this data and validate its results to have an estimated accuracy.</li>
-							</ul>
-							<li>Test Data</li>
-							<ul>
-								<li>This dataset is untouched, and it is only used for the final evaluation of the model.</li>
-							</ul>
-						</ul>
-
-						<h5>How do we proportion our data into train, validation, and test?</h5>
-
-						<p>We ensure that the test dataset is statistically significant to the rest of the dataset, and thus it depends on the number of samples needed.</p>
-
-						<p>However, we don't want our training and validation datasets to be too small and then we can't capture the trends within the dataset.</p>
-
-						<p>On a typical setting, we split training, validate and test data into:</p>
-						<ul>
-							<li>80-10-10</li>
-							<li>70-15-15</li>
-							<li>60-20-20</li>
-						</ul>
-
-						<h5>What is 'lbfgs'?</h5>
-						<p>These are solver libraries that exist within sci-kit learn (and even Excel has solvers), where mathematical optimization can be easily attained using one of these libraries.</p>
-
-						<p>Different solvers are used in different settings, and they vary in terms of efficiency, methodology and accuracy.</p>
-
-						<p>It is out of scope, but lbfgs stands for "Large-scale Bound-constrained Optimization".</p>
-						
-						
-					</div> <!-- end #03-Ins_Logistic_Regression -->
-
-					<div id="04-Stu_Predicting_Diabetes" class="student-block">
-						<h3>Students Do: Predicting Diabetes</h3>
-
-						<p>Let's open up the file(s) in the <code>04-Stu_Predicting_Diabetes</code> folder to get started.</p>
-
-						
-					</div> <!-- end #04-Stu_Predicting_Diabetes -->
-
 					
 
-					
+					<div id="05-Ins_Random_Forest" class="instructor-block">
+						<h3>Random Forest</h3>
 
-					<div id="05-Ins_Classification_Models" class="instructor-block">
-						<h3>Confusion Matrix & Classification Report</h3>
+						<p>Let's open up the file(s) in the <code>05-Ins_Random_Forest</code> folder to get started.</p>
 
-						<p>Let's open up the file(s) in the <code>05-Ins_Classification_Models</code> folder to get started.</p>
+						<h5>Intro to Ensemble Learning</h5>
+
+						<p>In layman terms, you are combining multiple models and/or algorithms to improve accuracy.</p>
+
+						<p>For example, Amazon wanted to label brands on images, because there are millions of items sold in the store. It can be used to address erroneous uploads, or fraud.</p>
+
+						<p>However, many brands have different styles of logos, and it is not consistent.</p>
+						<ul>
+							<li>Addidas sometimes use 3 stripes as their brand, and then they will have their name on it.</li>
+							<li>Apple just shows an image.</li>
+						</ul>
+
+						<p>Amazon tried to apply image classification on the entirety of the photo, but it yielded poor results.</p>
+
+						<p>They eventually separated the name and the logo, and classify separately before combining their results together to predict the final outcome. This is known as stacking ensemble.</p>
+
+						<p>Random forest looks very similar to a decision tree, except that they added sampling, and will break down a big decision tree into several smaller ones for a better accuracy.</p>
+						
+					</div> <!-- end #05-Ins_Random_Forest -->
+
+					<div id="06-Stu_Predicting_Default" class="student-block">
+						<h3>Students Do: Predicting Loan Default</h3>
+
+						<p>Let's open up the file(s) in the <code>06-Stu_Predicting_Default</code> folder to get started.</p>
 
 						
-					</div> <!-- end #05-Ins_Classification_Models -->
+					</div> <!-- end #06-Stu_Predicting_Default -->
 
-					<div id="06-Stu_Classification_Models" class="student-block">
-						<h3>Students Do: Classifying Social Media Influencers</h3>
+					<div id="07-Ins_KNN" class="instructor-block">
+						<h3>K-Nearest Neighbors</h3>
 
-						<p>Let's open up the file(s) in the <code>06-Stu_Classification_Models</code> folder to get started.</p>
+						<p>Let's open up the file(s) in the <code>07-Ins_KNN</code> folder to get started.</p>
 
+						<p>The concept of KNN is easy because it is very similar to K-means clustering, where they will measure the distance between each other and classify according to proximity.</p>
+
+						<p>The only difference is you know what you want to label, whereas K-means you won't know.</p>
 						
-					</div> <!-- end #06-Stu_Classification_Models -->
+					</div> <!-- end #07-Ins_KNN -->
+
+					<div id="07-Ins_KNN" class="instructor-block">
+						<h3>K-Nearest Neighbors</h3>
+
+						<p>Let's open up the file(s) in the <code>07-Ins_KNN</code> folder to get started.</p>
+
+						<p>The concept of KNN is easy because it is very similar to K-means clustering, where they will measure the distance between each other and classify according to proximity.</p>
+
+						<p>The only difference is you know what you want to label, whereas K-means you won't know. Because you already know how many labels you want (since there is a correct answer), there's no need to determine the optimal number of clusters here.</p>
+						
+					</div> <!-- end #07-Ins_KNN -->
+
+					<div id="08-Stu_Predicting_Bank_Customers" class="instructor-block">
+						<h3>Students Do: Predicting Banking Customers</h3>
+
+						<p>Let's open up the file(s) in the <code>08-Stu_Predicting_Bank_Customers</code> folder to get started.</p>
+						
+					</div> <!-- end #08-Stu_Predicting_Bank_Customers -->
 
 					
 

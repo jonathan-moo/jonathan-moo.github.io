@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Jonathan Moo's Github Bio</title>
+
+
+		<link rel='stylesheet' id='bootstrap-css'  href='../../css/bootstrap.min.css' type='text/css' media='all' />
+		<link rel='stylesheet' id='bootstrap-grid-css'  href='../../css/bootstrap-grid.min.css' type='text/css' media='all' />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+   integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+   crossorigin=""/>
+		<link rel='stylesheet' id='custom-css'  href='../../css/style.css' type='text/css' media='all' /> 
+		<script src="https://d3js.org/d3.v5.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.9.1/d3-tip.js"></script>
+		<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+     <!-- Make sure you put this AFTER Leaflet's CSS -->
+     <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+       integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+       crossorigin=""></script>
+	</head>
+
+	<body>
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<a class="navbar-brand" href="#">Jonathan's Github Page</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active">
+						<a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Lessons</a>
+						<div class="dropdown-menu">
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/1.1/index.html">1.1 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/1.2/index.html">1.2 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/1.3/index.html">1.3 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/2.1/index.html">2.1 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/2.2/index.html">2.2 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/2.3/index.html">2.3 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/3.1/index.html">3.1 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/3.2/index.html">3.2 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/3.3/index.html">3.3 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/4.1/index.html">4.1 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/4.2/index.html">4.2 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/4.3/index.html">4.3 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/5.1/index.html">5.1 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/5.2/index.html">5.2 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/5.3/index.html">5.3 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/6.1/index.html">6.1 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/6.2/index.html">6.2 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/6.3/index.html">6.3 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/7.1/index.html">7.1 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/7.2/index.html">7.2 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/7.3/index.html">7.3 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/8.1/index.html">8.1 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/9.1/index.html">9.1 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/9.2/index.html">9.2 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/9.3/index.html">9.3 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/10.1/index.html">10.1 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/10.2/index.html">10.2 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/10.3/index.html">10.3 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/11.1/index.html">11.1 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/11.2/index.html">11.2 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/11.3/index.html">11.3 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/12.1/index.html">12.1 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/12.2/index.html">12.2 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/12.3/index.html">12.3 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/13.2/index.html">13.2 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/14.2/index.html">14.2 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/14.3/index.html">14.3 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/15.1/index.html">15.1 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/15.2/index.html">15.2 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/15.3/index.html">15.3 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/16.1/index.html">16.1 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/16.2/index.html">16.2 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/16.3/index.html">16.3 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/18.1/index.html">18.1 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/18.2/index.html">18.2 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/19.1/index.html">19.1 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/19.2/index.html">19.2 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/19.3/index.html">19.3 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/20.1/index.html">20.1 Ref</a>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</nav>
+		<div class="container-fluid">
+			<div class="row">
+				<div id="main-content" class="col-md-8">
+					<div class="objective-block">
+						<h3 id="objectives">Objectives For Today</h3>
+
+						<ul>
+							<li>Supervised Learning</li>
+						</ul>
+
+					</div>
+
+					<div id="ml-nutshell" class="instructor-block">
+						<h3>Machine Learning (ML) in a nutshell</h3>
+						
+						<p>"What has been will be again, <br>
+								"what has been done will be done again<br>
+								"there is nothing new under the sun." Ecclesiastes 1:9 (NIV Bible)
+						</p>
+
+						<p>In a nutshell, we take repeatable happenings in a situation and <strong>predict with a good confidence that it will happen again</strong>, in order to inspire action items that drive value.</p>
+						<ul>
+							<li>We drive the same streets again and again in our daily commute, where the roads don't change frequently.</li>
+							<li>Weather patterns repeat itself year-on-year, where we know what to do so that we make the best out of it.</li>
+						</ul>
+
+						<p>These patterns present themselves as <strong>data</strong> to us, and the data can come in many shapes and forms, such as:</p>
+						<ul>
+							<li>Digits and numbers</li>
+							<li>Time</li>
+							<li>Images</li>
+							<li>Voice recordings</li>
+						</ul>
+
+						<h5>Types of ML</h5>
+						<ul>
+							<li>Supervised Learning</li>
+							<ul>
+								<li>We already have enough information to know the possible outcomes of a situation, and we are simply trying to improve our accuracy so that our decisions may be as impactful as possible:</li>
+								<ul>
+									<li>Sports Analytics: Sports are man-made, and the outcomes are already defined witin the game.</li>
+									<li>Credit Scoring: How often you loan and repay your debts through your credit cards is relatively predictable.</li>
+								</ul>
+								<li>Most businesses are in this category.</li>
+								<li>Types of Supervised Learning:</li>
+								<ul>
+									<li>Classification: Grouping data into buckets with similar properties</li>
+									<li>Regression: Fitting data to determine if an event would happen again.</li>
+								</ul>
+							</ul>
+							<li>Unsupervised Learning</li>
+							<ul>
+								<li>We don't have enough information to know what are the possible outcomes, but we are collecting and observing the data to know its possible trajectory so that we can make decisions on the data.</li>
+								<ul>
+									<li>Self-driving cars: We don't know if a car, person, or animal might happen within your path.</li>
+									<li>Recommendation systems: Each person is unique, and the outcomes vary per person.</li>
+								</ul>
+							</ul>
+						</ul>
+
+					</div><!-- end #ml-nutshell -->
+
+
+					<div id="01-Ins_Linear_Regression" class="instructor-block">
+						<h3>Linear Regression</h3>
+
+						<p>Let's open up the file(s) in the <code>01-Ins_Linear_Regression</code> folder to get started.</p>
+
+						<p>Linear regression is the basic foundational block for other machine learning algorithm such as neural networks and deep learning.</p>
+
+						<p>For example, we have a function called <strong>make_regression</strong> from the sklearn.datasets library:</p>
+						<ul>
+							<li><strong>sk-learn</strong> stands for <strong>scikit-learn</strong>. This is the Python library we'll be using for the majority of this course.</li>
+							<li><strong>make_regression</strong> generates a random regression problem as an example:</li>
+							<ul>
+								<li>n_samples: Number of data points</li>
+								<li>n_features: Number of data properties to train or predict from.</li>
+								<li>random_state: An integer seed to replicate the example if needed.</li>
+								<li>noise: Standard deviation applied to the output</li>
+								<li>bias: computed value as the distance between the average prediction and true value.</li>
+							</ul>
+						</ul>
+
+						<p>This diagram should help in defining bias:</p>
+						<img src="img/bias_variance_illustration.png" class="img-fluid" >
+
+						<ul>
+							<li>Bullseye is the goal.</li>
+							<li><strong>Bias</strong> strays the aiming of your bow.</li>
+							<li><strong>Variance</strong> is the slight movements from your aim (your arms were tired) that results in hitting different spots around the same region.</li>
+						</ul>
+						
+						<p>This linear graph is to simulate a probable scenario. For example:</p>
+						<ul>
+							<li>We understand that the larger the house, the more expensive it is. (Let's ignore the other factors like traffic and environment.)</li>
+							<li>As square feet increases, we expect the home price to escalate in a <strong>linear fashion</strong>.</li>
+							<ul>
+								<li>It is unlikely that the home price relates to square feet in a <strong>sine</strong> curve. That would mean that at certain square feets, it will mean lower prices as indicated by the <strong>sine</strong> curve.</li>
+								<li>But a <strong>log</strong> curve is possible, since materials' price can sharply rise at a certain volume.</li>
+							</ul>
+						</ul>
+
+						<p>You might be planning for an apartment, and you're looking at 1000 square feet. The linear line <strong>helps you to predict the price of the home</strong> based on other home prices indicated. That's how linear regression and basic machine learning works in general.</p>
+					
+						<h3>Mathematical Formula</h3>
+
+						<p>It's going back to high school, but:</p>
+
+						<code>y = mx + b</code>
+						<ul>
+							<li><code>y</code> is the output response</li>
+							<li><code>x</code> is the input feature (we have one feature, remember? Square fit is the feature for our example.)</li>
+							<li><code>b</code> is the y-axis intercept.</li>
+							<li><code>m</code> is the gradient, or <strong>weight coefficient</strong>.</li>
+						</ul>
+
+						<h5>Quantifying Regression</h5>
+
+						<p>This just means how do we prove if our model works? How do we quantify accuracy?</p>
+
+						<p>As we use linear regression as our foundational study material, realize that what you learned here is going to be applied to other models as well.</p>
+					
+						<p>To quantify accuracy, we use common scoring metrics such as:</p>
+
+						<ul>
+							<li>R-Squared (R<sup>2</sup>)</li>
+							<li>Mean Squared Error (MSE)</li>
+						</ul>
+
+						<p>What I'm going to teach you are some of the fundamentals of R<sup>2</sup> and MSE to understand how we derived accuracy, but to find out more on the mathematical derivation, look at the links below:</p>
+						<ul>
+							<li><a href="https://www.khanacademy.org/math/ap-statistics/bivariate-data-ap/assessing-fit-least-squares-regression/v/r-squared-or-coefficient-of-determination">R<sup>2</sup> or coefficient of determination</a></li>
+							<li>MSE (I don't have a good math video tutorial at the moment, so you could suggest, and I'll put it up here.)</li>
+						</ul>
+
+						<h3>R<sup>2</sup> Concept</h3>
+						<p>We use the margin of errors to depict the accuracy of a model. Consider this graph:</p>
+
+						<img src="img/r-squared-example-0.png" class="img-fluid" />
+
+						<p>We're trying to measure the accuracy of our model by using the margin of errors. Thus:</p>
+						<ul>
+							<li>Having the same input (x<sub>1</sub>), the predicted data would feature on the line, and we have the actual results as (x<sub>1</sub>,y<sub>1</sub>).</li>
+							<li>The margin of error, <code>r</code>, would be <code>y<sub>1</sub> - y</code> since there is a difference between the 2 output values.</li>
+							<li>Squaring them eliminates negatives (high school math), and we get an area on the graph.</li>
+							<li>We can't base our accuracy on a single margin of error. Thus, since all points have their margin of errors, we add them all up to get the <strong>Squared-Error of the line (SE<sub>line</sub>).</strong></li>
+							<li>But the <code>SE<sub>line</sub></code> doesn't allow us to compare with anything. So, we calculate the <strong>total variation in <code>y</code></strong> to quantify how the margin of error against the total variance of y.</li>
+							<li>By division, <code>SE<sub>line</sub>/SE<sub>y-mean</sub></code>, we get the amount of error in relation to the total variance of y. But this describes the error percentage. How about the accuracy?</li>
+							<li>Accuracy is described by 100%, or 1 if we're dealing with decimals. Thus, <code>1 - SE<sub>line</sub>/SE<sub>y-mean</sub></code> will give us an accuracy score, and it's often described as <strong>the coefficient of determination</strong>.</li>
+						</ul>
+
+						<p>Beyond this will be out of our scope for math.</p>
+
+						<h3>MSE Concept</h3>
+						<p>Using the same concept for calculating margin of error for <code>r<sup>2</sup></code>, we simply sum the squared margin of error and divide it by the total number of points:</p>
+						<img src="img/mse-example-0.png" class="img-fluid" />
+
+						<h3>Summary</h3>
+						<ul>
+							<li><code>R<sup>2</sup></code> value should be as close to 1 for accuracy.</li>
+							<li><code>MSE</code> score should be close to 0 for accuracy.</li>
+						</ul>
+						
+					</div> <!-- end #01-Ins_Linear_Regression -->
+
+					<div id="02-Stu_Predicting_Sales" class="student-block">
+						<h3>Students Do: Predict Sales with Linear Regression</h3>
+
+						<p>Let's open up the file(s) in the <code>02-Stu_Predicting_Sales</code> folder to get started.</p>
+
+					</div> <!-- end #02-Stu_Predicting_Sales -->
+
+					<div id="break" class="instructor-block">
+						<h3>Break - 15 mins @ 8:05pm</h3>
+					</div> <!-- break -->
+
+					<div id="03-Ins_Logistic_Regression" class="instructor-block">
+						<h3>Make Predictions with Logistic Regression</h3>
+
+						<p>Let's open up the file(s) in the <code>03-Ins_Logistic_Regression</code> folder to get started.</p>
+
+						<p>Logistic regression is about predicting binary outcomes and the probability of it.</p>
+
+						<h5>Train-Validate-Test</h5>
+
+						<p>In ML, if we have a dataset, we would split the data into the following portions:</p>
+						<ul>
+							<li>Training Data</li>
+							<ul>
+								<li>This is the set of data that we will prepare our model on, by understanding the trends and features needed to meet our outcome.</li>
+							</ul>
+							<li>Validation Data</li>
+							<ul>
+								<li>We will do a preliminary prediction on this data and validate its results to have an estimated accuracy.</li>
+							</ul>
+							<li>Test Data</li>
+							<ul>
+								<li>This dataset is untouched, and it is only used for the final evaluation of the model.</li>
+							</ul>
+						</ul>
+
+						<h5>How do we proportion our data into train, validation, and test?</h5>
+
+						<p>We ensure that the test dataset is statistically significant to the rest of the dataset, and thus it depends on the number of samples needed.</p>
+
+						<p>However, we don't want our training and validation datasets to be too small and then we can't capture the trends within the dataset.</p>
+
+						<p>On a typical setting, we split training, validate and test data into:</p>
+						<ul>
+							<li>80-10-10</li>
+							<li>70-15-15</li>
+							<li>60-20-20</li>
+						</ul>
+
+						<h5>What is 'lbfgs'?</h5>
+						<p>These are solver libraries that exist within sci-kit learn (and even Excel has solvers), where mathematical optimization can be easily attained using one of these libraries.</p>
+
+						<p>Different solvers are used in different settings, and they vary in terms of efficiency, methodology and accuracy.</p>
+
+						<p>It is out of scope, but lbfgs stands for "Large-scale Bound-constrained Optimization".</p>
+						
+						
+					</div> <!-- end #03-Ins_Logistic_Regression -->
+
+					<div id="04-Stu_Predicting_Diabetes" class="student-block">
+						<h3>Students Do: Predicting Diabetes</h3>
+
+						<p>Let's open up the file(s) in the <code>04-Stu_Predicting_Diabetes</code> folder to get started.</p>
+
+						
+					</div> <!-- end #04-Stu_Predicting_Diabetes -->
+
+					
+
+					
+
+					<div id="05-Ins_Classification_Models" class="instructor-block">
+						<h3>Confusion Matrix & Classification Report</h3>
+
+						<p>Let's open up the file(s) in the <code>05-Ins_Classification_Models</code> folder to get started.</p>
+
+						
+					</div> <!-- end #05-Ins_Classification_Models -->
+
+					<div id="06-Stu_Classification_Models" class="student-block">
+						<h3>Students Do: Classifying Social Media Influencers</h3>
+
+						<p>Let's open up the file(s) in the <code>06-Stu_Classification_Models</code> folder to get started.</p>
+
+						
+					</div> <!-- end #06-Stu_Classification_Models -->
+
+					
+
+					
+					
+					
+					
+
+					
+
+				
+					
+
+					
+
+
+				</div> <!-- end #main-content -->
+
+
+				<!--div id="right-sb" class="col-md-4">
+					<div id="right-sb-nav" class="list-group" id="toc" role="tablist">
+					  <a class="list-group-item list-group-item-action active"  href="#objectives" role="tab">Objectives</a>
+
+					  <a class="list-group-item list-group-item-action"  href="#intro" role="tab">Snapshot Instructor Introduction</a>
+					  <a class="list-group-item list-group-item-action"  href="#01-intro-to-data" role="tab">Introduction To Data</a>
+						<a class="list-group-item list-group-item-action"  href="#02-course-overview" role="tab">Course Overview</a>
+						<a class="list-group-item list-group-item-action"  href="#03-past-learnings" role="tab">Past Learnings</a>
+						<a class="list-group-item list-group-item-action"  href="#04-before-break" role="tab">Before the Break</a>
+
+						<a class="list-group-item list-group-item-action"  href="#05-break" role="tab">Break</a>
+						<a class="list-group-item list-group-item-action"  href="#06-group-great-debate" role="tab">Group Activity: The Great Debate</a>
+						<a class="list-group-item list-group-item-action"  href="#07-group-gentrification" role="tab">Group Activity: Predicting Gentrification</a>
+						<a class="list-group-item list-group-item-action"  href="#08-homework-discussion" role="tab">Homework Discussion</a>
+
+					</div>
+				
+				</div-->
+			</div> <!-- end .row -->
+			
+		</div> <!-- end .container-fluid -->
+
+		<footer>
+			<script type="text/javascript" src="../../js/jquery-3.3.1.min.js"></script>
+			<script type="text/javascript" src="../../js/bootstrap.min.js"></script>
+
+			<script type="text/javascript">
+
+			</script>
+
+      <script type="text/javascript" src="../../js/config.js"></script>
+      <style>
+pre {
+  background-color: black;
+  color: white;
+}
+
+div[id^="map-"]{
+  height:500px;
+}
+div[id$="-toggle"]{
+  display: none;
+}
+      </style>
+
+		</footer>
+
+	</body>
+
+
+</html>
