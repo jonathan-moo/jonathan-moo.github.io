@@ -83,6 +83,7 @@
 							<a class="dropdown-item" href="ASU-VIRT-DATA-PT-03-2023-U-LOLC/19.2/index.html">19.2 Ref</a>
 							<a class="dropdown-item" href="ASU-VIRT-DATA-PT-03-2023-U-LOLC/19.3/index.html">19.3 Ref</a>
 							<a class="dropdown-item" href="ASU-VIRT-DATA-PT-03-2023-U-LOLC/20.1/index.html">20.1 Ref</a>
+							<a class="dropdown-item" href="ASU-VIRT-DATA-PT-03-2023-U-LOLC/20.2/index.html">20.2 Ref</a>
 						</div>
 					</li>
 				</ul>
@@ -95,226 +96,218 @@
 						<h3 id="objectives">Objectives For Today</h3>
 
 						<ul>
-							<li>Supervised Learning</li>
+							<li>Introduction to Advanced Machine Learning</li>
 						</ul>
 
 					</div>
 
-					<div id="ml-nutshell" class="instructor-block">
-						<h3>Machine Learning (ML) in a nutshell</h3>
+					<div id="intro" class="instructor-block">
+						<h3>Introduction to Neural Networks</h3>
+
+						<p>Basically, neural nets were inspired by how our brains function:</p>
+						<ul>
+							<p>The neuron's axos is what it uses to send signals to other neurons.</p>
+							<p>Denrites receive information from the cell body.</p>
+							<p>Synapses are sensors that receive signals from other neurons.</p>
+						</ul>
+
+						<p>This is how our brains work:</p>
+						<ul>
+							<li>Brain sees an image through your eyes.</li>
+							<li>Your brain recognizes fur, pointy ears, whiskers.</li>
+							<li>Your brain then acknowledged that it is a cat (I know there are other things that identify a cat but let's keep our example simple).</li>
+						</ul>
+
+						<p>Likewise, we mimic the overall behavior in our code to do the same thing:</p>
+						<ul>
+							<li>We scan a cat image into a computer.</li>
+							<li>The computer notices distinct vectors in on an image. Perhaps it identified fur, pointy ears, and whiskers like a humans do.</li>
+							<li>But unlike a human, computers are only good with numbers. So if it identifies fur, it means True or 1. Then pointy ears triggers another 1, and whiskers triggers another 1. If it doesn't notice anything, it means False or 0.</li>
+							<li>If all three parameters are 1, we could have a function that says if all 3 parameters are 1, it is a cat and we output as True. If not, False.</li>
+							<li>The entire system of taking inputs, and determining an output, as a single unit or entity, is called a <strong>perceptron</strong>. In-between, we have models or step-functions (activation function) to determine a result.</li>
+						</ul>
+
+						<p>Of course, the example I give is simple. But if you want to classify if a skin imagery is cancerous or not, you have more than 100 million parameters to determine.</p>
+
+						<h4>Perceptron</h4>
+
+						<p>Actually, we are using perceptrons without realizing it:</p>
+						<ul>
+							<li>Logical operators</li>
+								<ul>
+									<li>AND, means all inputs must be True(1) to output True(1). Otherwise, False(0).</li>
+									<li>OR, means if any of the input is True(1), output True(1). Otherwise, False(0).</li>
+								</ul>
+						</ul>
+
+						<h4>Then, what is a neural network?</h4>
+
+						<p>Layers of neurons (perceptrons) connected together to form decisions or classification of results.</p>
 						
-						<p>"What has been will be again, <br>
-								"what has been done will be done again<br>
-								"there is nothing new under the sun." Ecclesiastes 1:9 (NIV Bible)
-						</p>
+						<p><strong>Why use log regression rather simple True or False?</strong></p>
 
-						<p>In a nutshell, we take repeatable happenings in a situation and <strong>predict with a good confidence that it will happen again</strong>, in order to inspire action items that drive value.</p>
-						<ul>
-							<li>We drive the same streets again and again in our daily commute, where the roads don't change frequently.</li>
-							<li>Weather patterns repeat itself year-on-year, where we know what to do so that we make the best out of it.</li>
-						</ul>
+						<div id="01-toggle">
+							<p>Because True or False gives us no room to correct and train our systems. It's either 100% correct or 0%. The highest value of a log is 1, and the lowest is 0 (remember your high school math?), and in-between are all decimals. If we know how close are we to True (1) or False (0) through decimals, we can correct models to achieve a better result.</p>
+						</div>
 
-						<p>These patterns present themselves as <strong>data</strong> to us, and the data can come in many shapes and forms, such as:</p>
-						<ul>
-							<li>Digits and numbers</li>
-							<li>Time</li>
-							<li>Images</li>
-							<li>Voice recordings</li>
-						</ul>
+						<button type="button" class="btn btn-primary" onclick='$("#01-toggle").toggle();'>Show/Hide Hints</button>
 
-						<h5>Types of ML</h5>
+						<div style="margin-top: 20px;">
+							<h4>Backpropagation</h4>
+
+							<p>We feed errors rates into a system, then tweak our algorithms or parameters to improve accuracy. Intuitively, when you come to me to correct code, I always break it down and see what kind of errors took place. I fix an error at a time.</p>
+
+							<p>Similarly, this process works in deep learning. The difference is computers are mitigating errors on a larger scale.</p>
+						</div>
+						
+					</div>
+
+					<div id="tensorflow-playground" class="instructor-block">
+						<h3>Tensorflow Playground</h3>
+
+						<p>Tensorflow is what we use to for machine learning purposes. It's a library developed by Google for all sorts of data science projects, especially neural networks.</p>
+
+						<p>Goggle has developed a playground for us to get acquainted with Tensorflow here: <a href="http://playground.tensorflow.org/#activation=tanh&batchSize=10&dataset=circle&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=4,2&seed=0.25352&showTestData=false&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&hideText=false">Tensorflow Playground</a></p>
+
+						<p>When you visit the playground, you can see a dashboard with lots of control and parameters. Let's break it down somewhat:</p>
+
 						<ul>
-							<li>Supervised Learning</li>
+							<li>The top bar is a generic control panel for training.</li>
 							<ul>
-								<li>We already have enough information to know the possible outcomes of a situation, and we are simply trying to improve our accuracy so that our decisions may be as impactful as possible:</li>
+								<li><strong>Play</strong> button when your formula starts training.</li>
+								<li><strong>Epoch</strong> is the time transpired that the model has been working.</li>
 								<ul>
-									<li>Sports Analytics: Sports are man-made, and the outcomes are already defined witin the game.</li>
-									<li>Credit Scoring: How often you loan and repay your debts through your credit cards is relatively predictable.</li>
+									<li>Time to train a model is actually a pivotal part of ML. Of course, this is a playground, and so it's supposed to be quick, but I've heard cases where training data took months.</li>
 								</ul>
-								<li>Most businesses are in this category.</li>
-								<li>Types of Supervised Learning:</li>
+								<li><strong>Learning rate</strong> is a numerical parameter which allows the algorithm to adjust itself. Basically, it's adjusting the weight in a linear equation.</li>
 								<ul>
-									<li>Classification: Grouping data into buckets with similar properties</li>
-									<li>Regression: Fitting data to determine if an event would happen again.</li>
+									<li>Your school slides give an example of gradient descent, which is where the algorithm uses itself to adjust the classifier into its optimal state.</li>
+								</ul>
+								<li><strong>Activation function</strong> is a mathematical function which is applied to incoming data to define an output. Usually, the outputs are binary, either True or False, Yes or No. It can get more complicated than this but we'll rest our case here:</li>
+								<ul>
+									<li><img src="img/activation_function.png" class="img-fluid"/></li>
+									<li>Your school slides give a good overview of the different types of activation function that is commonly available.</li>
+								</ul>
+								<li><strong>Regularization and Regularization rate</strong> is to prevent overfitting.</li>
+								<ul>
+									<li>L1 is called <strong>Lasso Regression</strong>.</li>
+									<li>L2 is called <strong>Ridge Regression</strong>.</li>
 								</ul>
 							</ul>
-							<li>Unsupervised Learning</li>
+							<li>The side bar on the left manages the data parameters.</li>
 							<ul>
-								<li>We don't have enough information to know what are the possible outcomes, but we are collecting and observing the data to know its possible trajectory so that we can make decisions on the data.</li>
-								<ul>
-									<li>Self-driving cars: We don't know if a car, person, or animal might happen within your path.</li>
-									<li>Recommendation systems: Each person is unique, and the outcomes vary per person.</li>
-								</ul>
+								<li>They don't tell us what kind of data this is, so we assume this data as random coordinates in a bi-dimensonal scale.</li>
+							</ul>
+							<li><strong>Features</strong> are the dimensions you want to define in your data set. Example. supposed you want to identify cats and dogs by 2 features, height and weight.</li>
+							<li><strong>Hidden Layers</strong> are the set of rules you want to define to classify the data.</li>
+							<ul>
+								<li>Imagine the blue dots are cats and the orange dots are dogs. This data is collected in both X1 and X2 as weight and height.</li>
+								<li>Notice that each neuron node is a singular line? It's binary classifcation, where one neuron determine disect the graph horizontally, while the rest disect it with slants.</li>
+								<li>The default activation function here is <strong>hyperbolic tangent</strong>. Looking at the graph above, you have three distinct values, -1, 0, and 1. The white region denotes 0, while -1 denotes orange and 1 denotes blue. Zero is the boundary where you want to separate between cats and dogs.</li>
+								<li><strong>Why 2 hidden layers?</strong> If we remove the second layer, the output would show a "triangular shaped" output. That's because we use lines to draw, and the second layer is to smoothen the edges out for a better error approximation.</li>
+							</ul>
+							<li><strong>Output</strong> is self-explantory. You want to have a visualization of how you're classifying your data.</li>
+						</ul>
+
+						<h4>What are you looking for in this playground?</h4>
+
+						<p>Comparisons between different activation functions and how fast it can train your data properly.</p>
+
+						
+					</div>
+
+					<div id="tf-install" class="instructor-block">
+						
+						<h3>Installing Tensorflow</h3>
+						<ul>
+							<li>Activate your dev env in conda: <code>conda activate dev</code></li>
+							<li>Install the tensorflow lib: <code>pip install tensorflow</code></li>
+							<ul>
+								<li>You can include the installation within your Jupyter notebook with: <code>!pip install tensorflow</code></li>
 							</ul>
 						</ul>
+
 
 					</div><!-- end #ml-nutshell -->
 
 
-					<div id="01-Ins_SVM" class="instructor-block">
-						<h3>Introduction to Support Vector Machine (SVM)</h3>
+					<div id="01-Stu_WorkThroughLogistics" class="student-block">
+						<h3>Students Do: Working Through the Logistics</h3>
 
-						<p>Let's open up the file(s) in the <code>01-Ins_SVM</code> folder to get started.</p>
+						<p>Let's open up the file(s) in the <code>01-Stu_WorkThroughLogistics</code> folder to get started.</p>
 
-						<h5>Why SVMs?</h5>
-
-						<p>Supposed we want to categorize data points into 2 labels. Let's say we want to classify between cats and dogs, and we are classifying them based on height and weight.</p>
-
-						<p>In linear classification, we use a line to distinguish 2 entities. As a general rule of thumb, dogs are bigger and heavier than cats.</p>
-
-						<p>However, what about outliers? How do deal with mini poodles that can be extremely small? They would be labeled as cats if we use a hard line to model.</p>
-
-						<p>Thus, the use of SVMs is to address outliers so that we minimize the impact of outliers that could misalign our model.</p>
-
-						<img src="img/SVM_margin.png" class="img-fluid">
-
-						<p>In the example above, the yellow area presents a soft margin where we allow misclassifications to happen. We can allow misclassifications because we expect the misclassifications to be an exception rather than the norm.</p>
-						<ul>
-							<li>The line in between the dashed lines is called the maximum margin classifier. In linear classification, we use this line to make a distinction between our 2 labels.</li>
-							<li>A soft margin classifier is also known as a support vector classifier.</li>
-							<li>Support vector classifier is derived where the observations on the edge and within the soft margin are called support vectors.</li>
-							<ul>
-								<li>The data points on the dashed lines are called support vectors, because these data points serve as the boundaries of where we define the soft margin.</li>
-							</ul>
-							<li>If we have 2 dimensions, the support vector would be a line, as seen in your activities. If it is 3D, it will be a plane rather than a line. When you are predicting 4 or more dimensions, the support vector classifier is a <strong>hyperplane</strong>.</li>
-							<ul>
-								<li>But for simplicity sake, we call the support vector classifier as a hyperplane irregardless of the number of dimensions.</li>
-							</ul>
-						</ul>
+						<h5>Why logistic regression/classification is a precursor to deep learning?</h5>
+						<p>That's because logistic algorithms allow elasticity, where the model can use to improve its accuracy.</p>
+						<p>If your activation function is only 1 or 0, True or False, it can be impossible to use deep learning to predict.</p>
 						
+					</div> <!-- end #01-Stu_WorkThroughLogistics -->
 
+					<div id="setup-gcolab" class="instructor-block">
+						<h3>Setup Google Colab</h3>
 
+						<p>Every Google account that you sign up for (in many cases, your gmail), comes with access to Google Colab.</p>
 
-						<h5>Additional Instructions</h5>
-						<iframe width="560" height="315" src="https://www.youtube.com/embed/efR1C6CvhmE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-						
-					</div> <!-- end #01-Ins_SVM -->
+						<h5>What is Google Colab?</h5>
 
-					<div id="02-Stu_Predicting_Occupancy" class="student-block">
-						<h3>Students Do: Predict Occupancy of Office Space</h3>
+						<p>The main purpose of Google Colab is to run your machine learning (ML) algorithms in the cloud.</p>
 
-						<p>Let's open up the file(s) in the <code>02-Stu_Predicting_Occupancy</code> folder to get started.</p>
+						<h5>Why run ML in the cloud?</h5>
+						<p>Short answer: Your local machine cannot handle the load for many real-world applications.</p>
 
-						<p>You will not be able to plot the graph since the dataset has more than 3 dimensions.</p>
+						<p>Long answer: Running an ML model within the cloud allows scalability and maintainability of your solution. If you need more, then ramp up the amount of compute units.</p>
 
-					</div> <!-- end #02-Stu_Predicting_Occupancy -->
+						<p>However, it comes with a <strong>price tag</strong>. Sure, they say it is free to use, but you would have to pay if you use up more resources than is allowed.</p>
 
-					
+						<h5>How to setup Google Colab?</h5>
+						<p>Ref: <a href="https://colab.research.google.com/notebooks/welcome.ipynb">https://colab.research.google.com/notebooks/welcome.ipynb</a></p>
 
-					<div id="03-Ins_Decision_Trees" class="instructor-block">
-						<h3>Introduction to Decision Trees</h3>
+						<p>Log into your Google account first and then access the above link.</p>
 
-						<p>Let's open up the file(s) in the <code>03-Ins_Decision_Trees</code> folder to get started.</p>
-
-						<p>In layman terms, decision trees is a massive if-else algorithm that compares across all your input features to classify the data.</p>
-
-						<p>For example, we have a table such as this:</p>
-
-						<table class="table">
-							<thead>
-								<tr>
-									<th>Weight (kg)</th>
-									<th>Height (cm)</th>
-									<th>Classification</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td>4.4</td>
-									<td>46</td>
-									<td>cat</td>
-								</tr>
-								<tr>
-									<td>20</td>
-									<td>68</td>
-									<td>dog</td>
-								</tr>
-							</tbody>
-						</table>
-
-						<p>So a decision tree could look like:</p>
+						<p>Google Colab requires you to use Google drive to host your Jupyter Notebooks.</p>
 						<ul>
-							<li>If the animal is < 4.4kg and < 46 cm, it is a cat.</li>
-							<li>If the animal is > 20kg and > 68 cm, it is a dog.</li>
+							<li>Take note that Google Drive has its own cost if you go over the free 15GB limit!</li>
 						</ul>
 
-						<p>The model will build a tree and its nodes with full of if-else statements by themselves, and based on the trained data set, attempt to capture pattern and predict accordingly with the features of an unknown animal.</p>
+						<h5>Connecting Google Collab With Your GDrive</h5>
+						<p>1. Go to your gDrive and look for the "More" tab as shown:</p>
+						<img src="img/google_add_colab.png" class="img-fluid">
 
-						<p>Decision trees need to be pruned, which is to weigh the features and reduce the number of features needed. </p>
-						<ul>
-							<li>Because decision trees are very susceptible to overfitting, where your tests might yield good results, but your real-world experience with the model yields poor results.</li>
-						</ul>
+						<p>2. Search for "colab" so that you can see the Colaboratory app as shown:</p>
+						<img src="img/google_connect-colab.png" class="img-fluid">
 
-						<h5>Additional References</h5>
-						<iframe width="560" height="315" src="https://www.youtube.com/embed/_L39rN6gz7Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-						
-					</div> <!-- end #03-Ins_Decision_Trees -->
+						<p>3. If you have done so, it will create the Jupyter notebook within the system:</p>
+						<img src="img/google_create-notebook.png" class="img-fluid">
 
-					<div id="04-Stu_Predicting_Fraud" class="student-block">
-						<h3>Students Do: Predicting Fraudulent Loan Applications</h3>
+						<h5>Pro Tip:</h5>
+						<p>We usually deploy with Github rather than gDrive, because there is version control. It is not covered in the course, but something you might want to explore.</p>
+					</div> <!-- end #setup-gcolab -->
 
-						<p>Let's open up the file(s) in the <code>04-Stu_Predicting_Fraud</code> folder to get started.</p>
-
-						
-					</div> <!-- end #04-Stu_Predicting_Fraud -->
-
-					
 					<div id="break" class="instructor-block">
 						<h3>Break - 15 mins @ 8:05pm</h3>
 					</div> <!-- break -->
+
+					<div id="02-Ins_WorkThroughNN" class="instructor-block">
+						<h3>Work Through a Neural Network Workflow</h3>
+
+						<p>Let's open up the file(s) in the <code>02-Ins_WorkThroughNN</code> folder to get started.</p>
+
+						
+						
+					</div> <!-- end #02-Ins_WorkThroughNN -->
+
+					<div id="03-Stu_BYONNM" class="student-block">
+						<h3>Students Do: BYONNM—Build Your Own Neural Network Model</h3>
+
+						<p>Let's open up the file(s) in the <code>03-Stu_BYONNM</code> folder to get started.</p>
+
+						
+					</div> <!-- end #03-Stu_BYONNM -->
+
+					
+					
 					
 
-					<div id="05-Ins_Random_Forest" class="instructor-block">
-						<h3>Random Forest</h3>
-
-						<p>Let's open up the file(s) in the <code>05-Ins_Random_Forest</code> folder to get started.</p>
-
-						<h5>Intro to Ensemble Learning</h5>
-
-						<p>In layman terms, you are combining multiple models and/or algorithms to improve accuracy.</p>
-
-						<p>For example, Amazon wanted to label brands on images, because there are millions of items sold in the store. It can be used to address erroneous uploads, or fraud.</p>
-
-						<p>However, many brands have different styles of logos, and it is not consistent.</p>
-						<ul>
-							<li>Addidas sometimes use 3 stripes as their brand, and then they will have their name on it.</li>
-							<li>Apple just shows an image.</li>
-						</ul>
-
-						<p>Amazon tried to apply image classification on the entirety of the photo, but it yielded poor results.</p>
-
-						<p>They eventually separated the name and the logo, and classify separately before combining their results together to predict the final outcome. This is known as stacking ensemble.</p>
-
-						<p>Random forest looks very similar to a decision tree, except that they added sampling, and will break down a big decision tree into several smaller ones for a better accuracy.</p>
-						
-					</div> <!-- end #05-Ins_Random_Forest -->
-
-					<div id="06-Stu_Predicting_Default" class="student-block">
-						<h3>Students Do: Predicting Loan Default</h3>
-
-						<p>Let's open up the file(s) in the <code>06-Stu_Predicting_Default</code> folder to get started.</p>
-
-						
-					</div> <!-- end #06-Stu_Predicting_Default -->
-
-
-					<div id="07-Ins_KNN" class="instructor-block">
-						<h3>K-Nearest Neighbors</h3>
-
-						<p>Let's open up the file(s) in the <code>07-Ins_KNN</code> folder to get started.</p>
-
-						<p>The concept of KNN is easy because it is very similar to K-means clustering, where they will measure the distance between each other and classify according to proximity.</p>
-
-						<p>The only difference is you know what you want to label, whereas K-means you won't know. Because you already know how many labels you want (since there is a correct answer), there's no need to determine the optimal number of clusters here.</p>
-						
-					</div> <!-- end #07-Ins_KNN -->
-
-					<div id="08-Stu_Predicting_Bank_Customers" class="instructor-block">
-						<h3>Students Do: Predicting Banking Customers</h3>
-
-						<p>Let's open up the file(s) in the <code>08-Stu_Predicting_Bank_Customers</code> folder to get started.</p>
-						
-					</div> <!-- end #08-Stu_Predicting_Bank_Customers -->
+					
 
 					
 

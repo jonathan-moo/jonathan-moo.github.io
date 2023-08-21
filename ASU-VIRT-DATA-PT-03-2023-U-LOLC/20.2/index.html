@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Jonathan Moo's Github Bio</title>
+
+
+		<link rel='stylesheet' id='bootstrap-css'  href='../../css/bootstrap.min.css' type='text/css' media='all' />
+		<link rel='stylesheet' id='bootstrap-grid-css'  href='../../css/bootstrap-grid.min.css' type='text/css' media='all' />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+   integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+   crossorigin=""/>
+		<link rel='stylesheet' id='custom-css'  href='../../css/style.css' type='text/css' media='all' /> 
+		<script src="https://d3js.org/d3.v5.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.9.1/d3-tip.js"></script>
+		<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+     <!-- Make sure you put this AFTER Leaflet's CSS -->
+     <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+       integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+       crossorigin=""></script>
+	</head>
+
+	<body>
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<a class="navbar-brand" href="#">Jonathan's Github Page</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active">
+						<a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Lessons</a>
+						<div class="dropdown-menu">
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/1.1/index.html">1.1 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/1.2/index.html">1.2 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/1.3/index.html">1.3 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/2.1/index.html">2.1 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/2.2/index.html">2.2 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/2.3/index.html">2.3 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/3.1/index.html">3.1 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/3.2/index.html">3.2 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/3.3/index.html">3.3 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/4.1/index.html">4.1 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/4.2/index.html">4.2 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/4.3/index.html">4.3 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/5.1/index.html">5.1 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/5.2/index.html">5.2 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/5.3/index.html">5.3 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/6.1/index.html">6.1 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/6.2/index.html">6.2 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/6.3/index.html">6.3 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/7.1/index.html">7.1 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/7.2/index.html">7.2 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/7.3/index.html">7.3 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/8.1/index.html">8.1 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/9.1/index.html">9.1 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/9.2/index.html">9.2 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/9.3/index.html">9.3 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/10.1/index.html">10.1 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/10.2/index.html">10.2 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/10.3/index.html">10.3 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/11.1/index.html">11.1 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/11.2/index.html">11.2 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/11.3/index.html">11.3 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/12.1/index.html">12.1 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/12.2/index.html">12.2 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/12.3/index.html">12.3 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/13.2/index.html">13.2 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/14.2/index.html">14.2 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/14.3/index.html">14.3 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/15.1/index.html">15.1 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/15.2/index.html">15.2 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/15.3/index.html">15.3 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/16.1/index.html">16.1 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/16.2/index.html">16.2 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/16.3/index.html">16.3 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/18.1/index.html">18.1 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/18.2/index.html">18.2 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/19.1/index.html">19.1 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/19.2/index.html">19.2 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/19.3/index.html">19.3 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/20.1/index.html">20.1 Ref</a>
+							<a class="dropdown-item" href="../ASU-VIRT-DATA-PT-03-2023-U-LOLC/20.2/index.html">20.2 Ref</a>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</nav>
+		<div class="container-fluid">
+			<div class="row">
+				<div id="main-content" class="col-md-8">
+					<div class="objective-block">
+						<h3 id="objectives">Objectives For Today</h3>
+
+						<ul>
+							<li>Supervised Learning</li>
+						</ul>
+
+					</div>
+
+					<div id="ml-nutshell" class="instructor-block">
+						<h3>Machine Learning (ML) in a nutshell</h3>
+						
+						<p>"What has been will be again, <br>
+								"what has been done will be done again<br>
+								"there is nothing new under the sun." Ecclesiastes 1:9 (NIV Bible)
+						</p>
+
+						<p>In a nutshell, we take repeatable happenings in a situation and <strong>predict with a good confidence that it will happen again</strong>, in order to inspire action items that drive value.</p>
+						<ul>
+							<li>We drive the same streets again and again in our daily commute, where the roads don't change frequently.</li>
+							<li>Weather patterns repeat itself year-on-year, where we know what to do so that we make the best out of it.</li>
+						</ul>
+
+						<p>These patterns present themselves as <strong>data</strong> to us, and the data can come in many shapes and forms, such as:</p>
+						<ul>
+							<li>Digits and numbers</li>
+							<li>Time</li>
+							<li>Images</li>
+							<li>Voice recordings</li>
+						</ul>
+
+						<h5>Types of ML</h5>
+						<ul>
+							<li>Supervised Learning</li>
+							<ul>
+								<li>We already have enough information to know the possible outcomes of a situation, and we are simply trying to improve our accuracy so that our decisions may be as impactful as possible:</li>
+								<ul>
+									<li>Sports Analytics: Sports are man-made, and the outcomes are already defined witin the game.</li>
+									<li>Credit Scoring: How often you loan and repay your debts through your credit cards is relatively predictable.</li>
+								</ul>
+								<li>Most businesses are in this category.</li>
+								<li>Types of Supervised Learning:</li>
+								<ul>
+									<li>Classification: Grouping data into buckets with similar properties</li>
+									<li>Regression: Fitting data to determine if an event would happen again.</li>
+								</ul>
+							</ul>
+							<li>Unsupervised Learning</li>
+							<ul>
+								<li>We don't have enough information to know what are the possible outcomes, but we are collecting and observing the data to know its possible trajectory so that we can make decisions on the data.</li>
+								<ul>
+									<li>Self-driving cars: We don't know if a car, person, or animal might happen within your path.</li>
+									<li>Recommendation systems: Each person is unique, and the outcomes vary per person.</li>
+								</ul>
+							</ul>
+						</ul>
+
+					</div><!-- end #ml-nutshell -->
+
+
+					<div id="01-Ins_SVM" class="instructor-block">
+						<h3>Introduction to Support Vector Machine (SVM)</h3>
+
+						<p>Let's open up the file(s) in the <code>01-Ins_SVM</code> folder to get started.</p>
+
+						<h5>Why SVMs?</h5>
+
+						<p>Supposed we want to categorize data points into 2 labels. Let's say we want to classify between cats and dogs, and we are classifying them based on height and weight.</p>
+
+						<p>In linear classification, we use a line to distinguish 2 entities. As a general rule of thumb, dogs are bigger and heavier than cats.</p>
+
+						<p>However, what about outliers? How do deal with mini poodles that can be extremely small? They would be labeled as cats if we use a hard line to model.</p>
+
+						<p>Thus, the use of SVMs is to address outliers so that we minimize the impact of outliers that could misalign our model.</p>
+
+						<img src="img/SVM_margin.png" class="img-fluid">
+
+						<p>In the example above, the yellow area presents a soft margin where we allow misclassifications to happen. We can allow misclassifications because we expect the misclassifications to be an exception rather than the norm.</p>
+						<ul>
+							<li>The line in between the dashed lines is called the maximum margin classifier. In linear classification, we use this line to make a distinction between our 2 labels.</li>
+							<li>A soft margin classifier is also known as a support vector classifier.</li>
+							<li>Support vector classifier is derived where the observations on the edge and within the soft margin are called support vectors.</li>
+							<ul>
+								<li>The data points on the dashed lines are called support vectors, because these data points serve as the boundaries of where we define the soft margin.</li>
+							</ul>
+							<li>If we have 2 dimensions, the support vector would be a line, as seen in your activities. If it is 3D, it will be a plane rather than a line. When you are predicting 4 or more dimensions, the support vector classifier is a <strong>hyperplane</strong>.</li>
+							<ul>
+								<li>But for simplicity sake, we call the support vector classifier as a hyperplane irregardless of the number of dimensions.</li>
+							</ul>
+						</ul>
+						
+
+
+
+						<h5>Additional Instructions</h5>
+						<iframe width="560" height="315" src="https://www.youtube.com/embed/efR1C6CvhmE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+						
+					</div> <!-- end #01-Ins_SVM -->
+
+					<div id="02-Stu_Predicting_Occupancy" class="student-block">
+						<h3>Students Do: Predict Occupancy of Office Space</h3>
+
+						<p>Let's open up the file(s) in the <code>02-Stu_Predicting_Occupancy</code> folder to get started.</p>
+
+						<p>You will not be able to plot the graph since the dataset has more than 3 dimensions.</p>
+
+					</div> <!-- end #02-Stu_Predicting_Occupancy -->
+
+					
+
+					<div id="03-Ins_Decision_Trees" class="instructor-block">
+						<h3>Introduction to Decision Trees</h3>
+
+						<p>Let's open up the file(s) in the <code>03-Ins_Decision_Trees</code> folder to get started.</p>
+
+						<p>In layman terms, decision trees is a massive if-else algorithm that compares across all your input features to classify the data.</p>
+
+						<p>For example, we have a table such as this:</p>
+
+						<table class="table">
+							<thead>
+								<tr>
+									<th>Weight (kg)</th>
+									<th>Height (cm)</th>
+									<th>Classification</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>4.4</td>
+									<td>46</td>
+									<td>cat</td>
+								</tr>
+								<tr>
+									<td>20</td>
+									<td>68</td>
+									<td>dog</td>
+								</tr>
+							</tbody>
+						</table>
+
+						<p>So a decision tree could look like:</p>
+						<ul>
+							<li>If the animal is < 4.4kg and < 46 cm, it is a cat.</li>
+							<li>If the animal is > 20kg and > 68 cm, it is a dog.</li>
+						</ul>
+
+						<p>The model will build a tree and its nodes with full of if-else statements by themselves, and based on the trained data set, attempt to capture pattern and predict accordingly with the features of an unknown animal.</p>
+
+						<p>Decision trees need to be pruned, which is to weigh the features and reduce the number of features needed. </p>
+						<ul>
+							<li>Because decision trees are very susceptible to overfitting, where your tests might yield good results, but your real-world experience with the model yields poor results.</li>
+						</ul>
+
+						<h5>Additional References</h5>
+						<iframe width="560" height="315" src="https://www.youtube.com/embed/_L39rN6gz7Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+						
+					</div> <!-- end #03-Ins_Decision_Trees -->
+
+					<div id="04-Stu_Predicting_Fraud" class="student-block">
+						<h3>Students Do: Predicting Fraudulent Loan Applications</h3>
+
+						<p>Let's open up the file(s) in the <code>04-Stu_Predicting_Fraud</code> folder to get started.</p>
+
+						
+					</div> <!-- end #04-Stu_Predicting_Fraud -->
+
+					
+					<div id="break" class="instructor-block">
+						<h3>Break - 15 mins @ 8:05pm</h3>
+					</div> <!-- break -->
+					
+
+					<div id="05-Ins_Random_Forest" class="instructor-block">
+						<h3>Random Forest</h3>
+
+						<p>Let's open up the file(s) in the <code>05-Ins_Random_Forest</code> folder to get started.</p>
+
+						<h5>Intro to Ensemble Learning</h5>
+
+						<p>In layman terms, you are combining multiple models and/or algorithms to improve accuracy.</p>
+
+						<p>For example, Amazon wanted to label brands on images, because there are millions of items sold in the store. It can be used to address erroneous uploads, or fraud.</p>
+
+						<p>However, many brands have different styles of logos, and it is not consistent.</p>
+						<ul>
+							<li>Addidas sometimes use 3 stripes as their brand, and then they will have their name on it.</li>
+							<li>Apple just shows an image.</li>
+						</ul>
+
+						<p>Amazon tried to apply image classification on the entirety of the photo, but it yielded poor results.</p>
+
+						<p>They eventually separated the name and the logo, and classify separately before combining their results together to predict the final outcome. This is known as stacking ensemble.</p>
+
+						<p>Random forest looks very similar to a decision tree, except that they added sampling, and will break down a big decision tree into several smaller ones for a better accuracy.</p>
+						
+					</div> <!-- end #05-Ins_Random_Forest -->
+
+					<div id="06-Stu_Predicting_Default" class="student-block">
+						<h3>Students Do: Predicting Loan Default</h3>
+
+						<p>Let's open up the file(s) in the <code>06-Stu_Predicting_Default</code> folder to get started.</p>
+
+						
+					</div> <!-- end #06-Stu_Predicting_Default -->
+
+
+					<div id="07-Ins_KNN" class="instructor-block">
+						<h3>K-Nearest Neighbors</h3>
+
+						<p>Let's open up the file(s) in the <code>07-Ins_KNN</code> folder to get started.</p>
+
+						<p>The concept of KNN is easy because it is very similar to K-means clustering, where they will measure the distance between each other and classify according to proximity.</p>
+
+						<p>The only difference is you know what you want to label, whereas K-means you won't know. Because you already know how many labels you want (since there is a correct answer), there's no need to determine the optimal number of clusters here.</p>
+						
+					</div> <!-- end #07-Ins_KNN -->
+
+					<div id="08-Stu_Predicting_Bank_Customers" class="instructor-block">
+						<h3>Students Do: Predicting Banking Customers</h3>
+
+						<p>Let's open up the file(s) in the <code>08-Stu_Predicting_Bank_Customers</code> folder to get started.</p>
+						
+					</div> <!-- end #08-Stu_Predicting_Bank_Customers -->
+
+					
+
+					
+					
+					
+					
+
+					
+
+				
+					
+
+					
+
+
+				</div> <!-- end #main-content -->
+
+
+				<!--div id="right-sb" class="col-md-4">
+					<div id="right-sb-nav" class="list-group" id="toc" role="tablist">
+					  <a class="list-group-item list-group-item-action active"  href="#objectives" role="tab">Objectives</a>
+
+					  <a class="list-group-item list-group-item-action"  href="#intro" role="tab">Snapshot Instructor Introduction</a>
+					  <a class="list-group-item list-group-item-action"  href="#01-intro-to-data" role="tab">Introduction To Data</a>
+						<a class="list-group-item list-group-item-action"  href="#02-course-overview" role="tab">Course Overview</a>
+						<a class="list-group-item list-group-item-action"  href="#03-past-learnings" role="tab">Past Learnings</a>
+						<a class="list-group-item list-group-item-action"  href="#04-before-break" role="tab">Before the Break</a>
+
+						<a class="list-group-item list-group-item-action"  href="#05-break" role="tab">Break</a>
+						<a class="list-group-item list-group-item-action"  href="#06-group-great-debate" role="tab">Group Activity: The Great Debate</a>
+						<a class="list-group-item list-group-item-action"  href="#07-group-gentrification" role="tab">Group Activity: Predicting Gentrification</a>
+						<a class="list-group-item list-group-item-action"  href="#08-homework-discussion" role="tab">Homework Discussion</a>
+
+					</div>
+				
+				</div-->
+			</div> <!-- end .row -->
+			
+		</div> <!-- end .container-fluid -->
+
+		<footer>
+			<script type="text/javascript" src="../../js/jquery-3.3.1.min.js"></script>
+			<script type="text/javascript" src="../../js/bootstrap.min.js"></script>
+
+			<script type="text/javascript">
+
+			</script>
+
+      <script type="text/javascript" src="../../js/config.js"></script>
+      <style>
+pre {
+  background-color: black;
+  color: white;
+}
+
+div[id^="map-"]{
+  height:500px;
+}
+div[id$="-toggle"]{
+  display: none;
+}
+      </style>
+
+		</footer>
+
+	</body>
+
+
+</html>
