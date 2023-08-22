@@ -254,7 +254,11 @@
 
 						<p>Let's open up the file(s) in the <code>03-Ins_SynapticBoost</code> folder to get started.</p>
 
-						
+						<p>In ML, irregardless of whether it is deep learning or other forms of ML, it is important to:</p>
+						<ul>
+							<li>Weigh the features (input variables, independent variables)</li>
+							<li>Reduce noise (removing columns or rows that might disrupt the real-world effectiveness of the model)</li>
+						</ul>
 						
 					</div> <!-- end #03-Ins_SynapticBoost -->
 
@@ -262,6 +266,21 @@
 						<h3>Take the Guesswork Out of Model Optimization</h3>
 
 						<p>Let's open up the file(s) in the <code>04-Ins_AutoOptimization</code> folder to get started.</p>
+
+						<h5>What is hyperparameter tuning?</h5>
+
+						<p>Hyperparameter tuning is how we should configure our model so that it performs optimally to the best results against our training and validation data sets.</p>
+
+						<p>This is in the hopes of deploying the best ML model/product that we can offer.</p>
+
+						<p>Hyperparameter tuning does not exist only in deep learning. In fact, it exists in almost all known ML models, such as:</p>
+						<ul>
+							<li>XGBoost</li>
+							<li>Logistic algorithms</li>
+							<li>And so on...</li>
+						</ul>
+
+						<p>A lot of the hyperparameter tunning process can be automated where the library would brute force a bunch of configurations to find out the best accuracy to loss in your outcome.</p>
 
 						
 					</div> <!-- end #04-Ins_AutoOptimization -->
@@ -282,6 +301,16 @@
 						<h3>Getting Real with Neural Network Datasets</h3>
 
 						<p>Let's open up the file(s) in the <code>06-Ins_GettingReal</code> folder to get started.</p>
+
+						<p>There could be an error on the 4th cell, where the code was:</p>
+						<ul>
+							<li><code>encode_df.columns = enc.get_feature_names(attrition_cat)</code></li>
+						</ul>
+
+						<p>There is a recent update on scikit-learn library, and they have renamed their method to:</p>
+						<ul>
+							<li><code>encode_df.columns = enc.get_feature_names_out(attrition_cat)</code></li>
+						</ul>
 
 						
 					</div> <!-- end #06-Ins_GettingReal -->
