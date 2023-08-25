@@ -85,6 +85,7 @@
 							<a class="dropdown-item" href="ASU-VIRT-DATA-PT-03-2023-U-LOLC/20.1/index.html">20.1 Ref</a>
 							<a class="dropdown-item" href="ASU-VIRT-DATA-PT-03-2023-U-LOLC/20.2/index.html">20.2 Ref</a>
 							<a class="dropdown-item" href="ASU-VIRT-DATA-PT-03-2023-U-LOLC/21.1/index.html">21.1 Ref</a>
+							<a class="dropdown-item" href="ASU-VIRT-DATA-PT-03-2023-U-LOLC/21.2/index.html">21.2 Ref</a>
 						</div>
 					</li>
 				</ul>
@@ -97,231 +98,59 @@
 						<h3 id="objectives">Objectives For Today</h3>
 
 						<ul>
-							<li>Introduction to Advanced Machine Learning</li>
+							<li>Machine Learning Decisions and Deployment</li>
 						</ul>
 
 					</div>
 
-					<div id="intro" class="instructor-block">
-						<h3>Introduction to Neural Networks</h3>
 
-						<p>Basically, neural nets were inspired by how our brains function:</p>
-						<ul>
-							<p>The neuron's axos is what it uses to send signals to other neurons.</p>
-							<p>Denrites receive information from the cell body.</p>
-							<p>Synapses are sensors that receive signals from other neurons.</p>
-						</ul>
+					<div id="01-Evr_PredictingPreference" class="instructor-block">
+						<h3>Preference Predictor</h3>
 
-						<p>This is how our brains work:</p>
-						<ul>
-							<li>Brain sees an image through your eyes.</li>
-							<li>Your brain recognizes fur, pointy ears, whiskers.</li>
-							<li>Your brain then acknowledged that it is a cat (I know there are other things that identify a cat but let's keep our example simple).</li>
-						</ul>
-
-						<p>Likewise, we mimic the overall behavior in our code to do the same thing:</p>
-						<ul>
-							<li>We scan a cat image into a computer.</li>
-							<li>The computer notices distinct vectors in on an image. Perhaps it identified fur, pointy ears, and whiskers like a humans do.</li>
-							<li>But unlike a human, computers are only good with numbers. So if it identifies fur, it means True or 1. Then pointy ears triggers another 1, and whiskers triggers another 1. If it doesn't notice anything, it means False or 0.</li>
-							<li>If all three parameters are 1, we could have a function that says if all 3 parameters are 1, it is a cat and we output as True. If not, False.</li>
-							<li>The entire system of taking inputs, and determining an output, as a single unit or entity, is called a <strong>perceptron</strong>. In-between, we have models or step-functions (activation function) to determine a result.</li>
-						</ul>
-
-						<p>Of course, the example I give is simple. But if you want to classify if a skin imagery is cancerous or not, you have more than 100 million parameters to determine.</p>
-
-						<h4>Perceptron</h4>
-
-						<p>Actually, we are using perceptrons without realizing it:</p>
-						<ul>
-							<li>Logical operators</li>
-								<ul>
-									<li>AND, means all inputs must be True(1) to output True(1). Otherwise, False(0).</li>
-									<li>OR, means if any of the input is True(1), output True(1). Otherwise, False(0).</li>
-								</ul>
-						</ul>
-
-						<h4>Then, what is a neural network?</h4>
-
-						<p>Layers of neurons (perceptrons) connected together to form decisions or classification of results.</p>
-						
-						<p><strong>Why use log regression rather simple True or False?</strong></p>
-
-						<div id="01-toggle">
-							<p>Because True or False gives us no room to correct and train our systems. It's either 100% correct or 0%. The highest value of a log is 1, and the lowest is 0 (remember your high school math?), and in-between are all decimals. If we know how close are we to True (1) or False (0) through decimals, we can correct models to achieve a better result.</p>
-						</div>
-
-						<button type="button" class="btn btn-primary" onclick='$("#01-toggle").toggle();'>Show/Hide Hints</button>
-
-						<div style="margin-top: 20px;">
-							<h4>Backpropagation</h4>
-
-							<p>We feed errors rates into a system, then tweak our algorithms or parameters to improve accuracy. Intuitively, when you come to me to correct code, I always break it down and see what kind of errors took place. I fix an error at a time.</p>
-
-							<p>Similarly, this process works in deep learning. The difference is computers are mitigating errors on a larger scale.</p>
-						</div>
-						
-					</div>
-
-					<div id="tensorflow-playground" class="instructor-block">
-						<h3>Tensorflow Playground</h3>
-
-						<p>Tensorflow is what we use to for machine learning purposes. It's a library developed by Google for all sorts of data science projects, especially neural networks.</p>
-
-						<p>Goggle has developed a playground for us to get acquainted with Tensorflow here: <a href="http://playground.tensorflow.org/#activation=tanh&batchSize=10&dataset=circle&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=4,2&seed=0.25352&showTestData=false&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&hideText=false">Tensorflow Playground</a></p>
-
-						<p>When you visit the playground, you can see a dashboard with lots of control and parameters. Let's break it down somewhat:</p>
-
-						<ul>
-							<li>The top bar is a generic control panel for training.</li>
-							<ul>
-								<li><strong>Play</strong> button when your formula starts training.</li>
-								<li><strong>Epoch</strong> is the time transpired that the model has been working.</li>
-								<ul>
-									<li>Time to train a model is actually a pivotal part of ML. Of course, this is a playground, and so it's supposed to be quick, but I've heard cases where training data took months.</li>
-								</ul>
-								<li><strong>Learning rate</strong> is a numerical parameter which allows the algorithm to adjust itself. Basically, it's adjusting the weight in a linear equation.</li>
-								<ul>
-									<li>Your school slides give an example of gradient descent, which is where the algorithm uses itself to adjust the classifier into its optimal state.</li>
-								</ul>
-								<li><strong>Activation function</strong> is a mathematical function which is applied to incoming data to define an output. Usually, the outputs are binary, either True or False, Yes or No. It can get more complicated than this but we'll rest our case here:</li>
-								<ul>
-									<li><img src="img/activation_function.png" class="img-fluid"/></li>
-									<li>Your school slides give a good overview of the different types of activation function that is commonly available.</li>
-								</ul>
-								<li><strong>Regularization and Regularization rate</strong> is to prevent overfitting.</li>
-								<ul>
-									<li>L1 is called <strong>Lasso Regression</strong>.</li>
-									<li>L2 is called <strong>Ridge Regression</strong>.</li>
-								</ul>
-							</ul>
-							<li>The side bar on the left manages the data parameters.</li>
-							<ul>
-								<li>They don't tell us what kind of data this is, so we assume this data as random coordinates in a bi-dimensonal scale.</li>
-							</ul>
-							<li><strong>Features</strong> are the dimensions you want to define in your data set. Example. supposed you want to identify cats and dogs by 2 features, height and weight.</li>
-							<li><strong>Hidden Layers</strong> are the set of rules you want to define to classify the data.</li>
-							<ul>
-								<li>Imagine the blue dots are cats and the orange dots are dogs. This data is collected in both X1 and X2 as weight and height.</li>
-								<li>Notice that each neuron node is a singular line? It's binary classifcation, where one neuron determine disect the graph horizontally, while the rest disect it with slants.</li>
-								<li>The default activation function here is <strong>hyperbolic tangent</strong>. Looking at the graph above, you have three distinct values, -1, 0, and 1. The white region denotes 0, while -1 denotes orange and 1 denotes blue. Zero is the boundary where you want to separate between cats and dogs.</li>
-								<li><strong>Why 2 hidden layers?</strong> If we remove the second layer, the output would show a "triangular shaped" output. That's because we use lines to draw, and the second layer is to smoothen the edges out for a better error approximation.</li>
-							</ul>
-							<li><strong>Output</strong> is self-explantory. You want to have a visualization of how you're classifying your data.</li>
-						</ul>
-
-						<h4>What are you looking for in this playground?</h4>
-
-						<p>Comparisons between different activation functions and how fast it can train your data properly.</p>
+						<p>Let's open up the file(s) in the <code>01-Evr_PredictingPreference</code> folder to get started.</p>
 
 						
-					</div>
+					</div> <!-- end #01-Evr_PredictingPreference -->
 
-					<div id="tf-install" class="instructor-block">
+					<div id="02-Stu_IAM_User" class="student-block">
+						<h3>Creating an Administrator User on IAM</h3>
+
+						<p>Let's open up the file(s) in the <code>02-Stu_IAM_User</code> folder to get started.</p>
+
+						<h5>Preface</h5>
+						<p>From here on out, we are discussing how we can deploy your Jupyter notebooks to production.</p>
+
+						<p>In engineering terms, production means it is generally available to your stakeholders. You are suggesting it is stable and reliable enough for consumption.</p>
+
+						<h5>Using AWS Free Tier</h5>
+
+						<p>Signing up for AWS is free, but you'll have to offer you credit card details because if you go over the free limit, it'll charge to your credit card.</p>
+
+						<p>If you do want to try this to follow alongside me, then be sure to close every resource completely. Lingering resource can cost.</p>
 						
-						<h3>Installing Tensorflow</h3>
-						<ul>
-							<li>Activate your dev env in conda: <code>conda activate dev</code></li>
-							<li>Install the tensorflow lib: <code>pip install tensorflow</code></li>
-							<ul>
-								<li>You can include the installation within your Jupyter notebook with: <code>!pip install tensorflow</code></li>
-							</ul>
-						</ul>
+					</div> <!-- end #02-Stu_IAM_User -->
 
+					<div id="03-Evr_SageMaker" class="instructor-block">
+						<h3>Create an Amazon SageMaker Notebook Instance</h3>
 
-					</div><!-- end #ml-nutshell -->
+						<p>Let's open up the file(s) in the <code>03-Evr_SageMaker</code> folder to get started.</p>
 
+						<p>This is one of the easiest ways to deploy ML models. However, for production purposes, we will sync with Github for deployment.</p>
 
-					<div id="01-Ins_OverTheMoon" class="instructor-block">
-						<h3>Over the Moon on Basic Neural Networks</h3>
-
-						<p>Let's open up the file(s) in the <code>01-Ins_OverTheMoon</code> folder to get started.</p>
-
+						<p>Syncing with Github is out of scope in our course.</p>
 						
-					</div> <!-- end #01-Ins_OverTheMoon -->
-
-					<div id="02-Stu_BackToTheMoon" class="student-block">
-						<h3>Students Do: Back to the Moon</h3>
-
-						<p>Let's open up the file(s) in the <code>02-Stu_BackToTheMoon</code> folder to get started.</p>
-						
-					</div> <!-- end #02-Stu_BackToTheMoon -->
+					</div> <!-- end #03-Evr_SageMaker -->
 
 					
 
-					<div id="03-Ins_SynapticBoost" class="instructor-block">
-						<h3>Getting Hands On with Model Optimization</h3>
+					<div id="04-Evr_SageMaker_Deployment" class="instructor-block">
+						<h3>Create and Deploy a Machine Learning Model in Amazon SageMaker</h3>
 
-						<p>Let's open up the file(s) in the <code>03-Ins_SynapticBoost</code> folder to get started.</p>
-
-						<p>In ML, irregardless of whether it is deep learning or other forms of ML, it is important to:</p>
-						<ul>
-							<li>Weigh the features (input variables, independent variables)</li>
-							<li>Reduce noise (removing columns or rows that might disrupt the real-world effectiveness of the model)</li>
-						</ul>
-						
-					</div> <!-- end #03-Ins_SynapticBoost -->
-
-					<div id="04-Ins_AutoOptimization" class="instructor-block">
-						<h3>Take the Guesswork Out of Model Optimization</h3>
-
-						<p>Let's open up the file(s) in the <code>04-Ins_AutoOptimization</code> folder to get started.</p>
-
-						<h5>What is hyperparameter tuning?</h5>
-
-						<p>Hyperparameter tuning is how we should configure our model so that it performs optimally to the best results against our training and validation data sets.</p>
-
-						<p>This is in the hopes of deploying the best ML model/product that we can offer.</p>
-
-						<p>Hyperparameter tuning does not exist only in deep learning. In fact, it exists in almost all known ML models, such as:</p>
-						<ul>
-							<li>XGBoost</li>
-							<li>Logistic algorithms</li>
-							<li>And so on...</li>
-						</ul>
-
-						<p>A lot of the hyperparameter tunning process can be automated where the library would brute force a bunch of configurations to find out the best accuracy to loss in your outcome.</p>
+						<p>Let's open up the file(s) in the <code>04-Evr_SageMaker_Deployment</code> folder to get started.</p>
 
 						
-					</div> <!-- end #04-Ins_AutoOptimization -->
+					</div> <!-- end #04-Evr_SageMaker_Deployment -->
 
-					<div id="05-Stu_TuneUp" class="student-block">
-						<h3>Students Do: Giving Your Model Building a Tune-Up</h3>
-
-						<p>Let's open up the file(s) in the <code>05-Stu_TuneUp</code> folder to get started.</p>
-
-						
-					</div> <!-- end #05-Stu_TuneUp -->
-
-					<div id="break" class="instructor-block">
-						<h3>Break - 15 mins @ 8:05pm</h3>
-					</div> <!-- break -->
-
-					<div id="06-Ins_GettingReal" class="instructor-block">
-						<h3>Getting Real with Neural Network Datasets</h3>
-
-						<p>Let's open up the file(s) in the <code>06-Ins_GettingReal</code> folder to get started.</p>
-
-						<p>There could be an error on the 4th cell, where the code was:</p>
-						<ul>
-							<li><code>encode_df.columns = enc.get_feature_names(attrition_cat)</code></li>
-						</ul>
-
-						<p>There is a recent update on scikit-learn library, and they have renamed their method to:</p>
-						<ul>
-							<li><code>encode_df.columns = enc.get_feature_names_out(attrition_cat)</code></li>
-						</ul>
-
-						
-					</div> <!-- end #06-Ins_GettingReal -->
-
-					<div id="07-Stu_DetectingMyopia" class="student-block">
-						<h3>Students Do: Detecting Myopia through Deep Learning</h3>
-
-						<p>Let's open up the file(s) in the <code>07-Stu_DetectingMyopia</code> folder to get started.</p>
-
-						
-					</div> <!-- end #07-Stu_DetectingMyopia -->
 					
 					
 
