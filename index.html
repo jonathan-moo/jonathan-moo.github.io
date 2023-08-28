@@ -86,6 +86,7 @@
 							<a class="dropdown-item" href="ASU-VIRT-DATA-PT-03-2023-U-LOLC/20.2/index.html">20.2 Ref</a>
 							<a class="dropdown-item" href="ASU-VIRT-DATA-PT-03-2023-U-LOLC/21.1/index.html">21.1 Ref</a>
 							<a class="dropdown-item" href="ASU-VIRT-DATA-PT-03-2023-U-LOLC/21.2/index.html">21.2 Ref</a>
+							<a class="dropdown-item" href="ASU-VIRT-DATA-PT-03-2023-U-LOLC/21.3/index.html">21.3 Ref</a>
 						</div>
 					</li>
 				</ul>
@@ -98,58 +99,182 @@
 						<h3 id="objectives">Objectives For Today</h3>
 
 						<ul>
-							<li>Machine Learning Decisions and Deployment</li>
+							<li>Introduction to Big Data</li>
 						</ul>
 
 					</div>
 
+					<div id="intro" class="instructor-block">
+						<h3>Before we begin</h3>
 
-					<div id="01-Evr_PredictingPreference" class="instructor-block">
-						<h3>Preference Predictor</h3>
+						<h3>Why are we learning Big Data?</h3>
 
-						<p>Let's open up the file(s) in the <code>01-Evr_PredictingPreference</code> folder to get started.</p>
+						<p>You have learned how to do some Python preprocessing and analysis via Jupyter notebooks and scripts.</p>
+
+						<p>However, you have only learned what is manageable within your local machine.</p>
+
+						<p>What about data analysis/science that involves terabytes or petabytes of data? Your local machine cannot handle it.</p>
+						
+						<p>Thus, big data came about to address this issue.</p>
+
+						<h3>Introduction to Big Data</h3>
+
+						<p>You've learned some ML and Data Science techniques. Now, your boss is asking to put your models into production. How are you doing to do it? That's where you will need an infrastructure.</p>
+
+						<p>We coin the word "Big Data" because for the first time in 2005 because we finally built a system or infrastructure that is capable of handling massive amounts of data without sampling. Big Data refers to data in a macro-scale, while the term "small data" is contextual data which is specific to a purpose or a use-case.</p>
+
+						<p>For more than 10 years, Big Data has been the buzzword. Now, folks are realizing that Big Data must translate to Small Data to be relevant to our use-case.</p>
+
+						<p>The advent of Hadoop, created by Yahoo and built on top of Google's MapReduce in 2005, became the standard open source infrastructure to process Big Data. Google's goal was to index every single website in the World Wide Web, and they needed something robust to be able to handle it. Thus, Hadoop was born.</p>
+
+
+						<p>But Google isn't the only place which has massive amounts of data. Medical resarch, media and entertainment, and many industries adopted Hadoop as part of that infrastructure to process and make sense of the data they possessed.</p>
+
+						<h3>What is expected of you?</h3>
+
+						<p>About five years ago, if you're going to do data science, you probably need to build your own infrastructure to make it happen. Nowadays, AWS and Google brought the barrier of entry low, and anyone who has a credit card can run a big data instrastructure without breaking their bank.</p>
+
+						<h3>MapReduce</h3>
+
+						<p>Google created this technique of resilent and scalable technique to do computation on a large scale. In essence:</p>
+						<ul>
+							<li>The <code>map()</code> function breaks down a large dataset into small chunks, usually according to the number of nodes within your system, and converting them into key-value pairs.</li>
+							<li><strong>The shuffling layer is hidden from you.</strong> It groups the key-pairs together.</li>
+							<li>Lastly, the <code>reduce()</code> function processes each group of output data with the algorithm which you specify.</li>
+						</ul>
+
+						<p>There is a quirk to this process. In general, the bigger the data, the better it performs, but the smaller the data, the poorer it performs too.</p>
+
+						<h3>Hadoop Distributed File System (HDFS)</h3>
+
+						<p>In general, it layers another file system across the network, and data which is stored in one node will be replicated to another nodes. (High availability, High resilence).</p>
+						<ul>
+							<li>In a nutshell, let's say you import a file from your local machine into the HDFS, and all the computers in the classroom are connected together in a Hadoop system, everything will sync together like Dropbox.</li>
+							<li>If a file is deleted by mistake and it's not an official command, or if a computer breaks down, the rest of the nodes will "recover" the system by itself since the same data exist through all the computers. Hence, it's highly resilent.</li>
+							<li>High availability since every computer will have the same file.</li>
+						</ul>
+
+						<p>A HDFS cluster has two types of nodes (servers)</p>
+
+						<ul>
+							<li>Name Node</li>
+							<ul>
+								<li>The "brains" of your cluster that manages the file system and the metadata.</li>
+								<li>Only one per cluster. The backup is only there in case the NameNode fails.</li>
+							</ul>
+						</ul>
+
+						<ul>
+							<li>Data Node</li>
+							<ul>
+								<li>Stores the data.</li>
+								<li>As many nodes as you want.</li>
+								<li>Reports to the Name Node the list of data blocks it stores.</li>
+							</ul>
+						</ul>
+
+						<h3>YARN (Yet Another Resource Negotiator)</h3>
+
+						<p>If you're interested in doing Big Data infrastructure, lookup on Apache Zookeeper too.</p>
+
+						<p>Basically, YARN manages scheduling and resource management across the nodes.</p>
+
+					</div>
+
+
+					<div id="01-Stu_MapReduceUseCases" class="student-block">
+						<h3>Students Do: MapReduce Use Cases</h3>
+
+						<p>Let's open up the file(s) in the <code>01-Stu_MapReduceUseCases</code> folder to get started.</p>
 
 						
-					</div> <!-- end #01-Evr_PredictingPreference -->
+					</div> <!-- end #01-Stu_MapReduceUseCases -->
 
-					<div id="02-Stu_IAM_User" class="student-block">
-						<h3>Creating an Administrator User on IAM</h3>
+					<div id="02-Evr_MrJob_CSV" class="instructor-block">
+						<h3>MRJob with a CSV File</h3>
 
-						<p>Let's open up the file(s) in the <code>02-Stu_IAM_User</code> folder to get started.</p>
+						<p>Let's open up the file(s) in the <code>02-Evr_MrJob_CSV</code> folder to get started.</p>
 
-						<h5>Preface</h5>
-						<p>From here on out, we are discussing how we can deploy your Jupyter notebooks to production.</p>
+						<h5>Installing MRJob</h5>
+						<ul>
+							<li>Activate your conda dev: <code>conda activate dev</code></li>
+							<li>Run: <code>pip install mrjob</code></li>
+						</ul>
 
-						<p>In engineering terms, production means it is generally available to your stakeholders. You are suggesting it is stable and reliable enough for consumption.</p>
+						<h5>MapReduce Illustration</h5>
+						<img src="https://maelfabien.github.io/assets/images/Hadoop/10.jpg" class="img-fluid">
 
-						<h5>Using AWS Free Tier</h5>
+						<p>Basically, map reduce is a massive "divide-and-conquer" algorithm at scale.</p>
+						<ul>
+							<li>Break your input data into chunks and distribute it to the nodes to process.</li>
+							<li>After calculations from the different entities, reform the results back again at the final node.</li>
+						</ul>
 
-						<p>Signing up for AWS is free, but you'll have to offer you credit card details because if you go over the free limit, it'll charge to your credit card.</p>
+					</div> <!-- end #02-Evr_MrJob_CSV -->
 
-						<p>If you do want to try this to follow alongside me, then be sure to close every resource completely. Lingering resource can cost.</p>
+					<div id="03-Stu_Austin_Snow" class="instructor-block">
+						<h3>Students Do: Snow in Austin</h3>
+
+						<p>Let's open up the file(s) in the <code>03-Stu_Austin_Snow</code> folder to get started.</p>
+
 						
-					</div> <!-- end #02-Stu_IAM_User -->
+					</div> <!-- end #03-Stu_Austin_Snow -->
 
-					<div id="03-Evr_SageMaker" class="instructor-block">
-						<h3>Create an Amazon SageMaker Notebook Instance</h3>
+					<div id="intro-spark" class="instructor-block">
+						<h3>What is Spark?</h3>
 
-						<p>Let's open up the file(s) in the <code>03-Evr_SageMaker</code> folder to get started.</p>
+						<p>MrJob relies on the local machine or Hadoop to run MapReduce, but Spark if much faster since it does in-memory calculations and can be used with or without Hadoop.</p>
+						<ul>
+							<li>Spark can be invoked by Python with PySpark, or Scala.</li>
+							<li>PySpark is similar to Pandas, but Pandas cannot handle petrabytes of data. Spark can.</li>
+							<li>Again, with Hadoop, it breaks the dataframe into sections, and combines the results together for output like MapReduce.</li>
+						</ul>
 
-						<p>This is one of the easiest ways to deploy ML models. However, for production purposes, we will sync with Github for deployment.</p>
+						<h5>Checking your PySpark installation</h5>
+						<p>You should have PySpark installed in the <a href="https://github.com/coding-boot-camp/DataViz-Lesson-Plans/blob/v1.2/04-Canvas/22-Big-Data/00-Introduction/02-getting-started.md">"Getting Started"</a> page on Canvas.</p>
 
-						<p>Syncing with Github is out of scope in our course.</p>
-						
-					</div> <!-- end #03-Evr_SageMaker -->
+						<ul>
+							<li>Check if Java is installed: <code>java -version</code></li>
+							<li>Run this on your Gitbash/Terminal: <code>spark-submit --version</code></li>
+						</ul>
+
+						<p>PySpark is a very big installation package (310.8MB), so it will take some time to install.</p>
+					</div>
 
 					
 
-					<div id="04-Evr_SageMaker_Deployment" class="instructor-block">
-						<h3>Create and Deploy a Machine Learning Model in Amazon SageMaker</h3>
+					<div id="04-Ins_Pyspark_DataFrames_Basics" class="instructor-block">
+						<h3>PySpark DataFrame Basics</h3>
 
-						<p>Let's open up the file(s) in the <code>04-Evr_SageMaker_Deployment</code> folder to get started.</p>
+						<p>Let's open up the file(s) in the <code>04-Ins_Pyspark_DataFrames_Basics</code> folder to get started.</p>
 
 						
-					</div> <!-- end #04-Evr_SageMaker_Deployment -->
+					</div> <!-- end #04-Ins_Pyspark_DataFrames_Basics -->
+
+					<div id="05-Stu_Pyspark_DataFrames_Basics" class="student-block">
+						<h3>Students Do: Demographic DataFrame Basics</h3>
+
+						<p>Let's open up the file(s) in the <code>05-Stu_Pyspark_DataFrames_Basics</code> folder to get started.</p>
+
+						
+					</div> <!-- end #05-Stu_Pyspark_DataFrames_Basics -->
+
+
+					<div id="06-Ins_Pyspark_DataFrames_Filtering" class="instructor-block">
+						<h3>PySpark DataFrame Filtering</h3>
+
+						<p>Let's open up the file(s) in the <code>06-Ins_Pyspark_DataFrames_Filtering</code> folder to get started.</p>
+
+						
+					</div> <!-- end #06-Ins_Pyspark_DataFrames_Filtering -->
+
+					<div id="07-Stu_Pyspark_DataFrames_Filtering" class="student-block">
+						<h3>Students Do: PySpark Demographic Filtering</h3>
+
+						<p>Let's open up the file(s) in the <code>07-Stu_Pyspark_DataFrames_Filtering</code> folder to get started.</p>
+
+						
+					</div> <!-- end #07-Stu_Pyspark_DataFrames_Filtering -->
 
 					
 					
