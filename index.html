@@ -210,6 +210,37 @@
 							<li>After calculations from the different entities, reform the results back again at the final node.</li>
 						</ul>
 
+						<h5>Running the script</h5>
+						<p>If you read the code, there isn't a reference to the CSV file we want to do map-reduce on.</p>
+
+						<p>This is because it is intentionally built as a object, to adhere to Object-Oriented Programming (OOP). The basic structure of the object is defined by the MRJob class, and any advanced applications of this library has to be learned in their documentation.</p>
+
+						<p>Ref: <a href="https://mrjob.readthedocs.io/en/latest/guides/quickstart.html#writing-your-first-job">https://mrjob.readthedocs.io/en/latest/guides/quickstart.html#writing-your-first-job</a></p>
+
+						<p>Fundamentally speaking, as long as the CSV's structure remains intact in terms of columns, this code can be reused again and again.</p>
+
+						<p>To run:</p>
+						<ul>
+							<li>Ensure you're in your dev environment with Conda.</li>
+							<li>Be in the folder itself at <code>02-Evr_MrJob_CSV</code> in your Terminal/Git Bash.</li>
+							<li>Run: <code>python Solved/hot_solution.py Resources/austin_weather_2017.csv</code></li>
+						</ul>
+
+						<p>Very simple code:</p>
+
+						<ul>
+							<li><code>mapper()</code> takes in two values: (key, value)</li>
+							<ul>
+								<li><code>self</code> is a reference from a Python Class. It's not an input parameter.</li>
+								<li>If you don't define a key, it will be <code>None</code>. You will have to specify a key in your output.</li>
+								<li><code>yield</code> works similarly to <code>return</code>, but usually <code>return</code> exits the function when it is invoked, while <code>yield</code> will continue to run in a <code>for</code> loop.</li>
+								<li><code>yield</code> returns a sequence of values, while <code>return</code> returns specified values.</li>
+							</ul>
+							<li><code>reducer()</code> receives the key (name) and the values (1) from the mapper. By using <code>yield</code> and summing it up, you can count the sum of the key.</li>
+						</ul>
+
+						
+
 					</div> <!-- end #02-Evr_MrJob_CSV -->
 
 					<div id="03-Stu_Austin_Snow" class="instructor-block">
