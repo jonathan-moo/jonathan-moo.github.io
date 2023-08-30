@@ -87,6 +87,7 @@
 							<a class="dropdown-item" href="ASU-VIRT-DATA-PT-03-2023-U-LOLC/21.1/index.html">21.1 Ref</a>
 							<a class="dropdown-item" href="ASU-VIRT-DATA-PT-03-2023-U-LOLC/21.2/index.html">21.2 Ref</a>
 							<a class="dropdown-item" href="ASU-VIRT-DATA-PT-03-2023-U-LOLC/21.3/index.html">21.3 Ref</a>
+							<a class="dropdown-item" href="ASU-VIRT-DATA-PT-03-2023-U-LOLC/22.1/index.html">22.1 Ref</a>
 						</div>
 					</li>
 				</ul>
@@ -99,7 +100,7 @@
 						<h3 id="objectives">Objectives For Today</h3>
 
 						<ul>
-							<li>Introduction to Big Data</li>
+							<li>Querying Big Data with PySpark</li>
 						</ul>
 
 					</div>
@@ -182,130 +183,76 @@
 					</div>
 
 
-					<div id="01-Stu_MapReduceUseCases" class="student-block">
-						<h3>Students Do: MapReduce Use Cases</h3>
+					<div id="01-Ins_PCard_Transactions" class="instructor-block">
+						<h3>PCard Transactions</h3>
 
-						<p>Let's open up the file(s) in the <code>01-Stu_MapReduceUseCases</code> folder to get started.</p>
+						<p>Let's open up the file(s) in the <code>01-Ins_PCard_Transactions</code> folder to get started.</p>
 
 						
-					</div> <!-- end #01-Stu_MapReduceUseCases -->
+					</div> <!-- end #01-Ins_PCard_Transactions -->
 
-					<div id="02-Evr_MrJob_CSV" class="instructor-block">
+					<div id="02-Stu_Retail_Transactions" class="student-block">
 						<h3>MRJob with a CSV File</h3>
 
-						<p>Let's open up the file(s) in the <code>02-Evr_MrJob_CSV</code> folder to get started.</p>
-
-						<h5>Installing MRJob</h5>
-						<ul>
-							<li>Activate your conda dev: <code>conda activate dev</code></li>
-							<li>Run: <code>pip install mrjob</code></li>
-						</ul>
-
-						<h5>MapReduce Illustration</h5>
-						<img src="https://maelfabien.github.io/assets/images/Hadoop/10.jpg" class="img-fluid">
-
-						<p>Basically, map reduce is a massive "divide-and-conquer" algorithm at scale.</p>
-						<ul>
-							<li>Break your input data into chunks and distribute it to the nodes to process.</li>
-							<li>After calculations from the different entities, reform the results back again at the final node.</li>
-						</ul>
-
-						<h5>Running the script</h5>
-						<p>If you read the code, there isn't a reference to the CSV file we want to do map-reduce on.</p>
-
-						<p>This is because it is intentionally built as a object, to adhere to Object-Oriented Programming (OOP). The basic structure of the object is defined by the MRJob class, and any advanced applications of this library has to be learned in their documentation.</p>
-
-						<p>Ref: <a href="https://mrjob.readthedocs.io/en/latest/guides/quickstart.html#writing-your-first-job">https://mrjob.readthedocs.io/en/latest/guides/quickstart.html#writing-your-first-job</a></p>
-
-						<p>Fundamentally speaking, as long as the CSV's structure remains intact in terms of columns, this code can be reused again and again.</p>
-
-						<p>To run:</p>
-						<ul>
-							<li>Ensure you're in your dev environment with Conda.</li>
-							<li>Be in the folder itself at <code>02-Evr_MrJob_CSV</code> in your Terminal/Git Bash.</li>
-							<li>Run: <code>python Solved/hot_solution.py Resources/austin_weather_2017.csv</code></li>
-						</ul>
-
-						<p>Very simple code:</p>
-
-						<ul>
-							<li><code>mapper()</code> takes in two values: (key, value)</li>
-							<ul>
-								<li><code>self</code> is a reference from a Python Class. It's not an input parameter.</li>
-								<li>If you don't define a key, it will be <code>None</code>. You will have to specify a key in your output.</li>
-								<li><code>yield</code> works similarly to <code>return</code>, but usually <code>return</code> exits the function when it is invoked, while <code>yield</code> will continue to run in a <code>for</code> loop.</li>
-								<li><code>yield</code> returns a sequence of values, while <code>return</code> returns specified values.</li>
-							</ul>
-							<li><code>reducer()</code> receives the key (name) and the values (1) from the mapper. By using <code>yield</code> and summing it up, you can count the sum of the key.</li>
-						</ul>
+						<p>Let's open up the file(s) in the <code>02-Stu_Retail_Transactions</code> folder to get started.</p>
 
 						
+						
 
-					</div> <!-- end #02-Evr_MrJob_CSV -->
+					</div> <!-- end #02-Stu_Retail_Transactions -->
 
-					<div id="03-Stu_Austin_Snow" class="instructor-block">
-						<h3>Students Do: Snow in Austin</h3>
+					<div id="03-Ins_Spark_DataFrames_Dates" class="student-block">
+						<h3>Spark DataFrame Dates</h3>
 
-						<p>Let's open up the file(s) in the <code>03-Stu_Austin_Snow</code> folder to get started.</p>
+						<p>Let's open up the file(s) in the <code>03-Ins_Spark_DataFrames_Dates</code> folder to get started.</p>
 
 						
-					</div> <!-- end #03-Stu_Austin_Snow -->
-
-					<div id="intro-spark" class="instructor-block">
-						<h3>What is Spark?</h3>
-
-						<p>MrJob relies on the local machine or Hadoop to run MapReduce, but Spark if much faster since it does in-memory calculations and can be used with or without Hadoop.</p>
-						<ul>
-							<li>Spark can be invoked by Python with PySpark, or Scala.</li>
-							<li>PySpark is similar to Pandas, but Pandas cannot handle petrabytes of data. Spark can.</li>
-							<li>Again, with Hadoop, it breaks the dataframe into sections, and combines the results together for output like MapReduce.</li>
-						</ul>
-
-						<h5>Checking your PySpark installation</h5>
-						<p>You should have PySpark installed in the <a href="https://github.com/coding-boot-camp/DataViz-Lesson-Plans/blob/v1.2/04-Canvas/22-Big-Data/00-Introduction/02-getting-started.md">"Getting Started"</a> page on Canvas.</p>
-
-						<ul>
-							<li>Check if Java is installed: <code>java -version</code></li>
-							<li>Run this on your Gitbash/Terminal: <code>spark-submit --version</code></li>
-						</ul>
-
-						<p>PySpark is a very big installation package (310.8MB), so it will take some time to install.</p>
-					</div>
+					</div> <!-- end #03-Ins_Spark_DataFrames_Dates -->
 
 					
 
-					<div id="04-Ins_Pyspark_DataFrames_Basics" class="instructor-block">
-						<h3>PySpark DataFrame Basics</h3>
+					
 
-						<p>Let's open up the file(s) in the <code>04-Ins_Pyspark_DataFrames_Basics</code> folder to get started.</p>
+					<div id="04-Evr_Spark_DataFrames_Dates" class="instructor-block">
+						<h3>Plotting Bigfoot Data</h3>
 
-						
-					</div> <!-- end #04-Ins_Pyspark_DataFrames_Basics -->
-
-					<div id="05-Stu_Pyspark_DataFrames_Basics" class="student-block">
-						<h3>Students Do: Demographic DataFrame Basics</h3>
-
-						<p>Let's open up the file(s) in the <code>05-Stu_Pyspark_DataFrames_Basics</code> folder to get started.</p>
+						<p>Let's open up the file(s) in the <code>04-Evr_Spark_DataFrames_Dates</code> folder to get started.</p>
 
 						
-					</div> <!-- end #05-Stu_Pyspark_DataFrames_Basics -->
+					</div> <!-- end #04-Evr_Spark_DataFrames_Dates -->
 
+					<div id="05-Ins_Temporary_Views" class="instructor-block">
+						<h3>Creating a Temporary Table</h3>
 
-					<div id="06-Ins_Pyspark_DataFrames_Filtering" class="instructor-block">
-						<h3>PySpark DataFrame Filtering</h3>
-
-						<p>Let's open up the file(s) in the <code>06-Ins_Pyspark_DataFrames_Filtering</code> folder to get started.</p>
-
-						
-					</div> <!-- end #06-Ins_Pyspark_DataFrames_Filtering -->
-
-					<div id="07-Stu_Pyspark_DataFrames_Filtering" class="student-block">
-						<h3>Students Do: PySpark Demographic Filtering</h3>
-
-						<p>Let's open up the file(s) in the <code>07-Stu_Pyspark_DataFrames_Filtering</code> folder to get started.</p>
+						<p>Let's open up the file(s) in the <code>05-Ins_Temporary_Views</code> folder to get started.</p>
 
 						
-					</div> <!-- end #07-Stu_Pyspark_DataFrames_Filtering -->
+					</div> <!-- end #05-Ins_Temporary_Views -->
+
+
+					<div id="06-Stu_Delayed_Flights_Temporary_View" class="student-block">
+						<h3>Students Do: Delayed Flights Temporary View</h3>
+
+						<p>Let's open up the file(s) in the <code>06-Stu_Delayed_Flights_Temporary_View</code> folder to get started.</p>
+
+						
+					</div> <!-- end #06-Stu_Delayed_Flights_Temporary_View -->
+
+					<div id="07-Ins_SparkSQL" class="instructor-block">
+						<h3>Combining PySpark with Spark SQL</h3>
+
+						<p>Let's open up the file(s) in the <code>07-Ins_SparkSQL</code> folder to get started.</p>
+
+						
+					</div> <!-- end #07-Ins_SparkSQL -->
+
+					<div id="08-Stu_Olympic_Medals" class="student-block">
+						<h3>Students Do: Earn a Medal in Spark SQL</h3>
+
+						<p>Let's open up the file(s) in the <code>08-Stu_Olympic_Medals</code> folder to get started.</p>
+
+						
+					</div> <!-- end #08-Stu_Olympic_Medals -->
 
 					
 					
