@@ -88,6 +88,7 @@
 							<a class="dropdown-item" href="ASU-VIRT-DATA-PT-03-2023-U-LOLC/21.2/index.html">21.2 Ref</a>
 							<a class="dropdown-item" href="ASU-VIRT-DATA-PT-03-2023-U-LOLC/21.3/index.html">21.3 Ref</a>
 							<a class="dropdown-item" href="ASU-VIRT-DATA-PT-03-2023-U-LOLC/22.1/index.html">22.1 Ref</a>
+							<a class="dropdown-item" href="ASU-VIRT-DATA-PT-03-2023-U-LOLC/22.2/index.html">22.2 Ref</a>
 						</div>
 					</li>
 				</ul>
@@ -100,159 +101,82 @@
 						<h3 id="objectives">Objectives For Today</h3>
 
 						<ul>
-							<li>Querying Big Data with PySpark</li>
+							<li>Optimizing Spark: Storage, Partitioning, and Caching</li>
 						</ul>
 
 					</div>
 
-					<div id="intro" class="instructor-block">
-						<h3>Before we begin</h3>
+					
 
-						<h3>Why are we learning Big Data?</h3>
+					<div id="why-optimize-spark" class="instructor-block">
+						<h3>Why Optimize Spark? (Or anything for the matter)</h3>
 
-						<p>You have learned how to do some Python preprocessing and analysis via Jupyter notebooks and scripts.</p>
+						<p>Companies are willing to spend on big data, but they aren't willing to be inefficient about it. Being inefficient could mean millions of dollars.</p>
 
-						<p>However, you have only learned what is manageable within your local machine.</p>
+						<p>At some point as a data analyst or a scientist, you want your work to persist and be resuable across the organization. This is a proof of value to your work.</p>
 
-						<p>What about data analysis/science that involves terabytes or petabytes of data? Your local machine cannot handle it.</p>
+						<p>We typically do not optimize while we are experimenting or prototyping. That's because it will hinder innovation as it dilutes our focus.</p>
+
+						<p>However, once your prototype is proven and you want folks to use your work, that's where optimization becomes important.</p>
 						
-						<p>Thus, big data came about to address this issue.</p>
-
-						<h3>Introduction to Big Data</h3>
-
-						<p>You've learned some ML and Data Science techniques. Now, your boss is asking to put your models into production. How are you doing to do it? That's where you will need an infrastructure.</p>
-
-						<p>We coin the word "Big Data" because for the first time in 2005 because we finally built a system or infrastructure that is capable of handling massive amounts of data without sampling. Big Data refers to data in a macro-scale, while the term "small data" is contextual data which is specific to a purpose or a use-case.</p>
-
-						<p>For more than 10 years, Big Data has been the buzzword. Now, folks are realizing that Big Data must translate to Small Data to be relevant to our use-case.</p>
-
-						<p>The advent of Hadoop, created by Yahoo and built on top of Google's MapReduce in 2005, became the standard open source infrastructure to process Big Data. Google's goal was to index every single website in the World Wide Web, and they needed something robust to be able to handle it. Thus, Hadoop was born.</p>
+					</div> <!-- end #01-Ins_Data_Storage -->
 
 
-						<p>But Google isn't the only place which has massive amounts of data. Medical resarch, media and entertainment, and many industries adopted Hadoop as part of that infrastructure to process and make sense of the data they possessed.</p>
+					<div id="01-Ins_Data_Storage" class="instructor-block">
+						<h3>Introducing Parquet</h3>
 
-						<h3>What is expected of you?</h3>
-
-						<p>About five years ago, if you're going to do data science, you probably need to build your own infrastructure to make it happen. Nowadays, AWS and Google brought the barrier of entry low, and anyone who has a credit card can run a big data instrastructure without breaking their bank.</p>
-
-						<h3>MapReduce</h3>
-
-						<p>Google created this technique of resilent and scalable technique to do computation on a large scale. In essence:</p>
-						<ul>
-							<li>The <code>map()</code> function breaks down a large dataset into small chunks, usually according to the number of nodes within your system, and converting them into key-value pairs.</li>
-							<li><strong>The shuffling layer is hidden from you.</strong> It groups the key-pairs together.</li>
-							<li>Lastly, the <code>reduce()</code> function processes each group of output data with the algorithm which you specify.</li>
-						</ul>
-
-						<p>There is a quirk to this process. In general, the bigger the data, the better it performs, but the smaller the data, the poorer it performs too.</p>
-
-						<h3>Hadoop Distributed File System (HDFS)</h3>
-
-						<p>In general, it layers another file system across the network, and data which is stored in one node will be replicated to another nodes. (High availability, High resilence).</p>
-						<ul>
-							<li>In a nutshell, let's say you import a file from your local machine into the HDFS, and all the computers in the classroom are connected together in a Hadoop system, everything will sync together like Dropbox.</li>
-							<li>If a file is deleted by mistake and it's not an official command, or if a computer breaks down, the rest of the nodes will "recover" the system by itself since the same data exist through all the computers. Hence, it's highly resilent.</li>
-							<li>High availability since every computer will have the same file.</li>
-						</ul>
-
-						<p>A HDFS cluster has two types of nodes (servers)</p>
-
-						<ul>
-							<li>Name Node</li>
-							<ul>
-								<li>The "brains" of your cluster that manages the file system and the metadata.</li>
-								<li>Only one per cluster. The backup is only there in case the NameNode fails.</li>
-							</ul>
-						</ul>
-
-						<ul>
-							<li>Data Node</li>
-							<ul>
-								<li>Stores the data.</li>
-								<li>As many nodes as you want.</li>
-								<li>Reports to the Name Node the list of data blocks it stores.</li>
-							</ul>
-						</ul>
-
-						<h3>YARN (Yet Another Resource Negotiator)</h3>
-
-						<p>If you're interested in doing Big Data infrastructure, lookup on Apache Zookeeper too.</p>
-
-						<p>Basically, YARN manages scheduling and resource management across the nodes.</p>
-
-					</div>
-
-
-					<div id="01-Ins_PCard_Transactions" class="instructor-block">
-						<h3>PCard Transactions</h3>
-
-						<p>Let's open up the file(s) in the <code>01-Ins_PCard_Transactions</code> folder to get started.</p>
+						<p>Let's open up the file(s) in the <code>01-Ins_Data_Storage</code> folder to get started.</p>
 
 						
-					</div> <!-- end #01-Ins_PCard_Transactions -->
+					</div> <!-- end #01-Ins_Data_Storage -->
 
-					<div id="02-Stu_Retail_Transactions" class="student-block">
-						<h3>MRJob with a CSV File</h3>
+					<div id="02-Stu_Practicing_Parquet" class="student-block">
+						<h3>Students Do: Practicing Parquet</h3>
 
-						<p>Let's open up the file(s) in the <code>02-Stu_Retail_Transactions</code> folder to get started.</p>
-
-						
+						<p>Let's open up the file(s) in the <code>02-Stu_Practicing_Parquet</code> folder to get started.</p>
 						
 
-					</div> <!-- end #02-Stu_Retail_Transactions -->
+					</div> <!-- end #02-Stu_Practicing_Parquet -->
 
-					<div id="03-Ins_Spark_DataFrames_Dates" class="student-block">
-						<h3>Spark DataFrame Dates</h3>
+					<div id="03-Ins_Partitioning" class="student-block">
+						<h3>All the data must play its "part"</h3>
 
-						<p>Let's open up the file(s) in the <code>03-Ins_Spark_DataFrames_Dates</code> folder to get started.</p>
+						<p>Let's open up the file(s) in the <code>03-Ins_Partitioning</code> folder to get started.</p>
 
 						
-					</div> <!-- end #03-Ins_Spark_DataFrames_Dates -->
+					</div> <!-- end #03-Ins_Partitioning -->
 
 					
 
 					
 
-					<div id="04-Evr_Spark_DataFrames_Dates" class="instructor-block">
-						<h3>Plotting Bigfoot Data</h3>
+					<div id="04-Stu_Partitioning" class="instructor-block">
+						<h3>Students Do: Writing to Parquet</h3>
 
-						<p>Let's open up the file(s) in the <code>04-Evr_Spark_DataFrames_Dates</code> folder to get started.</p>
-
-						
-					</div> <!-- end #04-Evr_Spark_DataFrames_Dates -->
-
-					<div id="05-Ins_Temporary_Views" class="instructor-block">
-						<h3>Creating a Temporary Table</h3>
-
-						<p>Let's open up the file(s) in the <code>05-Ins_Temporary_Views</code> folder to get started.</p>
+						<p>Let's open up the file(s) in the <code>04-Stu_Partitioning</code> folder to get started.</p>
 
 						
-					</div> <!-- end #05-Ins_Temporary_Views -->
+					</div> <!-- end #04-Stu_Partitioning -->
 
+					<div id="05-Ins_Cache" class="instructor-block">
+						<h3>Caching</h3>
 
-					<div id="06-Stu_Delayed_Flights_Temporary_View" class="student-block">
-						<h3>Students Do: Delayed Flights Temporary View</h3>
+						<p>Let's open up the file(s) in the <code>05-Ins_Cache</code> folder to get started.</p>
 
-						<p>Let's open up the file(s) in the <code>06-Stu_Delayed_Flights_Temporary_View</code> folder to get started.</p>
-
-						
-					</div> <!-- end #06-Stu_Delayed_Flights_Temporary_View -->
-
-					<div id="07-Ins_SparkSQL" class="instructor-block">
-						<h3>Combining PySpark with Spark SQL</h3>
-
-						<p>Let's open up the file(s) in the <code>07-Ins_SparkSQL</code> folder to get started.</p>
+						<p>Common Table Expressions (CTE): <a href="https://spark.apache.org/docs/latest/sql-ref-syntax-qry-select-cte.html#common-table-expression-cte">https://spark.apache.org/docs/latest/sql-ref-syntax-qry-select-cte.html#common-table-expression-cte</a></p>
 
 						
-					</div> <!-- end #07-Ins_SparkSQL -->
+					</div> <!-- end #05-Ins_Cache -->
 
-					<div id="08-Stu_Olympic_Medals" class="student-block">
-						<h3>Students Do: Earn a Medal in Spark SQL</h3>
 
-						<p>Let's open up the file(s) in the <code>08-Stu_Olympic_Medals</code> folder to get started.</p>
+					<div id="06-Evr_Cache" class="student-block">
+						<h3>Caching Flight Delays</h3>
+
+						<p>Let's open up the file(s) in the <code>06-Evr_Cache</code> folder to get started.</p>
 
 						
-					</div> <!-- end #08-Stu_Olympic_Medals -->
+					</div> <!-- end #06-Evr_Cache -->
+
 
 					
 					
