@@ -4,12 +4,12 @@
 		<title>Jonathan Moo's Github Bio</title>
 
 
-		<link rel='stylesheet' id='bootstrap-css'  href='css/bootstrap.min.css' type='text/css' media='all' />
-		<link rel='stylesheet' id='bootstrap-grid-css'  href='css/bootstrap-grid.min.css' type='text/css' media='all' />
+		<link rel='stylesheet' id='bootstrap-css'  href='../../css/bootstrap.min.css' type='text/css' media='all' />
+		<link rel='stylesheet' id='bootstrap-grid-css'  href='../../css/bootstrap-grid.min.css' type='text/css' media='all' />
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
    integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
    crossorigin=""/>
-		<link rel='stylesheet' id='custom-css'  href='css/style.css' type='text/css' media='all' /> 
+		<link rel='stylesheet' id='custom-css'  href='../../css/style.css' type='text/css' media='all' /> 
 		<script src="https://d3js.org/d3.v5.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.9.1/d3-tip.js"></script>
 		<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
@@ -31,10 +31,11 @@
 					<li class="nav-item active">
 						<a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
 					</li>
-					<!--li class="nav-item dropdown">
+					<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Lessons</a>
 						<div class="dropdown-menu">
-							<a class="dropdown-item" href="MIACOR201901DATA3/11.2/index.html">11.2 Ref</a>
+							<a class="dropdown-item" href="DU-VIRT-DATA-PT-02-2024-U-LOLC/1.1/index.html">1.1 Ref</a>
+							<a class="dropdown-item" href="DU-VIRT-DATA-PT-02-2024-U-LOLC/1.2/index.html">1.2 Ref</a>
 						</div>
 					</li-->
 				</ul>
@@ -43,245 +44,211 @@
 		<div class="container-fluid">
 			<div class="row">
 				<div id="main-content" class="col-md-8">
-					<!--div class="instructor-block">
-						<h3>Objectives For Today</h3>
-
-						<p>Data Cleaning Activity.</p>
-					</div-->
-
 					<div class="objective-block">
 						<h3 id="objectives">Objectives For Today</h3>
 
 						<ul>
-							<li>Introductions!</li>
-							<li>Set expectations to the bootcamp!</li>
+							<li>Excel For Exploratory Data Analysis (EDA)</li>
 						</ul>
 
 					</div>
 
-					<div id="intro" class="instructor-block">
-						<h3>Snapshot Instructor Introduction</h3>
-						<p>You can read some of my introduction at my website at: <a href="https://gefyra.co/about-jonathan-moo/">https://gefyra.co/about-jonathan-moo/</a>, 
-							but I will give some short points on my career:</p>
-						<h5>TLDR - If you prefer video form</h5>
-							<iframe width="560" height="315" src="https://www.youtube.com/embed/00uyxO69I0w?si=UXn5eBUD2d6yvZcq" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-						<h5>If you prefer words</h5>
+					<div id="admin" class="instructor-block">
+						<h3>Some administrative items before we start</h3>
+						<h5>We are figuring out some Gitlab issues. I have sent the files into your Slack channel: </h5>
+						<a href="https://asuvirtdatapt-qny2270.slack.com/archives/C04MY7PPQM9/p1680052348305639">https://asuvirtdatapt-qny2270.slack.com/archives/C04MY7PPQM9/p1680052348305639</a>
+						<!--h5><a href="https://asu.bootcampcontent.com/asu-coding-bootcamp/ASU-VIRT-DATA-PT-03-2023-U-LOLC">Gitlab</a></h5>
+						<p>This is where all classroom content will be posted:</p>
 						<ul>
-							<li>Worked in Paramount Global (formerly CBS Interactive) for 11 years:</li>
-							<ul>
-								<li>Spent my first 5.5 years as a software/data engineer on analytics.</li>
-								<ul>
-									<li>Adobe Analytics</li>
-									<li>Google Analytics</li>
-									<li>Baidu</li>
-									<li>Google Adsense</li>
-									<li>Embarked in several data projects that are too numerous to number.</li>
-								</ul>
-								<li>Flew to Fort Lauderdale, Florida to continue my career in sports predictions and AI initiatives.</li>
-								<ul>
-									<li>Delivered a Microsoft Golf Forecaster for USD 1.5 million, where I'm the only engineer working with a statistician.</li>
-									<li>Delivered an Google Assistant voice app for NFL Fantasy recommendations for USD 1.75 million, where I was the lead engineer working on the voice recognition aspects of the project.</li>
-									<li>Became a data engineering manager focusing on data science in CBS Sports, where I led a team to build sports prediction products and services.</li>
-								</ul>
-							</ul>
-							<li>Felt that I spent too much time in CBS Sports after 11 years in 2022, and I made the jump to PlayStation. Currently working in PlayStation as a data engineering manager for Partners.</li>
-							<ul>
-								<li>Centralizing Partners data into Snowflake for democratization.</li>
-							</ul>
-						</ul>
+							<li>Classroom activities</li>
+							<li>Presentation slides</li>
+						</ul-->
 
-						<h5>Why these short notes?</h5>
-						<p>A boot camp focuses on doing to learn. However, students did mention that they are doing the work and assignments, but they aren't understanding totally.</p>
-						<p>The objective is to give enough contextual knowledge so that students can understand, and that your learnings stick with you as you progress in your career.</p>
-					
-						<h5>Disclaimer</h5>
-						<p>These short notes is not part of the official curriculum. I'm doing this for the class as my style of teaching.</p>
-						<ul>
-							<li>Notes might contain erratas.</li>
-						</ul>
-						<p>This site is hosted free on Github, and if it crosses a certain amount of bandwidth, 
-							the site might go down: <a href="https://docs.github.com/en/repositories/working-with-files/managing-large-files/about-storage-and-bandwidth-usage">https://docs.github.com/en/repositories/working-with-files/managing-large-files/about-storage-and-bandwidth-usage</a></p>
-						<p>I might host it somewhere else if it happens. Currently, I'm building a site for it.</p>
+						<h5>Zoom Recordings</h5>
+						<p>Lesson 1.1's zoom has been published! Always check it out if you need help.</p>
+					</div> <!-- .end #intro-->
+
+					<div id="01-Ins_ExcelPlayground" class="instructor-block">
+						<h3>Excel Playground</h3>
+						<p>If you have been working in an office for some time, it is very likely that you used Excel. 
+							If you’re already proficient with Excel, do give room for other students to grow in it.</p>
+						<p>This is going to be first dips on how programming works.</p>
+						<p>Excel mimics some of the programming languages in terms of features, 
+							and so you will be more and more familiar with programming when you understand these concepts.</p>
+
+						<h5>Functions</h5>
+						<p>Programming is very similar to high school math, algebra. 
+							This is a good reference to start if you want to know how function works in math or programming:
+							<a href="https://www.khanacademy.org/math/algebra/x2f8bb11595b61c86:functions/x2f8bb11595b61c86:evaluating-functions/v/what-is-a-function">What is a function?</a>
+						</p>
+
+						<iframe width="560" height="315" src="https://www.youtube.com/embed/kvGsIo1TmsM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 						
 					</div> <!-- .end #intro-->
 
-					<div id="01-intro-to-data" class="instructor-block">
-						<h3>Introduction To Data</h3>
-
-						<h5>Why is data analytics such a hot skill these days?</h5>
-
-						<div id="1-1-toggle" style="display: none;">
-							<p>
-								In most cases, many companies aren’t suffering from the lack of data. 
-								They suffer from the lack of ability to extract value from the data they have. 
-							</p>
-							<p>Unused data is an expense.</p>
-						</div>
-
-						<button type="button" class="btn btn-primary" onclick='$("#1-1-toggle").toggle();'>Show/Hide Tips</button>
-
-						<h5>What does the term 'data science' mean?</h5>
-						<div id="1-2-toggle" style="display: none;">
-							<p>
-								Data science is the study of data to extract meaningful insights for the outcome you’re trying to achieve towards:
-							</p>
-							<ul>
-								<li>Business</li>
-								<li>Goals & Objectives</li>
-							</ul>
-						</div>
-
-						<button type="button" class="btn btn-primary" onclick='$("#1-2-toggle").toggle();'>Show/Hide Tips</button>
-
-						<h5>“Data science involves spreadsheets and formulas.”</h5>
-						<ul>
-							<li>In my line of work, we try to use as little spreadsheets and rely on databases instead.</li>
-							<ul>
-								<li>That’s because our work presents itself as a live service rather than pure analysis.</li>
-							</ul>
-							<li>However, spreadsheets can be useful for exploratory data analysis (EDA).</li>
-							<ul>
-								<li>We really want to do an EDA to understand the data, in order to:</li>
-								<ul>
-									<li>Look for errors</li>
-									<li>Identify trends and patterns within the data that would meet our business objectives and outcomes.</li>
-								</ul>
-								<li>The outcome is to mitigate risk before building because engineering efforts are expensive.</li>
-							</ul>
-						</ul>
-
-						<h5>What is the difference between story telling and truth telling?</h5>
-						<p>Personally, I believe that all story telling should be truth telling. 
-							However, story telling is about relating descriptive statistics and data to the desired business outcome.</p>
-
-						<p>Truth telling is more objective, where you’re gathering insights towards the story in which you have to build.
-							<ul>
-								<li>Especially in unsupervised learning. 
-									Supposed you’re tasked to undercover the highest probability of a dengue fever outbreak over a city.</li>
-								<ul>
-									<li>Dengue fever is a disease that is transmitted by the Aedes mosquitoes. Very common in tropical areas.</li>
-									<li>We don’t start off by knowing when a dengue fever happens. That would make us prophets instead. 
-										Data scientists use data to validate their assumptions and observations.</li>
-									<li>However, if there’s a person who reported sick with dengue fever, we know that mosquitoes generally travel about 320-330 feet in radius. The probability of a person getting sick with the same disease is much higher if he or she is within that radius, after attributing some margin of error.</li>
-									<li>With more data coming in, we can increase our confidence over a certain spot or area of the city, and that’s where we can start to prescribe solutions to the outbreak.</li>
-								</ul>
-							</ul>
-						</p>
-					</div> <!-- .end #intro-->
-
-					<div id="02-course-overview" class="instructor-block">
-						<h3>Course Overview</h3>
-						<p>You're going to have 4 projects coming within your course:</p>
-						<ul>
-							<li>Project 1</li>
-							<ul>
-								<li>Using Git and introduction to version-control</li>
-								<ul>
-									<li>I can’t emphasize enough how important this subject is in my line of work, and within the tech world. I will explain more when we get there.</li>
-								</ul> <!-- Git end -->
-								<li>EDA</li>
-								<li>Installing PostgreSQL and pgAdmin</li>
-							</ul> <!-- Project 1 end -->
-							<li>Project 2</li>
-							<ul>
-								<li>Extract-Transform-Load (ETL) - Data Collection</li>
-								<ul>
-									<li>Before analyzing data, we have to collect the data. 
-										The quality and volume of data severely impacts your analysis and applications, and thus we’ve got to get fundamentals right here.</li>
-									<li>There are many other aspects of how to collect data, but you will be able to extrapolate your learnings to other applications as ETL is where we all started.</li>
-								</ul> <!-- ETL end -->
-							</ul><!-- Project 2 end -->
-							<li>Project 3</li>
-							<ul>
-								<li>Data Visualization</li>
-								<li>Data Ethics</li>
-								<ul>
-									<li>If you work for a multinational corporation (MNC), you will need to know enough to navigate so that your solution doesn’t end up becoming a lawsuit.</li>
-									<li>Particularly in Europe (EU), this topic is highly sensitive. If the business has EU operations, this topic is not something you can skip over.</li>
-								</ul> <!-- Data Ethics end -->
-							</ul> <!-- Project 3 end -->
-							<li>Project 4</li>
-							<ul>
-								<li>Machine Learning (ML) Integration</li>
-								<ul>
-									<li>Find a problem you want to solve, analyze and visualize.</li>
-									<li>Use ML to solve.</li>
-								</ul> <!-- ML integration end -->
-							</ul> <!-- Project 4 end -->
-						</ul><!-- Course overview -->
+					<div id="02-Ins_NamedRanges" class="instructor-block">
+						<h3>Named Ranges</h3>
 
 					</div> <!-- #02-course-overview end -->
 
-					<div id="03-past-learnings" class="instructor-block">
-						<h3>Past Learnings</h3>
-						<p>Having taught in Arizona Statue University (ASU) and University of Miami (UM) before, let me share some learnings that could help you out.</p>
+					<div id="03-Ins_ColorCounter" class="instructor-block">
+						<h3>Color Counter</h3>
+						<p>This is where we explore conditionals. 
+							Conditionals are core in any programming languages, and it is something we consistently have to think about when we code.</p>
 
-						<p>I wrote a Medium post on it, and I will highlight the main points while I leave it to you to read the rest: <a href="https://medium.com/@jonathan.moo/9-tips-for-succeeding-in-a-data-analytics-boot-camp-ac72b124535d">https://medium.com/@jonathan.moo/9-tips-for-succeeding-in-a-data-analytics-boot-camp-ac72b124535d</a></p>
+						<h5>Logical Conditionals</h5>
+						<ul>
+							<li>AND</li>
+							<li>NOT</li>
+							<li>OR</li>
+						</ul>
+
+						<h5>Conditional Statements</h5>
+						<p>Examples:</p>
+						<ul>
+							<li><code>COUNTIF(A2:A5,"Red")</code>: Counting if there is "Red" within the named ranges.</li>
+							<li><code>IF(C2>5), "TRUE", "FALSE"</code></li>
+						</ul>
 					</div> <!-- 03-past-learnings end -->
 
-					<div id="04-before-break" class="student-block">
-						<h3>Before the Break</h3>
-						<p>We really want folks to know each other better, and this can be a prelude to project work.</p>
-						<p>If you need to confirm your software installations, use the break to do so.</p>
+					<div id="04-Stu_GradeBook" class="student-block">
+						<h3>Grade Book</h3>
+						<p>Your turn to try an activity. We will review afterwards.</p>
+						
 					</div> <!-- 04-before-break end -->
 
-					<div id="05-break" class="student-block">
-						<h3>Break for 15 minutes starting from 8:05pm</h3>
+					<div id="05-Ins_CentralTendency" class="instructor-block">
+						<h3>Central Tendency</h3>
+						<h5>Why central tendency for EDA?</h5>
+						<div id="5-1-toggle" style="display:none;">
+							<p>Being able to distinguish what is the norm versus what is an outlier is fundamental in problem solving.</p>
+							<ul>
+								<li>For example, bank frauds are outlier activities. Majority of bank customers don’t commit fraud.</li>
+								<li>Banks use algorithms to identify fraud activity in a scalable and automatic function, so that they can maintain a high quality of service.</li>
+							</ul>
+						</div>
+						<button type="button" class="btn btn-primary" onclick='$("#5-1-toggle").toggle();'>Show/Hide Tips</button>
+						
+						<h5>What are the common measures of central tendency?</h5>
+						<p>Good reference if you need: <a href="https://www.khanacademy.org/math/cc-sixth-grade-math/cc-6th-data-statistics/mean-and-median/v/statistics-intro-mean-median-and-mode#:~:text=The%20mean%20(average)%20of%20a,Created%20by%20Sal%20Khan.">Statistics Intro: Mean, Median, Mode</a></p>
+						
+						<iframe width="560" height="315" src="https://www.youtube.com/embed/h8EYEJ32oQ8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+						
+						<p>This may look basic, let's remind ourselves what we are trying to get out of data: Value</p>
+						<ul>
+							<li>Mean</li>
+							<li>Median</li>
+							<li>Median</li>
+						</ul>
+						
+						<h5>Mean</h5>
+						<p>Arithmetic average of a dataset</p>
+						<p>What is the strength of mean in a dataset?</p>
+						<div id="5-2-toggle" style="display:none;">
+							<p>Simple way of getting summarized view of central tendency across the entire dataset.</p>
+						</div>
+						<button type="button" class="btn btn-primary" onclick='$("#5-2-toggle").toggle();'>Show/Hide Tips</button>
+
+						<p>What is the weakness of mean in a dataset?</p>
+						<div id="5-3-toggle" style="display:none;">
+							<p>Sometimes oversimplifies context by assuming every entity is equal.</p>
+							<p>Example:</p>
+							<ul>
+								<li>Household income is typically represented by median instead of mean. Why?</li>
+							</ul>
+						</div>
+						<button type="button" class="btn btn-primary" onclick='$("#5-3-toggle").toggle();'>Show/Hide Tips</button>
+
+						<h5>Median</h5>
+						<p>Selecting the middle element of a dataset</p>
+						<p>What is the strength of median in a dataset?</p>
+						<div id="5-4-toggle" style="display:none;">
+							<p>It is unaffected by extreme outliers, because it tends to ignore it.</p>
+						</div>
+						<button type="button" class="btn btn-primary" onclick='$("#5-4-toggle").toggle();'>Show/Hide Tips</button>
+						<p>What is the weakness of median in a dataset?</p>
+						<div id="5-5-toggle" style="display:none;">
+							<p>Outliers are ignored in the context.</p>
+							<p>Example:</p>
+							<ul>
+								<li>Minority representation of a data set is ignored because the data volume is small, and it is not represented within the central tendency report.</li>
+							</ul>
+						</div>
+						<button type="button" class="btn btn-primary" onclick='$("#5-5-toggle").toggle();'>Show/Hide Tips</button>
+
+						<h5>Mode</h5>
+						<p>Selecting the most frequently occurring value as a representation of central tendency</p>
+						<p>What is the strength of mode in a dataset?</p>
+						<div id="5-6-toggle" style="display:none;">
+							<p>Frequency is usually a good indicator towards business outcomes</p>
+						</div>
+						<button type="button" class="btn btn-primary" onclick='$("#5-6-toggle").toggle();'>Show/Hide Tips</button>
+						<p>What is the weakness of mode in a dataset?</p>
+						<div id="5-7-toggle" style="display:none;">
+							<p>Low frequency doesn’t mean less impact or consequences</p>
+							<p>Example: Crime data</p>
+							<ul>
+								<li>Severe offenses are usually low in frequency, but it can have a massive impact rather than several petty crimes.</li>
+							</ul>
+						</div>
+						<button type="button" class="btn btn-primary" onclick='$("#5-7-toggle").toggle();'>Show/Hide Tips</button>
+
+						<p>There is no perfect, one-size fit all solution in data analysis. We have to pick the correct method based on the context you’re working in.</p>
 					</div> <!-- 05-break end -->
 
-					<div id="06-group-great-debate" class="student-block">
-						<h3>Group Activity: The Great Debate</h3>
-						<h5>Which food do Americans prefer? Italian or Mexican food?</h5>
-						<p>Not the greatest question ever because it lacks an obvious business outcome, but it’s an exaggeration to prove a point. </p>
-						<p>Many times, binary classification is very important, and I will give you some examples:</p>
-						<ul>
-							<li>Is this image family safe? Or no?</li>
-							<li>Is the sports prediction accurate after the fact, or no?</li>
-						</ul>
-
-						<h5>Analytics Paradigm</h5>
-						<p>The team and business context can shift how this paradigm is going to work for you.</p>
-
-						<p>Often, we use Agile principles and methodologies to run teams so that we produce regular and repeatable outputs, in order to move the work towards our business outcomes. It is by no means a waterfall formula.</p>
-						<ul>
-							<li>“Waterfall” means it flows from top to bottom, and it is usually inflexible.</li>
-							<li>In agile, this process is going to be iterative and flexible.</li>
-							<ul>
-								<li>We use milestones as maturity indicators for a project, and the analytics paradigm fits into our milestones.</li>
-							</ul>
-							<li>Agile is out of scope in terms of learning, but do remember to be flexible in how you use the analytics paradigm.</li>
-						</ul>
-
-						<p>In many companies, if you’re a data analyst, data engineer, or a data scientist, you will work with a scrum master who will work with you to apply this analytics paradigm with agile principles. Thus, you don’t have to be overtly concerned with agile principles.</p>
+					<div id="06-Evr_MeasuringMeasures-CentralTendency" class="student-block">
+						<h3>Group Activity: Measuring The Measures</h3>
+						<p>If you are familiar with a dataset, you will know which measure of central tendency makes sense.</p>
+						<p>However, if you're unfamiliar with a dataset, you will need to explore the data with all measures of central tendency.</p>
+						<p>This is a type of summary statistics.</p>
 					</div> <!-- 06-group-great-debate end -->
 
-					<div id="07-group-gentrification" class="student-block">
-						<h3>Group Activity: Predicting Gentrification</h3>
-						<h5>What is `Gentrification`?</h5>
-						<p>It is the process of changing the character of a neighborhood through the influx of more affluent residents and businesses.</p>
-					</div> <!-- 07-group-gentrification -->
+					<div id="07-break" class="instructor-block">
+						<h3>Break - 15 mins @ 7:50pm</h3>
+					</div> <!-- 07-break -->
 					
-					<div id="08-homework-discussion" class="instructor-block">
-						<h3>Homework Discussion</h3>
-						<p>I’m not the person grading your assignments. There’s a team that does it.</p>
+					<div id="08-formatting" class="instructor-block">
+						<h3>Formatting</h3>
+						<p>When you present your work to others, especially to folks outside of your team, you have to make sure that your spreadsheet is digestible and does not contain conflicting messages.</p>
+
+						<p>Example:</p>
 						<ul>
-							<li>This promotes objectivity.</li>
+							<li>I saw a senior engineer represented the value <code>100</code> with green on the top of the row, and on the bottom, <code>100</code> with red, on an analytics dashboard.</li>
+							<li>Green is supposed to indicate a good result, and red is supposed to indicate a bad result. 
+								However, his report doesn’t have indicate negative values, i.e. <code>-100</code>. And it was confusing to me what does the <code>100</code> mean.</li>
 						</ul>
 
-						<p>What is the goal of the next homework?</p>
-						<ul>
-							<li>To ensure you can manipulate data within Excel at will, and perform an EDA over the data set</li>
-							<ul>
-								<li>There are many ways or tools to use, but Excel is one of the “lowest barrier to entry” tools available in the market.</li>
-								<li>Excel has a hard limit in terms of the volume of data it can take. If it goes above a million records, you can expect sluggish behavior from your local machine.</li>
-								<ul>
-									<li>That’s because your local machine has limits to the amount of memory and processing power. In data science, volume of data matters in terms of accuracy, and thus we use cloud computing regularly to analyze data.</li>
-									<li>However, applying your EDA on a sample size that is statistically significant is very important to prove your logic, because engineering and computing is expensive. Excel can be very useful in this regard.</li>
-								</ul>
-							</ul>
-						</ul>
-					</div> <!-- 08-homework-discussion end -->
+						<p>Design is a solution, and it is not merely for aesthetic reasons.</p>
 
+						<h5>How to set conditional formatting here:</h5>
+						<img class="img-fluid" src="img/06-Formatting.png">
+
+						
+
+					</div> <!-- 08-formatting -->
+					
+					<div id="09-pivot-tables" class="instructor-block">
+						<h3>Pivot Tables</h3>
+					</div> <!-- 09-pivot-tables -->
+
+					<div id="10-pivot-tables" class="student-block">
+						<h3>Students Do: Top-Songs Pivot Table</h3>
+					</div> <!-- 09-pivot-tables -->
+
+					<div id="11-lookups" class="instructor-block">
+						<h3>Lookups</h3>
+
+						<p>This is a prelude to SQL queries, where you have a column or row of values, and you want to associate data across 2 or more tables.</p>
+					</div> <!-- 11-lookups -->
+
+					<div id="12-prod-lookups" class="student-block">
+						<h3>Students Do: Product Pivot</h3>
+					</div> <!-- 12-prod-lookups -->
+
+					<div id="13-questions" class="instructor-block">
+						<h3>Final Questions</h3>
+					</div> <!-- 13-questions -->
+					
 
 				</div> <!-- end #main-content -->
 
@@ -290,16 +257,24 @@
 					<div id="right-sb-nav" class="list-group" id="toc" role="tablist">
 					  <a class="list-group-item list-group-item-action active"  href="#objectives" role="tab">Objectives</a>
 
-					  <a class="list-group-item list-group-item-action"  href="#intro" role="tab">Snapshot Instructor Introduction</a>
-					  <a class="list-group-item list-group-item-action"  href="#01-intro-to-data" role="tab">Introduction To Data</a>
-						<a class="list-group-item list-group-item-action"  href="#02-course-overview" role="tab">Course Overview</a>
-						<a class="list-group-item list-group-item-action"  href="#03-past-learnings" role="tab">Past Learnings</a>
-						<a class="list-group-item list-group-item-action"  href="#04-before-break" role="tab">Before the Break</a>
+					  <a class="list-group-item list-group-item-action"  href="#admin" role="tab">Admin Stuff</a>
+					  <a class="list-group-item list-group-item-action"  href="#01-Ins_ExcelPlayground" role="tab">Excel Playground</a>
+						<a class="list-group-item list-group-item-action"  href="#02-Ins_NamedRanges" role="tab">Named Ranges</a>
+						<a class="list-group-item list-group-item-action"  href="#03-Ins_ColorCounter" role="tab">Color Counter</a>
+						<a class="list-group-item list-group-item-action"  href="#04-Stu_GradeBook" role="tab">Grade Book</a>
 
-						<a class="list-group-item list-group-item-action"  href="#05-break" role="tab">Break</a>
-						<a class="list-group-item list-group-item-action"  href="#06-group-great-debate" role="tab">Group Activity: The Great Debate</a>
-						<a class="list-group-item list-group-item-action"  href="#07-group-gentrification" role="tab">Group Activity: Predicting Gentrification</a>
-						<a class="list-group-item list-group-item-action"  href="#08-homework-discussion" role="tab">Homework Discussion</a>
+						<a class="list-group-item list-group-item-action"  href="#05-Ins_CentralTendency" role="tab">Central Tendency</a>
+						<a class="list-group-item list-group-item-action"  href="#06-Evr_MeasuringMeasures-CentralTendency" role="tab">Group Activity: Measuring The Measures</a>
+						<a class="list-group-item list-group-item-action"  href="#07-break" role="tab">Break</a>
+						<a class="list-group-item list-group-item-action"  href="#08-formatting" role="tab">Formatting</a>
+
+						<a class="list-group-item list-group-item-action"  href="#09-pivot-tables" role="tab">Pivot Tables</a>
+						<a class="list-group-item list-group-item-action"  href="#10-pivot-tables" role="tab">Students Do: Top-Songs Pivot Table</a>
+						<a class="list-group-item list-group-item-action"  href="#11-lookups" role="tab">Lookups</a>
+
+						<a class="list-group-item list-group-item-action"  href="#12-prod-lookups" role="tab">Students Do: Product Pivot</a>
+						<a class="list-group-item list-group-item-action"  href="#13-questions" role="tab">Final Questions</a>
+
 
 					</div>
 				
