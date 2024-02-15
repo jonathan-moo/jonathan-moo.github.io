@@ -4,12 +4,12 @@
 		<title>Jonathan Moo's Github Bio</title>
 
 
-		<link rel='stylesheet' id='bootstrap-css'  href='../../css/bootstrap.min.css' type='text/css' media='all' />
-		<link rel='stylesheet' id='bootstrap-grid-css'  href='../../css/bootstrap-grid.min.css' type='text/css' media='all' />
+		<link rel='stylesheet' id='bootstrap-css'  href='css/bootstrap.min.css' type='text/css' media='all' />
+		<link rel='stylesheet' id='bootstrap-grid-css'  href='css/bootstrap-grid.min.css' type='text/css' media='all' />
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
    integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
    crossorigin=""/>
-		<link rel='stylesheet' id='custom-css'  href='../../css/style.css' type='text/css' media='all' /> 
+		<link rel='stylesheet' id='custom-css'  href='css/style.css' type='text/css' media='all' /> 
 		<script src="https://d3js.org/d3.v5.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.9.1/d3-tip.js"></script>
 		<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
@@ -53,19 +53,68 @@
 
 					</div>
 
-					<div id="admin" class="instructor-block">
-						<h3>Some administrative items before we start</h3>
-						<h5>We are figuring out some Gitlab issues. I have sent the files into your Slack channel: </h5>
-						<a href="https://asuvirtdatapt-qny2270.slack.com/archives/C04MY7PPQM9/p1680052348305639">https://asuvirtdatapt-qny2270.slack.com/archives/C04MY7PPQM9/p1680052348305639</a>
-						<!--h5><a href="https://asu.bootcampcontent.com/asu-coding-bootcamp/ASU-VIRT-DATA-PT-03-2023-U-LOLC">Gitlab</a></h5>
-						<p>This is where all classroom content will be posted:</p>
-						<ul>
-							<li>Classroom activities</li>
-							<li>Presentation slides</li>
-						</ul-->
+					<div id="windows-unix-linux" class="instructor-block">
+						<p>Some folks are confused over some pre-work activities in your Windows machines, and I'm going to demystify some of it.</p>
 
-						<h5>Zoom Recordings</h5>
-						<p>Lesson 1.1's zoom has been published! Always check it out if you need help.</p>
+						<h3>What is a Terminal?</h3>
+						<ul>
+							<li>It is the graphical user interface (GUI) that we interact with the computer by giving it commands.</li>
+							<li>How you use commands is highly dependent on the operating system (OS) itself, and in our case, we have Windows vs MacOS (Unix) vs Linux:</li>
+							<ul>
+								<li>Microsoft and other companies were trying to compete in terms of standards, and thus Windows commands look vastly different from MacOS (Unix) or Linux-based commands.</li>
+								<li>The other companies are winning in terms of adoption rate of their standards against Windows machines because Windows wanted to charge per license and the other companies are doing it on open-source.</li>
+								<ul>
+									<li>Thus Microsoft is also adopting Linux commands in future iterations of their terminal.</li>
+									<li>MacOS is a flavor of Unix adopted from Apple, and Linux was created from Unix, thus their commands and syntax look similar.</li>
+								</ul>
+								<li>Git bash is the linux version on Windows, and we use that because the Linux subsystem within Windows isn't exactly mature.</li>
+							</ul>
+						</ul> <!-- What is a terminal? -->
+
+						<h3>How does this impact you?</h3>
+						<ul>
+							<li>Many companies use Macs for work simply because the servers we deploy are usually open-source.</li>
+							<li>This means it seems easier for Mac users to run code and commands, and thus Macs are highly recommended.</li>
+							<li>There are exceptions to this guideline, as there are machine learning (ML) libraries that only work well with Intel-based chips (PCs) and Nvidia GPUs, and so if you're into ML, it is fine to use Windows.</li>
+						</ul>
+					</div>
+
+					<div id="eda-intro" class="instructor-block">
+						<p>In today's lessons, we aren't only discussing about Excel, but how you can use Excel to perform simple exploratory data analysis (EDA) using some basic statistics.</p>
+
+						<p>Has anyone in the class done any EDA before?</p>
+
+						<h3>What is EDA for and why?</h3>
+						<div id="eda-intro-toggle" style="display:none;">
+							<p>It is a preliminary profiling and rough analysis of the data to see:</p>
+							<ul>
+								<li>If we have the requisite data coverage and depth needed to our desired outcome</li>
+								<li>Explore preliminary techniques to get a head start and a level of confidence in our subsequent approaches</li>
+							</ul>
+							<h5>Why is this important?</h5>
+							<ul>
+								<li>It is to reduce the risk of investing too much time and effort where you could be climbing the wrong tree that doesn’t give you the outcome and value you want.</li>
+								<li>Example:</li>
+								<ul>
+									<li>In data science, we run the risk of going down a rabbit hole for too long when we are invested in one specific approach.</li>
+									<li>When we had to come up with a soccer prediction model, I asked my data scientist if he wanted to start with team statistics vs individual player statistics to predict the outcome of a game.</li>
+									<ul>
+										<li>At work, speed to market is crucial. You can’t spend too long to develop a model that you want for your product as overhead costs compound.</li>
+										<li>If you use team statistics as your starting point, you’ll get a model faster than analysing individual players. However, your accuracy will nosedive because the deciding factors of winning a match may be dwarfed/diluted by over generalization.</li>
+										<li>If you use player statistics, it is much harder to build a model as you have more parameters and context to consider. Not every player’s role in a team is equal, and we run a high risk of analysis paralysis.</li>
+									</ul>
+								</ul><!-- end List Example -->
+								<li>Your EDA will depend on the context of the outcome and data you're looking for, and this is highly dependent on the industry that you're working in.</li>
+								<ul>
+									<li>See: <a href="https://medium.com/@jonathan.moo/9-tips-for-succeeding-in-a-data-analytics-boot-camp-ac72b124535d">https://medium.com/@jonathan.moo/9-tips-for-succeeding-in-a-data-analytics-boot-camp-ac72b124535d</a></li>
+								</ul>
+							</ul><!-- end Why is this important -->
+						</div>
+
+						<button type="button" class="btn btn-primary" onclick='$("#eda-intro-toggle").toggle();'>Show/Hide Tips</button>
+
+						<p>You don’t need a sophisticated tool to get EDA done, although BI tools (Tableau in Week 18) and Python libraries have features that make EDA easy. Excel is sometimes quick and easy enough to get started.</p>
+
 					</div> <!-- .end #intro-->
 
 					<div id="01-Ins_ExcelPlayground" class="instructor-block">
@@ -88,6 +137,8 @@
 
 					<div id="02-Ins_NamedRanges" class="instructor-block">
 						<h3>Named Ranges</h3>
+
+						<p>Just a shortcut to select multiple cells with a simple expression rather than highlighting each cell individually.</p>
 
 					</div> <!-- #02-course-overview end -->
 
@@ -115,6 +166,13 @@
 						<h3>Grade Book</h3>
 						<p>Your turn to try an activity. We will review afterwards.</p>
 						
+					</div> <!-- 04-before-break end -->
+
+					<div id="learning-to-learn" class="instructor-block">
+						<h3>Learning to learn</h3>
+						<p>You'll start realizing that I will put up additional videos and resources for you to read, because it can be fundamental for understanding.</p>
+						
+						<p>I won't be able to cover in-depth in terms of all the additonal resources as we need to keep time, and so you can learn about them offline instead.</p>
 					</div> <!-- 04-before-break end -->
 
 					<div id="05-Ins_CentralTendency" class="instructor-block">
