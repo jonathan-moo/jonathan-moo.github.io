@@ -34,8 +34,8 @@
 					<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Lessons</a>
 						<div class="dropdown-menu">
-							<a class="dropdown-item" href="DU-VIRT-DATA-PT-02-2024-U-LOLC/1.1/index.html">1.1 Ref</a>
-							<a class="dropdown-item" href="DU-VIRT-DATA-PT-02-2024-U-LOLC/1.2/index.html">1.2 Ref</a>
+							<a class="dropdown-item" href="ASU-VIRT-DATA-PT-03-2023-U-LOLC/1.1/index.html">1.1 Ref</a>
+							<a class="dropdown-item" href="ASU-VIRT-DATA-PT-03-2023-U-LOLC/1.2/index.html">1.2 Ref</a>
 						</div>
 					</li-->
 				</ul>
@@ -48,294 +48,280 @@
 						<h3 id="objectives">Objectives For Today</h3>
 
 						<ul>
-							<li>Excel For Exploratory Data Analysis (EDA)</li>
+							<li>Github</li>
+							<li>Excel For Exploratory Data Analysis (EDA) Part 2</li>
 						</ul>
 
 					</div>
 
-					<div id="windows-unix-linux" class="instructor-block">
-						<p>Some folks are confused over some pre-work activities in your Windows machines, and I'm going to demystify some of it.</p>
+					<div id="github" class="instructor-block">
+						<h3>Introduction to Github</h3>
+						<p>Github is a centralized repository where engineers can collaborate and deploy their code. Learning how to use Github is very important in our line of work, as there isn't a company that would not version-control work.</p>
 
-						<h3>What is a Terminal?</h3>
+						<p>For now, we will only use the Graphical User Interface (GUI) for Github to submit homework.</p>
+						<p>Later in the course, we will learn how to use Git to work with Github through the terminal.</p>
 						<ul>
-							<li>It is the graphical user interface (GUI) that we interact with the computer by giving it commands.</li>
-							<li>How you use commands is highly dependent on the operating system (OS) itself, and in our case, we have Windows vs MacOS (Unix) vs Linux:</li>
+							<li>Log in to your personal accounts.</li>
+							<li>Create a README.md file.</li>
 							<ul>
-								<li>Microsoft and other companies were trying to compete in terms of standards, and thus Windows commands look vastly different from MacOS (Unix) or Linux-based commands.</li>
-								<li>The other companies are winning in terms of adoption rate of their standards against Windows machines because Windows wanted to charge per license and the other companies are doing it on open-source.</li>
-								<ul>
-									<li>Thus Microsoft is also adopting Linux commands in future iterations of their terminal.</li>
-									<li>MacOS is a flavor of Unix adopted from Apple, and Linux was created from Unix, thus their commands and syntax look similar.</li>
-								</ul>
-								<li>Git bash is the linux version on Windows, and we use that because the Linux subsystem within Windows isn't exactly mature.</li>
+								<li>Markdown cheatsheet: <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet</a></li>
 							</ul>
-						</ul> <!-- What is a terminal? -->
-
-						<h3>How does this impact you?</h3>
-						<ul>
-							<li>Many companies use Macs for work simply because the servers we deploy are usually open-source.</li>
-							<li>This means it seems easier for Mac users to run code and commands, and thus Macs are highly recommended.</li>
-							<li>There are exceptions to this guideline, as there are machine learning (ML) libraries that only work well with Intel-based chips (PCs) and Nvidia GPUs, and so if you're into ML, it is fine to use Windows.</li>
+							<li>Create a <strong>public</strong> repo so that your graders can grade your work.</li>
+							<li>Add a `.gitignore` file and look for "Python"</li>
+							<ul>
+								<li>It will ignore files that we do not want to track.</li>
+								<li>This is important because our local machines create files randomly, and it is good practice not to pollute the repo with files or folders that are unnecessary for the work.</li>
+							</ul>
 						</ul>
-					</div>
-
-					<div id="eda-intro" class="instructor-block">
-						<p>In today's lessons, we aren't only discussing about Excel, but how you can use Excel to perform simple exploratory data analysis (EDA) using some basic statistics.</p>
-
-						<p>Has anyone in the class done any EDA before?</p>
-
-						<h3>What is EDA for and why?</h3>
-						<div id="eda-intro-toggle" style="display:none;">
-							<p>It is a preliminary profiling and rough analysis of the data to see:</p>
-							<ul>
-								<li>If we have the requisite data coverage and depth needed to our desired outcome</li>
-								<li>Explore preliminary techniques to get a head start and a level of confidence in our subsequent approaches</li>
-							</ul>
-							<h5>Why is this important?</h5>
-							<ul>
-								<li>It is to reduce the risk of investing too much time and effort where you could be climbing the wrong tree that doesn’t give you the outcome and value you want.</li>
-								<li>Example:</li>
-								<ul>
-									<li>In data science, we run the risk of going down a rabbit hole for too long when we are invested in one specific approach.</li>
-									<li>When we had to come up with a soccer prediction model, I asked my data scientist if he wanted to start with team statistics vs individual player statistics to predict the outcome of a game.</li>
-									<ul>
-										<li>At work, speed to market is crucial. You can’t spend too long to develop a model that you want for your product as overhead costs compound.</li>
-										<li>If you use team statistics as your starting point, you’ll get a model faster than analysing individual players. However, your accuracy will nosedive because the deciding factors of winning a match may be dwarfed/diluted by over generalization.</li>
-										<li>If you use player statistics, it is much harder to build a model as you have more parameters and context to consider. Not every player’s role in a team is equal, and we run a high risk of analysis paralysis.</li>
-									</ul>
-								</ul><!-- end List Example -->
-								<li>Your EDA will depend on the context of the outcome and data you're looking for, and this is highly dependent on the industry that you're working in.</li>
-								<ul>
-									<li>See: <a href="https://medium.com/@jonathan.moo/9-tips-for-succeeding-in-a-data-analytics-boot-camp-ac72b124535d">https://medium.com/@jonathan.moo/9-tips-for-succeeding-in-a-data-analytics-boot-camp-ac72b124535d</a></li>
-								</ul>
-							</ul><!-- end Why is this important -->
-						</div>
-
-						<button type="button" class="btn btn-primary" onclick='$("#eda-intro-toggle").toggle();'>Show/Hide Tips</button>
-
-						<p>You don’t need a sophisticated tool to get EDA done, although BI tools (Tableau in Week 18) and Python libraries have features that make EDA easy. Excel is sometimes quick and easy enough to get started.</p>
-
-					</div> <!-- .end #intro-->
-
-					<div id="01-Ins_ExcelPlayground" class="instructor-block">
-						<h3>Excel Playground</h3>
-						<p>If you have been working in an office for some time, it is very likely that you used Excel. 
-							If you’re already proficient with Excel, do give room for other students to grow in it.</p>
-						<p>This is going to be first dips on how programming works.</p>
-						<p>Excel mimics some of the programming languages in terms of features, 
-							and so you will be more and more familiar with programming when you understand these concepts.</p>
-
-						<h5>Functions</h5>
-						<p>Programming is very similar to high school math, algebra. 
-							This is a good reference to start if you want to know how function works in math or programming:
-							<a href="https://www.khanacademy.org/math/algebra/x2f8bb11595b61c86:functions/x2f8bb11595b61c86:evaluating-functions/v/what-is-a-function">What is a function?</a>
-						</p>
-
-						<iframe width="560" height="315" src="https://www.youtube.com/embed/kvGsIo1TmsM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 						
-					</div> <!-- .end #intro-->
+					</div> <!-- .end #github-->
 
-					<div id="02-Ins_NamedRanges" class="instructor-block">
-						<h3>Named Ranges</h3>
+					<div id="02-Ins_BasicCharting" class="instructor-block">
+						<h3>Basic Charting</h3>
+						<p>Opening up <code>ice_cream_faves.xlsx</code> for demo. We have be dealing with tabular data, but today we will be doing visualizations.</p>
+						
+						<h5>How to access Excel charts?</h5>
+						<p>I'm using Excel on a Mac, and so if you're using a PC, it may look different from yours.</p>
+						<p>Excel is more intuitive on PC than on Mac.</p>
 
-						<p>Just a shortcut to select multiple cells with a simple expression rather than highlighting each cell individually.</p>
-
-					</div> <!-- #02-course-overview end -->
-
-					<div id="03-Ins_ColorCounter" class="instructor-block">
-						<h3>Color Counter</h3>
-						<p>This is where we explore conditionals. 
-							Conditionals are core in any programming languages, and it is something we consistently have to think about when we code.</p>
-
-						<h5>Logical Conditionals</h5>
+						<h6>Mac Version</h6>
 						<ul>
-							<li>AND</li>
-							<li>NOT</li>
-							<li>OR</li>
+							<li>On your Excel on the navigation tab, look for <code>Insert</code>, and you should see charts right off the bat.</li>
+							<li>Using your mouse, highlight the table by selecting the cells.</li>
+							<li>Click on the charts - Look for 2D columns</li>
+							<li>The name of the chart is generic. Double-click on it, and change the title.</li>
+							<li>Clicking on different parts of the chart will select the granularity you're looking for.</li>
+							<ul>
+								<li>Clicking on the bars itself, you can add trendlines and data labels.</li>
+								<li>The idea is to play around with the chart to explore. Curiosity is your friend to learn.</li>
+							</ul>
+							<li>For Mac, when we add a chart, it will feature <code>Chart Design</code> on the navigation bar. Under it on the left, there is a <code>Add Chart Element</code>.</li>
+							<ul>
+								<li>This is another way to format your chart.</li>
+							</ul>
+							<li>Click on <code>Change Colors</code> to change the colors of the chart.</li>
+							<li>If you click on the bars once (I'm using Mac Excel 2019, so yours might be different), you should be able to see the <code>Format Data Series</code> on the right to change how your bars look.</li>
+							<li>Click on the <code>Vary colors by point</code></li>
+							<ul>
+								<li><code>Vary colors by point</code> can be missing if you select more than 1 column entry for your graph.</li>
+							</ul>
 						</ul>
 
-						<h5>Conditional Statements</h5>
-						<p>Examples:</p>
+						<h6>PC Version</h6>
 						<ul>
-							<li><code>COUNTIF(A2:A5,"Red")</code>: Counting if there is "Red" within the named ranges.</li>
-							<li><code>IF(C2>5), "TRUE", "FALSE"</code></li>
+							<li>Create the chart by selecting the table and inserting a chart.</li>
+							<li>There is a plus sign to the right of the chart. Click on it will bring up a list of elements and sub-elements which we can add or remove:</li>
+							<img src="img/PC_AddElements.png" class="img-fluid">
+							<li>By clicking the paintbrush to the right of a chart, we have access options for <code>Style</code> and <code>Color</code>.</li>
 						</ul>
+
+						<h5>Filtering data within charts</h5>
+						<p>Opening up <code>basic_charts.xlsx</code> for demo.</p>
+						<p>Go to the second spreadsheet called <code>Ice Cream Sales</code>. There might be a graph there, but it is not selecting all the data points within the table. We'll re-create and build a chart again.</p>
+
+						<h6>Mac Steps</h6>
+						<p>In general, apply filter on the table, and it should affect the graph directly.</p>
+						<p>To filter, look for the <code>Data</code> tab on the navigation bar, select the column headers, and click on <code>Filter</code>.</p>
+
+						<h6>PC Steps</h6>
+						<p>There should be a third option at the right of the chart. Clicking on that will allow you to filter the chart directly.</p>
+
+
+					</div> <!-- .end basic charting-->
+
+					<div id="03-Stu_LineAndBar" class="student-block">
+						<h3>Students Do: The Line and Bar Grades </h3>
+
+					</div> <!-- #03-Stu_LineAndBar end -->
+
+					<div id="04-Ins_ScatterPlot" class="instructor-block">
+						<h3>Scatter Plot</h3>
+						<p>Very much used for clustering and classification for machine learning (ML).</p>
+
+						<h3>Trendlines</h3>
+						<h5>PC Steps</h5>
+						<p>Within the chart elements, click on the plus symbol to the right of your selected chart, and it should be there:</p>
+						<img src="img/PC_TrendLine.png" class="img-fluid">
+						<p>To change the type of trend line, double-click on a chart's trend line, and then select an available option:</p>
+						<img src="img/PC_FormatTrend.PNG" class="img-fluid">
+
+						<h5>Mac Steps</h5>
+						<ul>
+							<li>Within the <code>Add Chart Element</code> earlier under the <code>Chart Design</code> on the nav bar, there is an option to select the trend line.</li>
+							<li>Within the <code>Add Chart Element</code>, there are options to choose other trendlines. The purpose is to get the best fit of the line.</li>
+							<li>To reverse the axis, choose <code>Select Data</code>/<code>Switch Row/Column</code> on the nav bar and you should be able to reverse the x and y axis with the option.</li>
+						</ul>
+						
+						
 					</div> <!-- 03-past-learnings end -->
 
-					<div id="04-Stu_GradeBook" class="student-block">
-						<h3>Grade Book</h3>
+					<div id="05-Par_HomeSales-ScatterPlots" class="student-block">
+						<h3>Students Do: St. Louis, MO Home Sales</h3>
 						<p>Your turn to try an activity. We will review afterwards.</p>
 						
-					</div> <!-- 04-before-break end -->
+					</div> <!-- 05-Par_HomeSales-ScatterPlots end -->
 
-					<div id="learning-to-learn" class="instructor-block">
-						<h3>Learning to learn</h3>
-						<p>You'll start realizing that I will put up additional videos and resources for you to read, because it can be fundamental for understanding.</p>
-						
-						<p>I won't be able to cover in-depth in terms of all the additonal resources as we need to keep time, and so you can learn about them offline instead.</p>
-					</div> <!-- 04-before-break end -->
+					<div id="06-Evr_WalrusGroup-Filter" class="instructor-block">
+						<h3>The Need to Filter</h3>
+						<p>Let's open up <code>walrus_group.xlsx</code>. This is real data from the US Geological Survey studying walruses hauled out on ice floes in Alaska.</p>
 
-					<div id="05-Ins_CentralTendency" class="instructor-block">
-						<h3>Central Tendency</h3>
-						<h5>Why central tendency for EDA?</h5>
-						<div id="5-1-toggle" style="display:none;">
-							<p>Being able to distinguish what is the norm versus what is an outlier is fundamental in problem solving.</p>
-							<ul>
-								<li>For example, bank frauds are outlier activities. Majority of bank customers don’t commit fraud.</li>
-								<li>Banks use algorithms to identify fraud activity in a scalable and automatic function, so that they can maintain a high quality of service.</li>
-							</ul>
-						</div>
-						<button type="button" class="btn btn-primary" onclick='$("#5-1-toggle").toggle();'>Show/Hide Tips</button>
-						
-						<h5>What are the common measures of central tendency?</h5>
-						<p>Good reference if you need: <a href="https://www.khanacademy.org/math/cc-sixth-grade-math/cc-6th-data-statistics/mean-and-median/v/statistics-intro-mean-median-and-mode#:~:text=The%20mean%20(average)%20of%20a,Created%20by%20Sal%20Khan.">Statistics Intro: Mean, Median, Mode</a></p>
-						
-						<iframe width="560" height="315" src="https://www.youtube.com/embed/h8EYEJ32oQ8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-						
-						<p>This may look basic, let's remind ourselves what we are trying to get out of data: Value</p>
+						<h5>2 ways to filter tables</h5>
 						<ul>
-							<li>Mean</li>
-							<li>Median</li>
-							<li>Median</li>
+							<li>Using the <code>Sort & Filter function</code> in Excel.</li>
+							<li>Using Pivot Tables.</li>
 						</ul>
-						
-						<h5>Mean</h5>
-						<p>Arithmetic average of a dataset</p>
-						<p>What is the strength of mean in a dataset?</p>
-						<div id="5-2-toggle" style="display:none;">
-							<p>Simple way of getting summarized view of central tendency across the entire dataset.</p>
-						</div>
-						<button type="button" class="btn btn-primary" onclick='$("#5-2-toggle").toggle();'>Show/Hide Tips</button>
 
-						<p>What is the weakness of mean in a dataset?</p>
-						<div id="5-3-toggle" style="display:none;">
-							<p>Sometimes oversimplifies context by assuming every entity is equal.</p>
-							<p>Example:</p>
-							<ul>
-								<li>Household income is typically represented by median instead of mean. Why?</li>
-							</ul>
-						</div>
-						<button type="button" class="btn btn-primary" onclick='$("#5-3-toggle").toggle();'>Show/Hide Tips</button>
+						<p>If you want to represent a visualization directly through filters, we can also use a Pivot Chart.</p>
+						<h5>PC Steps</h5>
+						<p>Works exactly like Pivot Tables by selecting the data table, go into "Charts" group of the "Insert" tab, and select "Pivot Chart" from the options:</p>
+						<img src="img/PC_PivotChart.png" class="img-fluid">
 
-						<h5>Median</h5>
-						<p>Selecting the middle element of a dataset</p>
-						<p>What is the strength of median in a dataset?</p>
-						<div id="5-4-toggle" style="display:none;">
-							<p>It is unaffected by extreme outliers, because it tends to ignore it.</p>
-						</div>
-						<button type="button" class="btn btn-primary" onclick='$("#5-4-toggle").toggle();'>Show/Hide Tips</button>
-						<p>What is the weakness of median in a dataset?</p>
-						<div id="5-5-toggle" style="display:none;">
-							<p>Outliers are ignored in the context.</p>
-							<p>Example:</p>
-							<ul>
-								<li>Minority representation of a data set is ignored because the data volume is small, and it is not represented within the central tendency report.</li>
-							</ul>
-						</div>
-						<button type="button" class="btn btn-primary" onclick='$("#5-5-toggle").toggle();'>Show/Hide Tips</button>
+						<h5>Mac steps</h5>
+						<ul>
+							<li><strong>NOTE:</strong> There is an issue with some versions of Excel 2016 for Mac. Updating to the latest version will solve it.</li>
+							<li>If your Excel on Mac is new, there should be a <code>Pivot Chart</code> under the <code>Insert</code> tab.</li>
+							<li>If your Excel is lacking the <code>Pivot Chart</code> functionality, build a Pivot table and then insert a chart. It should work the same.</li>
+						</ul>
 
-						<h5>Mode</h5>
-						<p>Selecting the most frequently occurring value as a representation of central tendency</p>
-						<p>What is the strength of mode in a dataset?</p>
-						<div id="5-6-toggle" style="display:none;">
-							<p>Frequency is usually a good indicator towards business outcomes</p>
-						</div>
-						<button type="button" class="btn btn-primary" onclick='$("#5-6-toggle").toggle();'>Show/Hide Tips</button>
-						<p>What is the weakness of mode in a dataset?</p>
-						<div id="5-7-toggle" style="display:none;">
-							<p>Low frequency doesn’t mean less impact or consequences</p>
-							<p>Example: Crime data</p>
-							<ul>
-								<li>Severe offenses are usually low in frequency, but it can have a massive impact rather than several petty crimes.</li>
-							</ul>
-						</div>
-						<button type="button" class="btn btn-primary" onclick='$("#5-7-toggle").toggle();'>Show/Hide Tips</button>
+					</div> <!-- 06-Evr_WalrusGroup-Filter end -->
 
-						<p>There is no perfect, one-size fit all solution in data analysis. We have to pick the correct method based on the context you’re working in.</p>
-					</div> <!-- 05-break end -->
-
-					<div id="06-Evr_MeasuringMeasures-CentralTendency" class="student-block">
-						<h3>Group Activity: Measuring The Measures</h3>
-						<p>If you are familiar with a dataset, you will know which measure of central tendency makes sense.</p>
-						<p>However, if you're unfamiliar with a dataset, you will need to explore the data with all measures of central tendency.</p>
-						<p>This is a type of summary statistics.</p>
+					<div id="07-Par_FilterHomeSales" class="student-block">
+						<h3>Students Do: Filter Home Sales</h3>
+						<p>Open up the <code>home_sales_filtered.xlsx</code> and we want to start answering the questions to the activity.</p>
 					</div> <!-- 06-group-great-debate end -->
 
-					<div id="07-break" class="instructor-block">
-						<h3>Break - 15 mins @ 7:50pm</h3>
+					<div id="08-break" class="instructor-block">
+						<h3>Break - 15 mins @ 8:10pm</h3>
 					</div> <!-- 07-break -->
 					
-					<div id="08-formatting" class="instructor-block">
-						<h3>Formatting</h3>
-						<p>When you present your work to others, especially to folks outside of your team, you have to make sure that your spreadsheet is digestible and does not contain conflicting messages.</p>
+					<div id="08-Ins_Variance-SD-Zscore" class="instructor-block">
+						<h3>Variance, Standard Deviation, and Z-Score</h3>
+						<p>We are going to focus on statistics for the remainder of the class.</p>
 
-						<p>Example:</p>
+						<p>This may be new to you, and don't worry if you don't get it the first round. We will be revisiting these statistical topics throughout the curriculum.</p>
+
+						<p>This video is going to help you in understanding what is variance and standard deviation:</p>
+
+						<iframe width="560" height="315" src="https://www.youtube.com/embed/E4HAYd0QnRc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+						<h5>Variance equation:</h5>
+						<img class="img-fluid" src="img/VarianceEquation.png">
 						<ul>
-							<li>I saw a senior engineer represented the value <code>100</code> with green on the top of the row, and on the bottom, <code>100</code> with red, on an analytics dashboard.</li>
-							<li>Green is supposed to indicate a good result, and red is supposed to indicate a bad result. 
-								However, his report doesn’t have indicate negative values, i.e. <code>-100</code>. And it was confusing to me what does the <code>100</code> mean.</li>
+							<li>Manually calculating the variance is not critical for this course. We just want to know the concept of what it means.</li>
 						</ul>
 
-						<p>Design is a solution, and it is not merely for aesthetic reasons.</p>
+						<h5>Why is variance and standard deviation important?</h5>
+						<div id="var-stdev-importance" style="display:none;">
+						<ul>
+							<li>It quantifies the amount of spread of the data, which is a good indicator of predictability.</li>
+							<li>In CBS Sports, we created 2 NFL predictive models where we measured performance against actual results.</li>
+							<ul>
+								<li>Using variance and standard deviation, we are able to understand the margin of error that could occur for both models and quantatively decide which model was better based on predicted vs actual results.</li>
+								<li>Variance and standard deviation also gave us a benchmark to improve against volatility (or improving precision, which is covered in later modules).</li>
+							</ul>
+						</ul>
+						</div>
 
-						<h5>How to set conditional formatting here:</h5>
-						<img class="img-fluid" src="img/06-Formatting.png">
+						<button type="button" class="btn btn-primary" onclick='$("#var-stdev-importance").toggle();'>Show/Hide Tips</button>
 
-						
+						<p>Using <code>Variance-SD-Zscore.xlsx</code> to illustrate why variance and standard deviation matter in a data set.</p>
+						<ul>
+							<li><code>STDEV.P</code> function calculates the standard deviation of a dataset if the dataset is considered to be from a population.</li>
+							<li><code>STDEV.S</code> function calculates the standard deviation of a dataset if the dataset is considered to be from a sample.</li>
+						</ul>
 
-					</div> <!-- 08-formatting -->
+						<h5>Z score</h5>
+						<p>This is the number of standard deviation from the mean for a particular data point.</p>
+						<p>This video is going to help you understand what is z-score:</p>
+						<iframe width="560" height="315" src="https://www.youtube.com/embed/5S-Zfa-vOXs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+						<h5>Why is the z-score important?</h5>
+						<div id="z-score-importance" style="display:none;">
+						<p>It gives us the probablity of a data point falls within the norm of a given data set in its proximity to the mean.</p>
+						<img class="img-fluid" src="https://upload.wikimedia.org/wikipedia/commons/8/8c/Standard_deviation_diagram.svg">
+							<ul>
+								<li>The above graph gives us an example of how common or uncommon a value is within a normally distributed data set.</li>
+								<li>Real-world data isn't always normally distributed.</li>
+							</ul>
+					</div>
+						<button type="button" class="btn btn-primary" onclick='$("#z-score-importance").toggle();'>Show/Hide Tips</button>
 					
-					<div id="09-pivot-tables" class="instructor-block">
-						<h3>Pivot Tables</h3>
+						<h5>How to calculate z-score?</h5>
+						<p>For each value, x: (x - µ)/ σ where:</p>
+						<ul>
+							<li>(x - µ) is the distance of the data point to the population mean</li>
+							<li>Dividing by σ gives its relativity to the standard deviation.</li>
+						</ul>
+					</div> <!-- 08-Ins_Variance-SD-Zscore -->
+					
+					<div id="09-Stu_VarSDZScoreReviews" class="student-block">
+						<h3>Students Do: Variance, Standard Deviation, and Z-Score Review</h3>
+						<p>Open up <code>variance_review.xlsx</code> to review these summary statistics.</p>
 					</div> <!-- 09-pivot-tables -->
 
-					<div id="10-pivot-tables" class="student-block">
-						<h3>Students Do: Top-Songs Pivot Table</h3>
-					</div> <!-- 09-pivot-tables -->
+					<div id="10-Ins_QuantilesOutliersBoxplots" class="instructor-block">
+						<h3>Quantiles, Outliers, and Box Plots</h3>
+						<p>We will be looking at <code>quantiles_outliers_boxplots.xlsx</code> for additional statistics.</p>
 
-					<div id="11-lookups" class="instructor-block">
-						<h3>Lookups</h3>
+						<p>One of the biggest challenges in statistics is that real-world data is impact. Oftentimes, real-world data contain extreme values that can skew our interpretations, especially when we try to describe the center of a dataset.</p>
 
-						<p>This is a prelude to SQL queries, where you have a column or row of values, and you want to associate data across 2 or more tables.</p>
+						<p>To improve our story and truth telling of a dataset, we break up a dataset into smaller segments:</p>
+						<ul>
+							<li>Quantiles</li>
+							<ul>
+								<li>In Excel, we use <code>QUARTILE.EXC</code>. To know how to use this function, read: <a href="https://support.microsoft.com/en-us/office/quartile-exc-function-5a355b7a-840b-4a01-b0f1-f538c2864cad">https://support.microsoft.com/en-us/office/quartile-exc-function-5a355b7a-840b-4a01-b0f1-f538c2864cad</a></li>
+								<li>Interquartile range (IQR) is calculated by subtracting Q1 from Q3.</li>
+							</ul>
+							<li>Percentiles</li>
+						</ul>
+
+						<h5>Outliers</h5>
+						<p>Extreme values of a data set.</p>
+						<p>The box and whisker plot helps us to identify the outliers.</p>
+						<ul>
+							<li>Most common quantitative method to identify potential outliers: <code>1.5 * IQR</code></li>
+							<ul>
+								<li>The <code>1.5 * IQR</code> rule states that any data point that is 1.5 times the IQR range lower than Q1 could be a potential outlier.</li>
+								<li>Alternatively, any data point that is 1.5 times the interquartile range higher than Q3 could be a potential outlier.</li>
+							</ul>
+							<li>Box plots help to provide a number of summary statistics at a glance.</li>
+							<li>Sometimes, an <code>X</code> or triangle in the middle of the box signifies the mean of the dataset.</li>
+						</ul>
+					</div> <!-- 10-Ins_QuantilesOutliersBoxplots -->
+
+					<div id="11-Stu_CerealOutliers" class="instructor-block">
+						<h3>Students Do: Cereal Outliers</h3>
+
+						<p>Let's try out the <code>outliers_activity.xlsx</code> for today.</p>
 					</div> <!-- 11-lookups -->
 
-					<div id="12-prod-lookups" class="student-block">
-						<h3>Students Do: Product Pivot</h3>
-					</div> <!-- 12-prod-lookups -->
 
-					<div id="13-questions" class="instructor-block">
+					<div id="12-questions" class="instructor-block">
 						<h3>Final Questions</h3>
-					</div> <!-- 13-questions -->
+					</div> <!-- 12-questions -->
 					
 
 				</div> <!-- end #main-content -->
 
 
-				<div id="right-sb" class="col-md-4">
+				<!--div id="right-sb" class="col-md-4">
 					<div id="right-sb-nav" class="list-group" id="toc" role="tablist">
 					  <a class="list-group-item list-group-item-action active"  href="#objectives" role="tab">Objectives</a>
 
-					  <a class="list-group-item list-group-item-action"  href="#01-Ins_ExcelPlayground" role="tab">Excel Playground</a>
-						<a class="list-group-item list-group-item-action"  href="#02-Ins_NamedRanges" role="tab">Named Ranges</a>
-						<a class="list-group-item list-group-item-action"  href="#03-Ins_ColorCounter" role="tab">Color Counter</a>
-						<a class="list-group-item list-group-item-action"  href="#04-Stu_GradeBook" role="tab">Grade Book</a>
+					  <a class="list-group-item list-group-item-action"  href="#intro" role="tab">Snapshot Instructor Introduction</a>
+					  <a class="list-group-item list-group-item-action"  href="#01-intro-to-data" role="tab">Introduction To Data</a>
+						<a class="list-group-item list-group-item-action"  href="#02-course-overview" role="tab">Course Overview</a>
+						<a class="list-group-item list-group-item-action"  href="#03-past-learnings" role="tab">Past Learnings</a>
+						<a class="list-group-item list-group-item-action"  href="#04-before-break" role="tab">Before the Break</a>
 
-						<a class="list-group-item list-group-item-action"  href="#05-Ins_CentralTendency" role="tab">Central Tendency</a>
-						<a class="list-group-item list-group-item-action"  href="#06-Evr_MeasuringMeasures-CentralTendency" role="tab">Group Activity: Measuring The Measures</a>
-						<a class="list-group-item list-group-item-action"  href="#07-break" role="tab">Break</a>
-						<a class="list-group-item list-group-item-action"  href="#08-formatting" role="tab">Formatting</a>
-
-						<a class="list-group-item list-group-item-action"  href="#09-pivot-tables" role="tab">Pivot Tables</a>
-						<a class="list-group-item list-group-item-action"  href="#10-pivot-tables" role="tab">Students Do: Top-Songs Pivot Table</a>
-						<a class="list-group-item list-group-item-action"  href="#11-lookups" role="tab">Lookups</a>
-
-						<a class="list-group-item list-group-item-action"  href="#12-prod-lookups" role="tab">Students Do: Product Pivot</a>
-						<a class="list-group-item list-group-item-action"  href="#13-questions" role="tab">Final Questions</a>
-
+						<a class="list-group-item list-group-item-action"  href="#05-break" role="tab">Break</a>
+						<a class="list-group-item list-group-item-action"  href="#06-group-great-debate" role="tab">Group Activity: The Great Debate</a>
+						<a class="list-group-item list-group-item-action"  href="#07-group-gentrification" role="tab">Group Activity: Predicting Gentrification</a>
+						<a class="list-group-item list-group-item-action"  href="#08-homework-discussion" role="tab">Homework Discussion</a>
 
 					</div>
 				
-				</div>
+				</div-->
 			</div> <!-- end .row -->
 			
 		</div> <!-- end .container-fluid -->
